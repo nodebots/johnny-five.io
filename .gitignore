@@ -31,6 +31,8 @@ node_modules
 public/css/*.css
 public/css/*.css.map
 public/js/*.min.js
+src/j5
+src/docs
 
 # sass cache
 .sass-cache
