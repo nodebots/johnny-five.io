@@ -21,11 +21,12 @@
     "grunt-contrib-connect": "^0.9.0",
     "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-git": "^0.3.2",
     "grunt-metalsmith": "^1.0.0",
     "metalsmith": "^1.0.1"
   },
   "dependencies": {
-    "johnny-five": "^0.8.33",
+    "copy-paste": "^1.0.1",
     "purecss": "^0.5.0"
   }
 }
