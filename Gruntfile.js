@@ -26,6 +26,20 @@ module.exports = function(grunt) {
             }
         }
     },
+    clean:{
+      build:[
+        'public/css',
+        'public/js',
+        'public/docs'
+      ]
+    },
+    copy:{
+      pure: {
+        nonull: true,
+        src: 'node_modules/purecss/pure-nr-min.css',
+        dest: 'public/css/pure.min.css'
+      }
+    },
     sass: {
       dev: {
         files: {
@@ -43,6 +57,19 @@ module.exports = function(grunt) {
           style: 'compact',
           sourcemap: 'none'
         }
+      }
+    },
+    metalsmith:{
+      docsGen: {
+        options: {
+          plugins: {
+            'metalsmith-markdown':{
+
+            }
+          }
+        },
+        src: 'src/docs',
+        dest: 'public/docs-markup'
       }
     },
     connect: {
@@ -80,12 +107,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-git');
+  grunt.loadNpmTasks('grunt-metalsmith');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
   // grunt.registerTask('default', ['uglify']);
-  grunt.registerTask('install', ['gitclone']);
+  grunt.registerTask('install', ['gitclone', 'docs']);
   grunt.registerTask('dev', ['connect', 'watch']);
-  grunt.registerTask('default', ['sass:dist']);
+  grunt.registerTask('default', ['clean', 'metalsmith', 'copy', 'sass:dist']);
 
 
   grunt.registerMultiTask("docs", "generate simple docs from examples", function() {
