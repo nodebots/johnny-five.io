@@ -1,0 +1,1 @@
+{"version":3,"file":"main.js","sources":["../../src/js/main.js"],"names":["boardsAvailable","index","setInterval","document","querySelector","innerHTML","length"],"mappings":"CAAC,WACC,GAAIA,IACA,UACA,eACA,aACA,gBACA,eACA,aACA,WACA,eACA,gBAEFC,EAAQ,CAGVC,aAAY,WACVC,SAASC,cAAc,kBAAkBC,UAAYL,EAAgBC,GAErEA,IACIA,IAAUD,EAAgBM,SAC5BL,EAAQ,IAET"}

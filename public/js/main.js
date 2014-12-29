@@ -1,0 +1,2 @@
+!function(){var a=["Arduino","Electric Imp","Spark Core","Intel Galileo","Intel Edison","Linino One","Pinoccio","Raspberry Pi","TI Launchpad"],b=1;setInterval(function(){document.querySelector(".js-board-type").innerHTML=a[b],b++,b===a.length&&(b=0)},3e3)}();
+//# sourceMappingURL=main.js.map

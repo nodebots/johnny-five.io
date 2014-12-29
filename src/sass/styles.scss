@@ -10,13 +10,56 @@
 	moz-box-sizing: border-box;
 }
 
+h2, h3, h4 {
+	font-weight: 200;
+}
+
+h2{
+	font-size: 3em;
+	margin: 8px 0;
+}
+
+h3{
+	font-size: 2.5em;
+	margin-bottom: .25em;
+}
+
+h4{
+	font-size: 1.5em;
+	margin: .5em 0;
+}
+
 .shift-right{
 	float:right;
 }
 
+.linebreak{
+	width: 50%;
+	margin: 2em auto;
+	border: 1px solid #000;
+}
+
+.linebreak-small{
+	width: 25%;
+	margin: 1em 0;
+	border: 1px solid #000;
+}
+
+
 body {
 	// margin: -7px 0 0 0;
 	min-height: 800px; //TODO: DELETE
+}
+
+p {
+	font-size: 1.2em;
+	margin: 1.5em 0;
+	line-height: 1.5em;
+}
+
+a{
+	text-decoration: none;
+	color: #4082C1;
 }
 
 .wrapper{
@@ -26,7 +69,7 @@ body {
 
 /* header */
 header {
-	background: #000;
+	background: #2E2E2E;
 	height: 80px;
 	padding: 0;
 	position:fixed;
@@ -63,30 +106,27 @@ header {
 
 .hero-image{
 
-	padding: 5em 0;
+	padding: 7em 0 7em 2em;
 	margin: 80px 0 0 0;
+	background: #ECDB45;
 
 	h2{
 		background: #2e2e2c;
 		color: #fff;
 		display:inline-block;
-		padding: 8px 12px;
-		font-size: 3em;
-		margin: 8px 0;
+		padding: 12px 20px;
 	}
+
 	h3{
-		font-weight: 200;
-		font-size: 3em;
-		margin: 8px 0;
+		margin: 0 0 0 20px;
 	}
 }
 
 /* Statement Block */
 
 .statement{
-	font-size: 2.5em;
-	font-weight: 200;
-	text-align: center;
+	margin-bottom: 20px;
+	padding: 7em 0;
 
 	em{
 		font-style:normal;
@@ -97,5 +137,15 @@ header {
 		display: inline;
 		height: 1.2em;
 		margin: 0 0 -7px 3px;
+	}
+
+	&.alt{
+		background: #F1F1F1;
+		text-align: left;
+		padding-left: 2em;
+	}
+
+	&.center{
+		text-align:center;
 	}
 }

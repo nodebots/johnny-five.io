@@ -16,34 +16,34 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: grunt.file.readJSON("package.json"),
     gitclone: {
         clone: {
             options: {
-                repository: 'https://github.com/rwaldron/johnny-five.git',
-                directory: 'src/j5',
+                repository: "https://github.com/rwaldron/johnny-five.git",
+                directory: "src/j5",
                 depth: 1
             }
         }
     },
     clean:{
       build:[
-        'public/css',
-        'public/js',
-        'public/docs'
+        "public/css",
+        "public/js",
+        "public/docs"
       ]
     },
     copy:{
       pure: {
         nonull: true,
-        src: 'node_modules/purecss/pure-nr-min.css',
-        dest: 'public/css/pure.min.css'
+        src: "node_modules/purecss/pure-nr-min.css",
+        dest: "public/css/pure.min.css"
       }
     },
     sass: {
       dev: {
         files: {
-          'public/css/styles.css': 'src/sass/styles.scss'
+          "public/css/styles.css": "src/sass/styles.scss"
         },
         options:{
           update: true
@@ -51,11 +51,11 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'public/css/styles.css': 'src/sass/styles.scss'
+          "public/css/styles.css": "src/sass/styles.scss"
         },
         options:{
-          style: 'compact',
-          sourcemap: 'none'
+          style: "compact",
+          sourcemap: "none"
         }
       }
     },
@@ -63,20 +63,20 @@ module.exports = function(grunt) {
       docsGen: {
         options: {
           plugins: {
-            'metalsmith-markdown':{
+            "metalsmith-markdown":{
 
             }
           }
         },
-        src: 'src/docs',
-        dest: 'public/docs-markup'
+        src: "src/docs",
+        dest: "public/docs-markup"
       }
     },
     connect: {
       server: {
         options: {
           port: 1337,
-          base: 'public',
+          base: "public",
           livereload: true
         }
       }
@@ -86,36 +86,153 @@ module.exports = function(grunt) {
     },
     watch: {
       css: {
-        files: 'src/sass/*.scss',
-        tasks: ['sass:dev'],
+        files: "src/sass/*.scss",
+        tasks: ["sass:dev"],
         options: {
           livereload: true
         },
       },
       html: {
-        files: 'public/*.html',
+        files: "public/*.html",
         tasks: [],
         options:{
           livereload: true
         }
+      },
+      js: {
+        files: ["src/js/**/*.js", "Gruntfile.js"],
+        tasks: ["jsbeautifier", "jshint", "jscs", "uglify"],
+        options: {
+          livereload: true
+        }
       }
     },
+    jshint: {
+      options: {
+        curly: true,
+        eqeqeq: true,
+        immed: true,
+        latedef: false,
+        newcap: false,
+        noarg: true,
+        sub: true,
+        undef: true,
+        boss: true,
+        eqnull: true,
+        node: true,
+        strict: false,
+        esnext: true,
+        globals: {
+          exports: true,
+          document: true,
+          $: true,
+          Radar: true,
+          WeakMap: true,
+          window: true,
+          copy: true
+        }
+      },
+      files: {
+        src: [
+          "Gruntfile.js",
+          "src/js/**/*.js"
+        ]
+      }
+    },
+    jscs: {
+      files: {
+        src: [
+          "Gruntfile.js",
+          "src/js/**/*.js"
+          ]
+      },
+      options: {
+        config: ".jscsrc",
+        requireCurlyBraces: [
+          "if",
+          "else",
+          "for",
+          "while",
+          "do",
+          "try",
+          "catch",
+        ],
+        disallowNewlineBeforeBlockStatements: true,
+        requireSpaceBeforeBlockStatements: true,
+        requireParenthesesAroundIIFE: true,
+        requireSpacesInConditionalExpression: true,
+        // requireSpaceBeforeKeywords: true,
+        requireSpaceAfterKeywords: [
+          "if", "else",
+          "switch", "case",
+          "try", "catch",
+          "do", "while", "for",
+          "return", "typeof", "void",
+        ],
+        validateQuoteMarks: {
+          mark: "\"",
+          escape: true
+        }
+      }
+    },
+    jsbeautifier: {
+      files: ["src/js/**/*.js"],
+      options: {
+        js: {
+          braceStyle: "collapse",
+          breakChainedMethods: false,
+          e4x: false,
+          evalCode: false,
+          indentChar: " ",
+          indentLevel: 0,
+          indentSize: 2,
+          indentWithTabs: false,
+          jslintHappy: false,
+          keepArrayIndentation: false,
+          keepFunctionIndentation: false,
+          maxPreserveNewlines: 10,
+          preserveNewlines: true,
+          spaceBeforeConditional: true,
+          spaceInParen: false,
+          unescapeStrings: false,
+          wrapLineLength: 0
+        }
+      }
+    },
+    uglify: {
+      my_target: {
+        options: {
+          sourceMap: true
+        },
+        files: [{
+            expand: true,
+            cwd: "src/js",
+            src: "**/*.js",
+            dest: "public/js"
+        }]
+      }
+    }  
   });
 
   // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-git');
-  grunt.loadNpmTasks('grunt-metalsmith');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks("grunt-contrib-sass");
+  grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-contrib-connect");
+  grunt.loadNpmTasks("grunt-git");
+  grunt.loadNpmTasks("grunt-metalsmith");
+  grunt.loadNpmTasks("grunt-contrib-clean");
+  grunt.loadNpmTasks("grunt-contrib-copy");
+  grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-jsbeautifier");
+  grunt.loadNpmTasks("grunt-jscs");
+  grunt.loadNpmTasks("grunt-contrib-cssmin");
+  grunt.loadNpmTasks("grunt-contrib-uglify");  
 
   // Default task(s).
-  // grunt.registerTask('default', ['uglify']);
-  grunt.registerTask('install', ['gitclone', 'docs']);
-  grunt.registerTask('dev', ['connect', 'watch']);
-  grunt.registerTask('default', ['clean', 'metalsmith', 'copy', 'sass:dist']);
+  // grunt.registerTask("default", ["uglify"]);
+  grunt.registerTask("install", ["gitclone", "docs"]);
+  grunt.registerTask("dev", ["connect", "watch"]);
+  grunt.registerTask("default", ["clean", "metalsmith", "copy", "sass:dist", "uglify"]);
 
 
   grunt.registerMultiTask("docs", "generate simple docs from examples", function() {
