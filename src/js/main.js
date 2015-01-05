@@ -12,13 +12,21 @@
     ],
     index = 1;
 
-
   setInterval(function() {
-    document.querySelector(".js-board-type").innerHTML = boardsAvailable[index];
+    var el = document.querySelector(".js-board-type");
+
+    el.style.opacity = 0;
+
+    setTimeout(function() {
+      el.innerHTML = boardsAvailable[index];
+      setTimeout(function() {
+        el.style.opacity = 1;
+      }, 200);
+    }, 500);
 
     index++;
     if (index === boardsAvailable.length) {
       index = 0;
     }
-  }, 3000);
+  }, 3500);
 }());

@@ -34,10 +34,10 @@ module.exports = function(grunt) {
       ]
     },
     copy:{
-      pure: {
+      type: {
         nonull: true,
-        src: "node_modules/purecss/pure-nr-min.css",
-        dest: "public/css/pure.min.css"
+        src: "src/sass/type.css",
+        dest: "public/css/type.css"
       }
     },
     sass: {
@@ -231,7 +231,7 @@ module.exports = function(grunt) {
   // Default task(s).
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("install", ["gitclone", "docs"]);
-  grunt.registerTask("dev", ["connect", "watch"]);
+  grunt.registerTask("dev", ["connect", "copy", "watch"]);
   grunt.registerTask("default", ["clean", "metalsmith", "copy", "sass:dist", "uglify"]);
 
 
