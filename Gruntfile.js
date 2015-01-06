@@ -45,6 +45,13 @@ module.exports = function(grunt) {
         flatten: true,
         src: "src/j5/docs/breadboard/**",
         dest: "public/img/breadboard/"
+      },
+      images: {
+        nonull: true,
+        expand: true,
+        cwd: "src/img",
+        src: "**",
+        dest: "public/img/"
       }
     },
     sass: {
