@@ -70,9 +70,24 @@ p {
 	}
 }
 .site-subhed {
-	font-size: 2.3em;
+	font-size: 1.6em;
 	line-height: 1.25;
 	margin: 0;
+}
+@media(min-width: 30em) {
+	.site-subhed {
+		font-size: 2em;
+	}
+}
+
+.js-board-type {
+	display: block;
+}
+
+@media(min-width: 45em) {
+	.site-subhed {
+		font-size: 2.3em;
+	}
 }
 
 .lede {
@@ -143,17 +158,29 @@ p {
 	background-color: #efe13d;
 	background-image: url(../img/pcb.jpg);
 	background-position: -20% top;
-	border-bottom: 2em solid #efe13d;
-	padding: 5.5em 15.0474663% 3.75em;
+	border-bottom: 1em solid #efe13d;
+	padding: 2.5em 6.5em 1.75em 1em;
+}
+@media(min-width: 30em) {
+	.banner {
+		border-bottom: 2em solid #efe13d;
+		padding: 5.5em 6.5em 3.75em 15.0474663%;
+	}
 }
 
 .j5 {
 	float: right;
-	max-width: 25%;
-	width: 225px;
+	max-width: 27%;
+	width: 7.5em;
 	position: absolute;
-	bottom: -2em;
-	right: 15%;
+	bottom: 0;
+	right: 1em;
+}
+@media(min-width: 30em) {
+	.j5 {
+		width: 225px;
+		right: 2em;
+	}
 }
 .nav-primary {
 	background: #1d1d1d;
@@ -162,7 +189,6 @@ p {
 @media(min-width: 35em) {
 	.nav-primary {
 		display: table;
-		padding: .5em 0 .35em 0;
 		width: 100%;
 	}
 }
@@ -177,9 +203,24 @@ p {
 }
 .nav-primary a {
 	display: block;
-	padding: .5em 0;
+	padding: .25em 0;
+	margin: 10px 0;
 	color: white;
 	text-decoration: none;
+	-webkit-transition: color .2s ease-in-out;
+	transition: color .2s ease-in-out;
+}
+.nav-primary a:hover,
+.nav-primary a:active {
+	color: #ede63e;
+}
+
+.nav-primary a:active {
+	margin-top: 11px;
+	margin-bottom: -1px;
+}
+.nav-primary a:last-of-type:active {
+	margin-bottom: 9px;
 }
 
 @media(min-width: 35em) {
@@ -217,6 +258,7 @@ p {
 		transition: width .35s ease-in-out, opacity .35s ease-in-out;
 	}
 	.nav-primary a:hover {
+		color: #fff;
 		margin-bottom: 1.3em;
 	}
 	.nav-primary a:hover:after {
