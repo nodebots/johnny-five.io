@@ -38,6 +38,13 @@ module.exports = function(grunt) {
         nonull: true,
         src: "src/sass/type.css",
         dest: "public/css/type.css"
+      },
+      docsImages: {
+        nonull: true,
+        expand: true,
+        flatten: true,
+        src: "src/j5/docs/breadboard/**",
+        dest: "public/img/breadboard/"
       }
     },
     sass: {
