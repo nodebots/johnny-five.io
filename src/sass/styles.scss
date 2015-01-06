@@ -200,6 +200,11 @@ p {
 		right: 2em;
 	}
 }
+@media(min-width: 45em) {
+	.j5 {
+		right: 10%;
+	}
+}
 .nav-primary {
 	background: #1d1d1d;
 	padding: 1em 0 .75em 1em;
