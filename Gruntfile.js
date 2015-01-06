@@ -39,6 +39,11 @@ module.exports = function(grunt) {
         src: "src/sass/type.css",
         dest: "public/css/type.css"
       },
+      docsData: {
+        nonull: true,
+        src: "src/j5/programs.json",
+        dest: "public/js/programs.json"
+      },
       docsImages: {
         nonull: true,
         expand: true,
@@ -78,12 +83,12 @@ module.exports = function(grunt) {
         options: {
           plugins: {
             "metalsmith-markdown":{
-
+              sanitize: false
             }
           }
         },
         src: "src/docs",
-        dest: "public/docs-markup"
+        dest: "public/docs"
       }
     },
     connect: {
@@ -246,12 +251,12 @@ module.exports = function(grunt) {
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("install", ["gitclone", "docs"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
-  grunt.registerTask("default", ["clean", "metalsmith", "copy", "sass:dist", "uglify"]);
+  grunt.registerTask("default", ["clean", "docs", "metalsmith", "copy", "sass:dist", "uglify"]);
 
 
   grunt.registerMultiTask("docs", "generate simple docs from examples", function() {
     var templates = {
-      doc: _.template(file.read("src/j5/tpl/.docs.md")),
+      doc: _.template(file.read("tpl/.docs.md")),
       img: _.template(file.read("src/j5/tpl/.img.md")),
       fritzing: _.template(file.read("src/j5/tpl/.fritzing.md")),
       doclink: _.template(file.read("src/j5/tpl/.readme.doclink.md")),
@@ -261,7 +266,7 @@ module.exports = function(grunt) {
     };
     // Concat specified files.
     var entries = JSON.parse(file.read(file.expand(this.data)));
-    var readme = [];
+    var readme = ["# API Docs"];
     var tplType = "doc";
     entries.forEach(function(entry) {
       var values, markdown, eg, md, png, fzz, title,
@@ -337,6 +342,8 @@ module.exports = function(grunt) {
         file.write(md, templates[tplType](values));
         // Push a rendered markdown link into the readme "index"
         readme.push(templates.doclink(values));
+
+        file.write("src/j5/docs/docsIndex.md", readme.join(""));
       }
     });
   });
