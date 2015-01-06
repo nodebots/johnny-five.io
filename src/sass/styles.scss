@@ -91,14 +91,29 @@ p {
 }
 
 .lede {
-	font-size: 1.8em;
-	line-height: 1.2;
+	font-size: 1.4em;
+	font-size: 6.5vw;
+	line-height: 1.65;
 	max-width: 930px;
 	text-align: center;
 }
+@media(min-width: 30em) {
+	.lede {
+		font-size: 1.8em;
+		font-size: 5vw;
+	}
+}
 @media(min-width: 45em) {
 	.lede {
-		font-size: 2.5em;
+		line-height: 1.5;
+		font-size: 2em;
+		font-size: 4.2vw;
+	}
+}
+@media(min-width: 55em) {
+	.lede {
+		font-size: 2.3em;
+		max-width: 700px;
 	}
 }
 .lede i {
@@ -122,14 +137,17 @@ p {
 }
 .wrap-a {
 	margin: 0 auto;
-	width: 69.7639565%;
-	padding: 3.1em 0 3.15em 0;
+	padding: 2.5em 1em;
 }
 .wrap-b {
 	float: right;
 	min-width: 84.9525337%;
 }
 @media(min-width: 45em) {
+	.wrap-a {
+		width: 69.7639565%;
+		padding: 3.1em 0 3.15em 0;
+	}
 	.wrap-b {
 		padding-left: 15.0474663%;
 	}
