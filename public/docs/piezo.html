@@ -1,0 +1,52 @@
+<h1>Piezo</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/piezo.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+  // Creates a piezo object and defines the pin to be used for the signal
+  var piezo = new five.Piezo(3);
+
+  // Injects the piezo into the repl
+  board.repl.inject({
+    piezo: piezo
+  });
+
+  // Plays a song
+  piezo.play({
+    // song is composed by an array of pairs of notes and beats
+    // The first argument is the note (null means &quot;no note&quot;)
+    // The second argument is the length of time (beat) of the note (or non-note)
+    song: [
+      [&quot;C4&quot;, 1 / 4],
+      [&quot;D4&quot;, 1 / 4],
+      [&quot;F4&quot;, 1 / 4],
+      [&quot;D4&quot;, 1 / 4],
+      [&quot;A4&quot;, 1 / 4],
+      [null, 1 / 4],
+      [&quot;A4&quot;, 1],
+      [&quot;G4&quot;, 1],
+      [null, 1 / 2],
+      [&quot;C4&quot;, 1 / 4],
+      [&quot;D4&quot;, 1 / 4],
+      [&quot;F4&quot;, 1 / 4],
+      [&quot;D4&quot;, 1 / 4],
+      [&quot;G4&quot;, 1 / 4],
+      [null, 1 / 4],
+      [&quot;G4&quot;, 1],
+      [&quot;F4&quot;, 1],
+      [null, 1 / 2]
+    ],
+    tempo: 100
+  });
+
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

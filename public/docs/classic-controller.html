@@ -1,0 +1,109 @@
+<h1>Classic Controller</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/classic-controller.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  board, nunchuk;
+
+board = new five.Board();
+
+
+// Setup for bread board
+// Wire Color   =&gt;  Meaning   =&gt;  Arduino Pin Down
+// Yellow       =&gt;  SCK       =&gt;  A04
+// White        =&gt;  GND       =&gt;  Ground
+// Red          =&gt;  5v        =&gt;  5v
+// Green        =&gt;  SDA       =&gt;  A05
+
+
+board.on(&quot;ready&quot;, function() {
+
+  // Create a new `Wii.Classic` hardware instance,
+  // specifically the RVL-005 device (classic controller).
+  var classicController = five.Wii.Classic({
+    freq: 100
+  });
+
+
+  // Nunchuk Event API
+  //
+
+  // &quot;read&quot; (nunchuk)
+  //
+  // Fired when the joystick detects a change in
+  // axis position.
+  //
+  // nunchuk.on( &quot;read&quot;, function( err ) {
+
+  // });
+
+  // &quot;change&quot;, &quot;axischange&quot; (joystick)
+  //
+  // Fired when the joystick detects a change in
+  // axis position.
+  //
+  nunchuk.joystick.left.on(&quot;change&quot;, function(err, event) {
+    console.log(
+      &quot;Left joystick &quot; + event.axis,
+      event.target[event.axis],
+      event.axis, event.direction
+    );
+  });
+
+  nunchuk.joystick.right.on(&quot;change&quot;, function(err, event) {
+    console.log(
+      &quot;Right joystick &quot; + event.axis,
+      event.target[event.axis],
+      event.axis, event.direction
+    );
+  });
+
+  // &quot;down&quot;
+  // aliases: &quot;press&quot;, &quot;tap&quot;, &quot;impact&quot;, &quot;hit&quot;
+  //
+  // Fired when any nunchuk button is &quot;down&quot;
+  //
+
+  // &quot;up&quot;
+  // alias: &quot;release&quot;
+  //
+  // Fired when any nunchuk button is &quot;up&quot;
+  //
+
+  // &quot;hold&quot;
+  //
+  // Fired when any nunchuk button is in the &quot;down&quot; state for
+  // a specified amount of time. Defaults to 500ms
+  //
+  // To specify a custom hold time, use the &quot;holdtime&quot;
+  // option of the Nunchuk constructor.
+  //
+
+
+  [&quot;down&quot;, &quot;up&quot;, &quot;hold&quot;].forEach(function(type) {
+
+    nunchuk.on(type, function(err, event) {
+      console.log(
+        event.target.which + &quot; is &quot; + type,
+
+        {
+          isUp: event.target.isUp,
+          isDown: event.target.isDown
+        }
+      );
+    });
+
+  });
+
+
+  // Further reading
+  // http://media.pragprog.com/titles/msard/tinker.pdf
+  // http://lizarum.com/assignments/physical_computing/2008/wii_nunchuck.html
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

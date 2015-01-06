@@ -1,0 +1,96 @@
+<h1>Accelerometer</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/accelerometer.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  board, accel;
+
+board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+
+  // Create a new analog `Accelerometer` hardware instance.
+  //
+  // five.Accelerometer([ x, y[, z] ]);
+  //
+  // five.Accelerometer({
+  //   pins: [ x, y[, z] ]
+  //   freq: ms
+  // });
+  //
+
+  accel = new five.Accelerometer({
+    pins: [&quot;A3&quot;, &quot;A4&quot;, &quot;A5&quot;],
+
+    // Adjust the following for your device.
+    // These are the default values (LIS344AL)
+    //
+    sensitivity: 96, // mV/degree/seconds
+    zeroV: 478 // volts in ADC
+  });
+
+  // Accelerometer Event API
+
+
+  // &quot;data&quot;
+  //
+  // Fires when X, Y or Z has changed.
+  //
+  // The first argument is an object containing raw x, y, z
+  // values as read from the analog input.
+  //
+  accel.on(&quot;data&quot;, function(data) {
+
+    console.log(&quot;raw: &quot;, data);
+  });
+
+  // &quot;acceleration&quot;
+  //
+  // Fires once every N ms, equal to value of freg
+  // Defaults to 500ms
+  //
+  accel.on(&quot;acceleration&quot;, function(data) {
+
+    console.log(&quot;acceleration&quot;, data);
+  });
+
+  // &quot;orientation&quot;
+  //
+  // Fires when orientation changes
+  //
+  accel.on(&quot;orientation&quot;, function(data) {
+
+    console.log(&quot;orientation&quot;, data);
+  });
+
+  // &quot;inclination&quot;
+  //
+  // Fires when inclination changes
+  //
+  accel.on(&quot;inclination&quot;, function(data) {
+
+    console.log(&quot;inclination&quot;, data);
+  });
+
+  // &quot;change&quot;
+  //
+  // Fires when X, Y or Z has changed
+  //
+  accel.on(&quot;change&quot;, function(data) {
+
+    console.log(&quot;change&quot;, data);
+  });
+});
+
+
+</code></pre>
+<ul>
+<li><p><a href="https://www.sparkfun.com/products/9652">Triple Axis Accelerometer, MMA7361</a></p></li>
+<li><p><a href="http://www.adafruit.com/products/1018">Triple-Axis Accelerometer, ADXL326</a></p></li>
+<li><p><a href="http://www.st.ewi.tudelft.nl/~gemund/Courses/In4073/Resources/LIS344AL.pdf">Two or Three Axis Accelerometer, LIS344AL</a></p></li>
+</ul>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

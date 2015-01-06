@@ -1,0 +1,44 @@
+<h1>Pin</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/pin.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  temporal = require(&quot;temporal&quot;),
+  board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+  var events, strobe, analog;
+
+  events = [];
+  strobe = new five.Pin({
+    addr: 13
+  });
+
+  temporal.loop(500, function(loop) {
+    strobe[loop.called % 2 === 0 ? &quot;high&quot; : &quot;low&quot;]();
+  });
+
+
+  // Event tests
+  [&quot;high&quot;, &quot;low&quot;].forEach(function(state) {
+    strobe.on(state, function() {
+      if (events.indexOf(state) === -1) {
+        console.log(&quot;Event emitted for:&quot;, state, &quot;on&quot;, this.addr);
+        events.push(state);
+      }
+    });
+  });
+
+  analog = new five.Pin(&quot;A0&quot;);
+
+  analog.query(function(state) {
+    console.log(state);
+  });
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

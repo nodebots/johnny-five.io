@@ -1,0 +1,59 @@
+<h1>Photoresistor Servo</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/photoresistor-servo.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  board, photoresistor, servo, range;
+
+board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+
+  //range for the servo (degrees)
+  //CAUTION: don't set the numbers past what you servo can handle
+  //         it could potentially damage the servo
+  range = [0, 159];
+
+  // Create a new `photoresistor` hardware instance.
+  photoresistor = new five.Sensor({
+    //pin to listen to
+    pin: &quot;A0&quot;,
+    //how often to check for a change in miliseconds (default value is 25 milliseconds)
+    freq: 250
+  });
+
+  // Create a new `servo` hardware instance.
+  servo = new five.Servo({
+    //what pin to control server
+    pin: 9,
+
+    //how far the servo turns
+    range: range
+  });
+
+  // Inject the `photoresistor` hardware into
+  // the Repl instance's context;
+  // allows direct command line access
+  board.repl.inject({
+    pot: photoresistor,
+    servo: servo
+  });
+
+  //equate the photoresistor values to the servo scale
+  //do something when the a value is read from the photoresistor
+  photoresistor.scale(range).on(&quot;data&quot;, function() {
+    //outputs to screen the values being used from the photoresistor
+    //console.log( &quot;Normalized value: &quot; + this.normalized + &quot;  Scaled Value: &quot; + this.scaled );
+
+    //tell the servo arm to move the scaled value.
+    servo.to(Math.floor(this.scaled));
+  });
+
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

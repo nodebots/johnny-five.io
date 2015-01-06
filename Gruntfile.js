@@ -1,6 +1,8 @@
 require("copy-paste");
 var inspect = require("util").inspect;
 var fs = require("fs");
+var remarkable = require("remarkable");
+var mdparser = new remarkable();
 
 module.exports = function(grunt) {
 
@@ -82,8 +84,9 @@ module.exports = function(grunt) {
       docsGen: {
         options: {
           plugins: {
-            "metalsmith-markdown":{
-              sanitize: false
+            "metalsmith-remarkable":{
+              sanitize: false,
+              html: true
             }
           }
         },
@@ -257,19 +260,20 @@ module.exports = function(grunt) {
   grunt.registerMultiTask("docs", "generate simple docs from examples", function() {
     var templates = {
       doc: _.template(file.read("tpl/.docs.md")),
+      docsHome: _.template(file.read("tpl/.docsHome.md")),
       img: _.template(file.read("src/j5/tpl/.img.md")),
       fritzing: _.template(file.read("src/j5/tpl/.fritzing.md")),
-      doclink: _.template(file.read("src/j5/tpl/.readme.doclink.md")),
+      doclink: _.template(file.read("tpl/.docsLink.md")),
       readme: _.template(file.read("src/j5/tpl/.readme.md")),
       noedit: _.template(file.read("src/j5/tpl/.noedit.md")),
       plugin: _.template(file.read("src/j5/tpl/.plugin.md")),
     };
     // Concat specified files.
     var entries = JSON.parse(file.read(file.expand(this.data)));
-    var readme = ["# API Docs"];
+    var readme = [];
     var tplType = "doc";
     entries.forEach(function(entry) {
-      var values, markdown, eg, md, png, fzz, title,
+      var values, markdown, eg, md, png, url, fzz, title,
       hasPng, hasFzz, inMarkdown, filepath, fritzfile, fritzpath;
       var isHeading = Array.isArray(entry);
       var heading = isHeading ? entry[0] : null;
@@ -291,6 +295,7 @@ module.exports = function(grunt) {
         filepath = "src/j5/eg/" + entry;
         eg = file.read(filepath);
         md = "src/docs/" + entry.replace(".js", ".md");
+        url = entry.replace(".js", ".html");
         png = "src/docs/breadboard/" + entry.replace(".js", ".png");
         fzz = "src/docs/breadboard/" + entry.replace(".js", ".fzz");
         title = entry;
@@ -334,6 +339,7 @@ module.exports = function(grunt) {
           command: "node " + filepath,
           example: eg,
           file: md,
+          url: url,
           markdown: markdown.join("\n"),
           breadboard: hasPng ? templates.img({ png: png }) : "",
           fritzing: hasFzz ? templates.fritzing({ fzz: fzz }) : ""
@@ -343,7 +349,10 @@ module.exports = function(grunt) {
         // Push a rendered markdown link into the readme "index"
         readme.push(templates.doclink(values));
 
-        file.write("src/j5/docs/docsIndex.md", readme.join(""));
+
+        file.write("public/docs.html", templates["docsHome"]({
+          list: mdparser.render(readme.join(""))
+        }));
       }
     });
   });

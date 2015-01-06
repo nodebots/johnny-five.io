@@ -1,0 +1,34 @@
+<h1>Led</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/led.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+  // Default to pin 13
+  var led = new five.Led(process.argv[2] || 13);
+
+  this.repl.inject({
+    led: led
+  });
+
+  led.blink();
+});
+
+
+</code></pre>
+<p>This script will make <code>led</code> available in the REPL, by default on pin 13.
+Now you can try, e.g.:</p>
+<p><code>&gt;&gt; led.on()</code></p>
+<p>or</p>
+<p><code>&gt;&gt; led.off()</code></p>
+<p>To use other <code>Led</code> methods, like <code>fade</code>, <code>pulse</code>, <code>animate</code>, you'll need to
+wire the LED to a PWM pin. If you use a different pin, make sure to run
+the script with the correct pin number:</p>
+<p><code>node eg/led [pinNumber]</code></p>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

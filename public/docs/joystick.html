@@ -1,0 +1,67 @@
+<h1>Joystick</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/joystick.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  board, joystick;
+
+board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+
+  // Create a new `joystick` hardware instance.
+  joystick = new five.Joystick({
+    // Joystick pins are an array of pins
+    // Pin orders:
+    //   [ up, down, left, right ]
+    //   [ ud, lr ]
+    pins: [&quot;A0&quot;, &quot;A1&quot;],
+    freq: 500
+  });
+
+  // Inject the `joystick` hardware into
+  // the Repl instance's context;
+  // allows direct command line access
+  board.repl.inject({
+    joystick: joystick
+  });
+
+  // Joystick Event API
+
+  joystick.on(&quot;axismove&quot;, function(err, timestamp) {
+
+    // Axis data is available on:
+    // this.axis
+    // {
+    //   x: 0...1, ( 0 &lt;-- L/R --&gt; 1 )
+    //   y: 0...1  ( 0 &lt;-- D/U --&gt; 1 )
+    // }
+    //
+    // Center is ~0.5
+    //
+    // console.log( &quot;input&quot;, this.axis );
+    // console.log( &quot;LR:&quot;, this.axis.x, this.normalized.x );
+    // console.log( &quot;UD:&quot;, this.axis.y, this.normalized.y );
+    // console.log( &quot;MAG:&quot;, this.magnitude );
+
+    console.log(&quot;LR:&quot;, this.fixed.x);
+    console.log(&quot;UD:&quot;, this.fixed.y);
+    console.log(&quot;MAG:&quot;, this.magnitude);
+
+  });
+});
+
+
+// Schematic
+// https://1965269182786388413-a-1802744773732722657-s-sites.googlegroups.com/site/parallaxinretailstores/home/2-axis-joystick/Joystick-6.png
+// http://www.parallax.com/Portals/0/Downloads/docs/prod/sens/27800-Axis%20JoyStick_B%20Schematic.pdf
+
+// Further Reading
+// http://www.parallax.com/Portals/0/Downloads/docs/prod/sens/27800-2-AxisJoystick-v1.2.pdf
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

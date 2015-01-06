@@ -1,0 +1,31 @@
+<h1>Spark Io Blink</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/spark-io-blink.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;);
+var Spark = require(&quot;spark-io&quot;);
+
+var board = new five.Board({
+  io: new Spark({
+    token: process.env.SPARK_TOKEN,
+    deviceId: process.env.SPARK_DEVICE_ID
+  })
+});
+
+board.on(&quot;ready&quot;, function() {
+  var pin = &quot;A7&quot;;
+  var led = new five.Led(pin);
+
+  led.strobe(500);
+
+  // this.repl.inject({
+  //   led: led
+  // });
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

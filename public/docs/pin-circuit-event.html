@@ -1,0 +1,23 @@
+<h1>Pin Circuit Event</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/pin-circuit-event.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;);
+
+new five.Board().on(&quot;ready&quot;, function() {
+  var pin = new five.Pin(5);
+
+  // Event tests
+  [&quot;high&quot;, &quot;low&quot;].forEach(function(type) {
+    pin.on(type, function() {
+      console.log(&quot;Circuit Event: &quot;, type);
+    });
+  });
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

@@ -1,0 +1,102 @@
+<h1>Motor Directional</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/motor-directional.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+  var motor;
+  /*
+    ArduMoto
+      Motor A
+        pwm: 3
+        dir: 12
+
+      Motor B
+        pwm: 11
+        dir: 13
+
+
+    AdaFruit Motor Shield
+      Motor A
+        pwm: ?
+        dir: ?
+
+      Motor B
+        pwm: ?
+        dir: ?
+
+
+    Bi-Directional Motors can be initialized by:
+
+      new five.Motor([ 3, 12 ]);
+
+    ...is the same as...
+
+      new five.Motor({
+        pins: [ 3, 12 ]
+      });
+
+    ...is the same as...
+
+      new five.Motor({
+        pins: {
+          pwm: 3,
+          dir: 12
+        }
+      });
+
+   */
+
+
+  motor = new five.Motor({
+    pins: {
+      pwm: 3,
+      dir: 12
+    }
+  });
+
+
+
+
+  board.repl.inject({
+    motor: motor
+  });
+
+  motor.on(&quot;start&quot;, function(err, timestamp) {
+    console.log(&quot;start&quot;, timestamp);
+  });
+
+  motor.on(&quot;stop&quot;, function(err, timestamp) {
+    console.log(&quot;automated stop on timer&quot;, timestamp);
+  });
+
+  motor.on(&quot;forward&quot;, function(err, timestamp) {
+    console.log(&quot;forward&quot;, timestamp);
+
+    // demonstrate switching to reverse after 5 seconds
+    board.wait(5000, function() {
+      motor.reverse(50);
+    });
+  });
+
+  motor.on(&quot;reverse&quot;, function(err, timestamp) {
+    console.log(&quot;reverse&quot;, timestamp);
+
+    // demonstrate stopping after 5 seconds
+    board.wait(5000, function() {
+      motor.stop();
+    });
+  });
+
+  // set the motor going forward full speed
+  motor.forward(255);
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

@@ -1,0 +1,49 @@
+<h1>Button</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/button.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  board, button;
+
+board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+
+  // Create a new `button` hardware instance.
+  // This example allows the button module to
+  // create a completely default instance
+  button = new five.Button(8);
+
+  // Inject the `button` hardware into
+  // the Repl instance's context;
+  // allows direct command line access
+  board.repl.inject({
+    button: button
+  });
+
+  // Button Event API
+
+  // &quot;down&quot; the button is pressed
+  button.on(&quot;down&quot;, function() {
+    console.log(&quot;down&quot;);
+  });
+
+  // &quot;hold&quot; the button is pressed for specified time.
+  //        defaults to 500ms (1/2 second)
+  //        set
+  button.on(&quot;hold&quot;, function() {
+    console.log(&quot;hold&quot;);
+  });
+
+  // &quot;up&quot; the button is released
+  button.on(&quot;up&quot;, function() {
+    console.log(&quot;up&quot;);
+  });
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

@@ -1,0 +1,44 @@
+<h1>Button Pullup</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/button-pullup.js
+</code></pre>
+<pre><code class="language-javascript">// The `isPullup` button option enables the pullup
+// resistor on the pin and automatically sets the
+// `invert` option to true
+
+// In this circuit configuration, the LED would always
+// be on without the pullup resistor enabled
+
+// For more info on pullup resistors, see:
+// http://arduino.cc/en/Tutorial/InputPullupSerial
+// http://arduino.cc/en/Tutorial/DigitalPins
+// https://learn.sparkfun.com/tutorials/pull-up-resistors
+
+var five = require(&quot;johnny-five&quot;),
+  button, led;
+
+five.Board().on(&quot;ready&quot;, function() {
+
+  button = new five.Button({
+    pin: 2,
+    isPullup: true
+  });
+
+  led = new five.Led(13);
+
+  button.on(&quot;down&quot;, function(value) {
+    led.on();
+  });
+
+  button.on(&quot;up&quot;, function() {
+    led.off();
+  });
+
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

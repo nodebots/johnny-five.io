@@ -1,0 +1,63 @@
+<h1>Servo Keypress</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/servo-keypress.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  keypress = require(&quot;keypress&quot;),
+  board;
+
+keypress(process.stdin);
+
+board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+
+  console.log(&quot;Let's test a simple servo. Use Up and Down arrows for CW and CCW respectively. Space to stop.&quot;);
+
+  var servo = new five.Servo({
+    pin: &quot;10&quot;,
+    type: &quot;continuous&quot;
+  }).stop();
+
+  process.stdin.resume();
+  process.stdin.setEncoding(&quot;utf8&quot;);
+  process.stdin.setRawMode(true);
+
+  process.stdin.on(&quot;keypress&quot;, function(ch, key) {
+
+    if (!key) {
+      return;
+    }
+
+    if (key.name === &quot;q&quot;) {
+
+      console.log(&quot;Quitting&quot;);
+      process.exit();
+
+    } else if (key.name === &quot;up&quot;) {
+
+      console.log(&quot;CW&quot;);
+      servo.cw();
+
+    } else if (key.name === &quot;down&quot;) {
+
+      console.log(&quot;CCW&quot;);
+      servo.ccw();
+
+    } else if (key.name === &quot;space&quot;) {
+
+      console.log(&quot;Stopping&quot;);
+      servo.stop();
+
+    }
+
+  });
+
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>

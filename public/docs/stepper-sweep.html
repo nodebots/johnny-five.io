@@ -1,0 +1,41 @@
+<h1>Stepper Sweep</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node src/j5/eg/stepper-sweep.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;);
+
+five.Board().on(&quot;ready&quot;, function() {
+  var stepper, k = 0;
+
+  stepper = new five.Stepper({
+    type: five.Stepper.TYPE.DRIVER,
+    stepsPerRev: 200,
+    pins: [11, 12]
+  });
+
+  // function sweep() {
+  //   // 200 stepsPerRev / 2 = 100 (180degree sweeps)
+  //   stepper[++k % 2 === 0 ? &quot;ccw&quot; : &quot;cw&quot;]().step(100, function() {
+  //     sweep();
+  //   });
+  // }
+
+  stepper.rpm(180).ccw().step(2000, function() {
+    console.log(&quot;done&quot;);
+  });
+
+  this.repl.inject({
+    stepper: stepper
+  });
+
+
+
+  // sweep();
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012-2013 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014 The Johnny-Five Contributors
+Licensed under the MIT license.</p>
