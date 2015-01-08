@@ -262,13 +262,17 @@ p {
 		width: 100%;
 	}
 }
-
 @media(min-width: 45em) {
 	.nav-primary {
 		background: #2e2e2e;
 		display: block;
-		padding: 0 15.0474663%;
+		padding: 0 5%;
 		width: auto;
+	}
+}
+@media(min-width: 75em) {
+	.nav-primary {
+		padding: 0 15.0474663%;
 	}
 }
 .nav-primary a {
@@ -362,8 +366,6 @@ p {
 	.thumb-post img {
 		max-width: 50%;
 	}
-}
-@media(min-width: 45em) {
 	.support img {
 		margin: 0 0 0 5%;
 		float: right;
