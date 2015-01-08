@@ -246,8 +246,8 @@ module.exports = function(grunt) {
     var templates = {
       doc: _.template(file.read("tpl/.docs.md")),
       docsHome: _.template(file.read("tpl/.docsHome.md")),
-      img: _.template(file.read("src/j5/tpl/.img.md")),
-      fritzing: _.template(file.read("src/j5/tpl/.fritzing.md")),
+      img: _.template(file.read("tpl/.img.md")),
+      fritzing: _.template(file.read("tpl/.fritzing.md")),
       doclink: _.template(file.read("tpl/.docsLink.md")),
       readme: _.template(file.read("src/j5/tpl/.readme.md")),
       noedit: _.template(file.read("src/j5/tpl/.noedit.md")),
@@ -259,8 +259,8 @@ module.exports = function(grunt) {
     var readme = [];
     var tplType = "doc";
     entries.forEach(function(entry) {
-      var values, markdown, eg, md, png, url, fzz, title,
-      hasPng, hasFzz, inMarkdown, filepath, fritzfile, fritzpath;
+      var values, markdown, eg, md, png, pngUrl, url, fzz, fzzUrl, title,
+      hasPng, hasFzz, inMarkdown, filepath, origFilepath, fritzfile, fritzpath;
       var isHeading = Array.isArray(entry);
       var heading = isHeading ? entry[0] : null;
 
@@ -278,12 +278,15 @@ module.exports = function(grunt) {
         // }, "")
         // );
       } else {
+        origFilepath = "eg/";
         filepath = "src/j5/eg/" + entry;
         eg = file.read(filepath);
         md = "public/docs/" + entry.replace(".js", ".html");
         url = entry.replace(".js", ".html");
-        png = "src/docs/breadboard/" + entry.replace(".js", ".png");
-        fzz = "src/docs/breadboard/" + entry.replace(".js", ".fzz");
+        png = "src/j5/docs/breadboard/" + entry.replace(".js", ".png");
+        pngUrl = "../img/breadboard/" + entry.replace(".js", ".png");
+        fzz = "src/j5/docs/breadboard/" + entry.replace(".js", ".fzz");
+        fzzUrl = "../img/breadboard/" + entry.replace(".js", ".fzz");
         title = entry;
         markdown = [];
         // Generate a title string from the file name
@@ -322,13 +325,13 @@ module.exports = function(grunt) {
         // console.log( markdown );
         values = {
           title: _.titleize(title),
-          command: "node " + filepath,
+          command: "node " + origFilepath,
           example: eg,
           file: md,
           url: url,
           markdown: markdown.join("\n"),
-          breadboard: hasPng ? templates.img({ png: png }) : "",
-          fritzing: hasFzz ? templates.fritzing({ fzz: fzz }) : ""
+          breadboard: hasPng ? templates.img({ png: pngUrl }) : "",
+          fritzing: hasFzz ? templates.fritzing({ fzz: fzzUrl }) : ""
         };
         //get the md for the docs page
         var docBody = templates[tplType](values);
