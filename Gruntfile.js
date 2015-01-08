@@ -80,20 +80,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    metalsmith:{
-      docsGen: {
-        options: {
-          plugins: {
-            "metalsmith-remarkable":{
-              sanitize: false,
-              html: true
-            }
-          }
-        },
-        src: "src/docs",
-        dest: "public/docs"
-      }
-    },
     connect: {
       server: {
         options: {
@@ -241,7 +227,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-connect");
   grunt.loadNpmTasks("grunt-git");
-  grunt.loadNpmTasks("grunt-metalsmith");
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-jshint");
@@ -252,9 +237,9 @@ module.exports = function(grunt) {
 
   // Default task(s).
   // grunt.registerTask("default", ["uglify"]);
-  grunt.registerTask("install", ["gitclone", "docs"]);
+  grunt.registerTask("install", ["gitclone"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
-  grunt.registerTask("default", ["clean", "docs", "metalsmith", "copy", "sass:dist", "uglify"]);
+  grunt.registerTask("default", ["clean", "docs", "copy", "sass:dist", "uglify"]);
 
 
   grunt.registerMultiTask("docs", "generate simple docs from examples", function() {
@@ -267,6 +252,7 @@ module.exports = function(grunt) {
       readme: _.template(file.read("src/j5/tpl/.readme.md")),
       noedit: _.template(file.read("src/j5/tpl/.noedit.md")),
       plugin: _.template(file.read("src/j5/tpl/.plugin.md")),
+      docHtml: _.template(file.read("tpl/.docsWrapper.html"))
     };
     // Concat specified files.
     var entries = JSON.parse(file.read(file.expand(this.data)));
@@ -294,7 +280,7 @@ module.exports = function(grunt) {
       } else {
         filepath = "src/j5/eg/" + entry;
         eg = file.read(filepath);
-        md = "src/docs/" + entry.replace(".js", ".md");
+        md = "public/docs/" + entry.replace(".js", ".html");
         url = entry.replace(".js", ".html");
         png = "src/docs/breadboard/" + entry.replace(".js", ".png");
         fzz = "src/docs/breadboard/" + entry.replace(".js", ".fzz");
@@ -344,8 +330,18 @@ module.exports = function(grunt) {
           breadboard: hasPng ? templates.img({ png: png }) : "",
           fritzing: hasFzz ? templates.fritzing({ fzz: fzz }) : ""
         };
+        //get the md for the docs page
+        var docBody = templates[tplType](values);
+
+        //turn this into html
+        docBody = mdparser.render(docBody);
+
+        //place it into our html template
+        file.write(md, templates["docHtml"]({
+          docBody: docBody
+        }));
         // Write the file to /docs/*
-        file.write(md, templates[tplType](values));
+        // file.write(md, templates[tplType](values));
         // Push a rendered markdown link into the readme "index"
         readme.push(templates.doclink(values));
 

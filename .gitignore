@@ -33,9 +33,8 @@ node_modules
 public/css/*
 public/js/*
 public/img/*
-public/docs-markup
+public/docs/*
 src/j5
-src/docs
 
 # sass cache
 .sass-cache

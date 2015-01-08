@@ -29,9 +29,6 @@
     "grunt-git": "^0.3.2",
     "grunt-jsbeautifier": "^0.2.7",
     "grunt-jscs": "^1.0.0",
-    "grunt-metalsmith": "^1.0.0",
-    "metalsmith": "^1.0.1",
-    "metalsmith-remarkable": "git+https://github.com/mulyoved/metalsmith-remarkable.git",
     "remarkable": "^1.6.0"
   },
   "dependencies": {
