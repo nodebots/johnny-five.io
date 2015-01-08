@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="fonts" content="../css/type.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
 
 <link rel="stylesheet" href="../css/styles.css">
 
@@ -31,12 +32,14 @@
 <main class="central">
 <div class="wrap-a">
 
-<%= docs %>
+<%= docBody %>
 	
 </div>
 </main>
 
 <script src="js/main.js"></script>
 <script src="js/programs.json"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
