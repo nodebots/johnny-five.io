@@ -1,8 +1,10 @@
 * { box-sizing: border-box; moz-box-sizing: border-box; }
 
 body {
-	margin: 0;
+	background: #2e2e2e;
 	font-family: Roboto, sans-serif;
+	margin: 0;
+	padding-bottom: 20%;
 }
 img {
 	max-width: 100%;
@@ -44,6 +46,10 @@ p {
 	font-size: 1em;
 	margin: 1.5em 0;
 	line-height: 1.5em;
+}
+
+.central {
+	background: #fff;
 }
 
 .site-hed {
@@ -165,6 +171,10 @@ p {
 	float: right;
 	min-width: 84.9525337%;
 }
+.wrap-c {
+	padding-left: 15.0474663%;
+	padding-right: 15.0474663%;
+}
 
 @media(min-width: 45em) {
 	.wrap-a {
@@ -250,6 +260,13 @@ p {
 @media(min-width: 45em) {
 	.j5 {
 		right: 10%;
+	}
+}
+@media(min-width: 75em) {
+	.j5 {
+		right: 15%;
+		max-width: 260px;
+		width: auto;
 	}
 }
 .nav-primary {
@@ -350,9 +367,24 @@ p {
 }
 .support {
 	background-color: #f3f3f3;
+	width: 100%;
 }
-.thumb-post {
-	clear: both;
+.usedby {
+	background-color: #f3f3f3;
+	text-align: center;
+}
+.usedby .sec-hed:after {
+	margin: .5em auto;
+}
+.usedby img {
+	display: inline-block;
+	margin: 1em;
+	max-width: 325px;
+	min-width: 200px;
+	width: 40%;
+}
+.usedby img:first-child {
+	margin-top: 2em;
 }
 
 .support img,
@@ -361,6 +393,7 @@ p {
 	display: block;
 	margin-bottom: 1em;
 }
+
 @media( min-width: 45em) {
 	.support img,
 	.thumb-post img {
@@ -375,8 +408,29 @@ p {
 	}
 }
 
-.thumb-post {
-	padding: 1.25em 1em;
+.thumb-post,
+.wrap-b .teaser,
+.usedby {
+	padding: 2em 1em;
+}
+.thumb-post:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+@media( min-width: 45em) {
+	.thumb-post,
+	.wrap-b .teaser,
+	.usedby {
+		padding: 7.5% 0;
+	}
+}
+@media( min-width: 65em) {
+	.thumb-post,
+	.wrap-b .teaser,
+	.usedby {
+		padding: 6.5% 0;
+	}
 }
 .thumb-post .sec-hed {
 	width: 100%;
@@ -398,24 +452,37 @@ p {
 	.thumb-post img {
 		clear: none;
 		margin-right: 0;
+		width: 30%;
 	}
 	.thumb-post .sec-hed {
 		float: right;
-		padding-left: 1em;
 		margin-bottom: 0;
+		padding-left: 2em;
 		width: 70%;
 	}
 	.thumb-post p {
 		display: block;
 		clear: right;
 		float: right;
-		padding-left: 1em;
+		padding-left: 2em;
 		width: 70%;
 	}
 	.thumb-post p.byline {
 		float: none;
 		padding-left: 0;
 		width: auto;
+	}
+}
+
+@media(min-width: 45em) {
+.thumb-post img {
+		clear: none;
+		margin-right: 0;
+		width: 20%;
+	}
+	.thumb-post .sec-hed,
+	.thumb-post p {
+		width: 80%;
 	}
 }
 
