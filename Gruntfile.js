@@ -20,22 +20,22 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
     gitclone: {
-        clone: {
-            options: {
-                repository: "https://github.com/rwaldron/johnny-five.git",
-                directory: "src/j5",
-                depth: 1
-            }
+      clone: {
+        options: {
+          repository: "https://github.com/rwaldron/johnny-five.git",
+          directory: "src/j5",
+          depth: 1
         }
+      }
     },
-    clean:{
-      build:[
+    clean: {
+      build: [
         "public/css",
         "public/js",
         "public/docs"
       ]
     },
-    copy:{
+    copy: {
       type: {
         nonull: true,
         src: "src/sass/type.css",
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
         files: {
           "public/css/styles.css": "src/sass/styles.scss"
         },
-        options:{
+        options: {
           update: true
         }
       },
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
         files: {
           "public/css/styles.css": "src/sass/styles.scss"
         },
-        options:{
+        options: {
           style: "compact",
           sourcemap: "none"
         }
@@ -103,7 +103,7 @@ module.exports = function(grunt) {
       html: {
         files: "public/*.html",
         tasks: [],
-        options:{
+        options: {
           livereload: true
         }
       },
@@ -152,7 +152,7 @@ module.exports = function(grunt) {
         src: [
           "Gruntfile.js",
           "src/js/**/*.js"
-          ]
+        ]
       },
       options: {
         config: ".jscsrc",
@@ -213,13 +213,13 @@ module.exports = function(grunt) {
           sourceMap: true
         },
         files: [{
-            expand: true,
-            cwd: "src/js",
-            src: "**/*.js",
-            dest: "public/js"
+          expand: true,
+          cwd: "src/js",
+          src: "**/*.js",
+          dest: "public/js"
         }]
       }
-    }  
+    }
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -233,14 +233,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-jsbeautifier");
   grunt.loadNpmTasks("grunt-jscs");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.loadNpmTasks("grunt-contrib-uglify");  
+  grunt.loadNpmTasks("grunt-contrib-uglify");
 
   // Default task(s).
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("install", ["gitclone"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
   grunt.registerTask("default", ["clean", "docs", "copy", "sass:dist", "uglify"]);
-
 
   grunt.registerMultiTask("docs", "generate simple docs from examples", function() {
     var templates = {
@@ -260,7 +259,7 @@ module.exports = function(grunt) {
     var tplType = "doc";
     entries.forEach(function(entry) {
       var values, markdown, eg, md, png, pngUrl, url, fzz, fzzUrl, title,
-      hasPng, hasFzz, inMarkdown, filepath, origFilepath, fritzfile, fritzpath;
+        hasPng, hasFzz, inMarkdown, filepath, origFilepath, fritzfile, fritzpath;
       var isHeading = Array.isArray(entry);
       var heading = isHeading ? entry[0] : null;
 
@@ -294,9 +293,9 @@ module.exports = function(grunt) {
         markdown = [];
         // Generate a title string from the file name
         [
-        [/^.+\//, ""],
-        [/\.js/, ""],
-        [/\-/g, " "]
+          [/^.+\//, ""],
+          [/\.js/, ""],
+          [/\-/g, " "]
         ].forEach(function(args) {
           title = "".replace.apply(title, args);
         });
@@ -305,24 +304,24 @@ module.exports = function(grunt) {
         inMarkdown = false;
         // Modify code in example to appear as it would if installed via npm
         eg = eg.replace(/\.\.\/lib\/|\.js/g, "")
-        .split("\n").filter(function(line) {
-          if (/@markdown/.test(line)) {
-            inMarkdown = !inMarkdown;
-            return false;
-          }
-          if (inMarkdown) {
-            line = line.trim();
-            if (line) {
-              markdown.push(
-                line.replace(/^\/\//, "").trim()
-                );
+          .split("\n").filter(function(line) {
+            if (/@markdown/.test(line)) {
+              inMarkdown = !inMarkdown;
+              return false;
             }
-        // Filter out the markdown lines
-        // from the main content.
-        return false;
-        }
-        return true;
-        }).join("\n");
+            if (inMarkdown) {
+              line = line.trim();
+              if (line) {
+                markdown.push(
+                  line.replace(/^\/\//, "").trim()
+                );
+              }
+              // Filter out the markdown lines
+              // from the main content.
+              return false;
+            }
+            return true;
+          }).join("\n");
         hasPng = fs.existsSync(png);
         hasFzz = fs.existsSync(fzz);
         // console.log( markdown );
@@ -351,7 +350,6 @@ module.exports = function(grunt) {
         // file.write(md, templates[tplType](values));
         // Push a rendered markdown link into the readme "index"
         readme.push(values);
-
 
         file.write("public/docs.html", templates["docsHome"]({
           list: readme
