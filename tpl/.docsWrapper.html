@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="fonts" content="css/type.css">
 
-  <script src="js/fontloader.js" id="fontloader"></script>
+  <script src="../js/fontloader.js" id="fontloader"></script>
 
-  <link rel="stylesheet" href="css/styles.css">
-
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
   <link href="favicon.ico" rel="icon">
 
 </head>
@@ -20,12 +20,12 @@
     <nav class="nav-primary wrapper icon-j5">
 
       <picture class="j5-icon">
-        <source type="image/svg+xml" srcset="img/js-logo.svg">
-        <img src="img/js-logo.png">
+        <source type="image/svg+xml" srcset="../img/js-logo.svg">
+        <img src="../img/js-logo.png">
       </picture>
 
       <a href="#">Getting Started</a>
-      <a href="/docs.html">API Docs</a>
+      <a href="/docs.html" class="current">API Docs</a>
     </nav>
     
     <header role="banner" class="banner">
@@ -34,13 +34,12 @@
   </div>
 
   <main class="central">
+    <div class="wrap-a wrap-docs">
 
-		<div class="wrap-a">
+      <%= docBody %>
 
-		<%= docBody %>
-			
-		</div>
-	</main>
+    </div>
+  </main>
 
 <script src="js/main.js"></script>
 <script src="js/programs.json"></script>
