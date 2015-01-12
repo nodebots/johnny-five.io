@@ -1,8 +1,8 @@
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Johnny-Five</title>
-  <meta name="description" content="Johnny-Five is an Open Source IoT and robotics programming framework">
+<meta charset="utf-8">
+<title>Johnny-Five</title>
+<meta name="description" content="Johnny-Five is an Open Source IoT and robotics programming framework">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="fonts" content="css/type.css">
@@ -38,6 +38,18 @@
       <%= list %>
     </div>
   </main>
+
+       <% for(var item in list) { %>
+          <% if(list[item].heading){ %>
+            </ul>
+            <h3><%= list[item].headingText %></h3>
+            <ul>
+          <% } else { %>
+            <li><a href="/docs/<%= list[item].url %>"><%= list[item].title %></a></li>
+          <% } %>
+       <% } %>
+  </div>
+</main>
 
 <script src="js/main.js"></script>
 <script src="js/programs.json"></script>

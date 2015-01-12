@@ -245,10 +245,10 @@ module.exports = function(grunt) {
   grunt.registerMultiTask("docs", "generate simple docs from examples", function() {
     var templates = {
       doc: _.template(file.read("tpl/.docs.md")),
-      docsHome: _.template(file.read("tpl/.docsHome.md")),
+      docsHome: _.template(file.read("tpl/.docsHome.html")),
       img: _.template(file.read("tpl/.img.md")),
       fritzing: _.template(file.read("tpl/.fritzing.md")),
-      doclink: _.template(file.read("tpl/.docsLink.md")),
+      doclink: _.template(file.read("tpl/.docsLink.html")),
       readme: _.template(file.read("src/j5/tpl/.readme.md")),
       noedit: _.template(file.read("src/j5/tpl/.noedit.md")),
       plugin: _.template(file.read("src/j5/tpl/.plugin.md")),
@@ -268,7 +268,10 @@ module.exports = function(grunt) {
         tplType = entry.length === 2 ? entry[1] : "doc";
         // Produces:
         // "### Heading\n"
-        readme.push("\n### " + heading + "\n");
+        readme.push({
+          heading: true,
+          headingText: heading
+        });
         // TODO: figure out a way to have tiered subheadings
         // readme.push(
         // entry.reduce(function( prev, val, k ) {
@@ -331,7 +334,8 @@ module.exports = function(grunt) {
           url: url,
           markdown: markdown.join("\n"),
           breadboard: hasPng ? templates.img({ png: pngUrl }) : "",
-          fritzing: hasFzz ? templates.fritzing({ fzz: fzzUrl }) : ""
+          fritzing: hasFzz ? templates.fritzing({ fzz: fzzUrl }) : "",
+          heading: false
         };
         //get the md for the docs page
         var docBody = templates[tplType](values);
@@ -346,11 +350,11 @@ module.exports = function(grunt) {
         // Write the file to /docs/*
         // file.write(md, templates[tplType](values));
         // Push a rendered markdown link into the readme "index"
-        readme.push(templates.doclink(values));
+        readme.push(values);
 
 
         file.write("public/docs.html", templates["docsHome"]({
-          list: mdparser.render(readme.join(""))
+          list: readme
         }));
       }
     });
