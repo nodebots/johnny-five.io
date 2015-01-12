@@ -73,8 +73,8 @@ p {
 		position: absolute;
 		left: 1em;
 		top: -.25em;
-		z-index: 2;
 		width: 2em;
+		z-index: 2;
 	}
 	.mast {
 		background: #2e2e2e;
@@ -227,17 +227,28 @@ p {
 	background-image: url(../img/pcb.jpg);
 	background-position: -20% top;
 	border-bottom: 1em solid #efe13d;
+}
+.banner-home {
 	padding: 2.5em 6.5em 1.75em 1em;
 }
 @media(min-width: 30em) {
-	.banner {
+	.banner-home {
 		border-bottom: 2em solid #efe13d;
 		padding: 5.5em 6.5em 3.75em 5%;
+	}
+}
+@media(min-width: 45em) {
+	.banner {
+		padding: 2.5em 6.5em 1em 5%;
 	}
 }
 
 @media(min-width: 75em) {
 	.banner {
+		padding-left: 15.0474663%;
+;
+	}
+	.banner-home {
 		border-bottom: 2em solid #efe13d;
 		padding: 5.5em 6.5em 3.75em 15.0474663%;
 	}

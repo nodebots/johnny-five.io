@@ -1,41 +1,46 @@
 <html>
 <head>
-<meta charset="utf-8">
-<title>Johnny-Five</title>
-<meta name="description" content="Johnny-Five is an Open Source IoT and robotics programming framework">
+  <meta charset="utf-8">
+  <title>Johnny-Five</title>
+  <meta name="description" content="Johnny-Five is an Open Source IoT and robotics programming framework">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="fonts" content="../css/type.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="fonts" content="css/type.css">
 
-<link rel="stylesheet" href="../css/styles.css">
+  <script src="js/fontloader.js" id="fontloader"></script>
 
-<link href="../favicon.ico" rel="icon">
+  <link rel="stylesheet" href="css/styles.css">
 
-<script src="../js/fontloader.js" id="fontloader"></script>
+  <link href="favicon.ico" rel="icon">
+
 </head>
 <body>
 
-<nav class="nav-primary wrapper icon-j5">
+  <div class="mast">
+    <nav class="nav-primary wrapper icon-j5">
 
-<picture class="j5-icon">
-<source type="image/svg+xml" srcset="../img/js-logo.svg">
-<img src="../img/js-logo.png">
-</picture>
+      <picture class="j5-icon">
+        <source type="image/svg+xml" srcset="img/js-logo.svg">
+        <img src="img/js-logo.png">
+      </picture>
 
-<a href="../index.html">Getting Started</a>
-<a class="active" href="../docs.html">API Docs</a>
-<a href="#">Boards</a>
-<a href="#">Components</a>
-</nav>
+      <a href="#">Getting Started</a>
+      <a href="/docs.html">API Docs</a>
+    </nav>
+    
+    <header role="banner" class="banner">
+     <h1 class="site-hed">API Docs</h1>
+    </header>
+  </div>
 
-<main class="central">
-<div class="wrap-a">
+  <main class="central">
 
-<%= docBody %>
-	
-</div>
-</main>
+		<div class="wrap-a">
+
+		<%= docBody %>
+			
+		</div>
+	</main>
 
 <script src="js/main.js"></script>
 <script src="js/programs.json"></script>
