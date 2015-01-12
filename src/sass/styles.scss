@@ -197,6 +197,11 @@ p {
 		padding-left: 15.0474663%;
 	}
 }
+
+.wrap-docs {
+	clear: both;
+	padding: 1.5em 1em;
+}
 .teaser {
 	clear: both;
 	padding: .25em 1em .5em 1em;
@@ -239,7 +244,7 @@ p {
 }
 @media(min-width: 45em) {
 	.banner {
-		padding: 2.5em 6.5em 1em 5%;
+		padding: 2.5em 6.5em 1.75em 5%;
 	}
 }
 
@@ -363,6 +368,10 @@ p {
 		color: #fff;
 		margin-bottom: 1.3em;
 	}
+	.nav-primary a.current {
+		color: #fff;
+	}
+	.nav-primary a.current:after,
 	.nav-primary a:hover:after {
 		opacity: 1;
 		width: 100%;
@@ -495,6 +504,39 @@ p {
 	.thumb-post p {
 		width: 80%;
 	}
+}
+
+.docs {
+	background: #f3f3f3;
+}
+.wrap-docs {
+	padding: 2.5em 1em;
+}
+@media( min-width: 45em ) {
+	.wrap-docs {
+		padding: 3.5% 0;
+	}
+}
+.docslist {
+	border-radius: .25em;
+	box-shadow: 0 0 3px #ddd;
+	list-style: none;
+	margin: 1em 0 2.5em 0;
+	padding: 0;
+}
+
+.docslist a {
+	background: #fff;
+	border-bottom: 3px solid #efe222;
+	color: #222;
+	display: block;
+	padding: .85em 1em .7em 1em;
+}
+.docslist li:first-child a {
+	border-radius: .2em .2em 0 0;
+}
+.docslist li:last-of-type a {
+	border-radius: 0 0 .2em .2em;
 }
 
 .js-board-type {

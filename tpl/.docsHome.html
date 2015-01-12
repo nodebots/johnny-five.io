@@ -34,22 +34,18 @@
   </div>
 
   <main class="central">
-    <div class="wrap-a">
-      <%= list %>
-    </div>
-  </main>
-
+    <div class="wrap-a wrap-docs">
        <% for(var item in list) { %>
           <% if(list[item].heading){ %>
             </ul>
-            <h3><%= list[item].headingText %></h3>
-            <ul>
+            <h2><%= list[item].headingText %></h2>
+            <ul class="docslist">
           <% } else { %>
             <li><a href="/docs/<%= list[item].url %>"><%= list[item].title %></a></li>
           <% } %>
        <% } %>
-  </div>
-</main>
+    </div>
+  </main>
 
 <script src="js/main.js"></script>
 <script src="js/programs.json"></script>
