@@ -34,6 +34,7 @@ public/css/*
 public/js/*
 public/img/*
 public/docs/*
+public/docs.html
 src/j5
 
 # sass cache
