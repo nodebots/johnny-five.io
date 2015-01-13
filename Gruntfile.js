@@ -259,7 +259,7 @@ module.exports = function(grunt) {
     var tplType = "doc";
     entries.forEach(function(entry) {
       var values, markdown, eg, md, png, pngUrl, url, fzz, fzzUrl, title,
-        hasPng, hasFzz, inMarkdown, filepath, origFilepath, fritzfile, fritzpath;
+      hasPng, hasFzz, inMarkdown, filepath, origFilepath, fritzfile, fritzpath, slug;
       var isHeading = Array.isArray(entry);
       var heading = isHeading ? entry[0] : null;
 
@@ -267,9 +267,11 @@ module.exports = function(grunt) {
         tplType = entry.length === 2 ? entry[1] : "doc";
         // Produces:
         // "### Heading\n"
+        slug = heading.toLowerCase().split(" ").join("-");
         readme.push({
           heading: true,
-          headingText: heading
+          headingText: heading,
+          headingSlug: slug
         });
         // TODO: figure out a way to have tiered subheadings
         // readme.push(
