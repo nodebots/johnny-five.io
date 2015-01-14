@@ -13,16 +13,18 @@
     index = 1;
 
   setInterval(function() {
-    var el = document.querySelector(".js-board-type");
+    var el = document.querySelector(".js-board-type") || {};
 
-    el.style.opacity = 0;
+    if (el.length) {
+      el.style.opacity = 0;
 
-    setTimeout(function() {
-      el.innerHTML = boardsAvailable[index];
       setTimeout(function() {
-        el.style.opacity = 1;
-      }, 200);
-    }, 500);
+        el.innerHTML = boardsAvailable[index];
+        setTimeout(function() {
+          el.style.opacity = 1;
+        }, 200);
+      }, 500);
+    }
 
     index++;
     if (index === boardsAvailable.length) {
