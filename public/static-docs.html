@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TableSaw Stack Table</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!--[if lt IE 9]><script src="../dist/dependencies/respond.js"></script><![endif]-->
+  <script src="js/jquery.js"></script>
+  <script src="js/tablesaw.stackonly.js"></script>
+</head>
+</head>
+<body>
+
+  <div class="mast">
+    <nav class="nav-primary wrapper icon-j5">
+
+      <picture class="j5-icon">
+        <source type="image/svg+xml" srcset="img/js-logo.svg">
+        <img src="img/js-logo.png">
+      </picture>
+
+      <a href="/">Getting Started</a>
+      <a href="/docs.html" class="current">API Docs</a>
+    </nav>
+    
+    <header role="banner" class="banner">
+     <h1 class="site-hed">API Docs</h1>
+    </header>
+  </div>
+
+  <main class="central docs">
+    <div class="wrap-a wrap-docs">
+
+      <table class="tablesaw tablesaw-stack" data-tablesaw-mode="stack">
+        <thead>
+          <tr>
+            <th>Property Name</th>
+            <th>Type</th>
+            <th>Value(s)</th>
+            <th>Description</th>
+            <th>Default</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>pins</td>
+            <td>Array of Strings</td>
+            <td>["A*"]</td>
+            <td>The String analog pins that X, Y, and Z (optional) are attached to</td>
+            <td>none</td>
+            <td>yes</td>
+          </tr>
+          <tr>
+            <td>sensitivity</td>
+            <td>Number</td>
+            <td>Varies by device</td>
+            <td>This value can be identified in the device's datasheet.</td>
+            <td>96 (Tinkerkit)</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>aref</td>
+            <td>Number</td>
+            <td>Voltage reference</td>
+            <td>This is the value of the VCC pin</td>
+            <td>5</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>zeroV</td>
+            <td>Number</td>
+            <td>0-1023</td>
+            <td>The analog input when at rest, perpendicular to gravity.</td>
+            <td>478</td>
+            <td>no</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </main>
+
+<script src="js/main.js"></script>
+<script src="js/programs.json"></script>
+</body>
+</html>
