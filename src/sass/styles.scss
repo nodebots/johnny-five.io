@@ -9,7 +9,7 @@ body {
 img {
 	max-width: 100%;
 }
-a { 
+a {
 	text-decoration: none;
 	color: #4082c1;
 }
@@ -547,6 +547,11 @@ p {
 
 pre {
 	max-width: 100%;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 /*! Tablesaw - v1.0.2 - 2014-12-17
