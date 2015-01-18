@@ -25,25 +25,17 @@
       </picture>
 
       <a href="/">Getting Started</a>
-      <a href="/docs.html" class="current">API Docs</a>
+      <a href="/examples.html" class="current">Examples</a>
     </nav>
-    
+
     <header role="banner" class="banner">
-     <h1 class="site-hed">API Docs</h1>
+     <h1 class="site-hed">Examples</h1>
     </header>
   </div>
 
   <main class="central docs">
     <div class="wrap-a wrap-docs">
-       <% for(var item in list) { %>
-          <% if(list[item].heading){ %>
-            </ul>
-            <h2><%= list[item].headingText %></h2>
-            <ul class="docslist">
-          <% } else { %>
-            <li><a href="/docs/<%= list[item].url %>"><%= list[item].title %></a></li>
-          <% } %>
-       <% } %>
+      <%= list %>
     </div>
   </main>
 
