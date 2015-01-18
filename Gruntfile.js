@@ -251,15 +251,14 @@ module.exports = function(grunt) {
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("install", ["clean:deps", "gitclone"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
-  grunt.registerTask("default", ["clean:build", "examples", "copy", "sass:dist", "uglify"]);
+  grunt.registerTask("default", ["clean:build", "examples-list", "examples", "copy", "sass:dist", "uglify"]);
 
-  grunt.registerMultiTask("examples", "generate examples", function() {
+
+  grunt.registerTask("examples-list", "generate examples list", function() {
     var templates = {
       eghome: _.template(file.read("tpl/.eghome.html")),
-      eghtml: _.template(file.read("tpl/.eghtml.html")),
     };
-    // Concat specified files.
-    var entries = JSON.parse(file.read(file.expand(this.data)));
+
     var examples = extract("examples", file.read("src/johnny-five/README.md")).map(function(extraction) {
       return extraction.map(function(line) {
         return line
@@ -272,6 +271,18 @@ module.exports = function(grunt) {
     file.write("public/examples.html", templates.eghome({
       list: markdown.render(examples[0]).replace(/<ul>/g, "<ul class='docslist'>")
     }));
+  });
+
+  grunt.registerMultiTask("examples", "generate examples", function() {
+    var remove = {
+      license: file.read("tpl/.license.html")
+    };
+
+    var templates = {
+      eghtml: _.template(file.read("tpl/.eghtml.html")),
+    };
+
+    var entries = JSON.parse(file.read(file.expand(this.data)));
 
     entries.forEach(function(entry) {
       var isHeading = Array.isArray(entry);
@@ -281,11 +292,18 @@ module.exports = function(grunt) {
       if (!isHeading) {
         outpath = "public/examples/" + entry.replace(".js", ".html");
         inpath = "src/johnny-five/docs/" + entry.replace(".js", ".md");
-        example = file.read(inpath).replace("docs/breadboard/", "../img/breadboard/");
+        example = markdown.render(
+          file.read(inpath).replace("docs/breadboard/", "../img/breadboard/")
+        );
+
+        Object.keys(remove).forEach(function(key) {
+          example = example.replace(remove[key], "");
+        });
 
         // Place it into our html template
         file.write(outpath, templates.eghtml({
-          example: markdown.render(example)
+          title: entry,
+          example: example
         }));
       }
     });
