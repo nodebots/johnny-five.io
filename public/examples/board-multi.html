@@ -1,0 +1,108 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Johnny-Five</title>
+  <meta name="description" content="Johnny-Five is an Open Source IoT and robotics programming framework">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="fonts" content="css/type.css">
+
+  <script src="../js/fontloader.js" id="fontloader"></script>
+
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+  <link href="favicon.ico" rel="icon">
+
+</head>
+<body>
+
+  <div class="mast">
+    <nav class="nav-primary wrapper icon-j5">
+
+      <picture class="j5-icon">
+        <source type="image/svg+xml" srcset="../img/js-logo.svg">
+        <img src="../img/js-logo.png">
+      </picture>
+
+      <a href="/">Getting Started</a>
+      <a href="/examples.html" class="current">Examples</a>
+    </nav>
+
+    <header role="banner" class="banner">
+     <h1 class="site-hed">Examples</h1>
+    </header>
+  </div>
+
+  <main class="central">
+    <div class="wrap-a wrap-docs">
+
+      <h1>Board Multi</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node eg/board-multi.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;);
+
+// Create 2 board instances with IDs &quot;A&quot; &amp; &quot;B&quot;
+new five.Boards([&quot;A&quot;, &quot;B&quot;]).on(&quot;ready&quot;, function() {
+
+  // Both &quot;A&quot; and &quot;B&quot; are initialized
+  // (connected and available for communication)
+
+  // |this| is an array-like object containing references
+  // to each initialized board.
+  this.each(function(board) {
+
+    // Initialize an Led instance on pin 13 of
+    // each initialized board and strobe it.
+    new five.Led({
+      pin: 13,
+      board: board
+    }).strobe();
+  });
+});
+
+/**
+ * When initializing multiple boards with only an ID string,
+ * the order of initialization and connection is the order
+ * that your OS enumerates ports.
+ *
+ * Given the above program, &quot;A&quot; and &quot;B&quot; would be assigned as:
+ *
+ * A =&gt; /dev/cu.usbmodem411
+ * B =&gt; /dev/cu.usbmodem621
+ *
+ *
+ * You may override this by providing explicit port paths:
+ *
+ * var ports = [
+ *   { id: &quot;A&quot;, port: &quot;/dev/cu.usbmodem621&quot; },
+ *   { id: &quot;B&quot;, port: &quot;/dev/cu.usbmodem411&quot; }
+ * ];
+ *
+ * new five.Boards(ports).on(&quot;ready&quot;, function() {
+ *
+ *   // Boards are initialized!
+ *
+ * });
+ */
+
+</code></pre>
+<h2>Breadboard/Illustration</h2>
+<p><img src="breadboard/board-multi.png" alt="../img/breadboard/board-multi.png">
+<a href="breadboard/board-multi.fzz">docs/breadboard/board-multi.fzz</a></p>
+<h2>License</h2>
+<p>Copyright (c) 2012, 2013, 2014 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014, 2015 The Johnny-Five Contributors
+Licensed under the MIT license.</p>
+
+
+    </div>
+  </main>
+
+<script src="js/main.js"></script>
+<script src="js/programs.json"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

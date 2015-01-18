@@ -35,7 +35,8 @@ public/js/*
 public/img/*
 public/docs/*
 public/docs.html
-src/j5
+src/johnny-five
+src/johnny-five.wiki
 
 # sass cache
 .sass-cache

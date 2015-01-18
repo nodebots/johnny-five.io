@@ -1,0 +1,131 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Johnny-Five</title>
+  <meta name="description" content="Johnny-Five is an Open Source IoT and robotics programming framework">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="fonts" content="css/type.css">
+
+  <script src="../js/fontloader.js" id="fontloader"></script>
+
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+  <link href="favicon.ico" rel="icon">
+
+</head>
+<body>
+
+  <div class="mast">
+    <nav class="nav-primary wrapper icon-j5">
+
+      <picture class="j5-icon">
+        <source type="image/svg+xml" srcset="../img/js-logo.svg">
+        <img src="../img/js-logo.png">
+      </picture>
+
+      <a href="/">Getting Started</a>
+      <a href="/examples.html" class="current">Examples</a>
+    </nav>
+
+    <header role="banner" class="banner">
+     <h1 class="site-hed">Examples</h1>
+    </header>
+  </div>
+
+  <main class="central">
+    <div class="wrap-a wrap-docs">
+
+      <h1>Joystick Motor Led</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node eg/joystick-motor-led.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  board, joystick, motor, led;
+
+board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+
+  // Create a new `joystick` hardware instance.
+  joystick = new five.Joystick({
+    // Joystick pins are an array of pins
+    // Pin orders:
+    //   [ up, down, left, right ]
+    //   [ ud, lr ]
+    pins: [&quot;A0&quot;, &quot;A1&quot;],
+    freq: 25
+  });
+
+  // Attach a motor to PWM pin 5
+  motor = new five.Motor({
+    pin: 5
+  });
+
+  // Attach a led to PWM pin 9
+  led = new five.Led({
+    pin: 9
+  });
+
+  // Inject the hardware into
+  // the Repl instance's context;
+  // allows direct command line access
+  board.repl.inject({
+    joystick: joystick,
+    motor: motor,
+    led: led
+  });
+
+
+  // Pushing the joystick to up position should start the motor,
+  // releasing it will turn the motor off.
+  joystick.on(&quot;axismove&quot;, function(err, timestamp) {
+
+    if (!motor.isOn &amp;&amp; this.axis.y &gt; 0.51) {
+      motor.start();
+    }
+
+    if (motor.isOn &amp;&amp; this.axis.y &lt; 0.51) {
+      motor.stop();
+    }
+  });
+
+  // While the motor is on, blink the led
+  motor.on(&quot;start&quot;, function() {
+    // 250ms
+    led.strobe(250);
+  });
+
+  motor.on(&quot;stop&quot;, function() {
+    led.stop();
+  });
+});
+
+
+// Schematic
+// https://1965269182786388413-a-1802744773732722657-s-sites.googlegroups.com/site/parallaxinretailstores/home/2-axis-joystick/Joystick-6.png
+// http://www.parallax.com/Portals/0/Downloads/docs/prod/sens/27800-Axis%20JoyStick_B%20Schematic.pdf
+
+// Further Reading
+// http://www.parallax.com/Portals/0/Downloads/docs/prod/sens/27800-2-AxisJoystick-v1.2.pdf
+
+</code></pre>
+<h2>Breadboard/Illustration</h2>
+<p><img src="breadboard/joystick-motor-led.png" alt="../img/breadboard/joystick-motor-led.png">
+<a href="breadboard/joystick-motor-led.fzz">docs/breadboard/joystick-motor-led.fzz</a></p>
+<h2>License</h2>
+<p>Copyright (c) 2012, 2013, 2014 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014, 2015 The Johnny-Five Contributors
+Licensed under the MIT license.</p>
+
+
+    </div>
+  </main>
+
+<script src="js/main.js"></script>
+<script src="js/programs.json"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

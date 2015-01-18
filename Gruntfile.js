@@ -1,8 +1,9 @@
+require("es6-shim");
 require("copy-paste");
 var inspect = require("util").inspect;
 var fs = require("fs");
-var remarkable = require("remarkable");
-var mdparser = new remarkable();
+var Remarkable = require("remarkable");
+var markdown = new Remarkable();
 
 module.exports = function(grunt) {
 
@@ -20,10 +21,17 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
     gitclone: {
-      clone: {
+      "johnny-five": {
         options: {
           repository: "https://github.com/rwaldron/johnny-five.git",
-          directory: "src/j5",
+          directory: "src/johnny-five",
+          depth: 1
+        }
+      },
+      "johnny-five.wiki": {
+        options: {
+          repository: "https://github.com/rwaldron/johnny-five.wiki.git",
+          directory: "src/johnny-five.wiki",
           depth: 1
         }
       }
@@ -33,6 +41,10 @@ module.exports = function(grunt) {
         "public/css",
         "public/js",
         "public/docs"
+      ],
+      deps: [
+        "src/johnny-five",
+        "src/johnny-five.wiki"
       ]
     },
     copy: {
@@ -41,16 +53,16 @@ module.exports = function(grunt) {
         src: "src/sass/type.css",
         dest: "public/css/type.css"
       },
-      docsData: {
+      programs: {
         nonull: true,
-        src: "src/j5/programs.json",
+        src: "src/johnny-five/programs.json",
         dest: "public/js/programs.json"
       },
-      docsImages: {
+      breadboards: {
         nonull: true,
         expand: true,
         flatten: true,
-        src: "src/j5/docs/breadboard/**",
+        src: "src/johnny-five/docs/breadboard/**",
         dest: "public/img/breadboard/"
       },
       images: {
@@ -89,8 +101,8 @@ module.exports = function(grunt) {
         }
       }
     },
-    docs: {
-      files: ["src/j5/programs.json"]
+    examples: {
+      files: ["src/johnny-five/programs.json"]
     },
     watch: {
       css: {
@@ -237,126 +249,85 @@ module.exports = function(grunt) {
 
   // Default task(s).
   // grunt.registerTask("default", ["uglify"]);
-  grunt.registerTask("install", ["gitclone"]);
+  grunt.registerTask("install", ["clean:deps", "gitclone"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
-  grunt.registerTask("default", ["clean", "docs", "copy", "sass:dist", "uglify"]);
+  grunt.registerTask("default", ["clean:build", "examples", "copy", "sass:dist", "uglify"]);
 
-  grunt.registerMultiTask("docs", "generate simple docs from examples", function() {
+  grunt.registerMultiTask("examples", "generate examples", function() {
     var templates = {
-      doc: _.template(file.read("tpl/.docs.md")),
-      docsHome: _.template(file.read("tpl/.docsHome.html")),
-      img: _.template(file.read("tpl/.img.md")),
-      fritzing: _.template(file.read("tpl/.fritzing.md")),
-      doclink: _.template(file.read("tpl/.docsLink.html")),
-      readme: _.template(file.read("src/j5/tpl/.readme.md")),
-      noedit: _.template(file.read("src/j5/tpl/.noedit.md")),
-      plugin: _.template(file.read("src/j5/tpl/.plugin.md")),
-      docHtml: _.template(file.read("tpl/.docsWrapper.html"))
+      eghome: _.template(file.read("tpl/.eghome.html")),
+      eghtml: _.template(file.read("tpl/.eghtml.html")),
     };
     // Concat specified files.
     var entries = JSON.parse(file.read(file.expand(this.data)));
-    var readme = [];
-    var tplType = "doc";
+    var examples = extract("examples", file.read("src/johnny-five/README.md")).map(function(extraction) {
+      return extraction.map(function(line) {
+        return line
+          .replace("https://github.com/rwaldron/johnny-five/blob/master/docs/", "/examples/")
+          .replace(".md", ".html");
+      }).join("\n");
+    });
+
+
+    file.write("public/examples.html", templates.eghome({
+      list: markdown.render(examples[0])
+    }));
+
     entries.forEach(function(entry) {
-      var values, markdown, eg, md, png, pngUrl, url, fzz, fzzUrl, title,
-      hasPng, hasFzz, inMarkdown, filepath, origFilepath, fritzfile, fritzpath, slug;
       var isHeading = Array.isArray(entry);
       var heading = isHeading ? entry[0] : null;
+      var example, inpath, outpath;
 
-      if (isHeading) {
-        tplType = entry.length === 2 ? entry[1] : "doc";
-        // Produces:
-        // "### Heading\n"
-        slug = heading.toLowerCase().split(" ").join("-");
-        readme.push({
-          heading: true,
-          headingText: heading,
-          headingSlug: slug
-        });
-        // TODO: figure out a way to have tiered subheadings
-        // readme.push(
-        // entry.reduce(function( prev, val, k ) {
-        // // Produces:
-        // // "### Board\n"
-        // return prev + (Array(k + 4).join("#")) + " " + val + "\n";
-        // }, "")
-        // );
-      } else {
-        origFilepath = "eg/";
-        filepath = "src/j5/eg/" + entry;
-        eg = file.read(filepath);
-        md = "public/docs/" + entry.replace(".js", ".html");
-        url = entry.replace(".js", ".html");
-        png = "src/j5/docs/breadboard/" + entry.replace(".js", ".png");
-        pngUrl = "../img/breadboard/" + entry.replace(".js", ".png");
-        fzz = "src/j5/docs/breadboard/" + entry.replace(".js", ".fzz");
-        fzzUrl = "../img/breadboard/" + entry.replace(".js", ".fzz");
-        title = entry;
-        markdown = [];
-        // Generate a title string from the file name
-        [
-          [/^.+\//, ""],
-          [/\.js/, ""],
-          [/\-/g, " "]
-        ].forEach(function(args) {
-          title = "".replace.apply(title, args);
-        });
-        fritzpath = fzz.split("/");
-        fritzfile = fritzpath[fritzpath.length - 1];
-        inMarkdown = false;
-        // Modify code in example to appear as it would if installed via npm
-        eg = eg.replace(/\.\.\/lib\/|\.js/g, "")
-          .split("\n").filter(function(line) {
-            if (/@markdown/.test(line)) {
-              inMarkdown = !inMarkdown;
-              return false;
-            }
-            if (inMarkdown) {
-              line = line.trim();
-              if (line) {
-                markdown.push(
-                  line.replace(/^\/\//, "").trim()
-                );
-              }
-              // Filter out the markdown lines
-              // from the main content.
-              return false;
-            }
-            return true;
-          }).join("\n");
-        hasPng = fs.existsSync(png);
-        hasFzz = fs.existsSync(fzz);
-        // console.log( markdown );
-        values = {
-          title: _.titleize(title),
-          command: "node " + origFilepath,
-          example: eg,
-          file: md,
-          url: url,
-          markdown: markdown.join("\n"),
-          breadboard: hasPng ? templates.img({ png: pngUrl }) : "",
-          fritzing: hasFzz ? templates.fritzing({ fzz: fzzUrl }) : "",
-          heading: false
-        };
-        //get the md for the docs page
-        var docBody = templates[tplType](values);
+      if (!isHeading) {
+        outpath = "public/examples/" + entry.replace(".js", ".html");
+        inpath = "src/johnny-five/docs/" + entry.replace(".js", ".md");
+        example = file.read(inpath).replace("docs/breadboard/", "../img/breadboard/");
 
-        //turn this into html
-        docBody = mdparser.render(docBody);
-
-        //place it into our html template
-        file.write(md, templates["docHtml"]({
-          docBody: docBody
-        }));
-        // Write the file to /docs/*
-        // file.write(md, templates[tplType](values));
-        // Push a rendered markdown link into the readme "index"
-        readme.push(values);
-
-        file.write("public/docs.html", templates["docsHome"]({
-          list: readme
+        // Place it into our html template
+        file.write(outpath, templates.eghtml({
+          example: markdown.render(example)
         }));
       }
     });
   });
+
+
+  function extract(name, source) {
+    var lines = source;
+    var extraction = 0;
+    var extractions = [];
+    var isExtraction = false;
+    var isNewExtraction = false;
+
+    if (!Array.isArray(lines)) {
+      lines = lines.split("\n");
+    }
+
+    lines.forEach(function(line) {
+      if (line.includes("extract-end") && line.includes(name)) {
+        isExtraction = false;
+        extraction++;
+      }
+
+      if (isExtraction) {
+        if (isNewExtraction) {
+          isNewExtraction = false;
+          extractions[extraction] = [];
+        }
+
+        extractions[extraction].push(line);
+      }
+
+      if (line.includes("extract-start") && line.includes(name)) {
+        isExtraction = true;
+        isNewExtraction = true;
+      }
+
+    });
+
+    return extractions;
+  }
 };
+
+
+

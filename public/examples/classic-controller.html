@@ -1,0 +1,158 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Johnny-Five</title>
+  <meta name="description" content="Johnny-Five is an Open Source IoT and robotics programming framework">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="fonts" content="css/type.css">
+
+  <script src="../js/fontloader.js" id="fontloader"></script>
+
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+  <link href="favicon.ico" rel="icon">
+
+</head>
+<body>
+
+  <div class="mast">
+    <nav class="nav-primary wrapper icon-j5">
+
+      <picture class="j5-icon">
+        <source type="image/svg+xml" srcset="../img/js-logo.svg">
+        <img src="../img/js-logo.png">
+      </picture>
+
+      <a href="/">Getting Started</a>
+      <a href="/examples.html" class="current">Examples</a>
+    </nav>
+
+    <header role="banner" class="banner">
+     <h1 class="site-hed">Examples</h1>
+    </header>
+  </div>
+
+  <main class="central">
+    <div class="wrap-a wrap-docs">
+
+      <h1>Classic Controller</h1>
+<p>Run with:</p>
+<pre><code class="language-bash">node eg/classic-controller.js
+</code></pre>
+<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;),
+  board, nunchuk;
+
+board = new five.Board();
+
+
+// Setup for bread board
+// Wire Color   =&gt;  Meaning   =&gt;  Arduino Pin Down
+// Yellow       =&gt;  SCK       =&gt;  A04
+// White        =&gt;  GND       =&gt;  Ground
+// Red          =&gt;  5v        =&gt;  5v
+// Green        =&gt;  SDA       =&gt;  A05
+
+
+board.on(&quot;ready&quot;, function() {
+
+  // Create a new `Wii.Classic` hardware instance,
+  // specifically the RVL-005 device (classic controller).
+  var classicController = five.Wii.Classic({
+    freq: 100
+  });
+
+
+  // Nunchuk Event API
+  //
+
+  // &quot;read&quot; (nunchuk)
+  //
+  // Fired when the joystick detects a change in
+  // axis position.
+  //
+  // nunchuk.on( &quot;read&quot;, function( err ) {
+
+  // });
+
+  // &quot;change&quot;, &quot;axischange&quot; (joystick)
+  //
+  // Fired when the joystick detects a change in
+  // axis position.
+  //
+  nunchuk.joystick.left.on(&quot;change&quot;, function(err, event) {
+    console.log(
+      &quot;Left joystick &quot; + event.axis,
+      event.target[event.axis],
+      event.axis, event.direction
+    );
+  });
+
+  nunchuk.joystick.right.on(&quot;change&quot;, function(err, event) {
+    console.log(
+      &quot;Right joystick &quot; + event.axis,
+      event.target[event.axis],
+      event.axis, event.direction
+    );
+  });
+
+  // &quot;down&quot;
+  // aliases: &quot;press&quot;, &quot;tap&quot;, &quot;impact&quot;, &quot;hit&quot;
+  //
+  // Fired when any nunchuk button is &quot;down&quot;
+  //
+
+  // &quot;up&quot;
+  // alias: &quot;release&quot;
+  //
+  // Fired when any nunchuk button is &quot;up&quot;
+  //
+
+  // &quot;hold&quot;
+  //
+  // Fired when any nunchuk button is in the &quot;down&quot; state for
+  // a specified amount of time. Defaults to 500ms
+  //
+  // To specify a custom hold time, use the &quot;holdtime&quot;
+  // option of the Nunchuk constructor.
+  //
+
+
+  [&quot;down&quot;, &quot;up&quot;, &quot;hold&quot;].forEach(function(type) {
+
+    nunchuk.on(type, function(err, event) {
+      console.log(
+        event.target.which + &quot; is &quot; + type,
+
+        {
+          isUp: event.target.isUp,
+          isDown: event.target.isDown
+        }
+      );
+    });
+
+  });
+
+
+  // Further reading
+  // http://media.pragprog.com/titles/msard/tinker.pdf
+  // http://lizarum.com/assignments/physical_computing/2008/wii_nunchuck.html
+});
+
+</code></pre>
+<h2>License</h2>
+<p>Copyright (c) 2012, 2013, 2014 Rick Waldron <a href="mailto:waldron.rick@gmail.com">waldron.rick@gmail.com</a>
+Licensed under the MIT license.
+Copyright (c) 2014, 2015 The Johnny-Five Contributors
+Licensed under the MIT license.</p>
+
+
+    </div>
+  </main>
+
+<script src="js/main.js"></script>
+<script src="js/programs.json"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
