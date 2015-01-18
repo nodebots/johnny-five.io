@@ -33,8 +33,8 @@ node_modules
 public/css/*
 public/js/*
 public/img/*
-public/docs/*
-public/docs.html
+public/examples/*
+public/examples.html
 src/johnny-five
 src/johnny-five.wiki
 
