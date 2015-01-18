@@ -264,13 +264,13 @@ module.exports = function(grunt) {
       return extraction.map(function(line) {
         return line
           .replace("https://github.com/rwaldron/johnny-five/blob/master/docs/", "/examples/")
-          .replace(".md", ".html");
+          .replace(".md", ".html")
+          .replace("###", "##");
       }).join("\n");
     });
 
-
     file.write("public/examples.html", templates.eghome({
-      list: markdown.render(examples[0])
+      list: markdown.render(examples[0]).replace(/<ul>/g, "<ul class='docslist'>")
     }));
 
     entries.forEach(function(entry) {
