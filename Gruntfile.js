@@ -283,17 +283,19 @@ module.exports = function(grunt) {
     };
 
     var entries = JSON.parse(file.read(file.expand(this.data)));
+    var titles = JSON.parse(file.read("src/titles.json"));
 
     entries.forEach(function(entry) {
       var isHeading = Array.isArray(entry);
       var heading = isHeading ? entry[0] : null;
-      var example, inpath, outpath;
+      var example, title, inpath, outpath;
 
       if (!isHeading) {
+        title = titles[entry];
         outpath = "public/examples/" + entry.replace(".js", ".html");
         inpath = "src/johnny-five/docs/" + entry.replace(".js", ".md");
         example = markdown.render(
-          file.read(inpath).replace("docs/breadboard/", "../img/breadboard/")
+          file.read(inpath).replace(/\]\(breadboard\//g, "](../img/breadboard/")
         );
 
         Object.keys(remove).forEach(function(key) {
@@ -302,7 +304,7 @@ module.exports = function(grunt) {
 
         // Place it into our html template
         file.write(outpath, templates.eghtml({
-          title: entry,
+          title: title,
           example: example
         }));
       }
