@@ -33,6 +33,8 @@ node_modules
 public/css/*
 public/js/*
 public/img/*
+public/api/*
+public/api.html
 public/examples/*
 public/examples.html
 src/johnny-five
