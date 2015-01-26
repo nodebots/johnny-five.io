@@ -104,6 +104,10 @@ module.exports = function(grunt) {
     examples: {
       files: ["src/johnny-five/programs.json"]
     },
+    api: {
+      files: ["src/johnny-five.wiki/**/*.md"]
+    },
+
     watch: {
       css: {
         files: "src/sass/*.scss",
@@ -251,7 +255,8 @@ module.exports = function(grunt) {
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("install", ["clean:deps", "gitclone"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
-  grunt.registerTask("default", ["clean:build", "examples-list", "examples", "copy", "sass:dist", "uglify"]);
+  grunt.registerTask("regen", ["copy", "examples-list", "examples", "api-list", "api"]);
+  grunt.registerTask("default", ["clean:build", "regen", "copy", "sass:dist", "uglify"]);
 
 
   grunt.registerTask("examples-list", "generate examples list", function() {
@@ -263,21 +268,16 @@ module.exports = function(grunt) {
       return extraction.map(function(line) {
         return line
           .replace("https://github.com/rwaldron/johnny-five/blob/master/docs/", "/examples/")
-          .replace(".md", ".html")
-          .replace("###", "##");
+          .replace(".md", ".html");
       }).join("\n");
     });
 
     file.write("public/examples.html", templates.eghome({
-      list: markdown.render(examples[0]).replace(/<ul>/g, "<ul class='docslist'>")
+      list: markdown.render(examples[0])
     }));
   });
 
   grunt.registerMultiTask("examples", "generate examples", function() {
-    var remove = {
-      license: file.read("tpl/.license.html")
-    };
-
     var templates = {
       eghtml: _.template(file.read("tpl/.eghtml.html")),
     };
@@ -286,42 +286,97 @@ module.exports = function(grunt) {
     var titles = JSON.parse(file.read("src/titles.json"));
 
     entries.forEach(function(entry) {
-      var isHeading = Array.isArray(entry);
-      var heading = isHeading ? entry[0] : null;
-      var example, title, inpath, outpath;
-
-      if (!isHeading) {
-        title = titles[entry];
-        outpath = "public/examples/" + entry.replace(".js", ".html");
-        inpath = "src/johnny-five/docs/" + entry.replace(".js", ".md");
-        example = markdown.render(
-          file.read(inpath).replace(/\]\(breadboard\//g, "](../img/breadboard/")
+      entry.files.forEach(function(value) {
+        var title = titles[value];
+        var outpath = "public/examples/" + value.replace(".js", ".html");
+        var inpath = "src/johnny-five/docs/" + value.replace(".js", ".md");
+        var example = markdown.render(
+          // open file
+          // eliminate sections marked for removal
+          // modify image path
+          // modify displayed fzz
+          remove(file.read(inpath))
+            .replace(/\]\(breadboard\//g, "](../img/breadboard/")
+            .replace(/\]\(docs\/breadboard\//, "")
         );
 
-        Object.keys(remove).forEach(function(key) {
-          example = example.replace(remove[key], "");
-        });
-
+        if (!title) {
+          console.log("Missing title.json entry: ", value);
+        }
         // Place it into our html template
         file.write(outpath, templates.eghtml({
           title: title,
           example: example
         }));
-      }
+      });
     });
   });
 
 
+  grunt.registerTask("api-list", "generate api list", function() {
+    console.log(this.data);
+    // var templates = {
+    //   eghome: _.template(file.read("tpl/.eghome.html")),
+    // };
+
+    // var api = extract("api", file.read("src/johnny-five/README.md")).map(function(extraction) {
+    //   return extraction.map(function(line) {
+    //     return line
+    //       .replace("https://github.com/rwaldron/johnny-five/blob/master/docs/", "/api/")
+    //       .replace(".md", ".html")
+    //       .replace("###", "##");
+    //   }).join("\n");
+    // });
+
+    // file.write("public/api.html", templates.eghome({
+    //   list: markdown.render(api[0]).replace(/<ul>/g, "<ul class='docslist'>")
+    // }));
+  });
+
+  grunt.registerMultiTask("api", "generate api pages", function() {
+    // var remove = {
+    //   license: file.read("tpl/.license.html")
+    // };
+
+    // var templates = {
+    //   eghtml: _.template(file.read("tpl/.eghtml.html")),
+    // };
+
+    // var entries = JSON.parse(file.read(file.expand(this.data)));
+    // var titles = JSON.parse(file.read("src/titles.json"));
+
+    // entries.forEach(function(entry) {
+    //   var isHeading = Array.isArray(entry);
+    //   var heading = isHeading ? entry[0] : null;
+    //   var example, title, inpath, outpath;
+
+    //   if (!isHeading) {
+    //     title = titles[entry];
+    //     outpath = "public/examples/" + entry.replace(".js", ".html");
+    //     inpath = "src/johnny-five/docs/" + entry.replace(".js", ".md");
+    //     example = markdown.render(
+    //       file.read(inpath).replace(/\]\(breadboard\//g, "](../img/breadboard/")
+    //     );
+
+    //     Object.keys(remove).forEach(function(key) {
+    //       example = example.replace(remove[key], "");
+    //     });
+
+    //     // Place it into our html template
+    //     file.write(outpath, templates.eghtml({
+    //       title: title,
+    //       example: example
+    //     }));
+    //   }
+    // });
+  });
+
   function extract(name, source) {
-    var lines = source;
+    var lines = !Array.isArray(source) ? source.split("\n") : source;
     var extraction = 0;
     var extractions = [];
     var isExtraction = false;
     var isNewExtraction = false;
-
-    if (!Array.isArray(lines)) {
-      lines = lines.split("\n");
-    }
 
     lines.forEach(function(line) {
       if (line.includes("extract-end") && line.includes(name)) {
@@ -346,6 +401,34 @@ module.exports = function(grunt) {
     });
 
     return extractions;
+  }
+
+  function remove(source) {
+    var result = [];
+    var lines = !Array.isArray(source) ? source.split("\n") : source;
+    var isRemoval = false;
+    var isRemovalEnd = false;
+
+    lines.forEach(function(line) {
+      if (line.includes("remove-end")) {
+        isRemovalEnd = true;
+      }
+
+      if (line.includes("remove-start")) {
+        isRemoval = true;
+      }
+
+      if (!isRemoval) {
+        result.push(line);
+      }
+
+      if (isRemovalEnd) {
+        isRemovalEnd = false;
+        isRemoval = false;
+      }
+    });
+
+    return result.join("\n").trim();
   }
 };
 

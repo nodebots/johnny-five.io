@@ -25,18 +25,18 @@ h2, h3, h4 {
 	margin: 0;
 }
 
-h2 {
+h3 {
 	font-size: 1.6em;
 	line-height: 1.2;
 }
 @media(min-width: 30em) {
-	h2 {
+	h3 {
 		font-size: 1.8em;
 		font-weight: normal;
 	}
 }
 @media(min-width: 55em) {
-	h2 {
+	h3 {
 		font-size: 2.2em;
 		font-weight: normal;
 	}
@@ -517,7 +517,7 @@ p {
 		padding: 3.5% 0;
 	}
 }
-.docslist {
+.wrap-docs ul {
 	border-radius: .25em;
 	box-shadow: 0 0 3px #ddd;
 	list-style: none;
@@ -525,17 +525,17 @@ p {
 	padding: 0;
 }
 
-.docslist a {
+.wrap-docs ul a {
 	background: #fff;
 	border-bottom: 3px solid #efe222;
 	color: #222;
 	display: block;
 	padding: .85em 1em .7em 1em;
 }
-.docslist li:first-child a {
+.wrap-docs ul li:first-child a {
 	border-radius: .2em .2em 0 0;
 }
-.docslist li:last-of-type a {
+.wrap-docs ul li:last-of-type a {
 	border-radius: 0 0 .2em .2em;
 }
 
