@@ -3,7 +3,9 @@ require("copy-paste");
 var inspect = require("util").inspect;
 var fs = require("fs");
 var Remarkable = require("remarkable");
-var markdown = new Remarkable();
+var markdown = new Remarkable({
+  html: true
+});
 
 module.exports = function(grunt) {
 
@@ -104,10 +106,6 @@ module.exports = function(grunt) {
     examples: {
       files: ["src/johnny-five/programs.json"]
     },
-    api: {
-      files: ["src/johnny-five.wiki/**/*.md"]
-    },
-
     watch: {
       css: {
         files: "src/sass/*.scss",
@@ -255,7 +253,7 @@ module.exports = function(grunt) {
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("install", ["clean:deps", "gitclone"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
-  grunt.registerTask("regen", ["copy", "examples-list", "examples", "api-list", "api"]);
+  grunt.registerTask("regen", ["copy", "examples-list", "examples", "api-docs"]);
   grunt.registerTask("default", ["clean:build", "regen", "copy", "sass:dist", "uglify"]);
 
 
@@ -297,7 +295,7 @@ module.exports = function(grunt) {
           // modify displayed fzz
           remove(file.read(inpath))
             .replace(/\]\(breadboard\//g, "](../img/breadboard/")
-            .replace(/\]\(docs\/breadboard\//, "")
+            .replace(/docs\/breadboard\//g, "")
         );
 
         if (!title) {
@@ -306,69 +304,47 @@ module.exports = function(grunt) {
         // Place it into our html template
         file.write(outpath, templates.eghtml({
           title: title,
-          example: example
+          contents: example
         }));
       });
     });
   });
 
 
-  grunt.registerTask("api-list", "generate api list", function() {
-    console.log(this.data);
-    // var templates = {
-    //   eghome: _.template(file.read("tpl/.eghome.html")),
-    // };
+  grunt.registerTask("api-docs", "generate api docs", function() {
+    var templates = {
+      apihome: _.template(file.read("tpl/.apihome.html")),
+      apihtml: _.template(file.read("tpl/.apihtml.html")),
+    };
 
-    // var api = extract("api", file.read("src/johnny-five/README.md")).map(function(extraction) {
-    //   return extraction.map(function(line) {
-    //     return line
-    //       .replace("https://github.com/rwaldron/johnny-five/blob/master/docs/", "/api/")
-    //       .replace(".md", ".html")
-    //       .replace("###", "##");
-    //   }).join("\n");
-    // });
+    var source = file.read("src/johnny-five.wiki/Home.md");
+    var api = extract("api", source)[0].join("\n");
+    var matches = api.match(/\(https:\/\/github.com\/rwaldron\/johnny-five\/wiki\/(.*)\)/g).map(function(match) {
 
-    // file.write("public/api.html", templates.eghome({
-    //   list: markdown.render(api[0]).replace(/<ul>/g, "<ul class='docslist'>")
-    // }));
-  });
+      var result = match.slice(1, -1);
+      var lastIndex = result.lastIndexOf("/");
+      var title = result.slice(lastIndex + 1);
 
-  grunt.registerMultiTask("api", "generate api pages", function() {
-    // var remove = {
-    //   license: file.read("tpl/.license.html")
-    // };
+      return {
+        title: title,
+        source: "src/johnny-five.wiki/" + title + ".md",
+        target: "api/" + title.toLowerCase() + ".html"
+      };
+    }, {});
 
-    // var templates = {
-    //   eghtml: _.template(file.read("tpl/.eghtml.html")),
-    // };
+    matches.forEach(function(match) {
+      file.write("public/"+ match.target, templates.apihtml({
+        title: match.title,
+        contents: markdown.render(file.read(match.source))
+      }));
+    });
 
-    // var entries = JSON.parse(file.read(file.expand(this.data)));
-    // var titles = JSON.parse(file.read("src/titles.json"));
-
-    // entries.forEach(function(entry) {
-    //   var isHeading = Array.isArray(entry);
-    //   var heading = isHeading ? entry[0] : null;
-    //   var example, title, inpath, outpath;
-
-    //   if (!isHeading) {
-    //     title = titles[entry];
-    //     outpath = "public/examples/" + entry.replace(".js", ".html");
-    //     inpath = "src/johnny-five/docs/" + entry.replace(".js", ".md");
-    //     example = markdown.render(
-    //       file.read(inpath).replace(/\]\(breadboard\//g, "](../img/breadboard/")
-    //     );
-
-    //     Object.keys(remove).forEach(function(key) {
-    //       example = example.replace(remove[key], "");
-    //     });
-
-    //     // Place it into our html template
-    //     file.write(outpath, templates.eghtml({
-    //       title: title,
-    //       example: example
-    //     }));
-    //   }
-    // });
+    file.write("public/api.html", templates.apihome({
+      list: markdown.render(matches.reduce(function(accum, match) {
+        accum += "- [" + match.title + "](" + match.target + ")\n";
+        return accum;
+      }, ""))
+    }));
   });
 
   function extract(name, source) {
