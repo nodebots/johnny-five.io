@@ -1,0 +1,289 @@
+[
+  {
+    "name": "Johnny-Five",
+    "plugin": null,
+    "environment": {
+      "name": "StandardFirmata",
+      "url": "https://github.com/firmata/arduino",
+      "instructions": "https://github.com/rwaldron/johnny-five#setup-and-assemble-arduino"
+    },
+    "relationship": "Host/Client",
+    "via": [
+      "usb",
+      "xbee",
+      "bluetooth"
+    ],
+    "platforms": [
+      {
+        "name": "Arduino Uno",
+        "image": "arduino-uno.png"
+      },
+      {
+        "name": "Arduino Mega",
+        "image": "arduino-mega.png"
+      },
+      {
+        "name": "Arduino Fio",
+        "image": "arduino-fio.png"
+      },
+      {
+        "name": "Arduino Micro",
+        "image": "arduino-micro.png"
+      },
+      {
+        "name": "Arduino Mini",
+        "image": "arduino-mini.png"
+      },
+      {
+        "name": "Arduino Nano",
+        "image": "arduino-nano.png"
+      },
+      {
+        "name": "Arduino Pro Mini",
+        "image": "arduino-pro-mini.png"
+      },
+      {
+        "name": "Spider Robot Controller",
+        "image": "spider-robot-controller.png"
+      },
+      {
+        "name": "Teensy 3",
+        "image": "teensy-3.png"
+      }
+    ]
+  },
+  {
+    "name": "BeagleBone",
+    "plugin": {
+      "name": "BeagleBone-IO",
+      "url": "https://github.com/julianduque/beaglebone-io",
+      "instructions": "https://github.com/julianduque/beaglebone-io#beaglebone-io"
+    },
+    "environment": null,
+    "relationship": "Embedded",
+    "via": [
+      "gpio",
+      "sysfs"
+    ],
+    "platforms": [
+      {
+        "name": "Beaglebone Black",
+        "image": "beaglebone-black.png"
+      }
+    ]
+  },
+  {
+    "name": "Electric Imp",
+    "plugin": {
+      "name": "Imp-IO",
+      "url": "https://github.com/rwaldron/imp-io",
+      "instructions": "https://github.com/rwaldron/imp-io#imp-io-setup"
+    },
+    "environment": {
+      "name": "Tyrion",
+      "url": "https://github.com/rwaldron/tyrion",
+      "instructions": "https://github.com/rwaldron/imp-io#tyrion-setup"
+    },
+    "relationship": "Host/Client",
+    "via": [
+      "HTTP"
+    ],
+    "platforms": [
+      {
+        "name": "Electric Imp April",
+        "image": "electric-imp-april.png"
+      }
+    ]
+  },
+  {
+    "name": "Intel Galileo",
+    "plugin": {
+      "name": "Galileo-IO",
+      "url": "https://github.com/rwaldron/galileo-io",
+      "instructions": "https://github.com/rwaldron/johnny-five/wiki/Getting-started-with-Johnny-Five-and-the-Intel-Galileo-gen2"
+    },
+    "environment": {
+      "name": "IoT DevKit",
+      "url": "https://software.intel.com/en-us/getting-started-for-c-c-plus-plus-eclipse-galileo-and-edison",
+      "instructions": "https://software.intel.com/en-us/getting-started-for-c-c-plus-plus-eclipse-galileo-and-edison"
+    },
+    "relationship": "Embedded",
+    "via": [
+      "gpio",
+      "sysfs",
+      "mraa"
+    ],
+    "platforms": [
+      {
+        "name": "Intel Galileo Gen1",
+        "image": "intel-galileo-gen1.png"
+      },
+      {
+        "name": "Intel Galileo Gen2",
+        "image": "intel-galileo-gen2.png"
+      }
+    ]
+  },
+  {
+    "name": "Intel Edison",
+    "plugin": {
+      "name": "Edison-IO",
+      "url": "https://github.com/rwaldron/edison-io",
+      "instructions": "https://github.com/rwaldron/galileo-io#getting-started"
+    },
+    "environment": {
+      "name": "IoT DevKit",
+      "url": "http://www.intel.com/support/maker/edison.htm",
+      "instructions": "http://www.intel.com/support/maker/edison.htm#how"
+    },
+    "relationship": "Embedded",
+    "via": [
+      "gpio",
+      "sysfs",
+      "mraa"
+    ],
+    "platforms": [
+      {
+        "name": "Intel Edison Arduino",
+        "image": "intel-edison-arduino.png"
+      },
+      {
+        "name": "Intel Edison Mini",
+        "image": "intel-edison-mini.png"
+      }
+    ]
+  },
+  {
+    "name": "LightBlue Bean",
+    "plugin": {
+      "name": "Bean-IO",
+      "url": "https://github.com/monteslu/bean-io",
+      "instructions": "https://github.com/monteslu/bean-io#getting-started"
+    },
+    "environment": {
+      "name": "StandardFirmata",
+      "url": "https://github.com/firmata/arduino",
+      "instructions": "https://punchthrough.com/bean/getting-started-osx/"
+    },
+    "relationship": "Embedded",
+    "via": [
+      "bluetooth"
+    ],
+    "platforms": [
+      {
+        "name": "Light Blue Bean",
+        "image": "light-blue-bean.png"
+      }
+    ]
+  },
+  {
+    "name": "lininoIO",
+    "plugin": {
+      "name": "Nino-IO",
+      "url": "https://github.com/rwaldron/nino-io",
+      "instructions": "https://github.com/rwaldron/nino-io#getting-started"
+    },
+    "environment": {
+      "name": "lininoIO",
+      "url": "https://github.com/linino/linino_distro",
+      "instructions": "http://wiki.linino.org/doku.php?id=wiki:upgradetolininoio"
+    },
+    "relationship": "Embedded",
+    "via": [
+      "gpio",
+      "sysfs"
+    ],
+    "platforms": [
+      {
+        "name": "Linino One",
+        "image": "linino-one.png"
+      },
+      {
+        "name": "Arduino Yun Linino Os",
+        "image": "arduino-yun-linino-os.png"
+      }
+    ]
+  },
+  {
+    "name": "Pinoccio",
+    "plugin": {
+      "name": "Pinoccio-IO",
+      "url": "https://github.com/soldair/pinoccio-io/",
+      "instructions": "https://github.com/rwaldron/spark-io#getting-started"
+    },
+    "environment": {
+      "name": "pinocc.io",
+      "url": "https://github.com/voodootikigod/voodoospark",
+      "instructions": "http://support.pinocc.io/hc/en-us/articles/201439160-Out-of-the-Box"
+    },
+    "relationship": "Embedded",
+    "via": [
+      "WiFi",
+      "TCP server"
+    ],
+    "platforms": [
+      {
+        "name": "Pinoccio",
+        "image": "pinoccio.png"
+      }
+    ]
+  },
+  {
+    "name": "Raspberry Pi",
+    "plugin": {
+      "name": "Raspi-IO",
+      "url": "https://github.com/bryan-m-hughes/raspi-io",
+      "instructions": "https://github.com/bryan-m-hughes/raspi-io/wiki"
+    },
+    "environment": {
+      "name": "Raspian",
+      "url": "http://www.raspbian.org/",
+      "instructions": "http://www.raspbian.org/RaspbianStartHere"
+    },
+    "relationship": "Embedded",
+    "via": [
+      "gpio",
+      "sysfs"
+    ],
+    "platforms": [
+      {
+        "name": "Raspberry Pi Model B Plus",
+        "image": "raspberry-pi-model-b-plus.png"
+      },
+      {
+        "name": "Raspberry Pi Model B Rev 1",
+        "image": "raspberry-pi-model-b-rev-1.png"
+      },
+      {
+        "name": "Raspberry Pi Model B Rev 2",
+        "image": "raspberry-pi-model-b-rev-2.png"
+      }
+    ]
+  },
+  {
+    "name": "Spark Core",
+    "plugin": {
+      "name": "Spark-IO",
+      "url": "https://github.com/rwaldron/spark-io",
+      "instructions": "https://github.com/rwaldron/spark-io#getting-started"
+    },
+    "environment": {
+      "name": "VoodooSpark",
+      "url": "https://github.com/voodootikigod/voodoospark",
+      "instructions": "https://github.com/voodootikigod/voodoospark#loading-the-firmware"
+    },
+    "relationship": "Embedded",
+    "via": [
+      "WiFi",
+      "TCP server"
+    ],
+    "platforms": [
+      {
+        "name": "Spark Core White",
+        "image": "spark-core-white.png"
+      }
+    ]
+  }
+
+
+]
