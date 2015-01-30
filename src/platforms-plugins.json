@@ -3,7 +3,11 @@
     {
       "name": "Arduino",
       "url": "http://www.arduino.cc/",
-      "plugin": null,
+      "plugin": {
+        "name": "",
+        "url": "",
+        "instructions": ""
+      },
       "environment": {
         "name": "StandardFirmata",
         "url": "https://github.com/firmata/arduino",
@@ -432,9 +436,9 @@
         "instructions": "https://github.com/julianduque/beaglebone-io#beaglebone-io"
       },
       "environment": {
-        "name": null,
-        "url": null,
-        "instructions": null,
+        "name": "",
+        "url": "",
+        "instructions": "",
         "relationship": "embedded"
       },
       "via": [
@@ -500,7 +504,7 @@
       "environment": {
         "name": "BLEFirmata",
         "url": "https://github.com/shokai/node-ble-firmata/blob/master/samples/sysex/BLEFirmataWithLedBlink/BLEFirmataWithLedBlink.ino",
-        "instructions": null,
+        "instructions": "",
         "relationship": "host-client"
       },
       "via": [
@@ -1270,6 +1274,6 @@
   ],
   "glossary": {
     "embedded": "The JavaScript program is executed on a board that is capable of running node.js/io.js.",
-    "host-client": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions to the board, acting as a **thin client**."
+    "host-client": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions to the board, which acts as a **thin client**."
   }
 }

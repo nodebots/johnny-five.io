@@ -55,6 +55,11 @@ module.exports = function(grunt) {
         src: "src/sass/type.css",
         dest: "public/css/type.css"
       },
+      anchorcss: {
+        nonull: true,
+        src: "src/sass/anchor.css",
+        dest: "public/css/anchor.css"
+      },
       programs: {
         nonull: true,
         src: "src/johnny-five/programs.json",
@@ -107,6 +112,13 @@ module.exports = function(grunt) {
       files: ["src/johnny-five/programs.json"]
     },
     watch: {
+      regen: {
+        files: "src/**/*.*",
+        tasks: ["regen"],
+        options: {
+          livereload: true
+        },
+      },
       css: {
         files: "src/sass/*.scss",
         tasks: ["sass:dev"],
@@ -157,7 +169,10 @@ module.exports = function(grunt) {
       files: {
         src: [
           "Gruntfile.js",
-          "src/js/**/*.js"
+          "src/js/**/*.js",
+          "!src/js/jquery.js",
+          "!src/js/tablesaw.stackonly.js",
+          "!src/js/es6-shim.js"
         ]
       }
     },
@@ -165,7 +180,11 @@ module.exports = function(grunt) {
       files: {
         src: [
           "Gruntfile.js",
-          "src/js/**/*.js"
+          "src/js/**/*.js",
+          "!src/js/anchor.min.js",
+          "!src/js/jquery.js",
+          "!src/js/tablesaw.stackonly.js",
+          "!src/js/es6-shim.js"
         ]
       },
       options: {
@@ -253,7 +272,7 @@ module.exports = function(grunt) {
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("install", ["clean:deps", "gitclone"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
-  grunt.registerTask("regen", ["copy", "examples-list", "examples", "api-docs", "platform-support"]);
+  grunt.registerTask("regen", ["copy", "uglify", "examples-list", "examples", "api-docs", "platform-support"]);
   grunt.registerTask("default", ["clean:build", "regen", "copy", "sass:dist", "uglify"]);
 
 
@@ -348,40 +367,49 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask("platform-support", "generate platform support", function() {
+    var garbage = ["<thead>","<tr><th>_</th><th>_</th></tr>","</thead>"];
     var templates = {
       platformSupport: _.template(file.read("tpl/.platform-support.html")),
       platformVariant: _.template(file.read("tpl/.platform-variant.html")),
-      // table: _.template("|![](img/platforms/<%= image %> =200px)|<%= platform %>|"),
-      // entry: _.template("|![](img/platforms/<%= image %> =200px)|<%= platform %>|"),
-      // platform: _.template("|<%= name %>)|\n|<%= capabilities %>|"),
     };
 
     var plugins = JSON.parse(file.read("src/platforms-plugins.json"));
+    var glossary = plugins.glossary;
     var contents = "";
 
-
     plugins.platforms.forEach(function(platform) {
+      var plugin = platform.plugin;
+      var env = platform.environment;
+
       platform.variants.forEach(function(variant, index) {
         if (variant.enabled) {
           console.log(variant, variant.capabilities);
-          var header = "|" + variant.capabilities.table[0].join("|") + "|";
-          var bounds = "|" + variant.capabilities.table[0].join("|").replace(/([A-Z ])\w+/g, "-") + "|";
-          var capabilities = "|" + variant.capabilities.table[2].join("|") + "|"
-          var table = [header, bounds, capabilities].join("\n");
-
-          // console.log(markdown.render(table));
+          var first = variant.capabilities.table[0].join("|");
+          var header = "|" + first + "|";
+          var bounds = "|" + first.replace(/([A-Z ])\w+/g, "-") + "|";
+          var capabilities = "|" + variant.capabilities.table[2].join("|") + "|";
+          var capabilitiesA = [header, bounds, capabilities].join("\n");
+          var capabilitiesB = ["|_|_|", "|-|-|"].concat(Object.keys(variant.capabilities.keyed).map(function(key, index) {
+            return "|" + key + "|" + variant.capabilities.keyed[key] + "|";
+          })).join("\n");
 
           contents += templates.platformVariant({
+            capabilitiesA: markdown.render(capabilitiesA),
+            capabilitiesB: strip(markdown.render(capabilitiesB), garbage),
             image: variant.image,
             name: variant.name,
-            capabilities: markdown.render(table)
-          })
+            pluginName: plugin.name,
+            pluginUrl: plugin.url,
+            pluginInstructions: plugin.instructions,
+            envName: env.name,
+            envUrl: env.url,
+            envInstructions: env.instructions,
+            envRelationship: strip(markdown.render(glossary[env.relationship]), ["<p>", "</p>"]),
+          });
         }
       });
     });
 
-
-    // Turn the plugins data into a table
 
     file.write("public/platform-support.html", templates.platformSupport({
       contents: contents
@@ -446,6 +474,10 @@ module.exports = function(grunt) {
     });
 
     return result.join("\n").trim();
+  }
+
+  function strip(text, targets) {
+    return text.replace(new RegExp(targets.join("|"), "g"), "");
   }
 };
 

@@ -1,34 +1,54 @@
+/* global addAnchors: true */
 (function() {
-  var boardsAvailable = [
-      "Arduino",
-      "Electric Imp",
-      "Spark Core",
-      "Intel Galileo",
-      "Intel Edison",
-      "Linino One",
-      "Pinoccio",
-      "Raspberry Pi",
-      "TI Launchpad"
-    ],
-    index = 1;
+  var index = 1;
+  var platforms = [
+    "Arduino",
+    "BeagleBone",
+    "BlendMicro",
+    "Electric Imp",
+    "LightBlue Bean",
+    "Spark Core",
+    "Intel Galileo",
+    "Intel Edison",
+    "Linino One",
+    "Pinoccio",
+    "Raspberry Pi"
+  ];
+  var element = document.querySelector(".js-board-type");
 
-  setInterval(function() {
-    var el = document.querySelector(".js-board-type") || {};
+  if (element) {
+    setInterval(function() {
 
-    if (el.length) {
-      el.style.opacity = 0;
+      element.style.opacity = 0;
 
       setTimeout(function() {
-        el.innerHTML = boardsAvailable[index];
+        element.innerHTML = platforms[index];
         setTimeout(function() {
-          el.style.opacity = 1;
+          element.style.opacity = 1;
         }, 200);
       }, 500);
-    }
 
-    index++;
-    if (index === boardsAvailable.length) {
-      index = 0;
-    }
-  }, 3500);
+      if (++index === platforms.length) {
+        index = 0;
+      }
+    }, 1500);
+  }
+
+  addAnchors("h2, h3");
+
+  var capabilities = document.querySelectorAll(".variant td");
+  var classes = new Map([
+    ["yes", "green"],
+    ["no", "red"]
+  ]);
+
+  if (capabilities.length) {
+    Array.from(capabilities).forEach(function(element) {
+      var contents = element.textContent.trim();
+      console.log(contents, classes.has(contents));
+      if (classes.has(contents)) {
+        element.classList.add(classes.get(contents));
+      }
+    });
+  }
 }());
