@@ -1,7 +1,8 @@
 {
   "platforms": [
     {
-      "name": "Johnny-Five",
+      "name": "Arduino",
+      "url": "http://www.arduino.cc/",
       "plugin": null,
       "environment": {
         "name": "StandardFirmata",
@@ -14,7 +15,7 @@
         "xbee",
         "bluetooth"
       ],
-      "platforms": [
+      "variants": [
         {
           "name": "Arduino Uno",
           "image": "arduino-uno.png"
@@ -55,6 +56,7 @@
     },
     {
       "name": "BeagleBone",
+      "url": "http://beagleboard.org/",
       "plugin": {
         "name": "BeagleBone-IO",
         "url": "https://github.com/julianduque/beaglebone-io",
@@ -70,7 +72,7 @@
         "gpio",
         "sysfs"
       ],
-      "platforms": [
+      "variants": [
         {
           "name": "Beaglebone Black",
           "image": "beaglebone-black.png"
@@ -78,9 +80,10 @@
       ]
     },
     {
-      "name": "Blend Micro",
+      "name": "RedBearLab",
+      "url": "http://redbearlab.com/blendmicro",
       "plugin": {
-        "name": "BeagleBone-IO",
+        "name": "BlendMicro-IO",
         "url": "https://github.com/noopkat/blend-micro-io",
         "instructions": "https://github.com/noopkat/blend-micro-io#how-do-i-install-it"
       },
@@ -93,7 +96,7 @@
       "via": [
         "bluetooth"
       ],
-      "platforms": [
+      "variants": [
         {
           "name": "Blend Micro v1.0",
           "image": "blend-micro-v1.png"
@@ -102,6 +105,7 @@
     },
     {
       "name": "Electric Imp",
+      "url": "https://electricimp.com/",
       "plugin": {
         "name": "Imp-IO",
         "url": "https://github.com/rwaldron/imp-io",
@@ -116,7 +120,7 @@
       "via": [
         "HTTP"
       ],
-      "platforms": [
+      "variants": [
         {
           "name": "Electric Imp April",
           "image": "electric-imp-april.png"
@@ -125,6 +129,7 @@
     },
     {
       "name": "Intel Galileo",
+      "url": "https://www-ssl.intel.com/content/www/us/en/do-it-yourself/galileo-maker-quark-board.html",
       "plugin": {
         "name": "Galileo-IO",
         "url": "https://github.com/rwaldron/galileo-io",
@@ -141,19 +146,20 @@
         "sysfs",
         "mraa"
       ],
-      "platforms": [
+      "variants": [
         {
-          "name": "Intel Galileo Gen1",
+          "name": "Intel Galileo Gen 1",
           "image": "intel-galileo-gen1.png"
         },
         {
-          "name": "Intel Galileo Gen2",
+          "name": "Intel Galileo Gen 2",
           "image": "intel-galileo-gen2.png"
         }
       ]
     },
     {
       "name": "Intel Edison",
+      "url": "https://www-ssl.intel.com/content/www/us/en/do-it-yourself/edison.html",
       "plugin": {
         "name": "Edison-IO",
         "url": "https://github.com/rwaldron/edison-io",
@@ -170,7 +176,7 @@
         "sysfs",
         "mraa"
       ],
-      "platforms": [
+      "variants": [
         {
           "name": "Intel Edison Arduino",
           "image": "intel-edison-arduino.png"
@@ -182,7 +188,8 @@
       ]
     },
     {
-      "name": "LightBlue Bean",
+      "name": "LightBlue",
+      "url": "https://punchthrough.com/bean/",
       "plugin": {
         "name": "Bean-IO",
         "url": "https://github.com/monteslu/bean-io",
@@ -197,7 +204,7 @@
       "via": [
         "bluetooth"
       ],
-      "platforms": [
+      "variants": [
         {
           "name": "Light Blue Bean",
           "image": "light-blue-bean.png"
@@ -206,6 +213,7 @@
     },
     {
       "name": "lininoIO",
+      "url": "http://www.linino.org/",
       "plugin": {
         "name": "Nino-IO",
         "url": "https://github.com/rwaldron/nino-io",
@@ -221,7 +229,7 @@
         "gpio",
         "sysfs"
       ],
-      "platforms": [
+      "variants": [
         {
           "name": "Linino One",
           "image": "linino-one.png"
@@ -234,6 +242,7 @@
     },
     {
       "name": "Pinoccio",
+      "url": "https://pinocc.io/",
       "plugin": {
         "name": "Pinoccio-IO",
         "url": "https://github.com/soldair/pinoccio-io/",
@@ -249,15 +258,16 @@
         "WiFi",
         "TCP server"
       ],
-      "platforms": [
+      "variants": [
         {
-          "name": "Pinoccio",
+          "name": "Pinoccio Scout",
           "image": "pinoccio.png"
         }
       ]
     },
     {
       "name": "Raspberry Pi",
+      "url": "http://www.raspberrypi.org/",
       "plugin": {
         "name": "Raspi-IO",
         "url": "https://github.com/bryan-m-hughes/raspi-io",
@@ -273,7 +283,7 @@
         "gpio",
         "sysfs"
       ],
-      "platforms": [
+      "variants": [
         {
           "name": "Raspberry Pi Model B Plus",
           "image": "raspberry-pi-model-b-plus.png"
@@ -289,7 +299,8 @@
       ]
     },
     {
-      "name": "Spark Core",
+      "name": "Spark",
+      "url": "https://www.spark.io/",
       "plugin": {
         "name": "Spark-IO",
         "url": "https://github.com/rwaldron/spark-io",
@@ -305,9 +316,9 @@
         "wifi",
         "tcp server"
       ],
-      "platforms": [
+      "variants": [
         {
-          "name": "Spark Core White",
+          "name": "Spark Core",
           "image": "spark-core-white.png"
         }
       ]

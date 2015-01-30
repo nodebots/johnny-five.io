@@ -1,0 +1,25 @@
+Platform,Variant,Analog Read,Digital Read,Digital Write,PWM,I2C,One Wire,Stepper
+Arduino,Uno,yes,yes,yes,yes,yes,yes,yes
+Arduino,Mega,yes,yes,yes,yes,yes,yes,yes
+Arduino,Fio,yes,yes,yes,yes,yes,yes,yes
+Arduino,Micro,yes,yes,yes,yes,yes,yes,yes
+Arduino,Mini,yes,yes,yes,yes,yes,yes,yes
+Arduino,Nano,yes,yes,yes,yes,yes,yes,yes
+Arduino,Pro Mini,yes,yes,yes,yes,yes,yes,yes
+Teensy,3,yes,yes,yes,yes,yes,yes,yes
+Spider,Robot Controller,yes,yes,yes,yes,yes,yes,yes
+BeagleBone,Black,yes,yes,yes,yes,yes,no,no
+Blend Micro,v1.0,yes,yes,yes,yes,yes,no,no
+Electric Imp,April,yes,yes,yes,yes,yes,no,no
+Intel Galileo,Gen 1,yes,yes,yes,yes,yes,no,no
+Intel Galileo,Gen 2,yes,yes,yes,yes,yes,no,no
+Intel Edison,Arduino,yes,yes,yes,yes,yes,no,no
+Intel Edison,Mini,yes,yes,yes,yes,yes,no,no
+LightBlue,Bean,yes,yes,yes,yes,yes,no,no
+lininoIO,Linino One,yes,yes,yes,yes,no,no,no
+lininoIO,Arduino Yun,yes,yes,yes,yes,no,no,no
+Pinoccio,Scout,yes,yes,yes,yes,no,no,no
+Raspberry Pi,Model B Plus,no,yes,yes,yes,no,no,no
+Raspberry Pi,Model B Rev 1,no,yes,yes,yes,no,no,no
+Raspberry Pi,Model B Rev 2,no,yes,yes,yes,no,no,no
+Spark,Core,yes,yes,yes,yes,no,no,no
