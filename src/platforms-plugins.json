@@ -18,39 +18,327 @@
       "variants": [
         {
           "name": "Arduino Uno",
-          "image": "arduino-uno.png"
+          "image": "arduino-uno.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "yes",
+              "Stepper": "yes"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          }
         },
         {
           "name": "Arduino Mega",
-          "image": "arduino-mega.png"
+          "image": "arduino-mega.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "yes",
+              "Stepper": "yes"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          }
         },
         {
           "name": "Arduino Fio",
-          "image": "arduino-fio.png"
+          "image": "arduino-fio.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "yes",
+              "Stepper": "yes"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          }
         },
         {
           "name": "Arduino Micro",
-          "image": "arduino-micro.png"
+          "image": "arduino-micro.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "yes",
+              "Stepper": "yes"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          }
         },
         {
           "name": "Arduino Mini",
-          "image": "arduino-mini.png"
+          "image": "arduino-mini.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "yes",
+              "Stepper": "yes"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          }
         },
         {
           "name": "Arduino Nano",
-          "image": "arduino-nano.png"
+          "image": "arduino-nano.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "yes",
+              "Stepper": "yes"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          }
         },
         {
           "name": "Arduino Pro Mini",
-          "image": "arduino-pro-mini.png"
+          "image": "arduino-pro-mini.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "yes",
+              "Stepper": "yes"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          }
         },
         {
           "name": "Spider Robot Controller",
-          "image": "spider-robot-controller.png"
+          "image": "spider-robot-controller.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "yes",
+              "Stepper": "yes"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          }
         },
         {
           "name": "Teensy 3",
-          "image": "teensy-3.png"
+          "image": "teensy-3.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "yes",
+              "Stepper": "yes"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          }
         }
       ]
     },
@@ -74,8 +362,40 @@
       ],
       "variants": [
         {
-          "name": "Beaglebone Black",
-          "image": "beaglebone-black.png"
+          "name": "BeagleBone Black",
+          "image": "beaglebone-black.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+              ]
+            ]
+          }
         }
       ]
     },
@@ -99,7 +419,39 @@
       "variants": [
         {
           "name": "Blend Micro v1.0",
-          "image": "blend-micro-v1.png"
+          "image": "blend-micro-v1.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+              ]
+            ]
+          }
         }
       ]
     },
@@ -123,7 +475,39 @@
       "variants": [
         {
           "name": "Electric Imp April",
-          "image": "electric-imp-april.png"
+          "image": "electric-imp-april.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+              ]
+            ]
+          }
         }
       ]
     },
@@ -149,11 +533,75 @@
       "variants": [
         {
           "name": "Intel Galileo Gen 1",
-          "image": "intel-galileo-gen1.png"
+          "image": "intel-galileo-gen1.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+              ]
+            ]
+          }
         },
         {
           "name": "Intel Galileo Gen 2",
-          "image": "intel-galileo-gen2.png"
+          "image": "intel-galileo-gen2.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+              ]
+            ]
+          }
         }
       ]
     },
@@ -179,11 +627,75 @@
       "variants": [
         {
           "name": "Intel Edison Arduino",
-          "image": "intel-edison-arduino.png"
+          "image": "intel-edison-arduino.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+              ]
+            ]
+          }
         },
         {
           "name": "Intel Edison Mini",
-          "image": "intel-edison-mini.png"
+          "image": "intel-edison-mini.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+              ]
+            ]
+          }
         }
       ]
     },
@@ -206,13 +718,45 @@
       ],
       "variants": [
         {
-          "name": "Light Blue Bean",
-          "image": "light-blue-bean.png"
+          "name": "LightBlue Bean",
+          "image": "light-blue-bean.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+              ]
+            ]
+          }
         }
       ]
     },
     {
-      "name": "lininoIO",
+      "name": "Linino",
       "url": "http://www.linino.org/",
       "plugin": {
         "name": "Nino-IO",
@@ -220,7 +764,7 @@
         "instructions": "https://github.com/rwaldron/nino-io#getting-started"
       },
       "environment": {
-        "name": "lininoIO",
+        "name": "Linino",
         "url": "https://github.com/linino/linino_distro",
         "instructions": "http://wiki.linino.org/doku.php?id=wiki:upgradetolininoio",
         "relationship": "embedded"
@@ -232,11 +776,44 @@
       "variants": [
         {
           "name": "Linino One",
-          "image": "linino-one.png"
+          "image": "linino-one.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "no",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
         },
         {
-          "name": "Arduino Yun Linino Os",
-          "image": "arduino-yun-linino-os.png"
+          "name": "Linino Arduino Yun",
+          "image": "arduino-yun-linino-os.png",
+          "enabled": false
         }
       ]
     },
@@ -261,7 +838,39 @@
       "variants": [
         {
           "name": "Pinoccio Scout",
-          "image": "pinoccio.png"
+          "image": "pinoccio.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "no",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
         }
       ]
     },
@@ -286,15 +895,111 @@
       "variants": [
         {
           "name": "Raspberry Pi Model B Plus",
-          "image": "raspberry-pi-model-b-plus.png"
+          "image": "raspberry-pi-model-b-plus.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "no",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "no",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                0,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
         },
         {
           "name": "Raspberry Pi Model B Rev 1",
-          "image": "raspberry-pi-model-b-rev-1.png"
+          "image": "raspberry-pi-model-b-rev-1.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "no",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "no",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                0,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
         },
         {
           "name": "Raspberry Pi Model B Rev 2",
-          "image": "raspberry-pi-model-b-rev-2.png"
+          "image": "raspberry-pi-model-b-rev-2.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "no",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "no",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                0,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
         }
       ]
     },
@@ -319,13 +1024,44 @@
       "variants": [
         {
           "name": "Spark Core",
-          "image": "spark-core-white.png"
+          "image": "spark-core-white.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "no",
+              "One Wire": "no",
+              "Stepper": "no"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
         }
       ]
     }
   ],
   "glossary": {
-
     "embedded": "The JavaScript program is executed on a board that is capable of running node.js/io.js.",
     "host-client": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions to the board, acting as a **thin client**."
   }

@@ -16,8 +16,8 @@ Intel Galileo,Gen 2,yes,yes,yes,yes,yes,no,no
 Intel Edison,Arduino,yes,yes,yes,yes,yes,no,no
 Intel Edison,Mini,yes,yes,yes,yes,yes,no,no
 LightBlue,Bean,yes,yes,yes,yes,yes,no,no
-lininoIO,Linino One,yes,yes,yes,yes,no,no,no
-lininoIO,Arduino Yun,yes,yes,yes,yes,no,no,no
+Linino,One,yes,yes,yes,yes,no,no,no
+Linino,Arduino Yun,yes,yes,yes,yes,no,no,no
 Pinoccio,Scout,yes,yes,yes,yes,no,no,no
 Raspberry Pi,Model B Plus,no,yes,yes,yes,no,no,no
 Raspberry Pi,Model B Rev 1,no,yes,yes,yes,no,no,no
