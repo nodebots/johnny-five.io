@@ -1,7 +1,30 @@
-<div class="wrap-b support">
+<div class="wrap-d platforms">
   <img src="img/platforms/<%= image %>" class="thumb">
-  <div class="teaser">
+  <div class="variant">
     <h2 class="sec-hed"><%= name %></h2>
-    <%= capabilities %>
+
+    <ul>
+    <% if (pluginName) { %>
+      <li>IO Plug-in: <a href="<%= pluginUrl %>"><%= pluginName %></a>
+        <% if (pluginInstructions) { %>
+        (<a href="<%= pluginInstructions %>">additional instructions</a>)
+        <% } %>
+      </li>
+    <% } %>
+    <% if (envName) { %>
+      <li>Firmware/Runtime: <a href="<%= envUrl %>"><%= envName %></a>
+        <% if (envInstructions) { %>
+        (<a href="<%= envInstructions %>">additional instructions</a>)
+        <% } %>
+      </li>
+      <li>
+        <%= envRelationship %>
+      </li>
+    <% } %>
+
+    </ul>
+
+    <%= capabilitiesA %>
+    <%= capabilitiesB %>
   </div>
 </div>
