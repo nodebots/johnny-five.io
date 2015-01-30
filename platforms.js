@@ -26,7 +26,7 @@ csv.parse(support, {}, function(err, output) {
         }, {}),
         table: [ capabilities, row.slice(1).map(function(value) {
           return value === "yes" ? 1 : 0;
-        })]
+        }), row.slice(1)]
       }
     });
     return accum;
