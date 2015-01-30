@@ -253,13 +253,13 @@ module.exports = function(grunt) {
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("install", ["clean:deps", "gitclone"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
-  grunt.registerTask("regen", ["copy", "examples-list", "examples", "api-docs"]);
+  grunt.registerTask("regen", ["copy", "examples-list", "examples", "api-docs", "platform-support"]);
   grunt.registerTask("default", ["clean:build", "regen", "copy", "sass:dist", "uglify"]);
 
 
   grunt.registerTask("examples-list", "generate examples list", function() {
     var templates = {
-      eghome: _.template(file.read("tpl/.eghome.html")),
+      examples: _.template(file.read("tpl/.examples.html")),
     };
 
     var examples = extract("examples", file.read("src/johnny-five/README.md")).map(function(extraction) {
@@ -270,14 +270,14 @@ module.exports = function(grunt) {
       }).join("\n");
     });
 
-    file.write("public/examples.html", templates.eghome({
+    file.write("public/examples.html", templates.examples({
       list: markdown.render(examples[0])
     }));
   });
 
   grunt.registerMultiTask("examples", "generate examples", function() {
     var templates = {
-      eghtml: _.template(file.read("tpl/.eghtml.html")),
+      examplehtml: _.template(file.read("tpl/.examplehtml.html")),
     };
 
     var entries = JSON.parse(file.read(file.expand(this.data)));
@@ -302,7 +302,7 @@ module.exports = function(grunt) {
           console.log("Missing title.json entry: ", value);
         }
         // Place it into our html template
-        file.write(outpath, templates.eghtml({
+        file.write(outpath, templates.examplehtml({
           title: title,
           contents: example
         }));
@@ -313,7 +313,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask("api-docs", "generate api docs", function() {
     var templates = {
-      apihome: _.template(file.read("tpl/.apihome.html")),
+      api: _.template(file.read("tpl/.api.html")),
       apihtml: _.template(file.read("tpl/.apihtml.html")),
     };
 
@@ -339,11 +339,52 @@ module.exports = function(grunt) {
       }));
     });
 
-    file.write("public/api.html", templates.apihome({
+    file.write("public/api.html", templates.api({
       list: markdown.render(matches.reduce(function(accum, match) {
         accum += "- [" + match.title + "](" + match.target + ")\n";
         return accum;
       }, ""))
+    }));
+  });
+
+  grunt.registerTask("platform-support", "generate platform support", function() {
+    var templates = {
+      platformSupport: _.template(file.read("tpl/.platform-support.html")),
+      platformVariant: _.template(file.read("tpl/.platform-variant.html")),
+      // table: _.template("|![](img/platforms/<%= image %> =200px)|<%= platform %>|"),
+      // entry: _.template("|![](img/platforms/<%= image %> =200px)|<%= platform %>|"),
+      // platform: _.template("|<%= name %>)|\n|<%= capabilities %>|"),
+    };
+
+    var plugins = JSON.parse(file.read("src/platforms-plugins.json"));
+    var contents = "";
+
+
+    plugins.platforms.forEach(function(platform) {
+      platform.variants.forEach(function(variant, index) {
+        if (variant.enabled) {
+          console.log(variant, variant.capabilities);
+          var header = "|" + variant.capabilities.table[0].join("|") + "|";
+          var bounds = "|" + variant.capabilities.table[0].join("|").replace(/([A-Z ])\w+/g, "-") + "|";
+          var capabilities = "|" + variant.capabilities.table[2].join("|") + "|"
+          var table = [header, bounds, capabilities].join("\n");
+
+          // console.log(markdown.render(table));
+
+          contents += templates.platformVariant({
+            image: variant.image,
+            name: variant.name,
+            capabilities: markdown.render(table)
+          })
+        }
+      });
+    });
+
+
+    // Turn the plugins data into a table
+
+    file.write("public/platform-support.html", templates.platformSupport({
+      contents: contents
     }));
   });
 
