@@ -27,7 +27,7 @@
         <img src="../img/js-logo.png">
       </picture>
 
-      <a href="/">Getting Started</a>
+      <a href="/">Home</a>
       <a href="/api.html" class="current">API Documentation</a>
       <a href="/examples.html">Examples</a>
       <a href="/platform-support.html">Platform Support</a>
@@ -41,9 +41,13 @@
 
   <main class="central">
     <div class="wrap-a wrap-docs">
+      <nav id="api-nav" class="api-nav-content">
+        <%= list %>
+      </nav>
 
+      <div class="api-content">
       <%= contents %>
-
+      </div>
     </div>
   </main>
 
