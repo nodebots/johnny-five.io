@@ -386,7 +386,7 @@ module.exports = function(grunt) {
 
       platform.variants.forEach(function(variant, index) {
         if (variant.enabled) {
-          console.log(variant, variant.capabilities);
+          // console.log(variant, variant.capabilities);
           var first = variant.capabilities.table[0].join("|");
           var header = "|" + first + "|";
           var bounds = "|" + first.replace(/([A-Z ])\w+/g, "-") + "|";
