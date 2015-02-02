@@ -526,6 +526,11 @@ p {
     float: none;
   }
 
+  .hello {
+    width: 100%;
+  }
+
+
   /*Wide Table*/
   .platforms table:first-of-type {
     margin: 1%;
@@ -646,6 +651,12 @@ p {
 @media (min-width: 45em ) {
   .wrap-docs {
     padding: 3.5% 0;
+  }
+
+  .wrap-docs:last-child:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 }
 /*.wrap-docs ul {
