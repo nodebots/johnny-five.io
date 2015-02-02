@@ -210,10 +210,10 @@ module.exports = function(grunt) {
           "do", "while", "for",
           "return", "typeof", "void",
         ],
-        validateQuoteMarks: {
-          mark: "\"",
-          escape: true
-        }
+        // validateQuoteMarks: {
+        //   mark: "\"",
+        //   escape: true
+        // }
       }
     },
     jsbeautifier: {
@@ -296,7 +296,7 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask("examples", "generate examples", function() {
     var templates = {
-      examplehtml: _.template(file.read("tpl/.examplehtml.html")),
+      exampleContent: _.template(file.read("tpl/.example-content.html")),
     };
 
     var entries = JSON.parse(file.read(file.expand(this.data)));
@@ -321,7 +321,7 @@ module.exports = function(grunt) {
           console.log("Missing title.json entry: ", value);
         }
         // Place it into our html template
-        file.write(outpath, templates.examplehtml({
+        file.write(outpath, templates.exampleContent({
           title: title,
           contents: example
         }));
@@ -333,7 +333,7 @@ module.exports = function(grunt) {
   grunt.registerTask("api-docs", "generate api docs", function() {
     var templates = {
       api: _.template(file.read("tpl/.api.html")),
-      apihtml: _.template(file.read("tpl/.apihtml.html")),
+      apiContent: _.template(file.read("tpl/.api-content.html")),
     };
 
     var source = file.read("src/johnny-five.wiki/Home.md");
@@ -351,18 +351,21 @@ module.exports = function(grunt) {
       };
     }, {});
 
+    var list = markdown.render(matches.reduce(function(accum, match) {
+      accum += "- [" + match.title + "](/" + match.target + ")\n";
+      return accum;
+    }, ""));
+
     matches.forEach(function(match) {
-      file.write("public/"+ match.target, templates.apihtml({
+      file.write("public/"+ match.target, templates.apiContent({
         title: match.title,
+        list: list,
         contents: markdown.render(file.read(match.source))
       }));
     });
 
     file.write("public/api.html", templates.api({
-      list: markdown.render(matches.reduce(function(accum, match) {
-        accum += "- [" + match.title + "](" + match.target + ")\n";
-        return accum;
-      }, ""))
+      list: list
     }));
   });
 

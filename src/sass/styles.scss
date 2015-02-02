@@ -482,6 +482,16 @@ p {
   display: table;
 }
 
+.api-nav-content {
+  display: none;
+}
+
+.api-nav-content ul {
+  list-style-type: none;
+  padding: 0;
+
+}
+
 /*.platforms .teaser ul {
   display: none;
 }*/
@@ -497,6 +507,9 @@ p {
   .support img {
     margin: 0 0 0 5%;
     float: right;
+  }
+  .hello img {
+    margin-bottom: 0;
   }
   .platforms h2 {
     margin: 0 2% 2% 2%;
@@ -522,6 +535,23 @@ p {
   .platforms table:last-of-type {
     display: none;
   }
+
+  .api-nav-content {
+    display: inline-block;
+  }
+
+  .api-nav-content ul {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .api-content {
+    width: 80%;
+    float: right;
+    /*clear: both;*/
+  }
+
 }
 
 
@@ -548,7 +578,11 @@ p {
   .usedby {
     padding: 6.5% 0;
   }
+  .hello .teaser {
+    padding: 0 0;
+  }
 }
+
 .thumb-post .sec-hed {
   width: 100%;
   margin-bottom: 1.5em;

@@ -1,5 +1,58 @@
-/* global addAnchors: true */
+/* global addAnchors: true, location: true, hljs: true */
 (function() {
+  var hello = "";
+  var hellos = {
+    arduino: [
+      'var five = require("johnny-five");',
+      'var board = new five.Board();',
+      '',
+      'board.on("ready", function() {',
+      '  var led = new five.Led(13);',
+      '  led.blink(500);',
+      '});'
+    ],
+    beaglebone: [
+      'var five = require("johnny-five");',
+      'var BeagleBone = require("beaglebone-io");',
+      'var board = new five.Board({',
+      '  io: new BeagleBone()',
+      '});',
+      '',
+      'board.on("ready", function() {',
+      '  var led = new five.Led("P9_14");',
+      '  led.blink(500);',
+      '});'
+    ],
+    edison: [
+      'var five = require("johnny-five");',
+      'var Edison = require("edison-io");',
+      'var board = new five.Board({',
+      '  io: new Edison()',
+      '});',
+      '',
+      'board.on("ready", function() {',
+      '  var led = new five.Led(0);',
+      '  led.blink(500);',
+      '});'
+    ],
+    spark: [
+      'var five = require("johnny-five");',
+      'var Spark = require("spark-io");',
+      'var board = new five.Board({',
+      '  io: new Spark({',
+      '    token: process.env.SPARK_TOKEN,',
+      '    deviceId: process.env.SPARK_DEVICE_ID',
+      '  })',
+      '});',
+      '',
+      'board.on("ready", function() {',
+      '  var led = new five.Led(0);',
+      '  led.blink(500);',
+      '});'
+    ],
+  };
+
+
   var index = 1;
   var platforms = [
     "Arduino",
@@ -14,17 +67,17 @@
     "Pinoccio",
     "Raspberry Pi"
   ];
-  var element = document.querySelector(".js-board-type");
+  var platform = document.querySelector(".js-board-type");
 
-  if (element) {
+  if (platform) {
     setInterval(function() {
 
-      element.style.opacity = 0;
+      platform.style.opacity = 0;
 
       setTimeout(function() {
-        element.innerHTML = platforms[index];
+        platform.innerHTML = platforms[index];
         setTimeout(function() {
-          element.style.opacity = 1;
+          platform.style.opacity = 1;
         }, 200);
       }, 500);
 
@@ -32,6 +85,30 @@
         index = 0;
       }
     }, 1500);
+
+    document.body.addEventListener("click", function(event) {
+      if (event.target.dataset.hello) {
+        event.preventDefault();
+        sayHello(event.target.dataset.hello);
+      }
+    });
+  }
+
+  function sayHello(key) {
+    var keys = Object.keys(hellos);
+    var index = keys.indexOf(key);
+    var block = document.querySelector(".hello pre code");
+
+    document.querySelector("#hello-scene").src = "img/led-scene-" + index + ".gif";
+    block.textContent = hellos[key].join("\n");
+    hljs.highlightBlock(block);
+  }
+
+  if (location.hash && platform) {
+    hello = location.hash.slice(1);
+    if (hellos[hello]) {
+      sayHello(hello);
+    }
   }
 
   addAnchors("h2, h3");
@@ -51,4 +128,6 @@
       }
     });
   }
+
+
 }());

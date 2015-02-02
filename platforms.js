@@ -17,16 +17,17 @@ csv.parse(support, {}, function(err, output) {
   var capabilities = fields.slice(1);
   var rows = output.slice(1).map(toVariant);
   var variants = rows.reduce(function(accum, row) {
+    var data = row.slice(1);
     accum.push({
       name: row[0],
       capabilities: {
-        keyed: row.slice(1).reduce(function(accum, value, index) {
+        keyed: data.reduce(function(accum, value, index) {
           accum[capabilities[index]] = value;
           return accum;
         }, {}),
-        table: [ capabilities, row.slice(1).map(function(value) {
+        table: [ capabilities, data.map(function(value) {
           return value === "yes" ? 1 : 0;
-        }), row.slice(1)]
+        }), data ]
       }
     });
     return accum;
@@ -47,7 +48,7 @@ csv.parse(support, {}, function(err, output) {
 
   console.log(JSON.stringify(plugins, null, 2));
 
-  fs.writeFile("src/platforms-plugins.json", JSON.stringify(plugins, null, 2), "utf8")
+  fs.writeFile("src/platforms-plugins.json", JSON.stringify(plugins, null, 2), "utf8");
 });
 
 
