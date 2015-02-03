@@ -482,14 +482,31 @@ p {
   display: table;
 }
 
-.api-nav-content {
+/*
+
+api.html and all api pages have this id.
+only api pages have the class .api-nav-list.
+
+The reason is so that api.html always shows the list, while
+the api pages only show the list if there is adequate screen space.
+*/
+#api-nav h4 {
+  font-weight: bold;
+}
+
+#api-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.api-nav-list {
   display: none;
 }
 
-.api-nav-content ul {
+.api-anchors {
+  display: none;
+  margin: 0;
   list-style-type: none;
-  padding: 0;
-
 }
 
 /*.platforms .teaser ul {
@@ -541,11 +558,11 @@ p {
     display: none;
   }
 
-  .api-nav-content {
+  .api-nav-list {
     display: inline-block;
   }
 
-  .api-nav-content ul {
+  #api-nav ul {
     display: inline-block;
     list-style-type: none;
     padding: 0;
@@ -554,9 +571,16 @@ p {
   .api-content {
     width: 80%;
     float: right;
-    /*clear: both;*/
   }
 
+  .api-anchors {
+    padding: 0;
+    display: inline-flex;
+  }
+
+  .api-anchors li {
+    padding-right: 10px;
+  }
 }
 
 

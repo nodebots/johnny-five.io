@@ -62,7 +62,7 @@ module.exports = function(grunt) {
       },
       programs: {
         nonull: true,
-        src: "src/johnny-five/programs.json",
+        src: "src/johnny-five/tpl/programs.json",
         dest: "public/js/programs.json"
       },
       breadboards: {
@@ -109,7 +109,7 @@ module.exports = function(grunt) {
       }
     },
     examples: {
-      files: ["src/johnny-five/programs.json"]
+      files: ["src/johnny-five/tpl/programs.json"]
     },
     watch: {
       regen: {
@@ -281,6 +281,8 @@ module.exports = function(grunt) {
       examples: _.template(file.read("tpl/.examples.html")),
     };
 
+    var titles = JSON.parse(file.read("src/johnny-five/tpl/titles.json"));
+
     var examples = extract("examples", file.read("src/johnny-five/README.md")).map(function(extraction) {
       return extraction.map(function(line) {
         return line
@@ -289,8 +291,11 @@ module.exports = function(grunt) {
       }).join("\n");
     });
 
+    // Only care about the first item in this particular list;
+    examples = examples[0];
+
     file.write("public/examples.html", templates.examples({
-      list: markdown.render(examples[0])
+      list: markdown.render(examples)
     }));
   });
 
@@ -300,7 +305,8 @@ module.exports = function(grunt) {
     };
 
     var entries = JSON.parse(file.read(file.expand(this.data)));
-    var titles = JSON.parse(file.read("src/titles.json"));
+    var titles = JSON.parse(file.read("src/johnny-five/tpl/titles.json"));
+    var missing = [];
 
     entries.forEach(function(entry) {
       entry.files.forEach(function(value) {
@@ -318,7 +324,7 @@ module.exports = function(grunt) {
         );
 
         if (!title) {
-          console.log("Missing title.json entry: ", value);
+          missing.push(value);
         }
         // Place it into our html template
         file.write(outpath, templates.exampleContent({
@@ -327,6 +333,17 @@ module.exports = function(grunt) {
         }));
       });
     });
+
+    if (missing.length) {
+      console.log("Missing title.json entries: ");
+      console.log("");
+
+      missing.forEach(function(file) {
+        console.log('  "' + file + '": "",');
+      });
+
+      console.log("");
+    }
   });
 
 
@@ -481,6 +498,19 @@ module.exports = function(grunt) {
 
   function strip(text, targets) {
     return text.replace(new RegExp(targets.join("|"), "g"), "");
+  }
+
+  function slug(text) {
+    var title = [
+      [/^.+\//, ""],
+      [/\.js/, ""],
+      [/\-/g, " "]
+    ].reduce(function(accum, args) {
+      accum = "".replace.apply(accum, args);
+      return accum;
+    }, text);
+
+    return _.titleize(title);
   }
 };
 
