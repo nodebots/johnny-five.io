@@ -272,7 +272,7 @@ module.exports = function(grunt) {
 
   // Default task(s).
   // grunt.registerTask("default", ["uglify"]);
-  grunt.registerTask("install", ["clean:deps", "gitclone"]);
+  grunt.registerTask("bootstrap", ["clean:deps", "gitclone"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
   grunt.registerTask("regen", ["copy", "uglify", "examples-list", "examples", "api-docs", "platform-support"]);
   grunt.registerTask("default", ["clean:build", "regen", "copy", "sass:dist", "uglify"]);

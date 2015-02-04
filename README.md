@@ -21,13 +21,13 @@ npm install;
 
 ### Build
 
-Download and install remote content repos: 
+Bootstrap site content from remote repos: 
 
 ```
-grunt install
+grunt bootstrap
 ```
 
-Regenerate all content from remote sources: 
+Regenerate all local content from remote content sources: 
 
 ```
 grunt regen
