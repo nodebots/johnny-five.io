@@ -40,8 +40,8 @@
       'var Spark = require("spark-io");',
       'var board = new five.Board({',
       '  io: new Spark({',
-      '    token: process.env.SPARK_TOKEN,',
-      '    deviceId: process.env.SPARK_DEVICE_ID',
+      '    token: SPARK_TOKEN,',
+      '    deviceId: SPARK_DEVICE_ID',
       '  })',
       '});',
       '',
@@ -51,7 +51,6 @@
       '});'
     ],
   };
-
 
   var index = 1;
   var platforms = [
@@ -99,7 +98,14 @@
     var index = keys.indexOf(key);
     var block = document.querySelector(".hello pre code");
 
-    document.querySelector("#hello-scene").src = "img/led-scene-" + index + ".gif";
+    if (typeof sayHello.scenes === "undefined") {
+      sayHello.scenes = Array.from(document.querySelectorAll(".hello-scene"));
+    }
+
+    sayHello.scenes.forEach(function(scene) {
+      scene.src = "img/led-scene-" + index + ".gif";
+    });
+
     block.textContent = hellos[key].join("\n");
     hljs.highlightBlock(block);
   }
@@ -122,7 +128,6 @@
   if (capabilities.length) {
     Array.from(capabilities).forEach(function(element) {
       var contents = element.textContent.trim();
-      console.log(contents, classes.has(contents));
       if (classes.has(contents)) {
         element.classList.add(classes.get(contents));
       }

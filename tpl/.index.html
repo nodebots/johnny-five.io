@@ -1,0 +1,120 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Johnny-Five</title>
+  <meta name="description" content="Johnny-Five is an Open Source IoT and robotics programming framework">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="fonts" content="css/type.css">
+
+  <script src="js/fontloader.js" id="fontloader"></script>
+  <script src="js/anchor.min.js" id="anchor.js"></script>
+  <script src="js/es6-shim.js" id="es6-shim.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/anchor.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/tomorrow-night.min.css">
+
+  <link href="favicon.ico" rel="icon">
+
+</head>
+<body>
+
+  <div class="mast">
+    <nav class="nav-primary wrapper icon-j5">
+
+      <picture class="j5-icon">
+        <source type="image/svg+xml" srcset="img/js-logo.svg">
+        <img src="img/js-logo.png">
+      </picture>
+
+      <a href="/index.html">Home</a>
+      <a href="/api.html">API Documentation</a>
+      <a href="/examples.html">Examples</a>
+      <a href="/articles.html">Articles</a>
+      <a href="/platform-support.html">Platform Support</a>
+
+    </nav>
+
+    <header role="banner" class="banner banner-home">
+      <h1 class="site-hed">Johnny-Five</h1>
+      <p role="marquee" aria-live="polite" class="site-subhed">The JavaScript<br/><span class="js-board-type">Arduino</span> Programming Framework</p></a>
+      <!-- TODO: ARIA role/live region should be applied by script -->
+
+      <img class="j5" srcset="img/heres-johnny.png">
+    </header>
+  </div>
+
+  <main class="central">
+
+    <p class="wrap-a lede">
+      <i>Johnny-Five</i> is an Open Source <abbr title="Internet of Things">IoT</abbr> and Robotics programming framework, developed at&nbsp;<img src="img/logo-bocoup.png" alt="Bocoup">
+    </p>
+
+    <div class="wrap-b hello">
+      <img id="hello-scene-large" src="img/led-scene-0.gif" class="thumb hello-scene" alt="">
+      <div class="teaser">
+        <h2 class="sec-hed">Hello World!</h2>
+        <p>The ubiquitous "Hello World" program of the microcontroller and SoC world is "blink an LED!". The following code demonstrates how this is done using the Johnny-Five framework.</p>
+
+  <a href="#arduino" data-hello="arduino">Arduino</a> |
+  <a href="#beaglebone" data-hello="beaglebone">BeagleBone</a> |
+  <a href="#edison" data-hello="edison">Intel Edison</a> |
+  <a href="#spark" data-hello="spark">Spark Core</a> |
+  <a href="/platform-support.html">See All...</a>
+      <pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;);
+var board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+  var led = new five.Led(13);
+  led.blink(500);
+});
+</code></pre>
+
+        <img id="hello-scene-small" src="img/led-scene-0.gif" class="thumb hello-scene" alt="">
+
+
+
+      </div>
+    </div>
+
+    <div class="wrap-b support">
+      <picture>
+        <source srcset="img/bot-sq.jpg" media="(min-width: 45em)">
+        <img src="img/bot.jpg" class="thumb" alt="<--TODO: I don’t know what this thing is.-->">
+      </picture>
+      <div class="teaser">
+        <h2 class="sec-hed">Platform Support</h2>
+        <p>Johnny-Five has been tested on a variety of <a href="platform-support.html">Arduino-compatible Boards</a>. For non-Arduino based projects, platform-specific IO Plugins are available. <a href="platform-support.html">IO Plugins</a> allow Johnny-Five code to communicate with any hardware in whatever language that platform speaks!</p>
+
+        <div class="platform-icons">
+          <%= platforms %>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="wrap-a thumb-post">
+      <div class="sec-hed">
+        <h2><a href="http://www.amazon.com/Make-JavaScript-Robotics-Raspberry-BeagleBone/dp/1457186950">Make: Javascript Robotics</a></h3>
+      </div>
+      <a href="http://www.amazon.com/Make-JavaScript-Robotics-Raspberry-BeagleBone/dp/1457186950"><img src="img/make-book.jpg" alt="Cover of “Make: JavaScript Robotics”" class="thumb"></a>
+      <p>JavaScript Robotics is on the rise. Rick Waldron, the lead author of this book and creator of the Johnny-Five platform, is at the forefront of this movement. Johnny-Five is an open source JavaScript Arduino programming framework for robotics. This book brings together fifteen innovative programmers, each creating a unique Johnny-Five robot step-by-step, and offering tips and tricks along the way. Experience with JavaScript is a prerequisite.</p>
+      <p>Project authors: David Resseguie, Raquel Velez, Anna Gerber, Lyza Danger Gardner, Kassandra Perch, Susan Hinton, Andrew Fisher, Sara Gorecki, Julian David Duque, Jonathan Beri, Donovan Buck, Emily Rose, Bryan Hughes, Pawel Szymczykowski</a>
+    </div>
+
+<!--
+    <div class="wrap-c usedby">
+      <h2 class="sec-hed">Johnny-Five and NodeBots in the wild!</h3>
+      <script src="//redditjs.com/subreddit.js" data-subreddit="nodebots"></script>
+    </div>
+
+ -->
+  </main>
+
+  <script src="js/main.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

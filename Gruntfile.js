@@ -19,6 +19,13 @@ module.exports = function(grunt) {
   var template = grunt.template;
   var _ = grunt.util._;
 
+
+  var titles = JSON.parse(file.read("src/johnny-five/tpl/titles.json"));
+  var egSources = Object.keys(titles).reduce(function(source, key) {
+    source[key] = file.read("src/johnny-five/eg/" + key);
+    return source;
+  }, {});
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
@@ -274,16 +281,33 @@ module.exports = function(grunt) {
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("bootstrap", ["clean:deps", "gitclone"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
-  grunt.registerTask("regen", ["copy", "uglify", "examples-list", "examples", "api-docs", "platform-support"]);
+  grunt.registerTask("regen", ["copy", "uglify", "index", "examples-list", "examples", "api-docs", "platform-support"]);
+
   grunt.registerTask("default", ["clean:build", "regen", "copy", "sass:dist", "uglify"]);
 
+
+  grunt.registerTask("index", "generate index", function() {
+    var templates = {
+      index: _.template(file.read("tpl/.index.html")),
+    };
+
+    var plugins = JSON.parse(file.read("src/platforms-plugins.json"));
+    var platforms = plugins.platforms.reduce(function(accum, platform) {
+
+      return accum.concat(platform.variants.map(function(variant) {
+        return "[![" + variant.name + "](img/platforms/" + variant.image + ")](platform-support.html#" + slug(variant.name) + ")";
+      }));
+    }, []).join("\n");
+
+    file.write("public/index.html", templates.index({
+      platforms: markdown.render(platforms)
+    }));
+  });
 
   grunt.registerTask("examples-list", "generate examples list", function() {
     var templates = {
       examples: _.template(file.read("tpl/.examples.html")),
     };
-
-    var titles = JSON.parse(file.read("src/johnny-five/tpl/titles.json"));
 
     var examples = extract("examples", file.read("src/johnny-five/README.md")).map(function(extraction) {
       return extraction.map(function(line) {
@@ -307,7 +331,6 @@ module.exports = function(grunt) {
     };
 
     var entries = JSON.parse(file.read(file.expand(this.data)));
-    var titles = JSON.parse(file.read("src/johnny-five/tpl/titles.json"));
     var missing = [];
 
     entries.forEach(function(entry) {
@@ -348,7 +371,6 @@ module.exports = function(grunt) {
     }
   });
 
-
   grunt.registerTask("api-docs", "generate api docs", function() {
     var templates = {
       api: _.template(file.read("tpl/.api.html")),
@@ -379,10 +401,28 @@ module.exports = function(grunt) {
     }, ""));
 
     matches.forEach(function(match) {
+
+      var examples = Object.keys(egSources).reduce(function(accum, example) {
+
+        if (egSources[example].includes(match.title)) {
+          var htmlFile = example.replace(".js", ".html");
+          accum.push("- [" + titles[example] + "](/examples/" + htmlFile + ")");
+        }
+
+        return accum;
+      }, []);
+
+
+      if (examples.length) {
+        examples.unshift("## Examples");
+        examples = examples.join("\n");
+      }
+
       file.write("public/"+ match.target, templates.apiContent({
         title: match.title,
         list: list,
-        contents: markdown.render(file.read(match.source))
+        contents: markdown.render(file.read(match.source)),
+        examples: markdown.render(examples),
       }));
     });
 
@@ -511,13 +551,13 @@ module.exports = function(grunt) {
     var title = [
       [/^.+\//, ""],
       [/\.js/, ""],
-      [/\-/g, " "]
+      [/\s+/g, "-"]
     ].reduce(function(accum, args) {
       accum = "".replace.apply(accum, args);
       return accum;
     }, text);
 
-    return _.titleize(title);
+    return title.toLowerCase();
   }
 };
 
