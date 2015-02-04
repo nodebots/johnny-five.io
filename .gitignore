@@ -37,6 +37,7 @@ public/api/*
 public/api.html
 public/examples/*
 public/examples.html
+public/guides/*
 public/platform-support.html
 src/johnny-five
 src/johnny-five.wiki

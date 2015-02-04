@@ -42,7 +42,9 @@ module.exports = function(grunt) {
       build: [
         "public/css",
         "public/js",
-        "public/docs"
+        "public/api",
+        "public/examples",
+        "public/guides",
       ],
       deps: [
         "src/johnny-five",
@@ -355,6 +357,9 @@ module.exports = function(grunt) {
 
     var source = file.read("src/johnny-five.wiki/Home.md");
     var api = extract("api", source)[0].join("\n");
+    var guides = extract("guides", source).reduce(function(accum, set) {
+      return accum.concat(set);
+    }, []).join("\n");
     var matches = api.match(/\(https:\/\/github.com\/rwaldron\/johnny-five\/wiki\/(.*)\)/g).map(function(match) {
 
       var result = match.slice(1, -1);
@@ -382,7 +387,8 @@ module.exports = function(grunt) {
     });
 
     file.write("public/api.html", templates.api({
-      list: list
+      list: list,
+      guides: markdown.render(guides)
     }));
   });
 
@@ -405,6 +411,7 @@ module.exports = function(grunt) {
         if (variant.enabled) {
           // console.log(variant, variant.capabilities);
           var first = variant.capabilities.table[0].join("|");
+          // Build a table in markdown
           var header = "|" + first + "|";
           var bounds = "|" + first.replace(/([A-Z ])\w+/g, "-") + "|";
           var capabilities = "|" + variant.capabilities.table[2].join("|") + "|";

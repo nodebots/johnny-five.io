@@ -336,6 +336,51 @@
           }
         },
         {
+          "name": "BotBoarduino",
+          "image": "botboarduino.png",
+          "enabled": true,
+          "capabilities": {
+            "keyed": {
+              "Analog Read": "yes",
+              "Digital Read": "yes",
+              "Digital Write": "yes",
+              "PWM": "yes",
+              "I2C": "yes",
+              "One Wire": "yes",
+              "Stepper": "yes"
+            },
+            "table": [
+              [
+                "Analog Read",
+                "Digital Read",
+                "Digital Write",
+                "PWM",
+                "I2C",
+                "One Wire",
+                "Stepper"
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              [
+                "yes",
+                "yes",
+                "yes",
+                "yes",
+                "yes",
+                "yes",
+                "yes"
+              ]
+            ]
+          }
+        },
+        {
           "name": "Spider Robot Controller",
           "image": "spider-robot-controller.png",
           "enabled": true,
