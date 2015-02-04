@@ -184,7 +184,7 @@ p {
 @media (min-width: 45em) {
   .wrap-a {
     width: 90%;
-    padding: 3.1em 0 3.15em 0;
+    padding: 1.1em 0 3.15em 0;
   }
   .wrap-b {
     padding-left: 5%;
@@ -261,14 +261,14 @@ p {
   background-color: #efe13d;
   background-image: url(../img/pcb.jpg);
   background-position: -20% top;
-  border-bottom: 1em solid #efe13d;
+  border-bottom: 1em solid transparent;
 }
 .banner-home {
   padding: 2.5em 6.5em 1.75em 1em;
 }
 @media (min-width: 30em) {
   .banner-home {
-    border-bottom: 2em solid #efe13d;
+    border-bottom: 2em solid transparent;
     padding: 5.5em 6.5em 3.75em 5%;
   }
 }
@@ -284,7 +284,7 @@ p {
 ;
   }
   .banner-home {
-    border-bottom: 2em solid #efe13d;
+    border-bottom: 2em solid transparent;
     padding: 5.5em 6.5em 3.75em 15.0474663%;
   }
 }
@@ -453,14 +453,16 @@ p {
   margin-bottom: 1em;
 }
 
+
 .platforms {
   padding-top: 1em;
 }
+
 .platforms img {
   max-width: 96%;
   clear: both;
   display: block;
-  margin-bottom: 1em;
+  margin-bottom: 0;
 }
 
 .platforms h2 {
@@ -482,6 +484,21 @@ p {
   display: table;
 }
 
+#hello-scene-large {
+  display: none;
+}
+
+#hello-scene-small {
+  display: "";
+}
+
+#platform-variant-large {
+  display: none;
+}
+
+#platform-variant-small {
+  display: inline;
+}
 /*
 
 api.html and all api pages have this id.
@@ -513,6 +530,17 @@ the api pages only show the list if there is adequate screen space.
   display: none;
 }*/
 
+.platform-icons {
+  width: 100%;
+  float: none;
+  margin-bottom: 0;
+}
+
+.platform-icons img {
+  width: 22%;
+  float: none;
+  display: inline;
+}
 
 @media (min-width: 45em) {
   .support img,
@@ -525,7 +553,12 @@ the api pages only show the list if there is adequate screen space.
     margin: 0 0 0 5%;
     float: right;
   }
-  .hello img {
+/*  .support .platform-icons img {
+    width: 20%;
+    float: none;
+    display: "";
+  }
+*/  .hello img {
     margin-bottom: 0;
   }
   .platforms h2 {
@@ -545,8 +578,35 @@ the api pages only show the list if there is adequate screen space.
 
   .hello {
     width: 100%;
+    padding-bottom: 2%;
   }
 
+  #hello-scene-large {
+    display: inline;
+  }
+
+  #hello-scene-small {
+    display: none;
+  }
+
+  #platform-variant-large {
+    display: inline;
+  }
+
+  #platform-variant-small {
+    display: none;
+  }
+
+  .platform-icons {
+    float: none;
+  }
+
+  .platform-icons img {
+    margin: 0 0.5% 0.5% 0;
+    width: 6%;
+    float: left;
+    clear: none;
+  }
 
   /*Wide Table*/
   .platforms table:first-of-type {
@@ -597,14 +657,14 @@ the api pages only show the list if there is adequate screen space.
 }
 @media (min-width: 45em) {
   .thumb-post,
-  .wrap-b .teaser,
+  /*.wrap-b .teaser,*/
   .usedby {
     padding: 7.5% 0;
   }
 }
 @media (min-width: 65em) {
   .thumb-post,
-  .wrap-b .teaser,
+  /*.wrap-b .teaser,*/
   .usedby {
     padding: 6.5% 0;
   }
