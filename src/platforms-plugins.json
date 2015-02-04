@@ -1319,6 +1319,6 @@
   ],
   "glossary": {
     "embedded": "The JavaScript program is executed on a board that is capable of running node.js/io.js.",
-    "host-client": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions to the board, which acts as a **thin client**."
+    "host-client": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions to the board, which acts as a **thin client**. Requires tethering."
   }
 }
