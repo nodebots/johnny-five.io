@@ -449,12 +449,16 @@ module.exports = function(grunt) {
 
       platform.variants.forEach(function(variant, index) {
         if (variant.enabled) {
-          // console.log(variant, variant.capabilities);
-          var first = variant.capabilities.table[0].join("|");
+
+          var keys = Object.keys(variant.capabilities.keyed);
+          var values = keys.map(function(key) {
+            return variant.capabilities.keyed[key];
+          });
+          var first = keys.join("|");
           // Build a table in markdown
           var header = "|" + first + "|";
           var bounds = "|" + first.replace(/([A-Z ])\w+/g, "-") + "|";
-          var capabilities = "|" + variant.capabilities.table[2].join("|") + "|";
+          var capabilities = "|" + values.join("|") + "|";
           var capabilitiesA = [header, bounds, capabilities].join("\n");
           var capabilitiesB = ["|_|_|", "|-|-|"].concat(Object.keys(variant.capabilities.keyed).map(function(key, index) {
             return "|" + key + "|" + variant.capabilities.keyed[key] + "|";
