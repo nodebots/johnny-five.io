@@ -33,8 +33,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -61,8 +60,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -89,8 +87,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -117,8 +114,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -145,8 +141,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -173,8 +168,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -201,8 +195,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -229,8 +222,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -257,8 +249,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -285,8 +276,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -334,8 +324,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -382,8 +371,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -430,8 +418,7 @@
               [],
               [],
               []
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -480,8 +467,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"]
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -508,8 +494,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"]
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -552,8 +537,7 @@
           "notes": {
             "public": [
               "Hardware does not support PWM on pins 10 and 11 by default"
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -580,8 +564,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"]
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -628,8 +611,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"]
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -677,8 +659,7 @@
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -731,8 +712,7 @@
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -780,8 +760,7 @@
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -808,8 +787,7 @@
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -836,8 +814,7 @@
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
-            ],
-            "private": []
+            ]
           },
           "capabilities": {
             "keyed": {
@@ -881,15 +858,14 @@
               [],
               [],
               [],
-              [],
+              [
+                "Timer 2: A0, A1",
+                "Timer 3: A4, A5, A6, A7",
+                "Timer 4: D0, D1"
+              ],
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
-            ],
-            "private": [
-              "Timer 2: A0, A1",
-              "Timer 3: A4, A5, A6, A7",
-              "Timer 4: D0, D1"
             ]
           },
           "capabilities": {
