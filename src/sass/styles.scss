@@ -197,7 +197,7 @@ p {
   }
 
   .wrap-d .variant ul {
-    padding: 0 6em 0 22em;
+    padding: 0 6em 0 40%;
   }
 
 }
@@ -215,6 +215,11 @@ p {
   .wrap-d img {
     max-width: 30%;
   }
+
+  .wrap-d .variant ul {
+    padding: 0 10em 0 23em;
+  }
+
 }
 
 .wrap-docs {
@@ -550,7 +555,7 @@ the api pages only show the list if there is adequate screen space.
   }
   .hello img,
   .support img {
-    margin: 0 0 0 5%;
+    margin: 0 2% 0 5%;
     float: right;
   }
 /*  .support .platform-icons img {
