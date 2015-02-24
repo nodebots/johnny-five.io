@@ -33,7 +33,7 @@ Regenerate all local content from remote content sources:
 grunt regen
 ```
 
-Development automation: 
+Development automation and server: 
 
 ```
 grunt && grunt dev
