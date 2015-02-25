@@ -2,6 +2,8 @@ require("es6-shim");
 require("copy-paste");
 var inspect = require("util").inspect;
 var fs = require("fs");
+var request = require("request");
+var FeedParser = require("feedparser");
 var Remarkable = require("remarkable");
 var markdown = new Remarkable({
   html: true
@@ -18,7 +20,6 @@ module.exports = function(grunt) {
   var config = grunt.config;
   var template = grunt.template;
   var _ = grunt.util._;
-
 
   var titles;
   var egSources;
@@ -266,6 +267,11 @@ module.exports = function(grunt) {
           dest: "public/js"
         }]
       }
+    },
+    "articles-from-rss": {
+      targets: [
+        { name: "reddit", feed: "http://www.reddit.com/r/NodeBots/.rss" }
+      ]
     }
   });
 
@@ -286,7 +292,7 @@ module.exports = function(grunt) {
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("bootstrap", ["clean:deps", "gitclone"]);
   grunt.registerTask("dev", ["connect", "copy", "watch"]);
-  grunt.registerTask("regen", ["copy", "uglify", "index", "examples-list", "examples", "api-docs", "platform-support"]);
+  grunt.registerTask("regen", ["copy", "uglify", "index", "articles-from-rss", "examples-list", "examples", "api-docs", "platform-support"]);
 
   grunt.registerTask("default", ["clean:build", "regen", "copy", "sass:dist", "uglify"]);
 
@@ -307,6 +313,36 @@ module.exports = function(grunt) {
     file.write("public/index.html", templates.index({
       platforms: markdown.render(platforms)
     }));
+  });
+
+  grunt.registerMultiTask("articles-from-rss", "generate articles lists from rss", function() {
+    var done = this.async();
+    var targets = grunt.config("articles-from-rss.targets");
+    var remaining = targets.length;
+    var templates = {
+      articles: _.template(file.read("tpl/.articles.html")),
+      rssList: _.template(file.read("tpl/.rss-list.html")),
+    };
+
+    targets.forEach(function(target) {
+      rssToList("http://www.reddit.com/r/NodeBots/.rss", function(err, list) {
+
+        var articles = {};
+        articles[target.name] = templates.rssList({
+          items: list
+        });
+
+        file.write("public/articles.html", templates.articles(articles));
+
+        remaining--;
+      });
+    });
+
+    setInterval(function() {
+      if (remaining === 0) {
+        done();
+      }
+    }, 0);
   });
 
   grunt.registerTask("examples-list", "generate examples list", function() {
@@ -365,8 +401,7 @@ module.exports = function(grunt) {
     });
 
     if (missing.length) {
-      console.log("Missing title.json entries: ");
-      console.log("");
+      console.log("Missing title.json entries: \n");
 
       missing.forEach(function(file) {
         console.log('  "' + file + '": "",');
@@ -567,6 +602,32 @@ module.exports = function(grunt) {
     }, text);
 
     return title.toLowerCase();
+  }
+
+  function rssToList(url, callback) {
+    var req = request(url);
+    var feedparser = new FeedParser();
+    var items = [];
+
+    req.on("response", function(res) {
+      if (res.statusCode != 200) {
+        return this.emit("error", new Error("Bad status code"));
+      }
+
+      this.pipe(feedparser);
+    });
+
+    feedparser.on("readable", function() {
+      var item = this.read();
+      items.push({
+        title: item.title,
+        link: item.link
+      });
+    });
+
+    feedparser.on("finish", function() {
+      callback(null, items);
+    });
   }
 };
 
