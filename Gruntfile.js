@@ -20,11 +20,16 @@ module.exports = function(grunt) {
   var _ = grunt.util._;
 
 
-  var titles = JSON.parse(file.read("src/johnny-five/tpl/titles.json"));
-  var egSources = Object.keys(titles).reduce(function(source, key) {
-    source[key] = file.read("src/johnny-five/eg/" + key);
-    return source;
-  }, {});
+  var titles;
+  var egSources;
+
+  try {
+    titles = JSON.parse(file.read("src/johnny-five/tpl/titles.json"));
+    egSources = Object.keys(titles).reduce(function(source, key) {
+      source[key] = file.read("src/johnny-five/eg/" + key);
+      return source;
+    }, {});
+  } catch (e) {}
 
   // Project configuration.
   grunt.initConfig({
