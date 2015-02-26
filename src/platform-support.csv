@@ -14,7 +14,7 @@ Electric Imp,April,yes,yes,yes,yes,yes,no,no
 Intel Galileo,Gen 1,yes,yes,yes,yes,yes,no,no
 Intel Galileo,Gen 2,yes,yes,yes,yes,yes,no,no
 Intel Edison,Arduino,yes,yes,yes,yes,yes,no,no
-Intel Edison,Mini,yes,yes,yes,yes,yes,no,no
+Intel Edison,Mini,no,yes,yes,yes,yes,no,no
 LightBlue,Bean,yes,yes,yes,yes,yes,no,no
 Linino,One,yes,yes,yes,yes,no,no,no
 Linino,Arduino Yun,yes,yes,yes,yes,no,no,no
