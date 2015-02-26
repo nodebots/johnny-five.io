@@ -135,4 +135,42 @@
   }
 
 
+  var apiContent = document.querySelector(".api-content");
+  var codeExamples;
+
+  if (apiContent) {
+    codeExamples = Array.from(document.querySelectorAll("pre"));
+    codeExamples.forEach(function(example, index) {
+      var div = document.createElement("div");
+      var paragraph = example.nextElementSibling;
+      var diagram = paragraph.firstChild;
+      var hasBreadboardDiagram = diagram.nodeName === "IMG";
+
+      if (hasBreadboardDiagram) {
+        console.log(example, example.offsetHeight);
+        var height = window.getComputedStyle(example, null).getPropertyValue("height");
+        example.classList.add("code-example-display");
+        paragraph.classList.add("code-paragraph-display");
+
+        diagram.style.height = height;
+        div.style.height = height;
+        div.classList.add("code-container");
+
+
+        paragraph.parentNode.removeChild(paragraph);
+
+        example.parentNode.replaceChild(div, example);
+
+        div.appendChild(example);
+        div.appendChild(paragraph);
+
+        diagram.onclick = function() {
+          window.open(this.src);
+        };
+      }
+    });
+  }
+
+
+
 }());

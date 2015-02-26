@@ -647,6 +647,29 @@ the api pages only show the list if there is adequate screen space.
   .api-anchors li {
     padding-right: 10px;
   }
+
+
+  .code-example-display {
+    display: inline;
+    float: left;
+    max-width: 60%;
+  }
+
+  .code-paragraph-display {
+    display: inline;
+    float: right;
+    max-width: 40%;
+  }
+
+  .code-diagram-display {
+    max-width: 100%;
+  }
+
+  .code-container {
+    clear: both;
+    margin: 0 0 1em 0;
+    box-sizing: border-box;
+  }
 }
 
 
