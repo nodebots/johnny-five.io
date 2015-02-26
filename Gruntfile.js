@@ -468,7 +468,10 @@ module.exports = function(grunt) {
       file.write("public/"+ match.target, templates.apiContent({
         title: match.title,
         list: list,
-        contents: markdown.render(file.read(match.source)),
+        contents: markdown.render(
+          // Strip sections marked for removal
+          remove(file.read(match.source))
+        ),
         examples: markdown.render(examples),
       }));
     });
