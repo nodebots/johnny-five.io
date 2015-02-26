@@ -147,7 +147,6 @@
       var hasBreadboardDiagram = diagram.nodeName === "IMG";
 
       if (hasBreadboardDiagram) {
-        console.log(example, example.offsetHeight);
         var height = window.getComputedStyle(example, null).getPropertyValue("height");
         example.classList.add("code-example-display");
         paragraph.classList.add("code-paragraph-display");

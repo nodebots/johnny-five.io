@@ -547,6 +547,29 @@ the api pages only show the list if there is adequate screen space.
   display: inline;
 }
 
+/*.code-example-display {
+  display: block;
+  float: none;
+  width: 100%;
+}
+
+.code-paragraph-display {
+  display: block;
+  width: "";
+  max-width: 100%;
+}
+
+.code-diagram-display {
+  display: block;
+  width: 100%;
+}
+
+.code-container {
+  clear: "";
+  margin: 0 0 0 0;
+  min-height: none;
+}*/
+
 @media (min-width: 45em) {
   .support img,
   .hello img,
@@ -652,25 +675,43 @@ the api pages only show the list if there is adequate screen space.
   .code-example-display {
     display: inline;
     float: left;
-    max-width: 60%;
+    width: 70%;
   }
 
   .code-paragraph-display {
     display: inline;
     float: right;
-    max-width: 40%;
+    width: 25%;
+    max-width: 25%;
   }
 
   .code-diagram-display {
-    max-width: 100%;
+    width: 100%;
   }
 
   .code-container {
     clear: both;
     margin: 0 0 1em 0;
-    box-sizing: border-box;
+    min-height: 200px;
   }
 }
+
+
+/*.code-container {
+  display: block;
+}
+
+.code-paragraph-display {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.code-diagram-display {
+  width: 100%;
+}
+
+*/
 
 
 .thumb-post,
