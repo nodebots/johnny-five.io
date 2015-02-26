@@ -1,5 +1,6 @@
 require("es6-shim");
 require("copy-paste");
+var cp = require("child_process");
 var inspect = require("util").inspect;
 var fs = require("fs");
 var request = require("request");
@@ -291,11 +292,17 @@ module.exports = function(grunt) {
   // Default task(s).
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("bootstrap", ["clean:deps", "gitclone"]);
-  grunt.registerTask("dev", ["connect", "copy", "watch"]);
+  grunt.registerTask("dev", ["connect", "launch", "copy", "watch"]);
   grunt.registerTask("regen", ["copy", "uglify", "index", "articles-from-rss", "examples-list", "examples", "api-docs", "platform-support"]);
 
   grunt.registerTask("default", ["clean:build", "regen", "copy", "sass:dist", "uglify"]);
 
+
+  grunt.registerTask("launch", function() {
+    cp.exec("open 'http://0.0.0.0:1337/'", function(err) {
+      console.log(err);
+    });
+  });
 
   grunt.registerTask("index", "generate index", function() {
     var templates = {
@@ -610,7 +617,7 @@ module.exports = function(grunt) {
     var items = [];
 
     req.on("response", function(res) {
-      if (res.statusCode != 200) {
+      if (res.statusCode !== 200) {
         return this.emit("error", new Error("Bad status code"));
       }
 
