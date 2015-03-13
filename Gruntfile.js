@@ -129,7 +129,7 @@ module.exports = function(grunt) {
     },
     watch: {
       regen: {
-        files: "src/**/*.*",
+        files: ["src/**/*.*", "tpl/**/*.*"],
         tasks: ["regen"],
         options: {
           livereload: true
