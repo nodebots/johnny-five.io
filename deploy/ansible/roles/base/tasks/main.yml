@@ -1,0 +1,29 @@
+- name: apt-cache is updated
+  apt: update_cache=yes
+
+- name: nginx is installed
+  apt: name=nginx state=present
+
+- name: node ppa is available
+  apt_repository: repo='ppa:chris-lea/node.js'
+
+- name: git is installed
+  apt: name=git state=present
+
+- name: apt cache is updated
+  apt: update_cache=yes
+
+- name: nodejs is installed
+  apt: name=nodejs state=present
+
+- name: grunt-cli is installed
+  npm: name=grunt-cli global=true
+
+- name: bower is installed
+  npm: name=bower global=true
+
+- name: ruby is installed
+  apt: name=ruby-full state=present
+
+- name: sass is installed
+  shell: "gem install sass" 

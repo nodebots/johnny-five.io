@@ -1,0 +1,27 @@
+- name: remove temporary build
+  command: rm -rf {{deploy_source_path}}
+  when: env == 'production'
+
+- name: temp build directory exists
+  file: path={{deploy_source_path}} state=directory
+  when: env == 'production'
+
+- name: code is synchronized via git to temp directory
+  git: dest={{deploy_source_path}} repo={{git_repo}} version=ansible
+  when: env == 'production'
+
+- name: build the site
+  shell: "npm install && grunt bootstrap && grunt regen && grunt"
+  args:
+    chdir: "{{base_path}}"
+
+- name: log file exists
+  file: path={{app_log_file}} state=touch owner={{app_user}} group={{app_group}}
+
+- name: current production build is removed
+  command: rm -rf {{base_path}}
+  when: env == 'production'
+
+- name: new production build is in place
+  command: mv {{deploy_source_path}} {{base_path}}
+  when: env == 'production'
