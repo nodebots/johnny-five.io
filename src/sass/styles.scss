@@ -367,10 +367,9 @@ p {
 
 @media (min-width: 35em) {
   .nav-primary a {
-    display: table-cell;
+    display: inline-block;
     margin: 0 2.5%;
     text-align: center;
-    width: 25%;
   }
 }
 
@@ -650,6 +649,27 @@ the api pages only show the list if there is adequate screen space.
   .api-nav-list {
     display: inline-block;
   }
+  .docs-nav ul {
+    width: 100%;
+  }
+  @media( min-width: 45em ) {
+    .docs-nav {
+      float: left;
+      width: 33%;
+    }
+    .docs-content {
+      float: right;
+      width: 60%;
+      float: right;
+    }
+  }
+
+  .central:after {
+    content: "";
+    float: left;
+    display: block;
+    width: 100%;
+  }
 
   #api-nav ul {
     display: inline-block;
@@ -660,6 +680,11 @@ the api pages only show the list if there is adequate screen space.
   .api-content {
     width: 80%;
     float: right;
+  }
+  .wrap-docs:after {
+    content: "";
+    clear: both;
+    display: block;
   }
 
   .api-anchors {
@@ -764,21 +789,21 @@ the api pages only show the list if there is adequate screen space.
 .docs {
   background: #f3f3f3;
 }
-.wrap-docs {
+.list-docs {
   padding: 2.5em 1em;
 }
 @media (min-width: 45em ) {
-  .wrap-docs {
+  .list-docs {
     padding: 3.5% 0;
   }
 
-  .wrap-docs:last-child:after {
+  .list-docs:last-child:after {
     content: "";
     display: table;
     clear: both;
   }
 }
-/*.wrap-docs ul {
+.docs-nav ul {
   border-radius: .25em;
   box-shadow: 0 0 3px #ddd;
   list-style: none;
@@ -786,40 +811,56 @@ the api pages only show the list if there is adequate screen space.
   padding: 0;
 }
 
-.wrap-docs ul a {
+.docs-nav ul a {
   background: #fff;
   border-bottom: 3px solid #efe222;
   color: #222;
   display: block;
+  line-height: 1.1;
   padding: .85em 1em .7em 1em;
 }
-.wrap-docs ul li:first-child a {
+.docs-nav ul li:first-child a {
   border-radius: .2em .2em 0 0;
 }
-.wrap-docs ul li:last-of-type a {
+.docs-nav ul li:last-of-type a {
   border-radius: 0 0 .2em .2em;
-}*/
-/*
-.wrap-docs .platforms ul {
-  border-radius: .25em;
-  box-shadow: 0 0 3px #ddd;
-  list-style: none;
-  margin: 1em 0 2.5em 0;
-  padding: 0;
 }
 
-.wrap-docs .platforms ul a {
-  background: transparent;
-  border-bottom: 0px;
-  display: inline;
+.docs-guides strong {
+  display: block;
+  font-size: 1.25em;
+}
+.docs-guides li {
+  padding: .25em 0;
+}
+
+.articles-docs h3 a {
+  color: #000;
+}
+.articles-docs ul {
+  list-style: none;
   padding: 0;
 }
-.wrap-docs .platforms ul li:first-child a {
-  border-radius: none;
+.articles-docs li {
+  margin: .25em 0;
 }
-.wrap-docs .platforms ul li:last-of-type a {
-  border-radius: none;
-}*/
+.articles-docs li a {
+  font-size: 1.2em;
+}
+.social {
+  float: right;
+  padding: .5em 2em;
+}
+.social a {
+  display: inline-block;
+  margin: .5em;
+}
+.social img {
+  width: 40px;
+}
+.twitter-icon img {
+  margin-bottom: 6px;
+}
 
 .js-board-type {
   -webkit-transition: opacity .5s linear;

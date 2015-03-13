@@ -32,7 +32,6 @@
       <a href="/examples.html">Examples</a>
       <a href="/articles.html">Articles</a>
       <a href="/platform-support.html">Platform Support</a>
-
     </nav>
 
     <header role="banner" class="banner">
@@ -41,20 +40,25 @@
   </div>
 
   <main class="central docs">
-    <div class="wrap-a wrap-docs">
-      <nav id="api-nav">
-        <h4>Component Classes</h4>
+    <div class="wrap-a wrap-docs list-docs">
+      
+      <div class="docs-content docs-guides">
+        <h3>Guides</h3>
+
+        <%= guides %>
+      </div>
+
+      <nav id="api-nav" class="docs-nav api-nav-list">
+        <h3>Component Classes</h3>
         <%= list %>
       </nav>
 
-      <div class="api-content">
-        <h2>Guides</h2>
-
-        <%= guides %>
-
-      </div>
     </div>
   </main>
+  <div class="social">
+    <a href="#" class="yt-icon"><img src="../img/yt-icon.png"></a>
+    <a href="#" class="twitter-icon"><img src="../img/twitter-icon.png"></a>
+  </div>
 
 <script src="js/main.js"></script>
 </body>
