@@ -16,14 +16,11 @@
     chdir: /etc/nginx/conf.d/
   with_items: confs
 
-- name: shared ssl config is present
-  template: src=ssl_params dest=/etc/nginx
-
 - name: shared gzip config is present
-  template: src=gzip_params dest=/etc/nginx
+  template: src=gzip_params dest=/etc/nginx/
 
 - name: nginx has configuration files
-  template: src={{ item }} dest=/etc/nginx/conf.d backup=yes
+  template: src={{ item }} dest=/etc/nginx/conf.d/ backup=yes
   with_items: confs
 
 - name: nginx configuration is correct

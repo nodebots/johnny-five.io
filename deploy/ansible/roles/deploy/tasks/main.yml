@@ -13,7 +13,7 @@
 - name: build the site
   shell: "npm install && grunt bootstrap && grunt regen && grunt"
   args:
-    chdir: "{{base_path}}"
+    chdir: "{{deploy_source_path}}"
 
 - name: log file exists
   file: path={{app_log_file}} state=touch owner={{app_user}} group={{app_group}}

@@ -1,5 +1,5 @@
 hostname: johnny-five
-git_repo: git@github.com:johnny-five/johnny-five.org.git
+git_repo: git@github.com:bocoup/johnny-five.org.git
 base_path: /mnt/johnny-five
 app_port: 8080
 app_log_file: /var/log/johnny-five
