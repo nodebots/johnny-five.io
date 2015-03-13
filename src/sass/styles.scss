@@ -492,7 +492,6 @@ p {
 #hello-scene-large {
   display: none;
 }
-
 #hello-scene-small {
   display: "";
 }
@@ -542,9 +541,40 @@ the api pages only show the list if there is adequate screen space.
 }
 
 .platform-icons img {
-  width: 22%;
+  width: 21.75%;
+  margin: 1%;
   float: none;
   display: inline;
+}
+
+@media (min-width: 30em) {
+  .platform-icons {
+    width: 100%;
+  }
+  .platform-icons img {
+    width: 15%;
+  }
+}
+@media (min-width: 45em) {
+  .support .platform-icons {
+    clear: none;
+    width: 42%;
+    float: left;
+    padding-bottom: 2em;
+  }
+  .support .platform-icons img {
+    width: 18%;
+    float: left;
+    margin: 1%;
+    clear: none;
+  }
+}
+
+@media (min-width: 70em) {
+  .support .platform-icons img {
+    width: 14%;
+    max-width: 100px;
+  }
 }
 
 @media (min-width: 45em) {
@@ -588,6 +618,7 @@ the api pages only show the list if there is adequate screen space.
 
   #hello-scene-large {
     display: inline;
+    margin-top: 2.5em;
   }
 
   #hello-scene-small {
@@ -605,14 +636,6 @@ the api pages only show the list if there is adequate screen space.
   .platform-icons {
     float: none;
   }
-
-  .platform-icons img {
-    margin: 0 0.5% 0.5% 0;
-    width: 6%;
-    float: left;
-    clear: none;
-  }
-
   /*Wide Table*/
   .platforms table:first-of-type {
     margin: 1%;
@@ -646,6 +669,12 @@ the api pages only show the list if there is adequate screen space.
 
   .api-anchors li {
     padding-right: 10px;
+  }
+}
+
+@media (min-width: 60em) {
+  #hello-scene-large {
+    margin-top: -1em;
   }
 }
 
