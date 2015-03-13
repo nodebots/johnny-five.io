@@ -10,9 +10,12 @@
   <script src="js/fontloader.js" id="fontloader"></script>
   <script src="js/anchor.min.js" id="anchor.js"></script>
   <script src="js/es6-shim.js" id="es6-shim.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+
 
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/anchor.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
 
   <link href="favicon.ico" rel="icon">
 
@@ -44,8 +47,31 @@
     <div class="wrap-a wrap-docs">
       <%= list %>
     </div>
+
+    <div class="wrap-a wrap-docs">
+      Wilto Can add some bullshit here.
+
+      <pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;);
+var board = new five.Board();
+
+board.on(&quot;ready&quot;, function() {
+
+  // Create a standard `led` component instance
+  var led = new five.Led(13);
+
+  // &quot;blink&quot; the led in 500ms on-off phase periods
+  led.blink(500);
+});
+
+</code></pre>
+<p><img src="../img/breadboard/led-blink.png" alt="led-blink.png"></p>
+    </div>
+
   </main>
 
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
 </body>
 </html>
