@@ -1,0 +1,40 @@
+- name: generate strong DHE parameter
+  command: /usr/bin/openssl dhparam -dsaparam -out /etc/ssl/certs/dhparam.pem 4096
+  when: env != "development"
+  args:
+    creates: /etc/ssl/certs/dhparam.pem
+
+- name: touch config files
+  command: /usr/bin/touch {{ item }}
+  args:
+    chdir: /etc/nginx/conf.d/
+  with_items: confs
+
+- name: backup config files
+  command: /bin/cp {{ item }} {{ item }}.backup
+  args:
+    chdir: /etc/nginx/conf.d/
+  with_items: confs
+
+- name: shared gzip config is present
+  template: src=gzip_params dest=/etc/nginx/
+
+- name: nginx has configuration files
+  template: src={{ item }} dest=/etc/nginx/conf.d/ backup=yes
+  with_items: confs
+
+- name: nginx configuration is correct
+  command: /usr/sbin/nginx -t
+  notify: restart nginx
+  ignore_errors: yes
+  register: nginx_test_result
+
+- name: "[failed] restore backup"
+  command: /bin/mv {{ item }}.backup {{ item }}
+  with_items: confs
+  args:
+    chdir: /etc/nginx/conf.d/
+  when: nginx_test_result|failed
+
+- fail: msg="[failed] nginx configuration invalid"
+  when: nginx_test_result|failed

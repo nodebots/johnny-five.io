@@ -46,3 +46,6 @@ src/johnny-five.wiki
 
 # sass cache
 .sass-cache
+
+# vagrant stuff
+.vagrant

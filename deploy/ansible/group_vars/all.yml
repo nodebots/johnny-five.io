@@ -1,0 +1,9 @@
+hostname: johnny-five
+git_repo: git@github.com:bocoup/johnny-five.org.git
+base_path: /mnt/johnny-five
+app_port: 8080
+app_log_file: /var/log/johnny-five
+app_user: www-data
+app_group: www-data
+ssl_cert_path: /etc/ssl/star.bocoup.com.cert
+ssl_key_path: /etc/ssl/star.bocoup.com.key

@@ -1,0 +1,25 @@
+- name: hostname is set
+  hostname: name={{hostname}}
+
+- name: /etc/hosts has loopback references to our hostname
+  lineinfile: "dest=/etc/hosts line='127.0.0.1 {{hostname}}'"
+
+- name: /etc/hosts has loopback references to our domain
+  lineinfile: "dest=/etc/hosts line='{{fqdn}}'"
+
+- name: get github.com public key
+  command: /usr/bin/ssh-keyscan github.com
+  register: github_keyscan
+
+- name: github key is recognized
+  lineinfile: dest=/etc/ssh/ssh_known_hosts
+    create=yes
+    regexp='^github.com'
+    line="{{github_keyscan.stdout}}"
+
+- name: keep SSH agent socket when sudoing
+  lineinfile: dest=/etc/sudoers
+    insertafter='^Defaults'
+    line='Defaults env_keep += "SSH_AUTH_SOCK"'
+    state=present
+    validate='visudo -cf %s'
