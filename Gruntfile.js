@@ -325,6 +325,9 @@ module.exports = function(grunt) {
       articles: _.template(file.read("tpl/.articles.html")),
       rssList: _.template(file.read("tpl/.rss-list.html")),
     };
+    var rendered = "";
+
+    file.mkdir("public/articles/");
 
     targets.forEach(function(target) {
       rssToList(target.feed, function(err, list) {
@@ -334,7 +337,12 @@ module.exports = function(grunt) {
           items: list
         });
 
-        file.write("public/articles.html", templates.articles(articles));
+
+        if (!rendered) {
+          rendered = templates.articles(articles);
+        } else {
+          _.template(rendered, articles);
+        }
 
         remaining--;
       });
@@ -342,6 +350,9 @@ module.exports = function(grunt) {
 
     setInterval(function() {
       if (remaining === 0) {
+
+        file.write("public/articles/index.html", rendered);
+
         done();
       }
     }, 0);
@@ -356,14 +367,17 @@ module.exports = function(grunt) {
       return extraction.map(function(line) {
         return line
           .replace("https://github.com/rwaldron/johnny-five/blob/master/docs/", "/examples/")
-          .replace(".md", ".html");
+          .replace(".md", "");
       }).join("\n");
     });
 
     // Only care about the first item in this particular list;
     examples = examples[0];
 
-    file.write("public/examples.html", templates.examples({
+    console.log(examples);
+
+    file.mkdir("public/examples/");
+    file.write("public/examples/index.html", templates.examples({
       list: markdown.render(examples)
     }));
   });
@@ -379,7 +393,7 @@ module.exports = function(grunt) {
     entries.forEach(function(entry) {
       entry.files.forEach(function(value) {
         var title = titles[value];
-        var outpath = "public/examples/" + value.replace(".js", ".html");
+        var outpath = "public/examples/" + value.replace(".js", "/index.html");
         var inpath = "src/johnny-five/docs/" + value.replace(".js", ".md");
         var example = markdown.render(
           // open file
@@ -387,7 +401,7 @@ module.exports = function(grunt) {
           // modify image path
           // modify displayed fzz
           remove(file.read(inpath))
-            .replace(/\]\(breadboard\//g, "](../img/breadboard/")
+            .replace(/\]\(breadboard\//g, "](/img/breadboard/")
             .replace(/docs\/breadboard\//g, "")
         );
 
@@ -395,6 +409,7 @@ module.exports = function(grunt) {
           missing.push(value);
         }
         // Place it into our html template
+        file.mkdir("public/examples/" + value.replace(".js", ""));
         file.write(outpath, templates.exampleContent({
           title: title,
           contents: example
@@ -433,12 +448,13 @@ module.exports = function(grunt) {
       return {
         title: title,
         source: "src/johnny-five.wiki/" + title + ".md",
-        target: "api/" + title.toLowerCase() + ".html"
+        target: "api/" + title.toLowerCase() + "/index.html",
+        pretty: "api/" + title.toLowerCase() + "/"
       };
     }, {});
 
     var list = markdown.render(matches.reduce(function(accum, match) {
-      accum += "- [" + match.title + "](/" + match.target + ")\n";
+      accum += "- [" + match.title + "](/" + match.pretty + ")\n";
       return accum;
     }, ""));
 
@@ -460,7 +476,9 @@ module.exports = function(grunt) {
         examples = examples.join("\n");
       }
 
-      file.write("public/"+ match.target, templates.apiContent({
+      file.mkdir("public/api/" + match.title.toLowerCase());
+
+      file.write("public/" + match.target, templates.apiContent({
         title: match.title,
         list: list,
         contents: markdown.render(
@@ -471,7 +489,9 @@ module.exports = function(grunt) {
       }));
     });
 
-    file.write("public/api.html", templates.api({
+    file.mkdir("public/api/");
+
+    file.write("public/api/index.html", templates.api({
       list: list,
       guides: markdown.render(guides)
     }));
@@ -526,8 +546,8 @@ module.exports = function(grunt) {
       });
     });
 
-
-    file.write("public/platform-support.html", templates.platformSupport({
+    file.mkdir("public/platform-support/");
+    file.write("public/platform-support/index.html", templates.platformSupport({
       contents: contents
     }));
   });
