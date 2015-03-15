@@ -1,6 +1,22 @@
 # johnny-five.org
 
-The repo for the johnny-five.org website
+The repo for the johnny-five.org website.
+
+## Content
+
+Content displayed on johnny-five.org is sourced from two other repos: 
+
+- [https://github.com/rwaldron/johnny-five.git](https://github.com/rwaldron/johnny-five)
+    + Example programs
+        * Breadboard images
+        * Breadboard fritzing files
+        * tpl/programs.json
+        * tpl/titles.json
+- [https://github.com/rwaldron/johnny-five.wiki.git](https://github.com/rwaldron/johnny-five.wiki)
+    + API Documentation
+
+The content is consumed and processed via grunt tasks that output the website-ready versions of the content in the `public/` directory. 
+
 
 ## Prerequisites
 
