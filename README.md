@@ -56,9 +56,13 @@ grunt && grunt dev
 
 
 - Tasks
-    + `dev` Run the `connect`, `copy` and `watch` tasks
-    + `bootstrap` Clean out remote content source dependencies and clone the the latest master branch of the johnny-five and johnny-five.wiki repos into the `src/` directory.
-    + `regen` Run the `copy`, `uglify`, `index`, `examples-list`, `examples`, `api-docs` and `platform-support` tasks.
+    + `dev` Run the `connect`, `launch`, and `watch` tasks.
+        * `connect`: connect the server
+        * `launch`: open the site in a browser
+        * 
+    + `bootstrap`: Run the `clean:deps`, `gitclone` and `copy` tasks.
+        * Clean out remote content source dependencies and clone the the latest master branch of the johnny-five and johnny-five.wiki repos into the `src/` directory. Copy static resources to `public/`
+    + `regen` Run `index`, `articles-from-rss`, `examples-list`, `examples`, `api-docs` and `platform-support` tasks.
     + `index` generates `public/index.html`
         * Materials & Sources: 
             - `src/platforms-plugins.json`
@@ -66,13 +70,17 @@ grunt && grunt dev
             - `src/css/style.scss`
             - `src/img/*`
             - `src/img/platforms/*`
+    + `articles-from-rss` generates article lists from a given set of rss feed targets. 
+        * Materials & Sources: 
+            - `tpl/.articles.html`
+            - `tpl/rss-list.html`
     + `examples-list` generates `public/examples.html`
         * Materials & Sources: 
             - `tpl/.examples.html`
             - `src/johnny-five/README.md`
     + `examples` generates `public/examples/*.html`
         * Materials & Sources: 
-            - `tpl/tpl/.example-content.html`
+            - `tpl/.example-content.html`
             - `src/johnny-five/README.md`
             - `src/johnny-five/tpl/programs.json`
             - `src/johnny-five/tpl/titles.json`

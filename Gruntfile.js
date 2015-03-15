@@ -76,11 +76,6 @@ module.exports = function(grunt) {
         src: "src/sass/anchor.css",
         dest: "public/css/anchor.css"
       },
-      programs: {
-        nonull: true,
-        src: "src/johnny-five/tpl/programs.json",
-        dest: "public/js/programs.json"
-      },
       breadboards: {
         nonull: true,
         expand: true,
@@ -291,11 +286,11 @@ module.exports = function(grunt) {
 
   // Default task(s).
   // grunt.registerTask("default", ["uglify"]);
-  grunt.registerTask("bootstrap", ["clean:deps", "gitclone"]);
-  grunt.registerTask("dev", ["connect", "launch", "copy", "watch"]);
+  grunt.registerTask("bootstrap", ["clean:deps", "gitclone", "copy"]);
+  grunt.registerTask("dev", ["connect", "launch", "watch"]);
   grunt.registerTask("regen", ["copy", "uglify", "index", "articles-from-rss", "examples-list", "examples", "api-docs", "platform-support"]);
 
-  grunt.registerTask("default", ["clean:build", "regen", "copy", "sass:dist", "uglify"]);
+  grunt.registerTask("default", ["clean:build", "regen", "sass:dist", "uglify"]);
 
 
   grunt.registerTask("launch", function() {
@@ -332,7 +327,7 @@ module.exports = function(grunt) {
     };
 
     targets.forEach(function(target) {
-      rssToList("http://www.reddit.com/r/NodeBots/.rss", function(err, list) {
+      rssToList(target.feed, function(err, list) {
 
         var articles = {};
         articles[target.name] = templates.rssList({
