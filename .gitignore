@@ -35,12 +35,10 @@ public/css/*
 public/js/*
 public/img/*
 public/api/*
-public/api.html
 public/examples/*
-public/examples.html
 public/guides/*
-public/platform-support.html
-public/articles.html
+public/platform-support/*
+public/articles/*
 src/johnny-five
 src/johnny-five.wiki
 
