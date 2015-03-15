@@ -836,6 +836,10 @@ the api pages only show the list if there is adequate screen space.
   padding: .25em 0;
 }
 
+.docs-guides p strong, .docs-guides li strong {
+  display: inline;
+}
+
 .articles-docs h3 a {
   color: #000;
 }
