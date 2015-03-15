@@ -506,7 +506,13 @@
           "enabled": true,
           "notes": {
             "public": [
-              "Hardware does not support PWM on pins 10 and 11 by default"
+              [],
+              [],
+              [],
+              ["Hardware does not support PWM on pins 10 and 11 by default"],
+              [],
+              [],
+              []
             ]
           },
           "capabilities": {
