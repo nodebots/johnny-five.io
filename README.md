@@ -25,14 +25,14 @@ The content is consumed and processed via grunt tasks that output the website-re
 - sass gem (which requires ruby)
 
 ```
-brew install node;
-brew install sass;
+brew install node
+brew install sass
 ```
 
 ## Setup 
 
 ```
-npm install;
+npm install
 ```
 
 ### Build
