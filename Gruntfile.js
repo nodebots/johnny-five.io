@@ -495,9 +495,9 @@ module.exports = function(grunt) {
       platform.variants.forEach(function(variant, index) {
         if (variant.enabled) {
 
-          var keys = Object.keys(variant.capabilities.keyed);
+          var keys = Object.keys(variant.capabilities);
           var values = keys.map(function(key) {
-            return variant.capabilities.keyed[key];
+            return variant.capabilities[key];
           });
           var first = keys.join("|");
           // Build a table in markdown
@@ -505,8 +505,8 @@ module.exports = function(grunt) {
           var bounds = "|" + first.replace(/([A-Z ])\w+/g, "-") + "|";
           var capabilities = "|" + values.join("|") + "|";
           var capabilitiesA = [header, bounds, capabilities].join("\n");
-          var capabilitiesB = ["|_|_|", "|-|-|"].concat(Object.keys(variant.capabilities.keyed).map(function(key, index) {
-            return "|" + key + "|" + variant.capabilities.keyed[key] + "|";
+          var capabilitiesB = ["|_|_|", "|-|-|"].concat(Object.keys(variant.capabilities).map(function(key, index) {
+            return "|" + key + "|" + variant.capabilities[key] + "|";
           })).join("\n");
 
           contents += templates.platformVariant({

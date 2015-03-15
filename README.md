@@ -97,6 +97,11 @@ grunt && grunt dev
             - `tpl/.platform-support.html`
             - `tpl/.platform-variant.html`
             - `src/platforms-plugins.json`
+            - Images in `src/img/platforms/`
+                + 500x500 PNG
+                + 270 pixels/inch
+                    * This is the Fritzing default, it looks nice on retina displays. 
+                    
 
 
 

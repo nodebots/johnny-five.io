@@ -36,15 +36,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "yes",
-              "Stepper": "yes"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
           }
         },
         {
@@ -63,15 +61,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "yes",
-              "Stepper": "yes"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
           }
         },
         {
@@ -90,15 +86,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "yes",
-              "Stepper": "yes"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
           }
         },
         {
@@ -117,15 +111,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "yes",
-              "Stepper": "yes"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
           }
         },
         {
@@ -144,15 +136,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "yes",
-              "Stepper": "yes"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
           }
         },
         {
@@ -171,15 +161,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "yes",
-              "Stepper": "yes"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
           }
         },
         {
@@ -198,15 +186,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "yes",
-              "Stepper": "yes"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
           }
         },
         {
@@ -225,15 +211,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "yes",
-              "Stepper": "yes"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
           }
         },
         {
@@ -252,15 +236,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "yes",
-              "Stepper": "yes"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
           }
         },
         {
@@ -279,15 +261,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "yes",
-              "Stepper": "yes"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
           }
         }
       ]
@@ -327,15 +307,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         }
       ]
@@ -374,15 +352,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         }
       ]
@@ -421,15 +397,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         }
       ]
@@ -470,15 +444,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         },
         {
@@ -497,15 +469,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         }
       ]
@@ -540,15 +510,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         },
         {
@@ -567,15 +535,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "no",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "no",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         }
       ]
@@ -614,15 +580,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "yes",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         }
       ]
@@ -662,15 +626,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "no",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "no",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         },
         {
@@ -715,15 +677,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "no",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "no",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         }
       ]
@@ -763,15 +723,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "no",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "no",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "no",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "no",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         },
         {
@@ -790,15 +748,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "no",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "no",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "no",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "no",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         },
         {
@@ -817,15 +773,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "no",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "no",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "no",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "no",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         }
       ]
@@ -869,15 +823,13 @@
             ]
           },
           "capabilities": {
-            "keyed": {
-              "Analog Read": "yes",
-              "Digital Read": "yes",
-              "Digital Write": "yes",
-              "PWM": "yes",
-              "I2C": "no",
-              "One Wire": "no",
-              "Stepper": "no"
-            }
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "no",
+            "One Wire": "no",
+            "Stepper": "no"
           }
         }
       ]
