@@ -12,7 +12,7 @@ Content displayed on johnny-five.org is sourced from two other repos:
         * Breadboard fritzing files
         * tpl/programs.json
         * tpl/titles.json
-- [https://github.com/rwaldron/johnny-five.wiki.git](https://github.com/rwaldron/johnny-five.wiki)
+- [https://github.com/rwaldron/johnny-five.wiki.git](https://github.com/rwaldron/johnny-five/wiki)
     + API Documentation
 
 The content is consumed and processed via grunt tasks that output the website-ready versions of the content in the `public/` directory. 
