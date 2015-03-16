@@ -714,6 +714,56 @@
       ],
       "variants": [
         {
+          "name": "Raspberry Pi 2 Model B",
+          "image": "raspberry-pi-2-model-b.png",
+          "enabled": true,
+          "notes": {
+            "public": [
+              ["Hardware support missing"],
+              [],
+              [],
+              [],
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Software support missing"]
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "no",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "no",
+            "One Wire": "no",
+            "Stepper": "no"
+          }
+        },
+        {
+          "name": "Raspberry Pi Model A Plus",
+          "image": "raspberry-pi-model-a-plus.png",
+          "enabled": true,
+          "notes": {
+            "public": [
+              ["Hardware support missing"],
+              [],
+              [],
+              [],
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Software support missing"]
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "no",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "no",
+            "One Wire": "no",
+            "Stepper": "no"
+          }
+        },
+        {
           "name": "Raspberry Pi Model B Plus",
           "image": "raspberry-pi-model-b-plus.png",
           "enabled": true,
