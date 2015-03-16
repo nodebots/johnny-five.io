@@ -374,8 +374,6 @@ module.exports = function(grunt) {
     // Only care about the first item in this particular list;
     examples = examples[0];
 
-    console.log(examples);
-
     file.mkdir("public/examples/");
     file.write("public/examples/index.html", templates.examples({
       list: markdown.render(examples)
