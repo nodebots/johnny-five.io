@@ -24,6 +24,7 @@ module.exports = function(grunt) {
 
   var titles;
   var egSources;
+  var examples;
 
   try {
     titles = JSON.parse(file.read("src/johnny-five/tpl/titles.json"));
@@ -363,7 +364,7 @@ module.exports = function(grunt) {
       examples: _.template(file.read("tpl/.examples.html")),
     };
 
-    var examples = extract("examples", file.read("src/johnny-five/README.md")).map(function(extraction) {
+    var list = extract("examples", file.read("src/johnny-five/README.md")).map(function(extraction) {
       return extraction.map(function(line) {
         return line
           .replace("https://github.com/rwaldron/johnny-five/blob/master/docs/", "/examples/")
@@ -372,7 +373,8 @@ module.exports = function(grunt) {
     });
 
     // Only care about the first item in this particular list;
-    examples = examples[0];
+    // Assign to the shared `examples`
+    examples = list[0];
 
     file.mkdir("public/examples/");
     file.write("public/examples/index.html", templates.examples({
@@ -410,7 +412,8 @@ module.exports = function(grunt) {
         file.mkdir("public/examples/" + value.replace(".js", ""));
         file.write(outpath, templates.exampleContent({
           title: title,
-          contents: example
+          contents: example,
+          list: markdown.render(examples)
         }));
       });
     });

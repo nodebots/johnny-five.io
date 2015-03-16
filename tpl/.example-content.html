@@ -41,11 +41,15 @@
     </header>
   </div>
 
-  <main class="central">
-    <div class="wrap-a wrap-docs">
+  <main class="central docs">
+    <div class="wrap-a wrap-docs list-docs">
+      <nav id="api-nav" class="docs-nav api-nav-list">
+        <%= list %>
+      </nav>
 
-      <%= contents %>
-
+      <div class="docs-content docs-guides">
+        <%= contents %>
+      </div>
     </div>
   </main>
     <div class="social">
