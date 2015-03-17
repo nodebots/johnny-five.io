@@ -46,7 +46,7 @@
       '});',
       '',
       'board.on("ready", function() {',
-      '  var led = new five.Led(0);',
+      '  var led = new five.Led("D7");',
       '  led.blink(500);',
       '});'
     ],
