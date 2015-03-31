@@ -1,0 +1,19 @@
+# All project build tasks go here. These tasks will only be run for the
+# specified commit if the commit hasn't been deployed before or if "force"
+# is true.
+
+# Modify as-needed!
+
+# # For debugging!
+# - name: BUILD THE APP
+#   shell: touch "Z $(date +"%Y-%m-%d %H:%M:%S") $(git rev-parse --short HEAD)"
+#   args:
+#     chdir: "{{clone_path}}"
+
+- name: install npm modules
+  npm: path="{{clone_path}}"
+
+- name: build production version
+  shell: npm run build
+  args:
+    chdir: "{{clone_path}}"

@@ -1,29 +1,18 @@
-- name: apt-cache is updated
-  apt: update_cache=yes
+# Get the box up and running. These tasks run before the box is configured
+# or the project is cloned or built. All system dependencies should be
+# installed here.
 
-- name: nginx is installed
-  apt: name=nginx state=present
+- name: add keys to apt
+  apt_key: url={{item}} state=present
+  with_items: apt_keys
 
-- name: node ppa is available
-  apt_repository: repo='ppa:chris-lea/node.js'
+- name: add ppas to apt
+  apt_repository: repo="{{item}}" update_cache=yes
+  with_items: apt_ppas
 
-- name: git is installed
-  apt: name=git state=present
+- name: install apt packages
+  apt: name={{item}} state=latest update_cache=yes
+  with_items: apt_packages
 
-- name: apt cache is updated
-  apt: update_cache=yes
-
-- name: nodejs is installed
-  apt: name=nodejs state=present
-
-- name: grunt-cli is installed
-  npm: name=grunt-cli global=true
-
-- name: bower is installed
-  npm: name=bower global=true
-
-- name: ruby is installed
-  apt: name=ruby-full state=present
-
-- name: sass is installed
-  shell: "gem install sass" 
+- name: update npm to latest
+  npm: name=npm state=latest global=yes

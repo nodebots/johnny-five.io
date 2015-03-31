@@ -1,7 +1,10 @@
-- hosts: all
+# Clone, build, and deploy, restarting nginx if necessary.
+
+- hosts: appservers
   gather_facts: false
   sudo: yes
-  handlers:
-    - include: handlers/main.yml
+  vars:
+    commit: master
+    force: false
   roles:
     - deploy

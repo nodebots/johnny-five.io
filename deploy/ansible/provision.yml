@@ -1,10 +1,13 @@
+# Provision server and deploy code.
+
 - hosts: all
   gather_facts: false
   sudo: yes
-  handlers:
-    - include: handlers/main.yml
   roles:
     - base
     - configure
     - nginx
+  handlers:
+    - include: handlers/handlers.yml
+
 - include: deploy.yml

@@ -1,3 +1,0 @@
-env: development
-fqdn: johnny-five.loc
-deploy_source_path: /mnt/johnny-five

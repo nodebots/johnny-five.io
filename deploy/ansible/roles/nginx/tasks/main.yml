@@ -1,40 +1,42 @@
-- name: generate strong DHE parameter
-  command: /usr/bin/openssl dhparam -dsaparam -out /etc/ssl/certs/dhparam.pem 4096
-  when: env != "development"
+# Generate nginx config files, rolling back changes if any part of the
+# config is invalid.
+
+- name: ensure nginx config files exist
+  shell: touch {{item.directory}}/{{item.file}}
   args:
-    creates: /etc/ssl/certs/dhparam.pem
+    creates: "{{item.directory}}/{{item.file}}"
+  with_items: confs + shared
 
-- name: touch config files
-  command: /usr/bin/touch {{ item }}
+- name: backup existing nginx config files
+  shell: cp {{item.file}} {{item.file}}.backup
   args:
-    chdir: /etc/nginx/conf.d/
-  with_items: confs
+    chdir: "{{item.directory}}"
+  with_items: confs + shared
 
-- name: backup config files
-  command: /bin/cp {{ item }} {{ item }}.backup
-  args:
-    chdir: /etc/nginx/conf.d/
-  with_items: confs
-
-- name: shared gzip config is present
-  template: src=gzip_params dest=/etc/nginx/
-
-- name: nginx has configuration files
-  template: src={{ item }} dest=/etc/nginx/conf.d/ backup=yes
-  with_items: confs
-
-- name: nginx configuration is correct
-  command: /usr/sbin/nginx -t
+- name: generate new nginx config files
+  template: src={{item.file}} dest={{item.directory}}/
+  register: nginx_conf
+  with_items: confs + shared
   notify: restart nginx
+
+- name: ensure nginx config is valid
+  shell: nginx -t
   ignore_errors: yes
-  register: nginx_test_result
+  register: nginx_test_valid
+  changed_when: false
+  when: nginx_conf|changed
 
-- name: "[failed] restore backup"
-  command: /bin/mv {{ item }}.backup {{ item }}
-  with_items: confs
+- name: remove temporary backups if new nginx config files are valid
+  file: path={{item.directory}}/{{item.file}}.backup state=absent
+  with_items: confs + shared
+  when: nginx_test_valid|success
+
+- name: restore temporary backups if new nginx config files are invalid
+  shell: mv {{item.file}}.backup {{item.file}}
   args:
-    chdir: /etc/nginx/conf.d/
-  when: nginx_test_result|failed
+    chdir: "{{item.directory}}"
+  with_items: confs
+  when: nginx_test_valid|failed
 
-- fail: msg="[failed] nginx configuration invalid"
-  when: nginx_test_result|failed
+- fail: msg="nginx config is invalid"
+  when: nginx_test_valid|failed
