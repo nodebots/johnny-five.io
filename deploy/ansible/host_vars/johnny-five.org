@@ -1,3 +1,0 @@
-env: production
-fqdn: johnny-five.org
-deploy_source_path: /mnt/johnny-five.tmp

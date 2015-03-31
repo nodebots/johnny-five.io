@@ -1,27 +1,14 @@
-- name: remove temporary build
-  command: rm -rf {{deploy_source_path}}
-  when: env == 'production'
+# Clone the repo and check out the specified "commit" (defaults to master)
+# unless it has already been checked out. Specifying "force" will clone and
+# build regardless of prior status. When done, symlink the specified commit
+# to make it go live.
 
-- name: temp build directory exists
-  file: path={{deploy_source_path}} state=directory
-  when: env == 'production'
+- name: check if specified commit has already been deployed
+  stat: path={{base_path}}/{{commit}} get_checksum=no get_md5=no
+  register: commit_dir
 
-- name: code is synchronized via git to temp directory
-  git: dest={{deploy_source_path}} repo={{git_repo}} version=ansible
-  when: env == 'production'
+- include: checkout.yml
+  when: force or not commit_dir.stat.exists
 
-- name: build the site
-  shell: "npm install && grunt bootstrap && grunt regen && grunt"
-  args:
-    chdir: "{{deploy_source_path}}"
-
-- name: log file exists
-  file: path={{app_log_file}} state=touch owner={{app_user}} group={{app_group}}
-
-- name: current production build is removed
-  command: rm -rf {{base_path}}
-  when: env == 'production'
-
-- name: new production build is in place
-  command: mv {{deploy_source_path}} {{base_path}}
-  when: env == 'production'
+- name: link sha-named clone to make it live
+  file: path={{site_path}} state=link src={{base_path}}/{{sha.stdout|default(commit)}} force=yes

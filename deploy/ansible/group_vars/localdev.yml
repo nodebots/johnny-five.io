@@ -1,0 +1,7 @@
+# For [localdev] referenced in the Vagrantfile
+env: development
+
+# Vagrant box hostname and FQDN. The app_fqdn setting should match the
+# config.hostsupdater.aliases setting in the Vagrantfile.
+hostname: ansible-vagrant
+app_fqdn: "{{project_name}}.loc"

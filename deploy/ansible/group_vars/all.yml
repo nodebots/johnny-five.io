@@ -1,9 +1,24 @@
-hostname: johnny-five
+# This is used as the basis of a few other variables, eg. hostname, app_fqdn.
+project_name: johnny-five
+
+# Git repo address. Modify as-needed.
 git_repo: git@github.com:bocoup/johnny-five.org.git
-base_path: /mnt/johnny-five
-app_port: 8080
-app_log_file: /var/log/johnny-five
-app_user: www-data
-app_group: www-data
-ssl_cert_path: /etc/ssl/star.bocoup.com.cert
-ssl_key_path: /etc/ssl/star.bocoup.com.key
+
+# Parent directory for cloned repository directories.
+base_path: /mnt
+
+# Where the production site symlink will exist. This value needs to be the
+# same as the config.vm.synced_folder setting in the Vagrantfile.
+site_path: "{{base_path}}/{{project_name}}"
+
+# Temporary location where the git repo will be cloned and the build scripts
+# will be run before going live.
+clone_path: "{{base_path}}/temp"
+
+# The directory that nginx will serve as the production site. If your web app
+# has a build process, this will be the build process output directory.
+public_path: "{{site_path}}/public"
+
+# The server hostname and FQDN.
+hostname: "{{project_name}}"
+app_fqdn: "johnny-five.org"

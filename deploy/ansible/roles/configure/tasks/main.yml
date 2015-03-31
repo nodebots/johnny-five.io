@@ -1,23 +1,23 @@
-- name: hostname is set
+# Configure the box. This happens after system dependencies are installed,
+# but before the project is cloned or built.
+
+- name: set hostname
   hostname: name={{hostname}}
 
-- name: /etc/hosts has loopback references to our hostname
-  lineinfile: "dest=/etc/hosts line='127.0.0.1 {{hostname}}'"
+- name: add loopback references to our domain in /etc/hosts
+  lineinfile: "dest=/etc/hosts line='127.0.0.1 {{hostname}} {{app_fqdn}}'"
 
-- name: /etc/hosts has loopback references to our domain
-  lineinfile: "dest=/etc/hosts line='{{fqdn}}'"
-
-- name: get github.com public key
+- name: get github public key
   command: /usr/bin/ssh-keyscan github.com
   register: github_keyscan
 
-- name: github key is recognized
+- name: add github key to ssh known hosts
   lineinfile: dest=/etc/ssh/ssh_known_hosts
     create=yes
     regexp='^github.com'
     line="{{github_keyscan.stdout}}"
 
-- name: keep SSH agent socket when sudoing
+- name: ensure ssh agent socket environment variable persists when sudoing
   lineinfile: dest=/etc/sudoers
     insertafter='^Defaults'
     line='Defaults env_keep += "SSH_AUTH_SOCK"'
