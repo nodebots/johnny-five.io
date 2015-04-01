@@ -46,7 +46,7 @@
           }
         },
         {
-          "name": "Arduino Leo",
+          "name": "Arduino Leonardo",
           "image": "arduino-leo.png",
           "enabled": true,
           "notes": {
