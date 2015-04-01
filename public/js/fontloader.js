@@ -1,2 +1,2 @@
-!function(a,b){"use strict";function c(b){if(d&&d.parentNode){var e=a.document.createElement("link");e.rel="stylesheet",e.href=b,d.parentNode.insertBefore(e,d)}else a.setTimeout(function(){c(b)},15)}var d=a.document.getElementById("fontloader"),e=a.document.getElementsByName("fonts")[0];e&&c(e.content)}(this);
+!function(a){"use strict";function b(d){if(c&&c.parentNode){var e=a.document.createElement("link");e.rel="stylesheet",e.href=d,c.parentNode.insertBefore(e,c)}else a.setTimeout(function(){b(d)},15)}var c=a.document.getElementById("fontloader"),d=a.document.getElementsByName("fonts")[0];d&&b(d.content)}(this);
 //# sourceMappingURL=fontloader.js.map
