@@ -309,7 +309,7 @@ module.exports = function(grunt) {
     var platforms = plugins.platforms.reduce(function(accum, platform) {
 
       return accum.concat(platform.variants.map(function(variant) {
-        return "[![" + variant.name + "](img/platforms/" + variant.image + ")](platform-support.html#" + slug(variant.name) + ")";
+        return "[![" + variant.name + "](img/platforms/" + variant.image + ")](/platform-support/#" + slug(variant.name) + ")";
       }));
     }, []).join("\n");
 
