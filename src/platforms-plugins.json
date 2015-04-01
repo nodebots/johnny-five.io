@@ -11,7 +11,7 @@
       "environment": {
         "name": "StandardFirmata",
         "url": "https://github.com/firmata/arduino",
-        "instructions": "https://github.com/rwaldron/johnny-five#setup-and-assemble-arduino",
+        "instructions": "https://github.com/rwaldron/johnny-five/wiki/Getting-Started#trouble-shooting",
         "relationship": "host-client"
       },
       "via": [
