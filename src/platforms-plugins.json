@@ -46,6 +46,31 @@
           }
         },
         {
+          "name": "Arduino Leo",
+          "image": "arduino-leo.png",
+          "enabled": true,
+          "notes": {
+            "public": [
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              []
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
+          }
+        },
+        {
           "name": "Arduino Mega",
           "image": "arduino-mega.png",
           "enabled": true,
@@ -223,6 +248,31 @@
         {
           "name": "Spider Robot Controller",
           "image": "spider-robot-controller.png",
+          "enabled": true,
+          "notes": {
+            "public": [
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              []
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes"
+          }
+        },
+        {
+          "name": "DFRobot Romeo",
+          "image": "dfrobot-romeo.png",
           "enabled": true,
           "notes": {
             "public": [
