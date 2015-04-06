@@ -46,7 +46,7 @@
   <main class="central docs">
     <div class="wrap-a wrap-docs list-docs">
       <div class="docs-content">
-        <h3>Hello World!</h3>
+        <h3>Hello World! (<a href="#list-of-examples">See more</a>) </h3>
               <pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;);
 var board = new five.Board();
 
@@ -62,7 +62,7 @@ board.on(&quot;ready&quot;, function() {
 </code></pre>
 <p><img src="../img/breadboard/led-blink.png" alt="led-blink.png"></p>
       </div>
-      <nav class="docs-nav api-nav-list">
+      <nav id="list-of-examples" class="docs-nav api-nav-list">
         <%= list %>
       </nav>
     </div>

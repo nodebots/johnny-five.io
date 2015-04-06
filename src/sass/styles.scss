@@ -520,6 +520,11 @@ the api pages only show the list if there is adequate screen space.
 }
 
 .api-nav-list {
+  display: block;
+
+}
+
+.api-nav-list.api-content-view {
   display: none;
 }
 
@@ -654,7 +659,9 @@ the api pages only show the list if there is adequate screen space.
   .docs-nav ul {
     width: 100%;
   }
-  @media( min-width: 45em ) {
+
+
+  /*@media( min-width: 45em ) {*/
     .docs-nav {
       float: left;
       width: 27%;
@@ -662,9 +669,9 @@ the api pages only show the list if there is adequate screen space.
     .docs-content {
       float: right;
       width: 70%;
-      float: right;
     }
-  }
+  /*}*/
+
 
   .central:after {
     content: "";
@@ -679,8 +686,8 @@ the api pages only show the list if there is adequate screen space.
     padding: 0;
   }
 
-  .api-content {
-    width: 80%;
+  .docs-content.api-content-view {
+    width: 70%;
     float: right;
   }
   .wrap-docs:after {
@@ -697,6 +704,10 @@ the api pages only show the list if there is adequate screen space.
   .api-anchors li {
     padding-right: 10px !important;
   }
+}
+
+.language-js.hljs.javascript, .language-javascript.hljs {
+  font-size: 0.75em;
 }
 
 @media (min-width: 60em) {
@@ -838,6 +849,26 @@ the api pages only show the list if there is adequate screen space.
 
 .docs-guides p strong, .docs-guides li strong {
   display: inline;
+}
+
+@media (min-width: 45em ) {
+  .language-js.hljs.javascript, .language-javascript.hljs {
+    font-size: 1em;
+  }
+
+  .docs-guides {
+    display: block;
+  }
+}
+
+@media (max-width: 44.9375em) {
+  .language-js.hljs.javascript, .language-javascript.hljs {
+    font-size: 0.75em;
+  }
+
+  .docs-guides {
+    display: none;
+  }
 }
 
 .articles-docs h3 a {
