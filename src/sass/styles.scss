@@ -256,6 +256,7 @@ p {
 
 .j5-icon {
   margin-top: .95em;
+  display: block;
   float: left;
 }
 
@@ -343,7 +344,7 @@ p {
     padding: 0 15.0474663%;
   }
 }
-.nav-primary a {
+.nav-link {
   display: block;
   padding: .25em 0;
   margin: 10px 0;
@@ -352,21 +353,21 @@ p {
   -webkit-transition: color .2s ease-in-out;
   transition: color .2s ease-in-out;
 }
-.nav-primary a:hover,
-.nav-primary a:active {
+.nav-link:hover,
+.nav-link:active {
   color: #ede63e;
 }
 
-.nav-primary a:active {
+.nav-link:active {
   margin-top: 11px;
   margin-bottom: -1px;
 }
-.nav-primary a:last-of-type:active {
+.nav-link:last-of-type:active {
   margin-bottom: 9px;
 }
 
 @media (min-width: 35em) {
-  .nav-primary a {
+  .nav-link {
     display: inline-block;
     margin: 0 2.5%;
     text-align: center;
@@ -377,17 +378,17 @@ p {
   .nav-primary {
     text-align: right;
   }
-  .nav-primary a {
+  .nav-link {
     display: inline-block;
     margin: 1.5em 2.5% 1.5em 2.5%;
     text-align: left;
     width: auto;
   }
-  .nav-primary a:last-of-type {
+  .nav-link:last-of-type {
     margin-right: 0;
   }
 
-  .nav-primary a:after {
+  .nav-link:after {
     content: "";
     display: block;
     margin: .2em auto 0 auto;
@@ -398,15 +399,15 @@ p {
     -webkit-transition: width .35s ease-in-out, opacity .35s ease-in-out;
     transition: width .35s ease-in-out, opacity .35s ease-in-out;
   }
-  .nav-primary a:hover {
+  .nav-link:hover {
     color: #fff;
     margin-bottom: 1.3em;
   }
-  .nav-primary a.current {
+  .nav-link.current {
     color: #fff;
   }
-  .nav-primary a.current:after,
-  .nav-primary a:hover:after {
+  .nav-link.current:after,
+  .nav-link:hover:after {
     opacity: 1;
     width: 100%;
   }
