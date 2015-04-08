@@ -22,13 +22,22 @@ module.exports = function(grunt) {
   var template = grunt.template;
   var _ = grunt.util._;
 
-  var titles;
+  var egPrograms;
+  var egTitles;
   var egSources;
   var examples;
 
   try {
-    titles = JSON.parse(file.read("src/johnny-five/tpl/titles.json"));
-    egSources = Object.keys(titles).reduce(function(source, key) {
+    egPrograms = JSON.parse(file.read("src/johnny-five/tpl/programs.json"));
+    egTitles = egPrograms.reduce(function(accum, program) {
+      var titles = program.examples.reduce(function(accum, example) {
+        accum[example.file] = example.title;
+        return accum;
+      }, {});
+      return Object.assign(accum, titles);
+    }, {});
+
+    egSources = Object.keys(egTitles).reduce(function(source, key) {
       source[key] = file.read("src/johnny-five/eg/" + key);
       return source;
     }, {});
@@ -388,14 +397,13 @@ module.exports = function(grunt) {
     };
 
     var entries = JSON.parse(file.read(file.expand(this.data)));
-    var missing = [];
 
     entries.forEach(function(entry) {
-      entry.files.forEach(function(value) {
-        var title = titles[value];
-        var outpath = "public/examples/" + value.replace(".js", "/index.html");
-        var inpath = "src/johnny-five/docs/" + value.replace(".js", ".md");
-        var example = markdown.render(
+      entry.examples.forEach(function(eg) {
+        var title = eg.title;
+        var outpath = "public/examples/" + eg.file.replace(".js", "/index.html");
+        var inpath = "src/johnny-five/docs/" + eg.file.replace(".js", ".md");
+        var contents = markdown.render(
           // open file
           // eliminate sections marked for removal
           // modify image path
@@ -405,28 +413,15 @@ module.exports = function(grunt) {
             .replace(/docs\/breadboard\//g, "")
         );
 
-        if (!title) {
-          missing.push(value);
-        }
         // Place it into our html template
-        file.mkdir("public/examples/" + value.replace(".js", ""));
+        file.mkdir("public/examples/" + eg.file.replace(".js", ""));
         file.write(outpath, templates.exampleContent({
           title: title,
-          contents: example,
+          contents: contents,
           list: markdown.render(examples)
         }));
       });
     });
-
-    if (missing.length) {
-      console.log("Missing title.json entries: \n");
-
-      missing.forEach(function(file) {
-        console.log('  "' + file + '": "",');
-      });
-
-      console.log("");
-    }
   });
 
   grunt.registerTask("api-docs", "generate api docs", function() {
@@ -460,14 +455,11 @@ module.exports = function(grunt) {
     }, ""));
 
     matches.forEach(function(match) {
-
       var examples = Object.keys(egSources).reduce(function(accum, example) {
-
         if (egSources[example].includes(match.title)) {
           var htmlFile = example.replace(".js", ".html");
-          accum.push("- [" + titles[example] + "](/examples/" + htmlFile + ")");
+          accum.push("- [" + egTitles[example] + "](/examples/" + htmlFile + ")");
         }
-
         return accum;
       }, []);
 
