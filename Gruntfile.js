@@ -466,7 +466,7 @@ module.exports = function(grunt) {
     matches.forEach(function(match) {
       var examples = Object.keys(egSources).reduce(function(accum, example) {
         if (egSources[example].includes(match.title)) {
-          var htmlFile = example.replace(".js", ".html");
+          var htmlFile = example.replace(".js", "");
           accum.push("- [" + egTitles[example] + "](/examples/" + htmlFile + ")");
         }
         return accum;
