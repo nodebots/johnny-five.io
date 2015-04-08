@@ -93,12 +93,19 @@ module.exports = function(grunt) {
         src: "src/johnny-five/docs/breadboard/**",
         dest: "public/img/breadboard/"
       },
-      images: {
+      img: {
         nonull: true,
         expand: true,
         cwd: "src/img",
         src: "**",
         dest: "public/img/"
+      },
+      images: {
+        nonull: true,
+        expand: true,
+        flatten: true,
+        src: "src/johnny-five/docs/images/**",
+        dest: "public/img/images/"
       }
     },
     sass: {
@@ -410,9 +417,11 @@ module.exports = function(grunt) {
           // modify displayed fzz
           remove(file.read(inpath))
             .replace(/\]\(breadboard\//g, "](/img/breadboard/")
+            .replace(/\]\(images\//g, "](/img/images/")
             .replace(/docs\/breadboard\//g, "")
+            .replace(/docs\/images\//g, "")
         );
-
+// docs/images
         // Place it into our html template
         file.mkdir("public/examples/" + eg.file.replace(".js", ""));
         file.write(outpath, templates.exampleContent({
