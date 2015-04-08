@@ -343,7 +343,7 @@ p {
     padding: 0 15.0474663%;
   }
 }
-.nav-primary a {
+.navlist a {
   display: block;
   padding: .25em 0;
   margin: 10px 0;
@@ -352,21 +352,21 @@ p {
   -webkit-transition: color .2s ease-in-out;
   transition: color .2s ease-in-out;
 }
-.nav-primary a:hover,
-.nav-primary a:active {
+.navlist a:hover,
+.navlist a:active {
   color: #ede63e;
 }
 
-.nav-primary a:active {
+.navlist a:active {
   margin-top: 11px;
   margin-bottom: -1px;
 }
-.nav-primary a:last-of-type:active {
+.navlist a:last-of-type:active {
   margin-bottom: 9px;
 }
 
 @media (min-width: 35em) {
-  .nav-primary a {
+  .navlist a {
     display: inline-block;
     margin: 0 2.5%;
     text-align: center;
@@ -377,17 +377,17 @@ p {
   .nav-primary {
     text-align: right;
   }
-  .nav-primary a {
+  .navlist a {
     display: inline-block;
     margin: 1.5em 2.5% 1.5em 2.5%;
     text-align: left;
     width: auto;
   }
-  .nav-primary a:last-of-type {
+  .navlist a:last-of-type {
     margin-right: 0;
   }
 
-  .nav-primary a:after {
+  .navlist a:after {
     content: "";
     display: block;
     margin: .2em auto 0 auto;
@@ -398,15 +398,15 @@ p {
     -webkit-transition: width .35s ease-in-out, opacity .35s ease-in-out;
     transition: width .35s ease-in-out, opacity .35s ease-in-out;
   }
-  .nav-primary a:hover {
+  .navlist a:hover {
     color: #fff;
     margin-bottom: 1.3em;
   }
-  .nav-primary a.current {
+  .navlist a.current {
     color: #fff;
   }
-  .nav-primary a.current:after,
-  .nav-primary a:hover:after {
+  .navlist a.current:after,
+  .navlist a:hover:after {
     opacity: 1;
     width: 100%;
   }
