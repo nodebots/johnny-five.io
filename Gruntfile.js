@@ -22,6 +22,7 @@ module.exports = function(grunt) {
   var template = grunt.template;
   var _ = grunt.util._;
 
+  var footer = file.read("tpl/.footer.html");
   var egPrograms;
   var egTitles;
   var egSources;
@@ -330,11 +331,12 @@ module.exports = function(grunt) {
     }, []).join("\n");
 
     file.write("public/index.html", templates.index({
-      platforms: markdown.render(platforms)
+      platforms: markdown.render(platforms),
+      footer: footer
     }));
   });
 
-  grunt.registerMultiTask("articles-from-rss", "generate articles lists from rss", function() {
+  grunt.registerTask("articles-from-rss", function() {
     var done = this.async();
     var targets = grunt.config("articles-from-rss.targets");
     var remaining = targets.length;
@@ -343,33 +345,24 @@ module.exports = function(grunt) {
       rssList: _.template(file.read("tpl/.rss-list.html")),
     };
     var rendered = "";
+    var articles = {
+      footer: footer
+    };
 
     file.mkdir("public/articles/");
 
     targets.forEach(function(target) {
       rssToList(target.feed, function(err, list) {
-
-        var articles = {};
         articles[target.name] = templates.rssList({
           items: list
         });
-
-
-        if (!rendered) {
-          rendered = templates.articles(articles);
-        } else {
-          _.template(rendered, articles);
-        }
-
         remaining--;
       });
     });
 
     setInterval(function() {
       if (remaining === 0) {
-
-        file.write("public/articles/index.html", rendered);
-
+        file.write("public/articles/index.html", templates.articles(articles));
         done();
       }
     }, 0);
@@ -394,7 +387,8 @@ module.exports = function(grunt) {
 
     file.mkdir("public/examples/");
     file.write("public/examples/index.html", templates.examples({
-      list: markdown.render(examples)
+      list: markdown.render(examples),
+      footer: footer
     }));
   });
 
@@ -427,7 +421,8 @@ module.exports = function(grunt) {
         file.write(outpath, templates.exampleContent({
           title: title,
           contents: contents,
-          list: markdown.render(examples)
+          list: markdown.render(examples),
+          footer: footer
         }));
       });
     });
@@ -444,6 +439,7 @@ module.exports = function(grunt) {
     var guides = extract("guides", source).reduce(function(accum, set) {
       return accum.concat(set);
     }, []).join("\n");
+
     var matches = api.match(/\(https:\/\/github.com\/rwaldron\/johnny-five\/wiki\/(.*)\)/g).map(function(match) {
 
       var result = match.slice(1, -1);
@@ -456,7 +452,7 @@ module.exports = function(grunt) {
         target: "api/" + title.toLowerCase() + "/index.html",
         pretty: "api/" + title.toLowerCase() + "/"
       };
-    }, {});
+    });
 
     var list = markdown.render(matches.reduce(function(accum, match) {
       accum += "- [" + match.title + "](/" + match.pretty + ")\n";
@@ -488,6 +484,7 @@ module.exports = function(grunt) {
           remove(file.read(match.source))
         ),
         examples: markdown.render(examples),
+        footer: footer
       }));
     });
 
@@ -495,7 +492,8 @@ module.exports = function(grunt) {
 
     file.write("public/api/index.html", templates.api({
       list: list,
-      guides: markdown.render(guides)
+      guides: markdown.render(guides),
+      footer: footer
     }));
   });
 
@@ -550,7 +548,8 @@ module.exports = function(grunt) {
 
     file.mkdir("public/platform-support/");
     file.write("public/platform-support/index.html", templates.platformSupport({
-      contents: contents
+      contents: contents,
+      footer: footer
     }));
   });
 
