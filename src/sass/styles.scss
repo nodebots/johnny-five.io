@@ -788,7 +788,7 @@ the api pages only show the list if there is adequate screen space.
 }
 
 @media (min-width: 45em) {
-.thumb-post img {
+  .thumb-post img {
     clear: none;
     margin-right: 0;
     width: 20%;
@@ -852,12 +852,19 @@ the api pages only show the list if there is adequate screen space.
 }
 
 @media (min-width: 45em ) {
+
   .language-js.hljs.javascript, .language-javascript.hljs {
     font-size: 1em;
   }
 
   .docs-guides {
     display: block;
+  }
+}
+
+@media (max-width: 74.9375em) {
+  .fork-me {
+    display: none;
   }
 }
 
@@ -870,6 +877,12 @@ the api pages only show the list if there is adequate screen space.
     display: none;
   }
 }
+
+/*  position: absolute;
+  top: 2;
+  right: 2;
+  border: 0;
+  width: 2.5rem;*/
 
 .articles-docs h3 a {
   color: #000;
@@ -884,9 +897,30 @@ the api pages only show the list if there is adequate screen space.
 .articles-docs li a {
   font-size: 1.2em;
 }
+
+.created-at-bocoup {
+  float: left;
+  display: inline;
+  text-align: left;
+  font-size: 1.2em;
+  color: #fff;
+  width: 49%;
+}
+
+.created-at-bocoup img {
+  max-width: 160px;
+  margin: 0.5em;
+/*  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: .5em;
+*/}
+
 .social {
+  text-align: right;
   float: right;
+  display: inline;
   padding: .5em 2em;
+  width: 49%;
 }
 .social a {
   display: inline-block;
@@ -897,6 +931,12 @@ the api pages only show the list if there is adequate screen space.
 }
 .twitter-icon img {
   margin-bottom: 6px;
+}
+.github-icon img {
+  margin-bottom: 4px;
+}
+.yt-icon img {
+  margin-bottom: 9px;
 }
 
 .js-board-type {
