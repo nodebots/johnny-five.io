@@ -135,4 +135,11 @@
   }
 
 
+  var navlist = Array.from(document.querySelectorAll(".navlist a"));
+
+  navlist.forEach(function(navItem) {
+    if (location.pathname === navItem.pathname) {
+      navItem.classList.add("current");
+    }
+  });
 }());
