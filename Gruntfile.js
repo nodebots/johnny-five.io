@@ -4,11 +4,13 @@ var cp = require("child_process");
 var inspect = require("util").inspect;
 var fs = require("fs");
 var request = require("request");
+var moment = require("moment");
 var FeedParser = require("feedparser");
 var Remarkable = require("remarkable");
 var markdown = new Remarkable({
   html: true
 });
+var yfm = require("yaml-front-matter");
 
 module.exports = function(grunt) {
 
@@ -23,6 +25,7 @@ module.exports = function(grunt) {
   var _ = grunt.util._;
 
   var footer = file.read("tpl/.footer.html");
+  var navigation = file.read("tpl/.navigation.html");
   var egPrograms;
   var egTitles;
   var egSources;
@@ -286,7 +289,10 @@ module.exports = function(grunt) {
       targets: [
         { name: "reddit", feed: "http://www.reddit.com/r/NodeBots/.rss" }
       ]
-    }
+    },
+    news: {
+      files: ["src/news/**/*.md"]
+    },
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -499,6 +505,106 @@ module.exports = function(grunt) {
       navigation: navigation,
       list: list,
       guides: markdown.render(guides),
+      footer: footer
+    }));
+  });
+
+  grunt.registerMultiTask("news", "generate news", function() {
+    var templates = {
+      author: _.template(file.read("tpl/.author.html")),
+      news: _.template(file.read("tpl/.news.html")),
+      newsContent: _.template(file.read("tpl/.news-content.html")),
+      newsContentBody: _.template(file.read("tpl/.news-content-body.html")),
+    };
+
+    var authors = JSON.parse(file.read("src/authors.json"));
+
+    var sources = file.expand(this.data).map(function(source) {
+      return yfm.loadFront(file.read(source));
+    }).sort(function(a, b) {
+      // Sort newest first
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+
+    var latest = templates.newsContentBody(Object.assign({}, sources[0], {
+      date: moment(sources[0].date).format("MMMM Do YYYY"),
+      content: markdown.render(sources[0].__content),
+      author: templates.author({
+        author: sources[0].author,
+        github: authors[sources[0].author].github
+      })
+    }));
+
+    file.mkdir("public/news/");
+
+
+    var list = markdown.render(sources.reduce(function(accum, source) {
+      accum += "- [" + source.title + "](/news/" + slug(source.title) + ")\n";
+      return accum;
+    }, ""));
+
+
+    sources.forEach(function(source) {
+      file.mkdir("public/news/" + slug(source.title));
+
+      var contents = templates.newsContentBody(Object.assign({}, source, {
+        date: moment(source.date).format("MMMM Do YYYY"),
+        content: markdown.render(source.__content),
+        author: templates.author({
+          author: source.author,
+          github: authors[source.author].github
+        }),
+        title: ""
+      }));
+
+      file.write("public/news/" + slug(source.title) + "/index.html", templates.newsContent({
+        navigation: navigation,
+        list: list,
+        header: source.title,
+        contents: contents,
+        footer: footer
+      }));
+    });
+
+
+
+
+    // matches.forEach(function(match) {
+    //   var examples = Object.keys(egSources).reduce(function(accum, example) {
+    //     if (egSources[example].includes(match.title)) {
+    //       var htmlFile = example.replace(".js", "");
+    //       accum.push("- [" + egTitles[example] + "](/examples/" + htmlFile + ")");
+    //     }
+    //     return accum;
+    //   }, []);
+
+
+    //   if (examples.length) {
+    //     examples.unshift("## Examples");
+    //     examples = examples.join("\n");
+    //   }
+
+    //   file.mkdir("public/api/" + match.title.toLowerCase());
+
+    //   file.write("public/" + match.target, templates.apiContent({
+    //     navigation: navigation,
+    //     title: match.title,
+    //     list: list,
+    //     contents: markdown.render(
+    //       // Strip sections marked for removal
+    //       remove(file.read(match.source))
+    //     ),
+    //     examples: markdown.render(examples),
+    //     footer: footer
+    //   }));
+    // });
+
+
+
+    file.write("public/news/index.html", templates.news({
+      navigation: navigation,
+      list: list,
+      latest: latest,
       footer: footer
     }));
   });

@@ -1,0 +1,50 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Johnny-Five: <%= title %> API</title>
+  <meta name="description" content="Johnny-Five is an Open Source IoT and robotics programming framework">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="fonts" content="/css/type.css">
+
+  <script src="/js/fontloader.js" id="fontloader"></script>
+  <script src="/js/anchor.min.js" id="anchor.js"></script>
+  <script src="/js/es6-shim.js" id="es6-shim.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/anchor.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+
+  <link href="favicon.ico" rel="icon">
+
+</head>
+<body>
+
+  <div class="mast">
+    <nav class="nav-primary wrapper icon-j5">
+      <%= navigation %>
+    </nav>
+
+    <header role="banner" class="banner">
+     <h1 class="site-hed"><%= header %></h1>
+    </header>
+  </div>
+
+  <main class="central docs">
+    <div class="wrap-a wrap-docs list-docs">
+      <nav id="api-nav" class="docs-nav api-nav-list api-content-view">
+        <%= list %>
+      </nav>
+
+      <div class="docs-content api-content-view">
+        <%= contents %>
+      </div>
+    </div>
+  </main>
+
+  <%= footer %>
+
+</body>
+</html>

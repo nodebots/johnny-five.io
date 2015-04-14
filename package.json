@@ -40,6 +40,8 @@
     "copy-paste": "^1.0.1",
     "es6-shim": "^0.22.2",
     "marked": "^0.3.2",
-    "purecss": "^0.5.0"
+    "moment": "^2.10.2",
+    "purecss": "^0.5.0",
+    "yaml-front-matter": "^3.2.3"
   }
 }
