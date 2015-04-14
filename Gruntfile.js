@@ -393,7 +393,7 @@ module.exports = function(grunt) {
       return extraction.map(function(line) {
         return line
           .replace("https://github.com/rwaldron/johnny-five/blob/master/docs/", "/examples/")
-          .replace(".md", "");
+          .replace(".md", "/");
       }).join("\n");
     });
 
@@ -548,7 +548,7 @@ module.exports = function(grunt) {
 
 
     var list = markdown.render(sources.reduce(function(accum, source) {
-      accum += "- [" + source.title + "](/news/" + slug(source.title) + ")\n";
+      accum += "- [" + source.title + "](/news/" + slug(source.title) + "/)\n";
       return accum;
     }, ""));
 

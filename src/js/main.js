@@ -142,4 +142,12 @@
       navItem.classList.add("current");
     }
   });
+
+  var apinavlist = Array.from(document.querySelectorAll(".api-nav-list a"));
+
+  apinavlist.forEach(function(navItem) {
+    if (!navItem.classList.contains("anchorjs-link") && location.pathname === navItem.pathname) {
+      navItem.classList.add("activepath");
+    }
+  });
 }());

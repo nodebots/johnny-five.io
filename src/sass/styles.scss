@@ -839,6 +839,10 @@ the api pages only show the list if there is adequate screen space.
   border-radius: 0 0 .2em .2em;
 }
 
+.docs-nav ul a.activepath {
+  background: #efe222;
+}
+
 .docs-guides strong {
   display: block;
   font-size: 1.25em;
