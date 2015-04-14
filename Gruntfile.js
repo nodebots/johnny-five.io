@@ -110,6 +110,13 @@ module.exports = function(grunt) {
         flatten: true,
         src: "src/johnny-five/docs/images/**",
         dest: "public/img/images/"
+      },
+      static: {
+        nonull: true,
+        expand: true,
+        flatten: true,
+        src: "src/img/static/**",
+        dest: "public/img/static/"
       }
     },
     sass: {
@@ -312,7 +319,7 @@ module.exports = function(grunt) {
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("bootstrap", ["clean:deps", "gitclone", "copy"]);
   grunt.registerTask("dev", ["connect", "launch", "watch"]);
-  grunt.registerTask("regen", ["copy", "uglify", "index", "articles-from-rss", "examples-list", "examples", "api-docs", "platform-support"]);
+  grunt.registerTask("regen", ["copy", "uglify", "index", "articles-from-rss", "examples-list", "examples", "api-docs", "platform-support", "news"]);
 
   grunt.registerTask("default", ["clean:build", "regen", "sass:dist", "uglify"]);
 
@@ -565,41 +572,6 @@ module.exports = function(grunt) {
         footer: footer
       }));
     });
-
-
-
-
-    // matches.forEach(function(match) {
-    //   var examples = Object.keys(egSources).reduce(function(accum, example) {
-    //     if (egSources[example].includes(match.title)) {
-    //       var htmlFile = example.replace(".js", "");
-    //       accum.push("- [" + egTitles[example] + "](/examples/" + htmlFile + ")");
-    //     }
-    //     return accum;
-    //   }, []);
-
-
-    //   if (examples.length) {
-    //     examples.unshift("## Examples");
-    //     examples = examples.join("\n");
-    //   }
-
-    //   file.mkdir("public/api/" + match.title.toLowerCase());
-
-    //   file.write("public/" + match.target, templates.apiContent({
-    //     navigation: navigation,
-    //     title: match.title,
-    //     list: list,
-    //     contents: markdown.render(
-    //       // Strip sections marked for removal
-    //       remove(file.read(match.source))
-    //     ),
-    //     examples: markdown.render(examples),
-    //     footer: footer
-    //   }));
-    // });
-
-
 
     file.write("public/news/index.html", templates.news({
       navigation: navigation,
