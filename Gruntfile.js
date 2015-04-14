@@ -331,6 +331,7 @@ module.exports = function(grunt) {
     }, []).join("\n");
 
     file.write("public/index.html", templates.index({
+      navigation: navigation,
       platforms: markdown.render(platforms),
       footer: footer
     }));
@@ -346,6 +347,7 @@ module.exports = function(grunt) {
     };
     var rendered = "";
     var articles = {
+      navigation: navigation,
       footer: footer
     };
 
@@ -387,6 +389,7 @@ module.exports = function(grunt) {
 
     file.mkdir("public/examples/");
     file.write("public/examples/index.html", templates.examples({
+      navigation: navigation,
       list: markdown.render(examples),
       footer: footer
     }));
@@ -419,6 +422,7 @@ module.exports = function(grunt) {
         // Place it into our html template
         file.mkdir("public/examples/" + eg.file.replace(".js", ""));
         file.write(outpath, templates.exampleContent({
+          navigation: navigation,
           title: title,
           contents: contents,
           list: markdown.render(examples),
@@ -433,6 +437,8 @@ module.exports = function(grunt) {
       api: _.template(file.read("tpl/.api.html")),
       apiContent: _.template(file.read("tpl/.api-content.html")),
     };
+
+    file.mkdir("public/api/");
 
     var source = file.read("src/johnny-five.wiki/Home.md");
     var api = extract("api", source)[0].join("\n");
@@ -477,6 +483,7 @@ module.exports = function(grunt) {
       file.mkdir("public/api/" + match.title.toLowerCase());
 
       file.write("public/" + match.target, templates.apiContent({
+        navigation: navigation,
         title: match.title,
         list: list,
         contents: markdown.render(
@@ -488,9 +495,8 @@ module.exports = function(grunt) {
       }));
     });
 
-    file.mkdir("public/api/");
-
     file.write("public/api/index.html", templates.api({
+      navigation: navigation,
       list: list,
       guides: markdown.render(guides),
       footer: footer
@@ -548,6 +554,7 @@ module.exports = function(grunt) {
 
     file.mkdir("public/platform-support/");
     file.write("public/platform-support/index.html", templates.platformSupport({
+      navigation: navigation,
       contents: contents,
       footer: footer
     }));
