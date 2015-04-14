@@ -71,6 +71,7 @@ module.exports = function(grunt) {
         "public/css",
         "public/js",
         "public/api",
+        "public/news",
         "public/examples",
         "public/guides",
       ],
