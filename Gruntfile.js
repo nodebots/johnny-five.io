@@ -419,7 +419,8 @@ module.exports = function(grunt) {
       entry.examples.forEach(function(eg) {
         var title = eg.title;
         var outpath = "public/examples/" + eg.file.replace(".js", "/index.html");
-        var inpath = "src/johnny-five/docs/" + eg.file.replace(".js", ".md");
+        var mdSource = (eg.name || eg.file).replace(".js", "");
+        var inpath = "src/johnny-five/docs/" + mdSource + ".md";
         var contents = markdown.render(
           // open file
           // eliminate sections marked for removal
