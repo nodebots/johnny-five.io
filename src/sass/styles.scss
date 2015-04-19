@@ -229,7 +229,9 @@ p {
   .wrap-d .variant ul {
     padding: 0 2em 0 21em;
   }
-
+  .wrap-docs {
+    width: 69.7639565%;
+  }
 }
 
 .wrap-docs {
@@ -886,6 +888,9 @@ the api pages only show the list if there is adequate screen space.
     font-size: 1em;
   }
 
+  .no-show-on-desktop {
+    display: none;
+  }
   .docs-guides {
     display: block;
   }
