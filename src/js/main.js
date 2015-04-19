@@ -63,6 +63,7 @@
     "Intel Galileo",
     "Intel Edison",
     "Linino One",
+    "pcDuino",
     "Pinoccio",
     "Raspberry Pi"
   ];

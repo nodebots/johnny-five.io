@@ -40,15 +40,33 @@
 
   <main class="central">
 
-    <p class="wrap-a lede">
-      <i>Johnny-Five</i> is an Open Source <abbr title="Internet of Things">IoT</abbr> and Robotics programming framework, developed at&nbsp;<img src="img/logo-bocoup.png" alt="Bocoup">
-    </p>
+
+    <div class="wrap-a johnny-five-is">
+      <div class="teaser">
+        <b>Johnny-Five</b> is the original open source, <a href="http://www.amazon.com/Make-JavaScript-Robotics-Raspberry-BeagleBone/dp/1457186950">JavaScript Robotics</a> and Internet of Things programming framework. Released by <a href="http://www.bocoup.com/">Bocoup</a> in 2012, Johnny-Five is maintained by a community of passionate software developers and hardware engineers. Over 75 developers have made contributions towards building a robust, extensible and composable ecosystem.
+
+
+
+        <div class="social-buttons-galore">
+          <a class="github-button" href="https://github.com/rwaldron/johnny-five" data-icon="octicon-star" data-style="mega" data-count-href="/rwaldron/johnny-five/stargazers" data-count-api="/repos/rwaldron/johnny-five#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star rwaldron/johnny-five on GitHub">Star</a>
+          <a class="github-button" href="https://github.com/rwaldron/johnny-five/fork" data-icon="octicon-git-branch" data-style="mega" data-count-href="/rwaldron/johnny-five/network" data-count-api="/repos/rwaldron/johnny-five#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork rwaldron/johnny-five on GitHub">Fork</a>
+        </div>
+      </div>
+    </div>
+
+
 
     <div class="wrap-b hello">
       <img id="hello-scene-large" src="img/led-scene-0.gif" class="thumb hello-scene" alt="">
       <div class="teaser">
         <h2 class="sec-hed">Hello World!</h2>
         <p>The ubiquitous "Hello World" program of the microcontroller and <abbr title="System on a Chip">SoC</abbr> world is "blink an LED!". The following code demonstrates how this is done using the Johnny-Five framework.</p>
+
+        <ol>
+          <li>Install <a href="https://nodejs.org/download/">Node.js</a> or <a href="https://iojs.org/en/index.html">io.js</a>.</li>
+          <li><a href="/platform-support/">Setup your board.</a></li>
+          <li><code class="language-bash">npm install johnny-five</code></li>
+        </ol>
 
   <a href="#arduino" data-hello="arduino">Arduino</a> |
   <a href="#beaglebone" data-hello="beaglebone">BeagleBone</a> |
@@ -78,7 +96,7 @@ board.on(&quot;ready&quot;, function() {
       </picture>
       <div class="teaser">
         <h2 class="sec-hed">Platform Support</h2>
-        <p>Johnny-Five has been tested on a variety of <a href="/platform-support/">Arduino-compatible Boards</a>. For non-Arduino based projects, platform-specific IO Plugins are available. <a href="/platform-support/">IO Plugins</a> allow Johnny-Five code to communicate with any hardware in whatever language that platform speaks!</p>
+        <p>Johnny-Five has been tested with a variety of <a href="/platform-support/">Arduino-compatible Boards</a>. For non-Arduino based projects, platform-specific IO Plugins are available. <a href="/platform-support/">IO Plugins</a> allow Johnny-Five code to communicate with any hardware in whatever language that platform speaks!</p>
 
         <div class="platform-icons">
           <%= platforms %>
@@ -87,7 +105,7 @@ board.on(&quot;ready&quot;, function() {
       </div>
     </div>
 
-    <div class="wrap-a thumb-post">
+    <div class="wrap-a thumb-post the-book">
       <div class="sec-hed">
         <h2><a href="http://www.amazon.com/Make-JavaScript-Robotics-Raspberry-BeagleBone/dp/1457186950">Make: JavaScript Robotics</a></h3>
       </div>

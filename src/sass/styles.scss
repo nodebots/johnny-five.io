@@ -186,6 +186,10 @@ p {
     width: 90%;
     padding: 1.1em 0 3.15em 0;
   }
+  .johnny-five-is {
+    width: 90%;
+    padding: 1.1em 0 0 0;
+  }
   .wrap-b {
     padding-left: 5%;
   }
@@ -203,8 +207,14 @@ p {
 }
 @media (min-width: 75em) {
   .wrap-a {
+    /*width: 69.7639565%;*/
+    width: 100%;
+    padding: 1.1em 0 3.15em 15.0474663%;
+  }
+
+  .the-book {
+    padding-left: 5%;
     width: 69.7639565%;
-    padding: 3.1em 0 3.15em 0;
   }
   .wrap-b {
     padding-left: 15.0474663%;
@@ -226,9 +236,15 @@ p {
   clear: both;
   padding: 1.5em 1em;
 }
+
 .teaser {
   clear: both;
   padding: .25em 1em .5em 1em;
+}
+
+.johnny-five-is .teaser {
+  clear: both;
+  padding: 1em 1em .5em 0.6em;
 }
 
 .variant .url-fragment {
@@ -248,7 +264,7 @@ p {
   }
 }
 .wrap-a .teaser {
-  padding-left: 5%;
+  /*padding-left: 5%;*/
 }
 .wrap-b .teaser {
   padding-right: 5%;
@@ -424,6 +440,7 @@ p {
 }
 
 .hello {
+  padding-top: 2em;
   width: 100%;
 }
 .support,
@@ -728,7 +745,7 @@ the api pages only show the list if there is adequate screen space.
   display: block;
 }
 @media (min-width: 45em) {
-  .thumb-post,
+  /*.thumb-post,*/
   /*.wrap-b .teaser,*/
   .usedby {
     padding: 7.5% 0;
@@ -740,11 +757,19 @@ the api pages only show the list if there is adequate screen space.
   .usedby {
     padding: 6.5% 0;
   }
+  .johnny-five-is .teaser,
   .hello .teaser {
     padding: 0 0;
   }
 }
 
+.social-buttons-galore {
+  padding: 0.5em 0 0 0;
+}
+
+.johnny-five-is {
+  font-size: 1.5em;
+}
 .thumb-post .sec-hed {
   width: 100%;
   margin-bottom: 1.5em;
