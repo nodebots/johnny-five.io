@@ -741,6 +741,11 @@ the api pages only show the list if there is adequate screen space.
 .usedby {
   padding: 2em 1em;
 }
+
+.wrap-b.support .teaser {
+  padding: 4% 0 2.5% 0;
+}
+
 .thumb-post:after {
   content: "";
   clear: both;
