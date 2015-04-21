@@ -21,4 +21,4 @@ public_path: "{{site_path}}/public"
 
 # The server hostname and FQDN.
 hostname: "{{project_name}}"
-app_fqdn: "johnny-five.org"
+app_fqdn: "johnny-five.io"
