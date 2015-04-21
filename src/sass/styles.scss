@@ -196,6 +196,11 @@ p {
   .wrap-b .teaser {
     padding: 4% 0 2.5% 0;
   }
+
+  .wrap-b.support .teaser {
+    padding: 2em 1em;
+  }
+
   .wrap-d .variant {
     padding: 0 0 2.5% 0;
   }
@@ -209,8 +214,14 @@ p {
   .wrap-a {
     /*width: 69.7639565%;*/
     width: 100%;
-    padding: 1.1em 0 3.15em 15.0474663%;
+    padding: 1.1em 0 0.15em 15.0474663%;
   }
+
+  .johnny-five-is {
+    width: 69.7639565%;
+    float: left;
+  }
+
 
   .the-book {
     padding-left: 5%;
@@ -232,6 +243,12 @@ p {
   .wrap-docs {
     width: 69.7639565%;
   }
+
+  .wrap-b.support .teaser {
+    padding: 4% 0 2.5% 0;
+  }
+
+
 }
 
 .wrap-docs {
@@ -740,10 +757,6 @@ the api pages only show the list if there is adequate screen space.
 .wrap-b .teaser,
 .usedby {
   padding: 2em 1em;
-}
-
-.wrap-b.support .teaser {
-  padding: 4% 0 2.5% 0;
 }
 
 .thumb-post:after {

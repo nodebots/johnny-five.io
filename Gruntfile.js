@@ -414,8 +414,13 @@ module.exports = function(grunt) {
       exampleContent: _.template(file.read("tpl/.example-content.html")),
     };
 
-    var entries = JSON.parse(file.read(file.expand(this.data)));
+    var apisource = file.read("src/johnny-five/lib/johnny-five.js");
+    var apinames = extract("apinames", apisource)[0].map(function(value) {
+      var relevant = value.split(": ")[0].trim();
+      return relevant;
+    });
 
+    var entries = JSON.parse(file.read(file.expand(this.data)));
     entries.forEach(function(entry) {
       entry.examples.forEach(function(eg) {
         var title = eg.title;
@@ -433,13 +438,22 @@ module.exports = function(grunt) {
             .replace(/docs\/breadboard\//g, "")
             .replace(/docs\/images\//g, "")
         );
-// docs/images
+
+        var apilist = apinames.filter(function(apiname) {
+          if (contents.includes(apiname)) {
+            return true;
+          }
+        }).map(function(apiname) {
+          return "- [" + apiname + "](/api/" + apiname.toLowerCase() + ")";
+        }).join("\n");
+
         // Place it into our html template
         file.mkdir("public/examples/" + eg.file.replace(".js", ""));
         file.write(outpath, templates.exampleContent({
           navigation: navigation,
           title: title,
           contents: contents,
+          apilist: markdown.render(apilist),
           list: markdown.render(examples),
           footer: footer
         }));
