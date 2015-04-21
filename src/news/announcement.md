@@ -2,7 +2,7 @@
 author: Rick Waldron
 date: '2015-04-14 12:00:00'
 status: draft
-title: 'Welcome to Johnny-five.org'
+title: 'Welcome to Johnny-five.io'
 category:
   - Announcement
 ---
@@ -13,6 +13,6 @@ Since 2012, Johnny-Five has relied on a [Github repo](https://github.com/rwaldro
 [![](/img/static/johnny-five-home.png)](/img/static/johnny-five-home.png)
 
 
-Just like [Johnny-Five](https://github.com/rwaldron/johnny-five) itself, [Johnny-Five.org](http://johnny-five.org/) is an open source project; this means that community contributions towards improvement are _always_ welcome! Have a look around the site and [let us know what works and what doesn't](https://github.com/Bocoup/johnny-five.org)!
+Just like [Johnny-Five](https://github.com/rwaldron/johnny-five) itself, [Johnny-Five.io](http://johnny-five.io/) is an open source project; this means that community contributions towards improvement are _always_ welcome! Have a look around the site and [let us know what works and what doesn't](https://github.com/Bocoup/johnny-five.io)!
 
 
