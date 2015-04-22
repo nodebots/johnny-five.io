@@ -34,7 +34,7 @@ This section includes over 150 examples that show how to write robots with Johnn
 
 ## [Articles](/articles/)
 
-A lot of community members are creating a lot of projects and writing alot of content about their Nodebots built with Johnny-Five. This is where we keep a central list of links to all of that work. The [Bocoup](http://johnny-five.io/articles/#bocoup) and [Node-Ardx](http://johnny-five.io/articles/#node-ardx) are static lists, so the content is always available directly from here. The  [Reddit] list generated from the latest posts to [/r/Nodebots](http://www.reddit.com/r/NodeBots/), which is constantly being updated and added to by community members. 
+A lot of community members are creating a lot of projects and writing alot of content about their Nodebots built with Johnny-Five. This is where we keep a central list of links to all of that work. The [Bocoup](http://johnny-five.io/articles/#bocoup) and [Node-Ardx](http://johnny-five.io/articles/#node-ardx) are static lists, so the content is always available directly from here. The  Reddit list generated from the latest posts to [/r/Nodebots](http://www.reddit.com/r/NodeBots/), which is constantly being updated and added to by community members. 
 
 ## [Platform Support](/platform-support/)
 
