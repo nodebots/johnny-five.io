@@ -380,7 +380,7 @@
         "name": "BLEFirmata",
         "url": "https://github.com/shokai/node-ble-firmata/blob/master/samples/sysex/BLEFirmataWithLedBlink/BLEFirmataWithLedBlink.ino",
         "instructions": "",
-        "relationship": "host-client"
+        "relationship": "host-client-bluetooth"
       },
       "via": [
         "bluetooth"
@@ -425,7 +425,7 @@
         "name": "Tyrion",
         "url": "https://github.com/rwaldron/tyrion",
         "instructions": "https://github.com/rwaldron/imp-io#tyrion-setup",
-        "relationship": "host-client"
+        "relationship": "host-client-wifi"
       },
       "via": [
         "HTTP"
@@ -614,7 +614,7 @@
         "name": "StandardFirmata",
         "url": "https://github.com/firmata/arduino",
         "instructions": "https://punchthrough.com/bean/getting-started-osx/",
-        "relationship": "embedded"
+        "relationship": "host-client-bluetooth"
       },
       "via": [
         "bluetooth"
@@ -710,7 +710,7 @@
         "name": "pinocc.io",
         "url": "https://github.com/voodootikigod/voodoospark",
         "instructions": "http://support.pinocc.io/hc/en-us/articles/201439160-Out-of-the-Box",
-        "relationship": "embedded"
+        "relationship": "host-client-wifi"
       },
       "via": [
         "WiFi",
@@ -902,7 +902,7 @@
         "name": "VoodooSpark",
         "url": "https://github.com/voodootikigod/voodoospark",
         "instructions": "https://github.com/voodootikigod/voodoospark#loading-the-firmware",
-        "relationship": "host-client"
+        "relationship": "host-client-wifi"
       },
       "via": [
         "wifi",
@@ -943,6 +943,8 @@
   ],
   "glossary": {
     "embedded": "The JavaScript program is executed on a board that is capable of running node.js/io.js.",
-    "host-client": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions to the board, which acts as a **thin client**. Requires tethering."
+    "host-client": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions to the board via **usb serial**, which acts as a **thin client**. Requires tethering.",
+    "host-client-wifi": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions over **WiFi** to the board, which acts as a **thin client**.",
+    "host-client-bluetooth": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions over **Bluetooth** to the board, which acts as a **thin client**."
   }
 }
