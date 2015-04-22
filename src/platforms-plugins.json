@@ -32,6 +32,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -40,6 +41,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -57,6 +59,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -65,6 +68,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -82,6 +86,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -90,6 +95,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -107,6 +113,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -115,6 +122,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -132,6 +140,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -140,6 +149,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -157,6 +167,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -165,6 +176,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -182,6 +194,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -190,6 +203,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -207,6 +221,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -215,6 +230,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -232,6 +248,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -240,6 +257,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -257,6 +275,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -265,6 +284,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -282,6 +302,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -290,6 +311,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -307,6 +329,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -315,6 +338,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes"
@@ -353,6 +377,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -361,6 +386,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no"
@@ -398,6 +424,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -406,6 +433,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no"
@@ -443,6 +471,7 @@
               [],
               [],
               [],
+              [],
               []
             ]
           },
@@ -451,6 +480,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no"
@@ -489,6 +519,7 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"]
             ]
@@ -498,6 +529,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no"
@@ -514,6 +546,7 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"]
             ]
@@ -523,6 +556,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no"
@@ -560,6 +594,7 @@
               [],
               [],
               ["Hardware does not support PWM on pins 10 and 11 by default"],
+              ["Hardware does not support PWM on pins 10 and 11 by default"],
               [],
               [],
               []
@@ -570,6 +605,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no"
@@ -586,6 +622,7 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"]
             ]
@@ -595,6 +632,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no"
@@ -631,6 +669,7 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"]
             ]
@@ -640,6 +679,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no"
@@ -676,6 +716,7 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
@@ -686,7 +727,61 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "no",
+            "One Wire": "no",
+            "Stepper": "no"
+          }
+        },
+        {
+          "name": "Linino Arduino Yun",
+          "image": "arduino-yun-linino-os.png",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "name": "pcDuino3",
+      "url": "http://www.pcduino.com/",
+      "plugin": {
+        "name": "pcDuino-IO",
+        "url": "https://github.com/rwaldron/pcduino-io",
+        "instructions": "https://github.com/rwaldron/pcduino-io#getting-started"
+      },
+      "environment": {
+        "name": "pcDuino",
+        "url": "http://www.pcduino.com/",
+        "instructions": "http://www.pcduino.com/wiki/index.php?title=Book",
+        "relationship": "embedded"
+      },
+      "via": [
+        "gpio",
+        "sysfs"
+      ],
+      "variants": [
+        {
+          "name": "pcDuino3 Dev Board",
+          "image": "pcduino3.png",
+          "enabled": true,
+          "notes": {
+            "public": [
+              [],
+              [],
+              [],
+              [],
+              ["Hardware support missing"],
+              [],
+              ["Software support missing"],
+              ["Hardware support missing"]
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "Servo": "no",
+            "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no"
           }
@@ -727,6 +822,7 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
@@ -737,6 +833,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "no",
             "One Wire": "no",
             "Stepper": "no"
@@ -773,6 +870,7 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
@@ -783,6 +881,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "no",
             "One Wire": "no",
             "Stepper": "no"
@@ -798,6 +897,7 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
@@ -808,6 +908,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "no",
             "One Wire": "no",
             "Stepper": "no"
@@ -823,6 +924,7 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
@@ -833,6 +935,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "no",
             "One Wire": "no",
             "Stepper": "no"
@@ -848,6 +951,7 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
@@ -858,6 +962,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "no",
             "One Wire": "no",
             "Stepper": "no"
@@ -873,6 +978,7 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
@@ -883,6 +989,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "no",
             "One Wire": "no",
             "Stepper": "no"
@@ -923,6 +1030,7 @@
                 "Timer 3: A4, A5, A6, A7",
                 "Timer 4: D0, D1"
               ],
+              [],
               ["Software support missing"],
               ["Software support missing"],
               ["Software support missing"]
@@ -933,6 +1041,7 @@
             "Digital Read": "yes",
             "Digital Write": "yes",
             "PWM": "yes",
+            "Servo": "yes",
             "I2C": "no",
             "One Wire": "no",
             "Stepper": "no"
@@ -942,7 +1051,7 @@
     }
   ],
   "glossary": {
-    "embedded": "The JavaScript program is executed on a board that is capable of running node.js/io.js.",
+    "embedded": "The JavaScript program is executed directly on board, in a Linux environment running node.js/io.js.",
     "host-client": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions to the board via **usb serial**, which acts as a **thin client**. Requires tethering.",
     "host-client-wifi": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions over **WiFi** to the board, which acts as a **thin client**.",
     "host-client-bluetooth": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions over **Bluetooth** to the board, which acts as a **thin client**."
