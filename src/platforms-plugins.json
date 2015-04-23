@@ -355,9 +355,9 @@
         "instructions": "https://github.com/julianduque/beaglebone-io#beaglebone-io"
       },
       "environment": {
-        "name": "",
-        "url": "",
-        "instructions": "",
+        "name": "Debian",
+        "url": "http://beagleboard.org/latest-images",
+        "instructions": "http://beagleboard.org/getting-started#update",
         "relationship": "embedded"
       },
       "via": [
