@@ -589,12 +589,35 @@ the api pages only show the list if there is adequate screen space.
   display: inline;
 }
 
+.platform-icons-support-page {
+  display: none;
+  width: 100%;
+  float: none;
+  margin-bottom: 0;
+}
+
+.platform-icons-support-page img {
+  width: 21.75%;
+  margin: 1%;
+  float: none;
+  display: inline;
+}
+
+
 @media (min-width: 30em) {
   .platform-icons {
     width: 100%;
   }
   .platform-icons img {
     width: 15%;
+  }
+
+  .platform-icons-support-page {
+    display: block;
+    width: 100%;
+  }
+  .platform-icons-support-page img {
+    width: 6%;
   }
 }
 @media (min-width: 45em) {
@@ -610,10 +633,28 @@ the api pages only show the list if there is adequate screen space.
     margin: 1%;
     clear: none;
   }
+
+  .support .platform-icons-support-page {
+    display: block;
+    clear: none;
+    width: 42%;
+    float: left;
+    padding-bottom: 2em;
+  }
+  .support .platform-icons-support-page img {
+    width: 6%;
+    float: left;
+    margin: 1%;
+    clear: none;
+  }
 }
 
 @media (min-width: 70em) {
   .support .platform-icons img {
+    width: 14%;
+    max-width: 100px;
+  }
+  .support .platform-icons-support-page img {
     width: 14%;
     max-width: 100px;
   }

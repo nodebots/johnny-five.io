@@ -338,8 +338,9 @@ module.exports = function(grunt) {
 
     var plugins = JSON.parse(file.read("src/platforms-plugins.json"));
     var platforms = plugins.platforms.reduce(function(accum, platform) {
-
-      return accum.concat(platform.variants.map(function(variant) {
+      return accum.concat(platform.variants.filter(function(variant) {
+        return variant.enabled;
+      }).map(function(variant) {
         return "[![" + variant.name + "](img/platforms/" + variant.image + ")](/platform-support/#" + slug(variant.name) + ")";
       }));
     }, []).join("\n");
