@@ -602,6 +602,7 @@ module.exports = function(grunt) {
     var templates = {
       platformSupport: _.template(file.read("tpl/.platform-support.html")),
       platformVariant: _.template(file.read("tpl/.platform-variant.html")),
+      platformData: _.template(file.read("tpl/.platform-data.js")),
     };
 
     var plugins = JSON.parse(file.read("src/platforms-plugins.json"));
@@ -651,6 +652,10 @@ module.exports = function(grunt) {
       navigation: navigation,
       contents: contents,
       footer: footer
+    }));
+
+    file.write("public/js/platform-data.js", templates.platformData({
+      platforms: JSON.stringify(plugins, null, 2)
     }));
   });
 

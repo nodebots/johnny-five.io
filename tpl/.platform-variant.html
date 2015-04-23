@@ -1,6 +1,6 @@
 <div class="wrap-d platforms">
   <img id="platform-variant-large" src="/img/platforms/<%= image %>" class="thumb">
-  <div class="variant">
+  <div class="variant" data-variant-name="<%= name %>">
     <h2 class="sec-hed"><%= name %></h2>
     <img id="platform-variant-small" src="/img/platforms/<%= image %>" class="thumb">
     <ul>
@@ -27,7 +27,9 @@
     <%= capabilitiesA %>
     <%= capabilitiesB %>
 
-    <!-- <span>Note</span> -->
+    <span class="platform-variant-notes">
+      &nbsp;
+    </span>
   </div>
 
 </div>

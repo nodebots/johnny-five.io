@@ -1,0 +1,1 @@
+var platformdata = <%= platforms %>;
