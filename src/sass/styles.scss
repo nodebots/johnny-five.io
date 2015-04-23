@@ -531,11 +531,11 @@ p {
   display: "";
 }
 
-#platform-variant-large {
+.platform-variant-large {
   display: none;
 }
 
-#platform-variant-small {
+.platform-variant-small {
   display: inline;
 }
 /*
@@ -667,11 +667,11 @@ the api pages only show the list if there is adequate screen space.
     display: none;
   }
 
-  #platform-variant-large {
+  .platform-variant-large {
     display: inline;
   }
 
-  #platform-variant-small {
+  .platform-variant-small {
     display: none;
   }
 
