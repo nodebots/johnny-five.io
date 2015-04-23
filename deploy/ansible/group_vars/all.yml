@@ -22,3 +22,14 @@ public_path: "{{site_path}}/public"
 # The server hostname and FQDN.
 hostname: "{{project_name}}"
 app_fqdn: "johnny-five.io"
+
+users:
+  - name: Resseguie
+    real_name: David Resseguie
+    state: present
+    shadow_pass: $1$johnny-f$YpwP2.8XPxYTRNkURd.pc0
+    groups: sudo
+    shell: /bin/bash
+    keys:
+      - state: present
+        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9Y2Y6ibAhbNcQGCZf0Nb8iPi1Mav6hKnj0Wn0diMxu9CawVNtyYhe5IygvSAL0XP4CYMtwp4/MwFOMI8+qA7enky+WIbUsWXCqsPVLGBp+Zfgcg8g+Z9+s5+E3RnhGz8kedphbT0ksERVYGWzekMKeWOfckljkEL3AUVv5fSgbN53E9X4QoCqoUNkRXHTwNxcppT+eJZJzyD5wxW8M0c/NgbOyvYYCwP77/d/30xHyLrta17RhQ5Ydf4eLX0VZ828zV7FZ2ArGEieAIMAoLx4Dvqwe4fv03cvPMaD9wbVdi6nE+0QZ5tFDDSy4JZrMuMCLZ48/WdcSgk/A5b2Keg5 david@resseguie.com
