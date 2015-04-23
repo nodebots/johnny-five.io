@@ -23,3 +23,13 @@
     line='Defaults env_keep += "SSH_AUTH_SOCK"'
     state=present
     validate='visudo -cf %s'
+
+- name: add all users
+  user: name={{item.name}} state={{item.state}} groups={{item.groups}} password={{item.shadow_pass}} shell={{item.shell | default("/bin/bash") }} force=yes
+  with_items: users
+
+- name: add all users keys
+  authorized_key: user={{item.0.name}} key="{{item.1.key}}" state={{item.1.state}}
+  with_subelements:
+    - users
+    - keys
