@@ -1,6 +1,6 @@
-# johnny-five.org
+# johnny-five.io
 
-The repo for the johnny-five.org website.
+The repo for the johnny-five.io website.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ npm install
 
 ## Content Building
 
-Content displayed on johnny-five.org is sourced from two other repos: 
+Content displayed on johnny-five.io is sourced from two other repos: 
 
 - [https://github.com/rwaldron/johnny-five.git](https://github.com/rwaldron/johnny-five)
     + Example programs

@@ -2,7 +2,7 @@
 project_name: johnny-five
 
 # Git repo address. Modify as-needed.
-git_repo: git@github.com:bocoup/johnny-five.org.git
+git_repo: git@github.com:bocoup/johnny-five.io.git
 
 # Parent directory for cloned repository directories.
 base_path: /mnt
