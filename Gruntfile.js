@@ -203,7 +203,8 @@ module.exports = function(grunt) {
           Radar: true,
           WeakMap: true,
           window: true,
-          copy: true
+          copy: true,
+          platformdata: true
         }
       },
       files: {
@@ -390,17 +391,22 @@ module.exports = function(grunt) {
       examples: _.template(file.read("tpl/.examples.html")),
     };
 
-    var list = extract("examples", file.read("src/johnny-five/README.md")).map(function(extraction) {
-      return extraction.map(function(line) {
-        return line
-          .replace("https://github.com/rwaldron/johnny-five/blob/master/docs/", "/examples/")
-          .replace(".md", "/");
-      }).join("\n");
+    var accum = [];
+
+    // refers to grunt-local "egPrograms"
+    egPrograms.forEach(function(egProgram) {
+
+      accum.push("### " + egProgram.topic);
+
+      egProgram.examples.forEach(function(example) {
+        accum.push(" - [" + example.title + "](/examples/" + example.file.replace(".js", "") + "/)");
+      });
+
+      accum.push("\n");
     });
 
-    // Only care about the first item in this particular list;
-    // Assign to the shared `examples`
-    examples = list[0];
+    // refers to grunt-local "examples"
+    examples = accum.join("\n");
 
     file.mkdir("public/examples/");
     file.write("public/examples/index.html", templates.examples({
