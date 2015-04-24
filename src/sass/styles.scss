@@ -379,8 +379,8 @@ p {
   }
 }
 .navlist a {
-  display: block;
-  padding: .25em 0;
+  display: inline;
+  padding: 0.25em 0.25em 0.25em 0;
   margin: 10px 0;
   color: white;
   text-decoration: none;
@@ -400,6 +400,14 @@ p {
   margin-bottom: 9px;
 }
 
+.navlist a.link-display-short {
+  display: inline;
+}
+
+.navlist a.link-display-full {
+  display: none;
+}
+
 @media (min-width: 35em) {
   .navlist a {
     display: inline-block;
@@ -415,6 +423,7 @@ p {
   .navlist a {
     display: inline-block;
     margin: 1.5em 2.5% 1.5em 2.5%;
+    padding: 0.25em 0;
     text-align: left;
     width: auto;
   }
@@ -444,6 +453,14 @@ p {
   .navlist a:hover:after {
     opacity: 1;
     width: 100%;
+  }
+
+  .navlist a.link-display-short {
+    display: none;
+  }
+
+  .navlist a.link-display-full {
+    display: inline-block;
   }
 }
 
@@ -531,12 +548,12 @@ p {
   display: "";
 }
 
-#platform-variant-large {
-  display: none;
+.platform-variant-large {
+  display: none !important;
 }
 
-#platform-variant-small {
-  display: inline;
+.platform-variant-small {
+  display: inline !important;
 }
 /*
 
@@ -708,11 +725,11 @@ the api pages only show the list if there is adequate screen space.
     display: none;
   }
 
-  #platform-variant-large {
+  .platform-variant-large {
     display: inline;
   }
 
-  #platform-variant-small {
+  .platform-variant-small {
     display: none;
   }
 
