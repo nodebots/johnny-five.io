@@ -201,4 +201,35 @@
       return variant.name === name;
     });
   }
+
+  // index.html "easter egg"
+  var johnny = document.querySelector("img.j5");
+  var visitmike = document.getElementById("visit-mike");
+  var click = {
+    timer: null,
+    count: 0
+  };
+
+  if (johnny) {
+    johnny.onclick = function() {
+      if (click.timer === null) {
+        click.timer = setTimeout(function() {
+          clearTimeout(click.timer);
+        }, 2000);
+      } else {
+        if (++click.count === 3) {
+          clearTimeout(click.timer);
+          visitmike.previousElementSibling.style.display = "none";
+          visitmike.style.display = "block";
+          click.count = 0;
+          click.timer = null;
+
+          setTimeout(function() {
+            visitmike.previousElementSibling.style.display = "block";
+            visitmike.style.display = "none";
+          }, 3000);
+        }
+      }
+    };
+  }
 }());
