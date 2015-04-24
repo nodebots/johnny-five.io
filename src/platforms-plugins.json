@@ -850,7 +850,7 @@
         "instructions": "https://github.com/bryan-m-hughes/raspi-io/wiki"
       },
       "environment": {
-        "name": "Raspian",
+        "name": "Raspbian",
         "url": "http://www.raspbian.org/",
         "instructions": "http://www.raspbian.org/RaspbianStartHere",
         "relationship": "embedded"
