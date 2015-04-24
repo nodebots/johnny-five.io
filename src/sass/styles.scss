@@ -408,6 +408,8 @@ p {
   display: none;
 }
 
+
+
 @media (min-width: 35em) {
   .navlist a {
     display: inline-block;
@@ -579,6 +581,11 @@ the api pages only show the list if there is adequate screen space.
 
 .api-nav-list.api-content-view {
   display: none;
+}
+
+.api-content-view ul {
+  padding-left: 5px;
+  list-style-type: none;
 }
 
 .api-anchors {
