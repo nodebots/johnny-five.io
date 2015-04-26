@@ -59,6 +59,9 @@ p {
   font-size: 2.8em;
   padding: .2em .4em;
   margin: 0 0 .25em 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media (max-width: 44.9375em) {
   .site-hed {

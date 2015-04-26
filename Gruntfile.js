@@ -590,7 +590,7 @@ module.exports = function(grunt) {
       file.write("public/news/" + slug(source.title) + "/index.html", templates.newsContent({
         navigation: navigation,
         list: list,
-        header: source.title,
+        title: source.title,
         contents: contents,
         footer: footer
       }));
