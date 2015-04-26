@@ -118,8 +118,6 @@
     }
   }
 
-  addAnchors("h2, h3");
-
   var capabilities = document.querySelectorAll(".variant td");
   var classes = new Map([
     ["yes", "green"],
@@ -232,4 +230,8 @@
       }
     };
   }
+
+  window.onload = function() {
+    addAnchors("h2, h3, h4, li p strong");
+  };
 }());

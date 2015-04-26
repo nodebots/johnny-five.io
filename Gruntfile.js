@@ -223,7 +223,7 @@ module.exports = function(grunt) {
         src: [
           "Gruntfile.js",
           "src/js/**/*.js",
-          "!src/js/anchor.min.js",
+          "!src/js/anchor.js",
           "!src/js/jquery.js",
           "!src/js/tablesaw.stackonly.js",
           "!src/js/es6-shim.js"
