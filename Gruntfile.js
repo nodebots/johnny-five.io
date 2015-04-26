@@ -142,6 +142,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
+          hostname: "127.0.0.1",
           port: 1337,
           base: "public",
           livereload: true
@@ -327,7 +328,7 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask("launch", function() {
-    cp.exec("open 'http://0.0.0.0:1337/'", function(err) {
+    cp.exec("open 'http://127.0.0.1:1337/'", function(err) {
       console.log(err);
     });
   });
