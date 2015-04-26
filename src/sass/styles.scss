@@ -99,6 +99,17 @@ p {
   display: block;
 }
 
+h2#parameters + ul table th, h2#parameters + ul table td {
+  display: none;
+}
+
+h2#parameters + ul table th:nth-of-type(1), h2#parameters + ul table td:nth-of-type(1),
+h2#parameters + ul table th:nth-of-type(3), h2#parameters + ul table td:nth-of-type(3) {
+  display: table-cell;
+}
+
+
+
 @media (min-width: 45em) {
   .site-subhed {
     font-size: 2.3em;
@@ -140,6 +151,12 @@ p {
     padding: 0;
     max-width: 700px;
   }
+
+  h2#parameters + ul table th, h2#parameters + ul table td,
+  h2#parameters + ul table th, h2#parameters + ul table td {
+    display: table-cell;
+  }
+
 }
 .lede i {
   font-style: normal;
@@ -589,6 +606,17 @@ the api pages only show the list if there is adequate screen space.
 .api-content-view ul {
   padding-left: 5px;
   list-style-type: none;
+}
+
+.api-content-view h2 {
+  padding-bottom: 0.3em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.api-content-view h4 {
+  font-weight: bold;
+  line-height: 1.4;
 }
 
 .api-anchors {
