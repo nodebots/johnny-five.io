@@ -45,7 +45,10 @@ module.exports = function(grunt) {
       source[key] = file.read("src/johnny-five/eg/" + key);
       return source;
     }, {});
-  } catch (e) {}
+  } catch (e) {
+
+    console.log(e);
+  }
 
   // Project configuration.
   grunt.initConfig({
