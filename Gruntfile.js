@@ -522,13 +522,17 @@ module.exports = function(grunt) {
 
       file.mkdir("public/api/" + match.title.toLowerCase());
 
+      var source = file.read(match.source).replace(/https:\/\/github.com\/rwaldron\/johnny-five\/wiki\//g, function(found) {
+        return "/api/";
+      });
+
       file.write("public/" + match.target, templates.apiContent({
         navigation: navigation,
         title: match.title,
         list: list,
         contents: markdown.render(
           // Strip sections marked for removal
-          remove(file.read(match.source))
+          remove(source)
         ),
         examples: markdown.render(examples),
         footer: footer
