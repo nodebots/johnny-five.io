@@ -233,5 +233,16 @@
 
   window.onload = function() {
     addAnchors("h2, h3, h4, li p strong");
+
+    // If the url contains a fragment, then
+    // it's possible that points to one of the
+    // generated anchors.
+    if (location.hash) {
+      setTimeout(function() {
+        // After the anchors have been generated,
+        // jump to it.
+        location.href = location.href;
+      }, 0);
+    }
   };
 }());
