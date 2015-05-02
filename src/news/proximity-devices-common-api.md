@@ -13,28 +13,29 @@ With the release of the new [Proximity](/api/proximity/) class, devices which me
 
 Check the [API docs](/api/proximity/) for a list of supported devices, and how to use them.
 
-<pre><code class="language-javascript">var five = require(&quot;johnny-five&quot;);
+```js
+var five = require("johnny-five");
 var board = new five.Board();
-&nbsp;
-board.on(&quot;ready&quot;, function() {
+
+board.on("ready", function() {
   var proximity = new five.Proximity({
-    controller: &quot;GP2Y0A21YK&quot;,
-    pin: &quot;A0&quot;
+    controller: "GP2Y0A21YK",
+    pin: "A0"
   });
-&nbsp;
-  proximity.on(&quot;data&quot;, function() {
-    console.log(this.cm + &quot;cm&quot;, this.in + &quot;in&quot;);
+
+  proximity.on("data", function() {
+    console.log(this.cm + "cm", this.in + "in");
   });
-&nbsp;
-  proximity.on(&quot;change&quot;, function() {
-    console.log(&quot;The obstruction has moved.&quot;);
+
+  proximity.on("change", function() {
+    console.log("The obstruction has moved.");
   });
 });
-</code></pre>
+```
 
 All distance to obstruction devices now share this API, with the only changes being the `controller` and `pin` properties.
 
-This change will not affect existing code, but `IR.Proximity`, `Sonar`, and `Ping` have been deprecated and will be removed in the next major release of Johnny-Five.
+This change will not affect existing code, but `IR.Distance`, `IR.Proximity`, `Sonar`, and `Ping` have been deprecated and will be removed when Johnny-Five reaches 1.0. 
 
 Please report any issues [here](https://github.com/rwaldron/johnny-five/issues).
 
