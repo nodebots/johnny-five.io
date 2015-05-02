@@ -2,7 +2,7 @@
 author: Derek Wheelden
 date: '2015-05-02 11:02:00'
 status: draft
-title: 'Proximity Devices Now Share Common API'
+title: 'Proximity Components Now Share Common API'
 category:
   - Announcement
 ---
