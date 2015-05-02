@@ -9,7 +9,7 @@ category:
 
 Look how far we've come.
 
-With the release of the new [Proximity](/api/proximity/) class, components which measure *distance to obstruction* now share a common home. Components that were formerly spread across Infrared, Sonar, and Ping classes can be found in one place, and used with a more consistent API. The new API also implementing new components is even easier, and we've been able to add a handful of [new proximity components](/examples/proximity/#proximity) already.
+With the release of the new [Proximity](/api/proximity/) class, components which measure *distance to obstruction* now share a common home. Components that were formerly spread across Infrared, Sonar, and Ping classes can be found in one place, and used with a more consistent API. The new API also makes implementing new components even easier, and we've been able to add a handful of [new proximity components](/examples/proximity/#proximity) already.
 
 Check the [API docs](/api/proximity/) for a list of supported components, and how to use them.
 
@@ -35,7 +35,7 @@ board.on("ready", function() {
 
 All distance to obstruction devices now share this API, with the only changes being the `controller` and `pin` properties.
 
-This change will not affect existing code, but `IR.Distance`, `IR.Proximity`, `Sonar`, and `Ping` have been deprecated and will be removed when Johnny-Five reaches 1.0. 
+This change will not affect existing code, but `IR.Distance`, `IR.Proximity`, `Sonar`, and `Ping` have been deprecated and will be removed when Johnny-Five reaches 1.0.
 
 Please report any issues [here](https://github.com/rwaldron/johnny-five/issues).
 
