@@ -9,7 +9,7 @@ category:
 
 Look how far we've come.
 
-With the release of the new [Proximity](/api/proximity/) class, components which measure *distance to obstruction* now share a common home. Components that were formerly spread across Infrared, Sonar, and Ping classes can be found in one place, and used with a more consistent API. The new API also makes implementing new components is even easier, and we've been able to add a handful of [new proximity components](/examples/proximity/#proximity) already.
+With the release of the new [Proximity](/api/proximity/) class, components which measure *distance to obstruction* now share a common home. Components that were formerly spread across Infrared, Sonar, and Ping classes can be found in one place, and used with a more consistent API. The new API also makes implementing new components even easier, and we've been able to add a handful of [new proximity components](/examples/proximity/#proximity) already.
 
 Check the [API docs](/api/proximity/) for a list of supported components, and how to use them.
 
