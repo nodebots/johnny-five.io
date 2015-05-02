@@ -14,7 +14,7 @@ category:
 
 [![](https://cdn.sparkfun.com//assets/parts/1/0/0/1/1/13025-01.jpg)](https://www.sparkfun.com/products/13025)
 
-This change will not affect code running on the Edison Arduino board or either generation of Galileo boards. The decision to default to bus `1` is the result of learning that [SparkFun Edison Blocks](https://www.sparkfun.com/categories/272) with support for I2C are connecting on that bus, and not bus `6` (which the Edison Arduino Board connects on). Here are the physical pin outs for connecting on the Mini board: 
+This change will not affect code running on the Edison Arduino board or either generation of Galileo boards. The decision to default to bus `1` is the result of learning that [SparkFun Edison Blocks](https://www.sparkfun.com/categories/272) with support for I2C are connecting on that bus, and not bus `6` (which the Edison Arduino Board connects on). Here are the physical pin outs for connecting on the Mini board:
 
 Connection to bus `1`:
 
@@ -22,7 +22,7 @@ Connection to bus `1`:
 |---------|---------|
 |J17-8    |J18-6    |
 
-Please report an issues [here](https://github.com/rwaldron/galileo-io/issues).
+Please report any issues [here](https://github.com/rwaldron/galileo-io/issues).
 
 
 
