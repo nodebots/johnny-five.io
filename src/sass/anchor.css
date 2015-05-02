@@ -29,8 +29,13 @@
   opacity: 0;
   text-decoration: none;
 }
+
+li:hover > .anchorjs-link,
+h1:hover > .anchorjs-link,
 h2:hover > .anchorjs-link,
 h3:hover > .anchorjs-link,
+h4:hover > .anchorjs-link,
+h5:hover > .anchorjs-link,
 .anchorjs-link:focus  {
   /* To fade links as they appear, change transition-property from 'color' to 'all' */
   opacity: 1;

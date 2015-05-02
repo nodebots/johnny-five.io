@@ -232,7 +232,7 @@
   }
 
   window.onload = function() {
-    addAnchors("h2, h3, h4, li p strong");
+    addAnchors("h2, h3, h4, h5, li p strong");
 
     // If the url contains a fragment, then
     // it's possible that points to one of the
