@@ -553,11 +553,18 @@ h2#parameters + ul table th:nth-of-type(3), h2#parameters + ul table td:nth-of-t
 }
 
 /*Wide Table*/
-.platforms table:first-of-type {
+/*.platforms table:first-of-type {
   display: none;
-}
+}*/
 /*Tall Table*/
-.platforms table:last-of-type {
+/*.platforms table:last-of-type {
+  margin: 2%;
+  width: 96%;
+  display: table;
+}*/
+
+/*Tall Table*/
+.platforms table {
   margin: 2%;
   width: 96%;
   display: table;
@@ -771,13 +778,18 @@ the api pages only show the list if there is adequate screen space.
     float: none;
   }
   /*Wide Table*/
-  .platforms table:first-of-type {
+/*  .platforms table:first-of-type {
     margin: 1%;
     display: table;
-  }
+  }*/
   /*Tall Table*/
-  .platforms table:last-of-type {
+/*  .platforms table:last-of-type {
     display: none;
+  }
+*/
+
+  .platforms table {
+    /*display: none;*/
   }
 
   #api-nav,

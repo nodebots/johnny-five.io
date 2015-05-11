@@ -159,8 +159,8 @@
     var pVariantNotes = pVariant.querySelector(".platform-variant-notes");
     var pVariantTables = pVariant.querySelectorAll("table");
 
-    pVariantTables[0].dataset.capabilies = "a";
-    pVariantTables[1].dataset.capabilies = "b";
+    // pVariantTables[0].dataset.capabilities = "a";
+    // pVariantTables[1].dataset.capabilities = "b";
 
     pVariant.addEventListener("click", function(event) {
       var target = event.target;
