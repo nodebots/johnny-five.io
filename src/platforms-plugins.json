@@ -718,7 +718,7 @@
               [],
               [],
               [],
-              ["Software support missing"],
+              [],
               ["Software support missing"],
               ["Software support missing"]
             ]
@@ -729,7 +729,7 @@
             "Digital Write": "yes",
             "PWM": "yes",
             "Servo": "yes",
-            "I2C": "no",
+            "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no"
           }
