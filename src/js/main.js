@@ -157,35 +157,40 @@
 
   platformVariants.forEach(function(pVariant) {
     var pVariantNotes = pVariant.querySelector(".platform-variant-notes");
-    var pVariantTables = pVariant.querySelectorAll("table");
-
-    // pVariantTables[0].dataset.capabilities = "a";
-    // pVariantTables[1].dataset.capabilities = "b";
+    var pVariantTable = pVariant.querySelector("table");
 
     pVariant.addEventListener("click", function(event) {
+
       var target = event.target;
       var variant = findVariant(this.dataset.variantName);
-      var parent = null;
+
+      var table = null;
+      var row = null;
       var index = -1;
       var notes;
 
-      if (event.target.nodeName !== "TD" ||
-        (!event.target.classList.contains("red") && !event.target.classList.contains("green"))) {
+      // If its not a TD, bail out.
+      if (target.nodeName !== "TD") {
         return;
       }
 
-      if (pVariantTables[0].contains(event.target)) {
-        parent = target.parentNode;
+      if (pVariantTable.contains(event.target)) {
+        // Get the row and the table, used to find the index
+        // to display the correspondng note
+        row = target.parentNode;
+        table = row.parentNode;
       } else {
-        target = target.parentNode;
-        parent = target.parentNode;
+        return;
       }
 
-      index = Array.from(parent.children).findIndex(function(child) {
-        return child === target;
+      // Determine the index of the row in the table
+      index = Array.from(table.children).findIndex(function(child) {
+        return child === row;
       });
 
+      // Use row index to display corresponding note
       notes = variant.notes.public[index];
+
       pVariantNotes.innerHTML = notes.length ? notes.join("\n") : "&nbsp;";
     }, false);
   });
@@ -194,6 +199,8 @@
     var variants = platformdata.platforms.reduce(function(accum, platform) {
       return accum.concat(platform.variants);
     }, []);
+
+    // console.log("%s variants: ", name, variants);
 
     return variants.find(function(variant) {
       return variant.name === name;
