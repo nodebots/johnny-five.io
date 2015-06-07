@@ -1,8 +1,7 @@
 # johnny-five.io
 # johnny-five.io
 
-The repo for the johnny-five.io website.
-The repo for the johnny-five.io website.
+The repo for the [johnny-five.io website](http://johnny-five.io).
 
 ## Prerequisites
 
