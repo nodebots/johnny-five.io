@@ -10,7 +10,7 @@ The repo for the [johnny-five.io website](http://johnny-five.io).
 
 ```
 brew install node
-brew install sass
+gem install sass
 ```
 
 ## Setup 
