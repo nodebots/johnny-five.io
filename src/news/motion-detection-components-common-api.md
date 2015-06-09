@@ -2,7 +2,7 @@
 author: Derek Wheelden
 date: '2015-06-08 18:30:00'
 status: draft
-title: 'Motion Components Now Share Common API'
+title: 'Motion Detection Components Now Share Common API'
 category:
   - Announcement
 ---
@@ -30,7 +30,6 @@ board.on("ready", function() {
   motion.on("motionend", function() {
     console.log("motionend");
   });
-
 });
 ```
 
