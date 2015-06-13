@@ -37,6 +37,7 @@
     "request": "^2.53.0"
   },
   "dependencies": {
+    "array-includes": "^2.0.0",
     "copy-paste": "^1.0.1",
     "es6-shim": "^0.22.2",
     "marked": "^0.3.2",

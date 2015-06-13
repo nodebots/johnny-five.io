@@ -1,4 +1,5 @@
 require("es6-shim");
+require("array-includes").shim();
 require("copy-paste");
 var cp = require("child_process");
 var inspect = require("util").inspect;
@@ -426,9 +427,12 @@ module.exports = function(grunt) {
     };
 
     var apisource = file.read("src/johnny-five/lib/johnny-five.js");
+    var apiblacklist = ["LedControl","Gripper","Fn","Distance","Repl","IR","Nodebot","Wii" ];
     var apinames = extract("apinames", apisource)[0].map(function(value) {
       var relevant = value.split(": ")[0].trim();
       return relevant;
+    }).filter(function(name) {
+      return !apiblacklist.includes(name);
     });
 
     var entries = JSON.parse(file.read(file.expand(this.data)));
