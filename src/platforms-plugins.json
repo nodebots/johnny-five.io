@@ -638,6 +638,33 @@
             "One Wire": "no",
             "Stepper": "no"
           }
+        },
+        {
+          "name": "SparkFun Edison GPIO Block",
+          "image": "sparkfun-gpio-block.png",
+          "enabled": true,
+          "notes": {
+            "public": [
+              ["Hardware support missing"],
+              [],
+              [],
+              [],
+              [],
+              [],
+              ["Software support missing"],
+              ["Software support missing"]
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "no",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "Servo": "yes",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no"
+          }
         }
       ]
     },
