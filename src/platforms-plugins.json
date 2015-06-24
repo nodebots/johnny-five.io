@@ -831,7 +831,7 @@
       },
       "environment": {
         "name": "pinocc.io",
-        "url": "https://github.com/voodootikigod/voodoospark",
+        "url": "https://pinocc.io/",
         "instructions": "http://support.pinocc.io/hc/en-us/articles/201439160-Out-of-the-Box",
         "relationship": "host-client-wifi"
       },
