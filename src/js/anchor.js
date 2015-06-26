@@ -32,7 +32,7 @@ function addAnchors(selector) {
 
       // Refine it so it makes a good ID. Makes all lowercase and hyphen separated.
       // Ex. Hello World > hello-world
-      var tidyText = roughText.replace(/\s+/g, '-').toLowerCase();
+      var tidyText = roughText.toLowerCase().replace(/-+/g, "").replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
 
       // Assign it to our element.
       // Currently the setAttribute element is only supported in IE9 and above.
