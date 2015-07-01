@@ -225,11 +225,11 @@ h2#parameters + ul table th:nth-of-type(3), h2#parameters + ul table td:nth-of-t
     padding: 0 0 2.5% 0;
   }
 
-  .wrap-d .variant ul {
+  .wrap-d .variant .env-details ul {
     padding: 0 1em 0 37%;
   }
-
 }
+
 @media (min-width: 75em) {
   .wrap-a {
     /*width: 69.7639565%;*/
@@ -257,9 +257,10 @@ h2#parameters + ul table th:nth-of-type(3), h2#parameters + ul table td:nth-of-t
     max-width: 30%;
   }
 
-  .wrap-d .variant ul {
-    padding: 0 2em 0 21em;
+  .wrap-d .variant .env-details ul {
+    /*padding: 0 2em 0 21em;*/
   }
+
   .wrap-docs {
     width: 69.7639565%;
   }

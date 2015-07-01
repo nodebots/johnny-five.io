@@ -25,6 +25,9 @@
           "name": "Arduino Uno",
           "image": "arduino-uno.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -35,7 +38,7 @@
               [],
               [],
               [],
-              []
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -54,6 +57,9 @@
           "name": "Arduino Leonardo",
           "image": "arduino-leo.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -64,7 +70,7 @@
               [],
               [],
               [],
-              []
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -83,6 +89,9 @@
           "name": "Arduino Mega",
           "image": "arduino-mega.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -93,7 +102,7 @@
               [],
               [],
               [],
-              []
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -112,6 +121,9 @@
           "name": "Arduino Fio",
           "image": "arduino-fio.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -122,7 +134,7 @@
               [],
               [],
               [],
-              []
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -141,6 +153,9 @@
           "name": "Arduino Micro",
           "image": "arduino-micro.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -149,9 +164,9 @@
               [],
               [],
               [],
-              [],
-              [],
-              []
+              ["Memory constraints"],
+              ["Memory constraints"],
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -161,8 +176,8 @@
             "PWM": "yes",
             "Servo": "yes",
             "I2C": "yes",
-            "One Wire": "yes",
-            "Stepper": "yes",
+            "One Wire": "no",
+            "Stepper": "no",
             "Serial/UART": "no"
           }
         },
@@ -170,6 +185,9 @@
           "name": "Arduino Mini",
           "image": "arduino-mini.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -178,9 +196,9 @@
               [],
               [],
               [],
-              [],
-              [],
-              []
+              ["Memory constraints"],
+              ["Memory constraints"],
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -190,8 +208,8 @@
             "PWM": "yes",
             "Servo": "yes",
             "I2C": "yes",
-            "One Wire": "yes",
-            "Stepper": "yes",
+            "One Wire": "no",
+            "Stepper": "no",
             "Serial/UART": "no"
           }
         },
@@ -199,6 +217,9 @@
           "name": "Arduino Nano",
           "image": "arduino-nano.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -207,9 +228,9 @@
               [],
               [],
               [],
-              [],
-              [],
-              []
+              ["Memory constraints"],
+              ["Memory constraints"],
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -219,8 +240,8 @@
             "PWM": "yes",
             "Servo": "yes",
             "I2C": "yes",
-            "One Wire": "yes",
-            "Stepper": "yes",
+            "One Wire": "no",
+            "Stepper": "no",
             "Serial/UART": "no"
           }
         },
@@ -228,6 +249,9 @@
           "name": "Arduino Pro Mini",
           "image": "arduino-pro-mini.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -236,9 +260,9 @@
               [],
               [],
               [],
-              [],
-              [],
-              []
+              ["Memory constraints"],
+              ["Memory constraints"],
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -248,8 +272,8 @@
             "PWM": "yes",
             "Servo": "yes",
             "I2C": "yes",
-            "One Wire": "yes",
-            "Stepper": "yes",
+            "One Wire": "no",
+            "Stepper": "no",
             "Serial/UART": "no"
           }
         },
@@ -257,6 +281,9 @@
           "name": "BotBoarduino",
           "image": "botboarduino.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -267,7 +294,7 @@
               [],
               [],
               [],
-              []
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -286,6 +313,9 @@
           "name": "Spider Robot Controller",
           "image": "spider-robot-controller.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -296,7 +326,7 @@
               [],
               [],
               [],
-              []
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -315,6 +345,9 @@
           "name": "DFRobot Romeo",
           "image": "dfrobot-romeo.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -325,7 +358,7 @@
               [],
               [],
               [],
-              []
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -344,6 +377,9 @@
           "name": "Teensy 3",
           "image": "teensy-3.png",
           "enabled": true,
+          "information": [
+            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+          ],
           "notes": {
             "public": [
               [],
@@ -354,7 +390,7 @@
               [],
               [],
               [],
-              []
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -394,6 +430,7 @@
           "name": "BeagleBone Black",
           "image": "beaglebone-black.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -403,7 +440,7 @@
               [],
               [],
               [],
-              []
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -441,6 +478,7 @@
           "name": "Blend Micro v1.0",
           "image": "blend-micro-v1.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -450,7 +488,7 @@
               [],
               [],
               [],
-              []
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -488,6 +526,7 @@
           "name": "Electric Imp April",
           "image": "electric-imp-april.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -497,7 +536,7 @@
               [],
               [],
               [],
-              []
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -537,6 +576,7 @@
           "name": "Intel Galileo Gen 1",
           "image": "intel-galileo-gen1.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -546,7 +586,7 @@
               [],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -564,6 +604,7 @@
           "name": "Intel Galileo Gen 2",
           "image": "intel-galileo-gen2.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -573,7 +614,7 @@
               [],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -613,6 +654,7 @@
           "name": "Intel Edison Arduino",
           "image": "intel-edison-arduino.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -622,7 +664,7 @@
               ["Hardware does not support PWM on pins 10 and 11 by default"],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -640,6 +682,7 @@
           "name": "Intel Edison Mini",
           "image": "intel-edison-mini.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -649,7 +692,7 @@
               [],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -667,6 +710,7 @@
           "name": "SparkFun Edison GPIO Block",
           "image": "sparkfun-gpio-block.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -676,7 +720,7 @@
               [],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -714,6 +758,7 @@
           "name": "LightBlue Bean",
           "image": "light-blue-bean.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -723,7 +768,7 @@
               [],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -762,6 +807,7 @@
           "name": "Linino One",
           "image": "linino-one.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -771,7 +817,7 @@
               [],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -815,6 +861,7 @@
           "name": "pcDuino3 Dev Board",
           "image": "pcduino3.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -824,7 +871,7 @@
               ["Hardware support missing"],
               [],
               ["Software support missing"],
-              ["Hardware support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -868,6 +915,7 @@
           "name": "Pinoccio Scout",
           "image": "pinoccio.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -877,7 +925,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -916,6 +964,7 @@
           "name": "Raspberry Pi 2 Model B",
           "image": "raspberry-pi-2-model-b.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -925,7 +974,7 @@
               [],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -943,6 +992,7 @@
           "name": "Raspberry Pi Model A Plus",
           "image": "raspberry-pi-model-a-plus.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -952,7 +1002,7 @@
               [],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -970,6 +1020,7 @@
           "name": "Raspberry Pi Model B Plus",
           "image": "raspberry-pi-model-b-plus.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -979,7 +1030,7 @@
               [],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -997,6 +1048,7 @@
           "name": "Raspberry Pi Model B Rev 1",
           "image": "raspberry-pi-model-b-rev-1.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -1006,7 +1058,7 @@
               [],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -1024,6 +1076,7 @@
           "name": "Raspberry Pi Model B Rev 2",
           "image": "raspberry-pi-model-b-rev-2.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -1033,7 +1086,7 @@
               [],
               [],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {
@@ -1072,6 +1125,7 @@
           "name": "Spark Core",
           "image": "spark-core-white.png",
           "enabled": true,
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -1085,7 +1139,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Software support missing"]
+              ["Support is currently in development"]
             ]
           },
           "capabilities": {

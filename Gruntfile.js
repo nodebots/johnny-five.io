@@ -649,6 +649,10 @@ module.exports = function(grunt) {
             return "|" + key + "|" + variant.capabilities[key] + "|";
           })).join("\n");
 
+          var information = variant.information.map(function(value) {
+            return markdown.render(value);
+          });
+
           contents += templates.platformVariant({
             capabilitiesA: markdown.render(capabilitiesA),
             capabilitiesB: strip(markdown.render(capabilitiesB), garbage),
@@ -661,6 +665,7 @@ module.exports = function(grunt) {
             envUrl: env.url,
             envInstructions: env.instructions,
             envRelationship: strip(markdown.render(glossary[env.relationship]), ["<p>", "</p>"]),
+            information: information,
           });
         }
       });
