@@ -8,7 +8,7 @@ category:
 ---
 
 
-Introductory Keypad support has landed in Johnny-Five! The new `Keypad` class makes adding an analog or I2C keypad component to your project is as simple as: 
+Introductory Keypad support has landed in Johnny-Five! The new `Keypad` class makes adding an analog or I2C keypad component to your project as simple as: 
 
 ```js
 var five = require("johnny-five");
