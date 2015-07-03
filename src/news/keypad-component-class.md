@@ -57,6 +57,6 @@ Take a look at these examples:
 - [Keypad - MPR121](/examples/keypad-MPR121/)
 - [Keypad - MPR121QR2](/examples/keypad-MPR121QR2/)
 
-The new `Keypad` class has been in the pipeline for many months as we tried to figure out how to support keypad components that require many pins and synchronous, explicit order write-read-write operations. Ultimately the path forward is to develop an "I2C backpack" approach that can be easily reproduced. This approach is how [Andrew Fisher](https://github.com/ajfisher) added support for [NeoPixels](https://github.com/ajfisher/node-pixel) and an alternative [Ultrasonic Ping](https://gist.github.com/ajfisher/1d57c5f845c376f04fbb) implementation. 
+The new `Keypad` class has been in the pipeline for many months as we tried to figure out how to support keypad components that require many pins and synchronous, explicit order write-read-write operations. Current support only covers keypad components that interact via ADC or I2C. For digital keypads, ie. electro-mechanical, or membrane devices, the path forward is to develop an "I2C backpack" approach that can be easily reproduced. This approach is how [Andrew Fisher](https://github.com/ajfisher) added support for [NeoPixels](https://github.com/ajfisher/node-pixel) and an alternative [Ultrasonic Ping](https://gist.github.com/ajfisher/1d57c5f845c376f04fbb) implementation. 
 
 Please report any issues [here](https://github.com/rwaldron/johnny-five/issues).
