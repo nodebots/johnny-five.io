@@ -14,63 +14,61 @@ The team is pleased to announce support for three new hardware platforms:
 
 ## Tessel 2
 
-![Tessel 2 Fritzing Component Part from Johnny-Five](/img/platforms/tessel-2.png)
+[![Tessel 2 Fritzing Component Part from Johnny-Five](/img/platforms/tessel-2.png)](https://www.sparkfun.com/products/13036)
 
-The Tessel 2 is a complete hardware overhaul from the Tessel 1, featuring a [580MHz Mediatek MT7620n SoC](http://www.anz.ru/files/mediatek/MT7620_Datasheet.pdf) running [OpenWrt](https://www.openwrt.org/) Linux, with the [io.js](https://iojs.org) runtime, in conjunction with an [48MHz ARM Cortex M0 microcontroller (Atmel SAMD21)](http://www.atmel.com/Images/Atmel-42181-SAM-D21_Datasheet.pdf). For more information, take a look at their [hardware overview announcement](https://tessel.io/blog/113259439202/tessel-2-hardware-overview).
+The [Tessel 2](https://shop.tessel.io/) is a complete hardware and software overhaul from the Tessel 1, featuring a [580MHz Mediatek MT7620n SoC](http://www.anz.ru/files/mediatek/MT7620_Datasheet.pdf) running [OpenWrt](https://www.openwrt.org/) Linux, with the [io.js](https://iojs.org) runtime, in conjunction with an [48MHz ARM Cortex M0 microcontroller (Atmel SAMD21)](http://www.atmel.com/Images/Atmel-42181-SAM-D21_Datasheet.pdf). For more information, take a look at their [hardware overview announcement](https://tessel.io/blog/113259439202/tessel-2-hardware-overview).
 
-
-
-
-
-Introductory Keypad support has landed in Johnny-Five! The new `Keypad` class makes adding an analog or I2C keypad component to your project as simple as: 
+The [Tessel-IO](https://github.com/rwaldron/tessel-io) module is still in development, so early test reports are wanted! Using the module is just like any other [IO-Plugin](https://github.com/rwaldron/io-plugins): 
 
 ```js
 var five = require("johnny-five");
-var board = new five.Board();
+var Tessel = require("tessel-io");
+var board = new five.Board({
+  io: new Tessel()
+});
 
 board.on("ready", function() {
-  // This will initialize a SparkFun VKEY Keypad
-  var keypad = new five.Keypad({
-    controller: "VKEY",
-    pin: "A0",
-  });
-
-  keypad.on("press", function(data) {
-    console.log("Pressed: ", data.which);
-  });
+  // Write your program locally and push to the Tessel 2 when ready!  
 });
 ```
 
-Programs can optionally specify special characters for keypad keys to represent: 
+Once you're ready to test: 
+
+```sh
+tessel run program.js
+```
+
+(Subject to change as development continues)
+
+Check out the [Tessel-IO README](https://github.com/rwaldron/tessel-io#install--setup) for installation and setup details, as well as board and per-pin capability information.
+
+
+## chipKit Uno32
+
+[![chipKit Uno32](/img/platforms/chipkit-uno32.png)](http://chipkit.net/wpcproduct/chipkit-uno32/)
+
+This [chipKit Uno32](http://chipkit.net/wpcproduct/chipkit-uno32/) was the highlight of this year's [International Nodebots Day](https://github.com/nodebots/nodebotsday) at [HeatSync Labs](http://www.heatsynclabs.org/) in [Mesa, AZ](http://chipkit.net/nodebots-day/)! Compatible with the [Arduino Uno](https://www.arduino.cc/en/Main/arduinoBoardUno), simply flash [StandardFirmata](https://github.com/firmata/arduino/) to the board via Arduino IDE and it's ready to go! (Note: digital pins 26-41 and analog pins A6-A11 are presently not supported, pending a pin definition update in StandardFirmata's `Boards.h`)
+
+
+## SparkFun Edison Arduino Block
+
+[![](/img/platforms/sparkfun-arduino-block.png)](https://www.sparkfun.com/products/13036)
+
+The [SparkFun Edison Arduino Block](https://www.sparkfun.com/products/13036) is an interesting addition to Johnny-Five's [Intel Edison](https://software.intel.com/en-us/iot/library/edison-getting-started) supported variants. This "block" doesn't take advantage of the native bindings provided by [Galileo-IO](https://github.com/rwaldron/galileo-io); instead, it connects via Serial/Uart to an Atmega328P chip, which is flashed with StandardFirmata! Checkout the tutorial at [SparkFun Blocks for Intel® Edison - Arduino Block](https://learn.sparkfun.com/tutorials/sparkfun-blocks-for-intel-edison---arduino-block) for help getting started.
+
+As with all Intel Edison variants, your program will run directly on the board itself. The only difference is that instead of requiring the [Galileo-IO](https://github.com/rwaldron/galileo-io) plugin, you'll simply specify the serialport path: 
 
 ```js
+// This code runs on the Edison, communicating with the 
+// SparkFun Arduino Block via Serial1 (/dev/ttyMFD1)
 var five = require("johnny-five");
-var board = new five.Board();
+var board = new five.Board({
+  port: "/dev/ttyMFD1"
+});
 
 board.on("ready", function() {
-  // This will initialize a SparkFun MPR121QR2 Capacitive Touch Keypad
-  var keypad = new five.Keypad({
-    controller: "MPR121QR2",
-    keys: [
-      ["!", "@", "#"],
-      ["$", "%", "^"],
-      ["&", "-", "+"],
-    ]
-  });
-
-  keypad.on("press", function(data) {
-    console.log("Pressed: ", data.which);
-  });
+  var led = new five.Led(13);
+  led.blink(500);
 });
 ```
 
-Take a look at these examples: 
-
-- [Keypad - VKEY](/examples/keypad-analog-vkey/)
-- [Keypad - Waveshare AD](/examples/keypad-analog-ad/)
-- [Keypad - MPR121](/examples/keypad-MPR121/)
-- [Keypad - MPR121QR2](/examples/keypad-MPR121QR2/)
-
-The new `Keypad` class has been in the pipeline for many months as we tried to figure out how to support keypad components that require many pins and synchronous, explicit order write-read-write operations. Current support only covers keypad components that interact via ADC or I2C. For digital keypads, ie. electro-mechanical, or membrane devices, the path forward is to develop an "I2C backpack" approach that can be easily reproduced. This approach is how [Andrew Fisher](https://github.com/ajfisher) added support for [NeoPixels](https://github.com/ajfisher/node-pixel) and an alternative [Ultrasonic Ping](https://gist.github.com/ajfisher/1d57c5f845c376f04fbb) implementation. 
-
-Please report any issues [here](https://github.com/rwaldron/johnny-five/issues).
