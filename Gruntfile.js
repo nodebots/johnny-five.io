@@ -581,13 +581,16 @@ module.exports = function(grunt) {
 
 
     var list = markdown.render(sources.reduce(function(accum, source) {
-      accum += "- [" + source.title + "](/news/" + slug(source.title) + "/)\n";
+      var sluggedTitle = source.slug || slug(source.title);
+      accum += "- [" + source.title + "](/news/" + sluggedTitle + "/)\n";
       return accum;
     }, ""));
 
 
     sources.forEach(function(source) {
-      file.mkdir("public/news/" + slug(source.title));
+      var sluggedTitle = source.slug || slug(source.title);
+
+      file.mkdir("public/news/" + sluggedTitle);
 
       var contents = templates.newsContentBody(Object.assign({}, source, {
         date: moment(source.date).format("MMMM Do YYYY"),
@@ -599,7 +602,7 @@ module.exports = function(grunt) {
         title: ""
       }));
 
-      file.write("public/news/" + slug(source.title) + "/index.html", templates.newsContent({
+      file.write("public/news/" + sluggedTitle + "/index.html", templates.newsContent({
         navigation: navigation,
         list: list,
         title: source.title,

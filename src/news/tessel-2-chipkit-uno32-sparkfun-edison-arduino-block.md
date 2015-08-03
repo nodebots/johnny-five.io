@@ -3,6 +3,7 @@ author: Rick Waldron
 date: '2015-08-03 11:02:00'
 status: published
 title: 'Tessel 2, chipKit Uno32 & SparkFun Edison Arduino Block'
+slug: 'tessel-2-chipkit-uno32-sparkfun-edison-arduino-block'
 category:
   - Announcement
   - Platform
