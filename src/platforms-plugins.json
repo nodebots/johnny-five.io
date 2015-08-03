@@ -26,7 +26,8 @@
           "image": "arduino-uno.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
+            "Supports the `STEPPER_*` extensions when used with [`AdvancedFirmata`](https://github.com/soundanalogous/AdvancedFirmata) or [`ConfigurableFirmata`](https://github.com/firmata/ConfigurableFirmata)."
           ],
           "notes": {
             "public": [
@@ -36,9 +37,10 @@
               [],
               [],
               [],
-              [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -50,7 +52,8 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -58,7 +61,8 @@
           "image": "arduino-leo.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
+            "Supports the `STEPPER_*` extensions when used with [`AdvancedFirmata`](https://github.com/soundanalogous/AdvancedFirmata) or [`ConfigurableFirmata`](https://github.com/firmata/ConfigurableFirmata)."
           ],
           "notes": {
             "public": [
@@ -68,9 +72,10 @@
               [],
               [],
               [],
-              [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -82,7 +87,8 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -90,7 +96,8 @@
           "image": "arduino-mega.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
+            "Supports the `STEPPER_*` extensions when used with [`AdvancedFirmata`](https://github.com/soundanalogous/AdvancedFirmata) or [`ConfigurableFirmata`](https://github.com/firmata/ConfigurableFirmata)."
           ],
           "notes": {
             "public": [
@@ -100,9 +107,10 @@
               [],
               [],
               [],
-              [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -114,7 +122,8 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -122,7 +131,8 @@
           "image": "arduino-fio.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
+            "Supports the `STEPPER_*` extensions when used with [`AdvancedFirmata`](https://github.com/soundanalogous/AdvancedFirmata) or [`ConfigurableFirmata`](https://github.com/firmata/ConfigurableFirmata)."
           ],
           "notes": {
             "public": [
@@ -132,9 +142,10 @@
               [],
               [],
               [],
-              [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -146,7 +157,8 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -154,7 +166,7 @@
           "image": "arduino-micro.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
           ],
           "notes": {
             "public": [
@@ -166,7 +178,8 @@
               [],
               ["Memory constraints"],
               ["Memory constraints"],
-              ["Support is currently in development"]
+              ["Hardware support missing"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -178,7 +191,8 @@
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -186,7 +200,7 @@
           "image": "arduino-mini.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
           ],
           "notes": {
             "public": [
@@ -198,7 +212,8 @@
               [],
               ["Memory constraints"],
               ["Memory constraints"],
-              ["Support is currently in development"]
+              ["Hardware support missing"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -210,7 +225,8 @@
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -218,7 +234,7 @@
           "image": "arduino-nano.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
           ],
           "notes": {
             "public": [
@@ -230,7 +246,8 @@
               [],
               ["Memory constraints"],
               ["Memory constraints"],
-              ["Support is currently in development"]
+              ["Hardware support missing"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -242,7 +259,8 @@
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -250,7 +268,7 @@
           "image": "arduino-pro-mini.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
           ],
           "notes": {
             "public": [
@@ -262,7 +280,8 @@
               [],
               ["Memory constraints"],
               ["Memory constraints"],
-              ["Support is currently in development"]
+              ["Hardware support missing"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -274,7 +293,8 @@
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -282,7 +302,8 @@
           "image": "botboarduino.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
+            "Supports the `STEPPER_*` extensions when used with [`AdvancedFirmata`](https://github.com/soundanalogous/AdvancedFirmata) or [`ConfigurableFirmata`](https://github.com/firmata/ConfigurableFirmata)."
           ],
           "notes": {
             "public": [
@@ -292,9 +313,10 @@
               [],
               [],
               [],
-              [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -306,7 +328,8 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -314,7 +337,9 @@
           "image": "chipkit-uno32.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
+            "[Check out chipkit.net!](http://chipkit.net/)",
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
+            "Supports the `STEPPER_*`, extensions when used with [`AdvancedFirmata`](https://github.com/soundanalogous/AdvancedFirmata) or [`ConfigurableFirmat`a(https://github.com/firmata/ConfigurableFirmata).",
             "Digital pins 26-41 and Analog pins A6-A11 are presently not supported, pending a pin definition update in StandardFirmata's `Boards.h`"
           ],
           "notes": {
@@ -325,9 +350,10 @@
               [],
               [],
               [],
-              [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -339,7 +365,8 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -347,7 +374,8 @@
           "image": "spider-robot-controller.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
+            "Supports the `STEPPER_*` extensions when used with [`AdvancedFirmata`](https://github.com/soundanalogous/AdvancedFirmata) or [`ConfigurableFirmata`](https://github.com/firmata/ConfigurableFirmata)."
           ],
           "notes": {
             "public": [
@@ -357,9 +385,10 @@
               [],
               [],
               [],
-              [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -371,7 +400,8 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -379,7 +409,8 @@
           "image": "dfrobot-romeo.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
+            "Supports the `STEPPER_*` extensions when used with [`AdvancedFirmata`](https://github.com/soundanalogous/AdvancedFirmata) or [`ConfigurableFirmata`](https://github.com/firmata/ConfigurableFirmata)."
           ],
           "notes": {
             "public": [
@@ -389,9 +420,10 @@
               [],
               [],
               [],
-              [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -403,16 +435,15 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
           "name": "Teensy 3",
           "image": "teensy-3.png",
           "enabled": true,
-          "information": [
-            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
-          ],
+          "information": [],
           "notes": {
             "public": [
               [],
@@ -421,9 +452,10 @@
               [],
               [],
               [],
-              [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -435,7 +467,8 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no"
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         }
       ]
@@ -472,8 +505,10 @@
               [],
               [],
               [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -484,7 +519,9 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         }
       ]
@@ -520,8 +557,10 @@
               [],
               [],
               [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -532,7 +571,9 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         }
       ]
@@ -559,7 +600,9 @@
           "name": "Electric Imp April",
           "image": "electric-imp-april.png",
           "enabled": true,
-          "information": [],
+          "information": [
+            "Requires an internet connected WiFi connection and is subject to request rate limiting by the Electric Imp API server."
+          ],
           "notes": {
             "public": [
               [],
@@ -568,8 +611,10 @@
               [],
               [],
               [],
-              [],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -580,7 +625,9 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         }
       ]
@@ -609,7 +656,9 @@
           "name": "Intel Galileo Gen 1",
           "image": "intel-galileo-gen1.png",
           "enabled": true,
-          "information": [],
+          "information": [
+            "The `LINUX_IMAGE_FOR_SD_Intel_Galileo_vX.X.X` is no longer supported."
+          ],
           "notes": {
             "public": [
               [],
@@ -619,7 +668,9 @@
               [],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -630,7 +681,9 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -647,7 +700,9 @@
               [],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -658,7 +713,9 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         }
       ]
@@ -687,17 +744,21 @@
           "name": "Intel Edison Arduino",
           "image": "intel-edison-arduino.png",
           "enabled": true,
-          "information": [],
+          "information": [
+            "Hardwas is capable of supporting only 4 PWM outputs. As a result, native bindings do not support PWM on pins 10 and 11."
+          ],
           "notes": {
             "public": [
               [],
               [],
               [],
-              ["Hardware does not support PWM on pins 10 and 11 by default"],
-              ["Hardware does not support PWM on pins 10 and 11 by default"],
+              ["Limited Hardware support"],
+              ["Limited Hardware support"],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -708,14 +769,18 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
           "name": "Intel Edison Mini",
           "image": "intel-edison-mini.png",
           "enabled": true,
-          "information": [],
+          "information": [
+            "`analogRead` components can be supported via `Expander` instances. See [Expander](/api/expander/) API for examples."
+          ],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -725,7 +790,9 @@
               [],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -736,14 +803,18 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
           "name": "SparkFun Edison GPIO Block",
           "image": "sparkfun-gpio-block.png",
           "enabled": true,
-          "information": [],
+          "information": [
+            "`analogRead` components can be supported via `Expander` instances. See [Expander](/api/expander/) API for examples."
+          ],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -753,7 +824,9 @@
               [],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -764,7 +837,43 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
+          }
+        },
+        {
+          "name": "SparkFun Arduino Block",
+          "image": "sparkfun-arduino-block.png",
+          "enabled": true,
+          "information": [
+            "This block does not use native mraa bindings. Please see [SparkFun Edison Arduino Block](https://github.com/rwaldron/galileo-io/#sparkfun-edison-arduino-block), in the [Galileo-IO](https://github.com/rwaldron/galileo-io) repository, for help getting started."
+          ],
+          "notes": {
+            "public": [
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "Servo": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         }
       ]
@@ -801,7 +910,9 @@
               [],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -812,7 +923,9 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         }
       ]
@@ -850,7 +963,9 @@
               [],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -861,7 +976,9 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -904,7 +1021,9 @@
               ["Hardware support missing"],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -915,7 +1034,9 @@
             "Servo": "no",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -956,9 +1077,11 @@
               [],
               [],
               [],
+              [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -969,7 +1092,9 @@
             "Servo": "yes",
             "I2C": "no",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         }
       ]
@@ -997,7 +1122,9 @@
           "name": "Raspberry Pi 2 Model B",
           "image": "raspberry-pi-2-model-b.png",
           "enabled": true,
-          "information": [],
+          "information": [
+            "`analogRead` components can be supported via `Expander` instances. See [Expander](/api/expander/) API for examples."
+          ],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -1007,7 +1134,9 @@
               [],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -1018,14 +1147,18 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
           "name": "Raspberry Pi Model A Plus",
           "image": "raspberry-pi-model-a-plus.png",
           "enabled": true,
-          "information": [],
+          "information": [
+            "`analogRead` components can be supported via `Expander` instances. See [Expander](/api/expander/) API for examples."
+          ],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -1035,7 +1168,9 @@
               [],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -1046,14 +1181,18 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
           "name": "Raspberry Pi Model B Plus",
           "image": "raspberry-pi-model-b-plus.png",
           "enabled": true,
-          "information": [],
+          "information": [
+            "`analogRead` components can be supported via `Expander` instances. See [Expander](/api/expander/) API for examples."
+          ],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -1063,7 +1202,9 @@
               [],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -1074,14 +1215,18 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
           "name": "Raspberry Pi Model B Rev 1",
           "image": "raspberry-pi-model-b-rev-1.png",
           "enabled": true,
-          "information": [],
+          "information": [
+            "`analogRead` components can be supported via `Expander` instances. See [Expander](/api/expander/) API for examples."
+          ],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -1091,7 +1236,9 @@
               [],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -1102,14 +1249,18 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
           "name": "Raspberry Pi Model B Rev 2",
           "image": "raspberry-pi-model-b-rev-2.png",
           "enabled": true,
-          "information": [],
+          "information": [
+            "`analogRead` components can be supported via `Expander` instances. See [Expander](/api/expander/) API for examples."
+          ],
           "notes": {
             "public": [
               ["Hardware support missing"],
@@ -1119,7 +1270,9 @@
               [],
               [],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -1130,7 +1283,9 @@
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         }
       ]
@@ -1158,7 +1313,9 @@
           "name": "Particle Core (Spark Core)",
           "image": "spark-core-white.png",
           "enabled": true,
-          "information": [],
+          "information": [
+            "Timers are shared in groups: Timer 2: `A0`, `A1`, Timer 3: `A4`, `A5`, `A6`, `A7`, Timer 4: `D0`, `D1`"
+          ],
           "notes": {
             "public": [
               [],
@@ -1172,7 +1329,9 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -1183,7 +1342,9 @@
             "Servo": "yes",
             "I2C": "no",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
           }
         },
         {
@@ -1204,7 +1365,9 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"]
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Hardware support missing"]
             ]
           },
           "capabilities": {
@@ -1215,7 +1378,65 @@
             "Servo": "yes",
             "I2C": "no",
             "One Wire": "no",
-            "Stepper": "no"
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tessel",
+      "url": "https://tessel.io/",
+      "plugin": {
+        "name": "Tessel-IO",
+        "url": "https://github.com/rwaldron/tessel-io",
+        "instructions": "https://github.com/rwaldron/tessel-io"
+      },
+      "environment": {
+        "name": "Tessel 2 Firmware on OpenWRT",
+        "url": "https://github.com/tessel/t2-firmware",
+        "instructions": "https://github.com/tessel/t2-cli",
+        "relationship": "embedded"
+      },
+      "via": [
+        "coprocessor",
+        "SPI Bridge"
+      ],
+      "variants": [
+        {
+          "name": "Tessel 2",
+          "image": "tessel-2.png",
+          "enabled": true,
+          "information": [
+            "Servo support is provided via I2C components (eg. [PCA9685](/api/servo/#servo-pca9685))",
+            "DAC is limited to Port B, Pin 7"
+          ],
+          "notes": {
+            "public": [
+              [],
+              [],
+              [],
+              ["Not yet enabled by platform"],
+              [],
+              [],
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              []
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "no",
+            "Servo": "yes",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "yes"
           }
         }
       ]
