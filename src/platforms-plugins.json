@@ -1136,7 +1136,7 @@
       ]
     },
     {
-      "name": "Spark",
+      "name": "Particle (Spark)",
       "url": "https://www.spark.io/",
       "plugin": {
         "name": "Spark-IO",
@@ -1155,7 +1155,7 @@
       ],
       "variants": [
         {
-          "name": "Spark Core",
+          "name": "Particle Core (Spark Core)",
           "image": "spark-core-white.png",
           "enabled": true,
           "information": [],
@@ -1167,6 +1167,38 @@
               [
                 "Timer 2: A0, A1",
                 "Timer 3: A4, A5, A6, A7",
+                "Timer 4: D0, D1"
+              ],
+              [],
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"]
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "Servo": "yes",
+            "I2C": "no",
+            "One Wire": "no",
+            "Stepper": "no"
+          }
+        },
+        {
+          "name": "Particle Photon",
+          "image": "photon-black.png",
+          "enabled": true,
+          "information": [],
+          "notes": {
+            "public": [
+              [],
+              [],
+              [],
+              [
+                "Timer 2: A0, A1",
+                "Timer 3: A4, A5",
                 "Timer 4: D0, D1"
               ],
               [],
