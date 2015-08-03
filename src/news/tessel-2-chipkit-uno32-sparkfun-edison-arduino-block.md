@@ -13,7 +13,7 @@ category:
 The team is pleased to announce support for three new hardware platforms: 
 
 
-## Tessel 2
+## [Tessel 2](/platform-support/#tessel-2)
 
 [![Tessel 2 Fritzing Component Part from Johnny-Five](/img/platforms/tessel-2.png)](https://www.sparkfun.com/products/13036)
 
@@ -43,15 +43,15 @@ tessel run program.js
 
 Check out the [Tessel-IO README](https://github.com/rwaldron/tessel-io#install--setup) for installation and setup details, as well as board and per-pin capability information.
 
-
-## chipKit Uno32
+## [chipKit Uno32](/platform-support/#chipkit-uno32)
 
 [![chipKit Uno32](/img/platforms/chipkit-uno32.png)](http://chipkit.net/wpcproduct/chipkit-uno32/)
 
-This [chipKit Uno32](http://chipkit.net/wpcproduct/chipkit-uno32/) was the highlight of this year's [International Nodebots Day](https://github.com/nodebots/nodebotsday) at [HeatSync Labs](http://www.heatsynclabs.org/) in [Mesa, AZ](http://chipkit.net/nodebots-day/)! Compatible with the [Arduino Uno](https://www.arduino.cc/en/Main/arduinoBoardUno), simply flash [StandardFirmata](https://github.com/firmata/arduino/) to the board via Arduino IDE and it's ready to go! (Note: digital pins 26-41 and analog pins A6-A11 are presently not supported, pending a pin definition update in StandardFirmata's `Boards.h`)
+This [chipKit Uno32](http://chipkit.net/wpcproduct/chipkit-uno32/) was the highlight of this year's [International Nodebots Day](https://github.com/nodebots/nodebotsday) at [HeatSync Labs](http://www.heatsynclabs.org/) in [Mesa, AZ](http://chipkit.net/nodebots-day/)! Compatible with the [Arduino Uno](https://www.arduino.cc/en/Main/arduinoBoardUno), simply flash [StandardFirmata](https://github.com/firmata/arduino/) to the board via Arduino IDE and it's ready to go! (Note: digital pins 26-41 and analog pins A6-A11 are presently not supported, pending a pin definition update in StandardFirmata's `Boards.h`).
 
 
-## SparkFun Edison Arduino Block
+
+## [SparkFun Edison Arduino Block](/platform-support/#sparkfun-arduino-block)
 
 [![](/img/platforms/sparkfun-arduino-block.png)](https://www.sparkfun.com/products/13036)
 
