@@ -650,7 +650,7 @@ module.exports = function(grunt) {
           })).join("\n");
 
           var information = variant.information.map(function(value) {
-            return markdown.render(value);
+            return strip(markdown.render(value), ["<p>", "</p>"]);
           });
 
           contents += templates.platformVariant({
