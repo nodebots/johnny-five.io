@@ -671,9 +671,18 @@ module.exports = function(grunt) {
       });
     });
 
+    var platforms = plugins.platforms.reduce(function(accum, platform) {
+      return accum.concat(platform.variants.filter(function(variant) {
+        return variant.enabled;
+      }).map(function(variant) {
+        return "[![" + variant.name + "](/img/platforms/" + variant.image + ")](/platform-support/#" + slug(variant.name) + ")";
+      }));
+    }, []).join("\n");
+
     file.mkdir("public/platform-support/");
     file.write("public/platform-support/index.html", templates.platformSupport({
       navigation: navigation,
+      platforms: markdown.render(platforms),
       contents: contents,
       footer: footer
     }));
