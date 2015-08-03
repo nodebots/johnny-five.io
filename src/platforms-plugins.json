@@ -282,7 +282,40 @@
           "image": "botboarduino.png",
           "enabled": true,
           "information": [
-            "Supports the `pingRead` (when used with [`PingFirmata`](/api/proximity/#pingfirmata)) IO-plugin extension."
+            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata)."
+          ],
+          "notes": {
+            "public": [
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              ["Support is currently in development"]
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "Servo": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes",
+            "Serial/UART": "no"
+          }
+        },
+        {
+          "name": "chipKit Uno32",
+          "image": "chipkit-uno32.png",
+          "enabled": true,
+          "information": [
+            "Supports the `pingRead` IO-Plugin extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
+            "Digital pins 26-41 and Analog pins A6-A11 are presently not supported, pending a pin definition update in StandardFirmata's `Boards.h`"
           ],
           "notes": {
             "public": [
