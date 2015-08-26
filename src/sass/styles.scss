@@ -73,8 +73,10 @@ p {
     left: 0;
     padding: .8em 0 .8em 3.5em;
     position: absolute;
+    text-overflow: ellipsis;
     top: 0;
     width: 100%;
+    white-space: nowrap;
   }
   .j5-icon {
     position: absolute;
