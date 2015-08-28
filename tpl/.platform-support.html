@@ -47,6 +47,17 @@
           <%= platforms %>
       </div>
 
+      Filter platforms by where the Johnny-Five program runs:
+
+      <ul id="platform-filters">
+        <li><a href="#relationship:all" data-filter-value="all" data-filter-key="relationship">On all!</a></li>
+        <li><a href="#relationship:embedded" data-filter-value="embedded" data-filter-key="relationship">In an on-board Linux environment.</a></li>
+        <li><a href="#relationship:host-client" data-filter-value="host-client" data-filter-key="relationship">On a host machine tethered (via Serial USB or Ethernet) to a client.</a></li>
+        <li><a href="#relationship:host-client-wifi" data-filter-value="host-client-wifi" data-filter-key="relationship">On a host machine communicating over Wifi to the  client.</a></li>
+        <li><a href="#relationship:host-client-bluetooth" data-filter-value="host-client-bluetooth" data-filter-key="relationship">On a host machine communicating over Bluetooth to the  client.</a></li>
+      </ul>
+
+
       <%= contents %>
     </div>
   </main>

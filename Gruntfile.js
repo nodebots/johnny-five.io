@@ -669,6 +669,7 @@ module.exports = function(grunt) {
             envInstructions: env.instructions,
             envRelationship: strip(markdown.render(glossary[env.relationship]), ["<p>", "</p>"]),
             information: information,
+            relationship: env.relationship,
           });
         }
       });

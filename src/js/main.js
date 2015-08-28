@@ -154,10 +154,49 @@
     return accum.concat(platform.variants);
   }, []);
   var platformVariants = Array.from(document.querySelectorAll("[data-variant-name]"));
+  var platformFilters = Array.from(document.querySelectorAll("#platform-filters a"));
+  var filtersCached = {
+
+    /* environment relationship: [ ... elements ] */
+  };
+
+  platformFilters.forEach(function(filter) {
+    var filterKey = filter.dataset.filterKey;
+    var filterValue = filter.dataset.filterValue;
+
+    if (!filtersCached[filterKey]) {
+      filtersCached[filterKey] = {};
+    }
+
+    if (!filtersCached[filterKey][filterValue]) {
+      filtersCached[filterKey][filterValue] = [];
+    }
+
+    filter.addEventListener("click", function() {
+
+      if (filterKey === "relationship" && filterValue === "all") {
+        filtersCached.relationship.all.forEach(function(node) {
+          node.hidden = false;
+        });
+      } else {
+        filtersCached.relationship.all.forEach(function(node) {
+          node.hidden = filtersCached[filterKey][filterValue].indexOf(node) === -1;
+        });
+      }
+    }, false);
+  });
 
   platformVariants.forEach(function(pVariant) {
     var pVariantNotes = pVariant.querySelector(".platform-variant-notes");
     var pVariantTable = pVariant.querySelector("table");
+    var platformNode = pVariant.parentNode;
+    var filters = JSON.parse(platformNode.dataset.filters);
+
+    filters.forEach(function(filter) {
+      filtersCached[filter][platformNode.dataset[filter]].push(platformNode);
+    });
+
+    filtersCached.relationship.all.push(platformNode);
 
     pVariant.addEventListener("click", function(event) {
 
@@ -245,11 +284,21 @@
     // it's possible that points to one of the
     // generated anchors.
     if (location.hash) {
-      setTimeout(function() {
-        // After the anchors have been generated,
-        // jump to it.
-        location.href = location.href;
-      }, 0);
+
+      if (location.hash.includes(":")) {
+        // Url contained a filter hash
+        var parts = location.hash.slice(1).split(":");
+
+        filtersCached.relationship.all.forEach(function(node) {
+          node.hidden = filtersCached[parts[0]][parts[1]].indexOf(node) === -1;
+        });
+      } else {
+        setTimeout(function() {
+          // After the anchors have been generated,
+          // jump to it.
+          location.href = location.href;
+        }, 0);
+      }
     }
   };
 }());
