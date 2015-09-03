@@ -624,7 +624,7 @@
             "Digital Write": "yes",
             "PWM": "yes",
             "Servo": "yes",
-            "I2C": "yes",
+            "I2C": "no",
             "One Wire": "no",
             "Stepper": "no",
             "Serial/UART": "no",
