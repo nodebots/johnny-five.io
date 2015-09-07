@@ -8,7 +8,7 @@ category:
 ---
 
 
-Thanks to the support of [Wailun Poon](http://twitter.com/monkeytypewritr), [Rex St. John](https://twitter.com/rexstjohn) and [Ashish Datta](https://twitter.com/ashishbdatta), we're pleased to announce the first set of Intel Edison + Grove IoT Kit example programs! These examples all work well with Intel's Edison and Galileo platforms, as well any platform that provides an Arduino UNO pinout.
+Thanks to the support of [Wailun Poon](http://twitter.com/monkeytypewritr), [Rex St. John](https://twitter.com/rexstjohn) and [Ashish Datta](https://twitter.com/ashishbdatta), we're pleased to announce the first set of Intel Edison + Grove IoT Kit example programs! These examples all work well with Intel's [Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) and [Galileo](http://www.intel.com/content/www/us/en/embedded/products/galileo/galileo-overview.html) platforms, as well any platform that provides an Arduino UNO pinout.
 
 Use any of the following kits to get started: 
 
@@ -36,6 +36,5 @@ Check out the examples here:
 - [Intel Edison + Grove - Relay](/examples/grove-relay-edison/)
 - [Intel Edison + Grove - Servo](/examples/grove-servo-edison/)
 - [Intel Edison + Grove - Touch](/examples/grove-touch-edison/)
-
 
 Please report any issues [here](https://github.com/rwaldron/johnny-five/issues).
