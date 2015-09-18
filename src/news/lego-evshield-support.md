@@ -15,17 +15,21 @@ This means that you can now program Lego Mindstorm robotics projects with JavaSc
 
 Check out the examples here: 
 
-- [Button - EVShield EV3](https://github.com/rwaldron/johnny-five/blob/master/docs/button-EVS_EV3.md)
-- [Button - EVShield NXT](https://github.com/rwaldron/johnny-five/blob/master/docs/button-EVS_NXT.md)
-- [Color - EVShield EV3 (Code)](https://github.com/rwaldron/johnny-five/blob/master/docs/color-EVS_EV3.md)
-- [Color - EVShield EV3 (Raw)](https://github.com/rwaldron/johnny-five/blob/master/docs/color-raw-EVS_EV3.md)
-- [Color - EVShield NXT (Code)](https://github.com/rwaldron/johnny-five/blob/master/docs/color-EVS_NXT.md)
-- [Motor - EVShield EV3](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-EVS_EV3.md)
-- [Motor - EVShield NXT](https://github.com/rwaldron/johnny-five/blob/master/docs/motor-EVS_NXT.md)
-- [Proximity - EVShield EV3 (IR)](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-EVS_EV3_IR.md)
-- [Proximity - EVShield EV3 (Ultrasonic)](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-EVS_EV3_US.md)
-- [Proximity - EVShield EV3 (IR)](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-EVS_EV3_IR-alert.md)
-- [Proximity - EVShield EV3 (Ultrasonic)](https://github.com/rwaldron/johnny-five/blob/master/docs/proximity-EVS_EV3_US-alert.md)
+
+- [Button - EVShield EV3](/examples/button-EVS_EV3/)
+- [Button - EVShield NXT](/examples/button-EVS_NXT/)
+- [Color - EVShield EV3 (Code)](/examples/color-EVS_EV3/)
+- [Color - EVShield EV3 (Raw)](/examples/color-raw-EVS_EV3/)
+- [Color - EVShield NXT (Code)](/examples/color-EVS_NXT/)
+- [Light - EVShield EV3 (Ambient)](/examples/light-ambient-EVS_EV3/)
+- [Light - EVShield NXT (Ambient)](/examples/light-ambient-EVS_NXT/)
+- [Light - EVShield EV3 (Reflected)](/examples/light-reflected-EVS_EV3/)
+- [Light - EVShield NXT (Reflected)](/examples/light-reflected-EVS_NXT/)
+- [Motor - EVShield EV3](/examples/motor-EVS_EV3/)
+- [Motor - EVShield NXT](/examples/motor-EVS_NXT/)
+- [Proximity - EVShield EV3 (IR)](/examples/proximity-EVS_EV3_IR-alert/)
+- [Proximity - EVShield EV3 (Ultrasonic)](/examples/proximity-EVS_EV3_US-alert/)
+
 
 Keep an eye out [here](http://johnny-five.io/examples/#lego-evshield) as we publish more examples! 
 
