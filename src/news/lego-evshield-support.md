@@ -7,7 +7,11 @@ category:
   - Announcement
 ---
 
-After several months of development and testing, we're pleased to announce preliminary support for [mindsensors.com's EVShield](http://www.mindsensors.com/arduino/16-evshield-for-arduino-duemilanove-or-uno). This means that you can now program Lego Mindstorm robotics projects with JavaScript, using Johnny-Five! 
+After several months of development and testing, we're pleased to announce preliminary support for [mindsensors.com's EVShield](http://www.mindsensors.com/arduino/16-evshield-for-arduino-duemilanove-or-uno). 
+
+![](http://www.mindsensors.com/14-thickbox_default/evshield-for-arduino-duemilanove-or-uno.jpg)
+
+This means that you can now program Lego Mindstorm robotics projects with JavaScript, using Johnny-Five! 
 
 Check out the examples here: 
 
