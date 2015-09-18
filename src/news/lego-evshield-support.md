@@ -11,7 +11,7 @@ After several months of development and testing, we're pleased to announce preli
 
 ![](http://www.mindsensors.com/14-thickbox_default/evshield-for-arduino-duemilanove-or-uno.jpg)
 
-This means that you can now program Lego Mindstorm robotics projects with JavaScript, using Johnny-Five! 
+This means that you can now program [Lego Mindstorm](http://www.lego.com/en-us/mindstorms/) robotics projects with JavaScript, using Johnny-Five! 
 
 Check out the examples here: 
 
