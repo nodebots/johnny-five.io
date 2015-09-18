@@ -18,9 +18,9 @@ Check out the examples here:
 
 - [Button - EVShield EV3](/examples/button-EVS_EV3/)
 - [Button - EVShield NXT](/examples/button-EVS_NXT/)
-- [Color - EVShield EV3 (Code)](/examples/color-EVS_EV3/)
-- [Color - EVShield EV3 (Raw)](/examples/color-raw-EVS_EV3/)
-- [Color - EVShield NXT (Code)](/examples/color-EVS_NXT/)
+- [Color - EVShield EV3 (Lego Color Code)](/examples/color-EVS_EV3/)
+- [Color - EVShield EV3 (RGB Value)](/examples/color-raw-EVS_EV3/)
+- [Color - EVShield NXT (Lego Color Code)](/examples/color-EVS_NXT/)
 - [Light - EVShield EV3 (Ambient)](/examples/light-ambient-EVS_EV3/)
 - [Light - EVShield NXT (Ambient)](/examples/light-ambient-EVS_NXT/)
 - [Light - EVShield EV3 (Reflected)](/examples/light-reflected-EVS_EV3/)
