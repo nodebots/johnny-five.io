@@ -327,7 +327,6 @@ module.exports = function(grunt) {
   grunt.registerTask("bootstrap", ["clean:deps", "gitclone", "copy"]);
   grunt.registerTask("dev", ["connect", "launch", "watch"]);
   grunt.registerTask("regen", ["copy", "uglify", "index", "articles-from-rss", "examples-list", "examples", "api-docs", "platform-support", "news"]);
-
   grunt.registerTask("default", ["clean:build", "regen", "sass:dist", "uglify"]);
 
 
@@ -434,6 +433,7 @@ module.exports = function(grunt) {
     }).filter(function(name) {
       return !apiblacklist.includes(name);
     });
+    var ogImagePath = "http://johnny-five.io/img/images/";
 
     var entries = JSON.parse(file.read(file.expand(this.data)));
     entries.forEach(function(entry) {
@@ -462,15 +462,18 @@ module.exports = function(grunt) {
           return "- [" + apiname + "](/api/" + apiname.toLowerCase() + ")";
         }).join("\n");
 
+        var ogImage = ogImagePath + findImage(eg);
+
         // Place it into our html template
         file.mkdir("public/examples/" + eg.file.replace(".js", ""));
         file.write(outpath, templates.exampleContent({
-          navigation: navigation,
-          title: title,
-          contents: contents,
           apilist: markdown.render(apilist),
+          contents: contents,
+          footer: footer,
           list: markdown.render(examples),
-          footer: footer
+          navigation: navigation,
+          ogImage: ogImage,
+          title: title,
         }));
       });
     });
@@ -695,6 +698,13 @@ module.exports = function(grunt) {
       platforms: JSON.stringify(plugins, null, 2)
     }));
   });
+
+  function findImage(example) {
+    if (example.images) {
+      return example.images[0].file;
+    }
+    return example.file.replace(".js", ".png");
+  }
 
   function extract(name, source) {
     var lines = !Array.isArray(source) ? source.split("\n") : source;
