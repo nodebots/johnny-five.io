@@ -35,13 +35,13 @@
       '  led.blink(500);',
       '});'
     ],
-    spark: [
+    particle: [
       'var five = require("johnny-five");',
-      'var Spark = require("spark-io");',
+      'var Photon = require("particle-io");',
       'var board = new five.Board({',
-      '  io: new Spark({',
-      '    token: SPARK_TOKEN,',
-      '    deviceId: SPARK_DEVICE_ID',
+      '  io: new Photon({',
+      '    token: PARTICLE_TOKEN,',
+      '    deviceId: PARTICLE_DEVICE_ID',
       '  })',
       '});',
       '',
@@ -59,7 +59,7 @@
     "BlendMicro",
     "Electric Imp",
     "LightBlue Bean",
-    "Spark Core",
+    "Particle Photon",
     "Intel Galileo",
     "Intel Edison",
     "Linino One",
