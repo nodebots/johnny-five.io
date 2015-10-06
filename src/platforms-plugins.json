@@ -690,7 +690,7 @@
           "image": "intel-galileo-gen1.png",
           "enabled": true,
           "information": [
-            "The `LINUX_IMAGE_FOR_SD_Intel_Galileo_vX.X.X` is no longer supported."
+            "Non IoTKit builds are no longer supported."
           ],
           "notes": {
             "public": [
