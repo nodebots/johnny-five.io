@@ -357,7 +357,7 @@
           "information": [
             "[Check out chipkit.net!](http://chipkit.net/)",
             "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
-            "Supports the `STEPPER_*`, extensions when used with [`AdvancedFirmata`](https://github.com/soundanalogous/AdvancedFirmata) or [`ConfigurableFirmat`a(https://github.com/firmata/ConfigurableFirmata).",
+            "Supports the `STEPPER_*`, extensions when used with [`AdvancedFirmata`](https://github.com/soundanalogous/AdvancedFirmata) or [`ConfigurableFirmat`](https://github.com/firmata/ConfigurableFirmata).",
             "Digital pins 26-41 and Analog pins A6-A11 are presently not supported in StandardFirmata, pending a pin definition update in `Boards.h`",
             "[This fork](https://github.com/wayneandlayne/firmata) has the relevant changes and should be uploaded to the board via the [chipKit-provided IDE](http://chipkit.net/started/install-chipkit-software/)"
           ],
