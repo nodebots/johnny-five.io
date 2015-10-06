@@ -1452,7 +1452,7 @@
         },
         {
           "name": "Sparkfun Photon RedBoard",
-          "image": "photon-black.png",
+          "image": "photon-redboard.png",
           "enabled": true,
           "information": [],
           "notes": {
