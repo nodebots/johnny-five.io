@@ -3,8 +3,7 @@ window.onload = function() {
   var original = artwork.firstElementChild;
   var payload = artwork.lastElementChild;
   var audio = document.createElement("audio");
-  // var sequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-  var sequence = [38, 38, 40, 40];
+  var sequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
   var pressed = [];
 
   payload.srcset = "img/trick-or-treat.png";
