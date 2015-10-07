@@ -95,6 +95,11 @@ module.exports = function(grunt) {
         src: "src/sass/anchor.css",
         dest: "public/css/anchor.css"
       },
+      magiccss: {
+        nonull: true,
+        src: "src/sass/magic.css",
+        dest: "public/css/magic.css"
+      },
       breadboards: {
         nonull: true,
         expand: true,
@@ -108,6 +113,13 @@ module.exports = function(grunt) {
         cwd: "src/img",
         src: "**",
         dest: "public/img/"
+      },
+      audio: {
+        nonull: true,
+        expand: true,
+        cwd: "src/audio",
+        src: "**",
+        dest: "public/audio/"
       },
       images: {
         nonull: true,
