@@ -32,24 +32,29 @@ module.exports = function(grunt) {
   var egSources;
   var examples;
 
-  try {
-    egPrograms = JSON.parse(file.read("src/johnny-five/tpl/programs.json"));
-    egTitles = egPrograms.reduce(function(accum, program) {
-      var titles = program.examples.reduce(function(accum, example) {
-        accum[example.file] = example.title;
-        return accum;
+
+  function loadPrograms() {
+    try {
+      egPrograms = JSON.parse(file.read("src/johnny-five/tpl/programs.json"));
+      egTitles = egPrograms.reduce(function(accum, program) {
+        var titles = program.examples.reduce(function(accum, example) {
+          accum[example.file] = example.title;
+          return accum;
+        }, {});
+        return Object.assign(accum, titles);
       }, {});
-      return Object.assign(accum, titles);
-    }, {});
 
-    egSources = Object.keys(egTitles).reduce(function(source, key) {
-      source[key] = file.read("src/johnny-five/eg/" + key);
-      return source;
-    }, {});
-  } catch (e) {
+      egSources = Object.keys(egTitles).reduce(function(source, key) {
+        source[key] = file.read("src/johnny-five/eg/" + key);
+        return source;
+      }, {});
+    } catch (e) {
 
-    console.log(e);
+      console.log(e);
+    }
   }
+
+  loadPrograms();
 
   // Project configuration.
   grunt.initConfig({
@@ -337,15 +342,19 @@ module.exports = function(grunt) {
   // Default task(s).
   // grunt.registerTask("default", ["uglify"]);
   grunt.registerTask("bootstrap", ["clean:deps", "gitclone", "copy"]);
-  grunt.registerTask("dev", ["connect", "launch", "watch"]);
-  grunt.registerTask("regen", ["copy", "uglify", "index", "articles-from-rss", "examples-list", "examples", "api-docs", "platform-support", "news"]);
-  grunt.registerTask("default", ["clean:build", "regen", "sass:dist", "uglify"]);
+  grunt.registerTask("dev", ["load-programs", "connect", "launch", "watch"]);
+  grunt.registerTask("regen", ["load-programs", "copy", "uglify", "index", "articles-from-rss", "examples-list", "examples", "api-docs", "platform-support", "news"]);
+  grunt.registerTask("default", ["load-programs", "clean:build", "regen", "sass:dist", "uglify"]);
 
 
   grunt.registerTask("launch", function() {
     cp.exec("open 'http://127.0.0.1:1337/'", function(err) {
       console.log(err);
     });
+  });
+
+  grunt.registerTask("load-programs", function() {
+    loadPrograms();
   });
 
   grunt.registerTask("index", "generate index", function() {
