@@ -1,6 +1,6 @@
 ---
 author: Brian Genisio
-date: '2015-09-08 10:00:00'
+date: '2015-10-08 10:00:00'
 status: draft
 title: 'Particle-IO Now Supports I2C'
 category:
