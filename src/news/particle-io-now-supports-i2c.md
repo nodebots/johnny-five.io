@@ -1,7 +1,19 @@
+---
+author: Brian Genisio
+date: '2015-09-08 10:00:00'
+status: draft
+title: 'Particle-IO Now Supports I2C'
+category:
+  - Release
+  - Announcement
+---
+
+
 # Particle-IO Now Supports I2C
+
 With an updated [VoodooSpark](https://github.com/voodootikigod/voodoospark/blob/master/firmware/voodoospark.cpp) and the latest [Particle-IO](https://github.com/rwaldron/particle-io) adapter, [Particle Photons and Cores](https://www.particle.io/) can now interface with I2C devices via Johnny-Five.
 
-This means that any exiting I2C device can be hooked up to your particle device and used just like any other I2C device.  Here is an example of using the Particle Photon with an [MPU6050 Accelerometer](http://johnny-five.io/examples/accelerometer-mpu6050/).
+This means that any existing I2C device can be hooked up to your Particle device and used just like any other I2C device. Here is an example of using the Particle Photon with an [MPU6050 Accelerometer](http://johnny-five.io/examples/accelerometer-mpu6050/).
 
 ![Photon + MPU6050](http://i.imgur.com/9qTCuLr.png)
 
@@ -35,7 +47,7 @@ board.on("ready", function() {
 });
 ```
 
-The beauty of the Johnny-Five abstaction allows us to do some things that you may not consider.  For example, pair the [SparkFun Photon Redboard](https://www.sparkfun.com/products/13321) with the [EVShield](http://www.mindsensors.com/arduino/16-evshield-for-arduino-duemilanove-or-uno), and you have a JavaScript enabled, wireless controller for your Lego creations.  Or, connect your Photon to the [SparkFun Weather Shield](https://www.sparkfun.com/products/13630) and wirelessly automate your home.
+The beauty of the Johnny-Five abstraction allows us to do some things that you may not consider.  For example, pair the [SparkFun Photon Redboard](https://www.sparkfun.com/products/13321) with the [EVShield](http://www.mindsensors.com/arduino/16-evshield-for-arduino-duemilanove-or-uno), and you have a JavaScript enabled, wireless controller for your Lego creations.  Or, connect your Photon to the [SparkFun Weather Shield](https://www.sparkfun.com/products/13630) and wirelessly automate your home.
 
 Examples of the components that are now supported on the Particle devices in Johnny-Five include:
 - Accelerometer: ([ADXL345](http://johnny-five.io/examples/accelerometer-adxl345/), [MMA7660](http://johnny-five.io/examples/grove-accelerometer-mma7660-edison/))
@@ -51,3 +63,7 @@ Examples of the components that are now supported on the Particle devices in Joh
 - Motion: ([GP2Y0D805Z0F](http://johnny-five.io/examples/motion-gp2y0d805z0f/)
 - Proximity: ([SRF10](http://johnny-five.io/examples/proximity-srf10/), LIDARLITE)
 - Wii: ([Nunchuck](http://johnny-five.io/examples/nunchuk/), [classic](http://johnny-five.io/examples/classic-controller/))
+
+
+
+Please report any issues [here](https://github.com/rwaldron/particle-io/issues).
