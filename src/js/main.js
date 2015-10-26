@@ -277,7 +277,7 @@
     };
   }
 
-  window.onload = function() {
+  document.addEventListener("DOMContentLoaded", function() {
     addAnchors("h2, h3, h4, h5, li p strong");
 
     // If the url contains a fragment, then
@@ -300,5 +300,5 @@
         }, 0);
       }
     }
-  };
+  });
 }());

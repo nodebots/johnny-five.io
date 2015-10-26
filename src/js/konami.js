@@ -1,5 +1,10 @@
 window.onload = function() {
   var artwork = document.getElementById("j5-artwork");
+
+  if (!artwork) {
+    return;
+  }
+
   var original = artwork.firstElementChild;
   var payload = artwork.lastElementChild;
   var audio = document.createElement("audio");
