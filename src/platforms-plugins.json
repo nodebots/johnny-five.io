@@ -39,7 +39,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -53,7 +53,44 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
+            "DAC": "no",
+            "Ping": "yes"
+          }
+        },
+        {
+          "name": "SparkFun RedBoard",
+          "image": "sparkfun-redboard.png",
+          "enabled": true,
+          "information": [
+            "Supports the `PING_READ` extension, when used with [`PingFirmata`](/api/proximity/#pingfirmata).",
+            "Supports the `STEPPER_*` extensions when used with [`AdvancedFirmata`](https://github.com/soundanalogous/AdvancedFirmata) or [`ConfigurableFirmata`](https://github.com/firmata/ConfigurableFirmata)."
+          ],
+          "notes": {
+            "public": [
+              [],
+              [],
+              [],
+              [],
+              [],
+              [],
+              ["Software support missing"],
+              ["Software support missing"],
+              [],
+              ["Hardware support missing"],
+              ["Requires special PingFirmata firmware"]
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "Servo": "yes",
+            "I2C": "yes",
+            "One Wire": "yes",
+            "Stepper": "yes",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
@@ -76,7 +113,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -90,7 +127,7 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
@@ -113,7 +150,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -127,7 +164,7 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
@@ -150,7 +187,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -164,7 +201,7 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
@@ -186,7 +223,7 @@
               [],
               ["Memory constraints"],
               ["Memory constraints"],
-              ["Hardware support missing"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -200,7 +237,7 @@
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
@@ -222,7 +259,7 @@
               [],
               ["Memory constraints"],
               ["Memory constraints"],
-              ["Hardware support missing"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -236,7 +273,7 @@
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
@@ -258,7 +295,7 @@
               [],
               ["Memory constraints"],
               ["Memory constraints"],
-              ["Hardware support missing"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -272,7 +309,7 @@
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
@@ -294,7 +331,7 @@
               [],
               ["Memory constraints"],
               ["Memory constraints"],
-              ["Hardware support missing"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -308,7 +345,7 @@
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
@@ -331,7 +368,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -345,7 +382,7 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
@@ -371,7 +408,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -385,7 +422,7 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
@@ -408,7 +445,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -422,7 +459,7 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
@@ -445,7 +482,7 @@
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"],
+              [],
               ["Hardware support missing"],
               ["Requires special PingFirmata firmware"]
             ]
@@ -459,7 +496,7 @@
             "I2C": "yes",
             "One Wire": "yes",
             "Stepper": "yes",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "no",
             "Ping": "yes"
           }
