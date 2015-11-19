@@ -11,7 +11,10 @@ category:
 
 A new controller for the humble [HC-SR04 ultrasonic sensor](http://www.amazon.com/SainSmart-HC-SR04-Ranging-Detector-Distance/dp/B004U8TOE6) has been released, removing the need for a [custom Firmata](http://johnny-five.io/api/proximity/#pingfirmata)!
 
-As with the rest of the `Proximity` controllers, `HCSR04I2CBACKPACK` (or `HCSR04_I2C_BACKPACK`, whichever you prefer)provides a distance reading as it detects obstacles in front of it up to a range of approx 4m.
+<a href="/img/components/hcsr04.jpg"><img src="/img/components/hcsr04.jpg" width=""></a>
+<a href="/img/components/parallax-ping-ultrasonic-sensor.jpg"><img src="/img/components/parallax-ping-ultrasonic-sensor.jpg" width=""></a>
+
+As with the rest of the `Proximity` controllers, `HCSR04I2CBACKPACK` (or `HCSR04_I2C_BACKPACK`, whichever you prefer) provides a distance reading as it detects obstacles in front of it up to a range of approx 4m.
 
 To use the new controller:
 
@@ -26,7 +29,10 @@ board.on("ready", function() {
   });
 
   proximity.on("data", function() {
-    console.log(this.cm + "cm", this.in + "in");
+    console.log("Proximity: ");
+    console.log("  cm  : ", this.cm);
+    console.log("  in  : ", this.in);
+    console.log("-----------------");
   });
 
   proximity.on("change", function() {
