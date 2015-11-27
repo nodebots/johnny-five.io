@@ -25,6 +25,7 @@ module.exports = function(grunt) {
   var template = grunt.template;
   var _ = grunt.util._;
 
+  var header = file.read("tpl/.header.html");
   var footer = file.read("tpl/.footer.html");
   var navigation = file.read("tpl/.navigation.html");
   var egPrograms;
@@ -374,6 +375,7 @@ module.exports = function(grunt) {
     file.write("public/index.html", templates.index({
       navigation: navigation,
       platforms: markdown.render(platforms),
+      header: header,
       footer: footer
     }));
   });
@@ -389,6 +391,7 @@ module.exports = function(grunt) {
     var rendered = "";
     var articles = {
       navigation: navigation,
+      header: header,
       footer: footer
     };
 
@@ -437,6 +440,7 @@ module.exports = function(grunt) {
     file.write("public/examples/index.html", templates.examples({
       navigation: navigation,
       list: markdown.render(examples),
+      header: header,
       footer: footer
     }));
   });
@@ -490,6 +494,7 @@ module.exports = function(grunt) {
         file.write(outpath, templates.exampleContent({
           apilist: markdown.render(apilist),
           contents: contents,
+          header: header,
           footer: footer,
           list: markdown.render(examples),
           navigation: navigation,
@@ -563,6 +568,7 @@ module.exports = function(grunt) {
           remove(source)
         ),
         examples: markdown.render(examples),
+        header: header,
         footer: footer
       }));
     });
@@ -571,6 +577,7 @@ module.exports = function(grunt) {
       navigation: navigation,
       list: list,
       guides: markdown.render(guides),
+      header: header,
       footer: footer
     }));
   });
@@ -631,6 +638,7 @@ module.exports = function(grunt) {
         list: list,
         title: source.title,
         contents: contents,
+        header: header,
         footer: footer
       }));
     });
@@ -639,6 +647,7 @@ module.exports = function(grunt) {
       navigation: navigation,
       list: list,
       latest: latest,
+      header: header,
       footer: footer
     }));
   });
@@ -712,6 +721,7 @@ module.exports = function(grunt) {
       navigation: navigation,
       platforms: markdown.render(platforms),
       contents: contents,
+      header: header,
       footer: footer
     }));
 
