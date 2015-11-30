@@ -66,8 +66,8 @@
 
   var index = 1;
   var platforms = [
-    "Arduino",
     "Tessel 2",
+    "Arduino",
     "BeagleBone",
     "BlendMicro",
     "Electric Imp",
