@@ -80,17 +80,15 @@
     "Pinoccio",
     "Raspberry Pi"
   ];
-  var platform = document.querySelector(".js-board-type");
+  var platformName = document.querySelector(".js-board-type");
 
-  if (platform) {
+  if (platformName) {
     setInterval(function() {
-
-      platform.style.opacity = 0;
-
+      platformName.style.opacity = 0;
       setTimeout(function() {
-        platform.innerHTML = platforms[index];
+        platformName.innerHTML = platforms[index];
         setTimeout(function() {
-          platform.style.opacity = 1;
+          platformName.style.opacity = 1;
         }, 200);
       }, 500);
 
