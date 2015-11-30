@@ -488,9 +488,10 @@ module.exports = function(grunt) {
         }).join("\n");
 
         var ogImage = ogImagePath + findImage(eg);
+        var sluggedTitle = eg.file.replace(".js", "");
 
         // Place it into our html template
-        file.mkdir("public/examples/" + eg.file.replace(".js", ""));
+        file.mkdir("public/examples/" + sluggedTitle);
         file.write(outpath, templates.exampleContent({
           apilist: markdown.render(apilist),
           contents: contents,
@@ -500,6 +501,7 @@ module.exports = function(grunt) {
           navigation: navigation,
           ogImage: ogImage,
           title: title,
+          url: sluggedTitle,
         }));
       });
     });
@@ -553,7 +555,9 @@ module.exports = function(grunt) {
         examples = examples.join("\n");
       }
 
-      file.mkdir("public/api/" + match.title.toLowerCase());
+      var sluggedTitle = match.title.toLowerCase();
+
+      file.mkdir("public/api/" + sluggedTitle);
 
       var source = file.read(match.source).replace(/https:\/\/github.com\/rwaldron\/johnny-five\/wiki\//g, function(found) {
         return "/api/";
@@ -569,7 +573,8 @@ module.exports = function(grunt) {
         ),
         examples: markdown.render(examples),
         header: header,
-        footer: footer
+        footer: footer,
+        url: sluggedTitle,
       }));
     });
 
@@ -630,7 +635,8 @@ module.exports = function(grunt) {
           author: source.author,
           github: authors[source.author].github
         }),
-        title: ""
+        title: "",
+        url: sluggedTitle
       }));
 
       file.write("public/news/" + sluggedTitle + "/index.html", templates.newsContent({
@@ -639,7 +645,8 @@ module.exports = function(grunt) {
         title: source.title,
         contents: contents,
         header: header,
-        footer: footer
+        footer: footer,
+        url: sluggedTitle
       }));
     });
 
