@@ -3,31 +3,55 @@
 
 VAGRANTFILE_API_VERSION = '2'
 
+# look up system cpu and ram so we can use more intelligent defaults
+LINUX = RUBY_PLATFORM =~ /linux/
+OSX = RUBY_PLATFORM =~ /darwin/
+if OSX
+  CPUS = `sysctl -n hw.ncpu`.to_i
+  MEM = `sysctl -n hw.memsize`.to_i / 1024 / 1024 / 4
+elsif LINUX
+  CPUS = `nproc`.to_i
+  MEM = `sed -n -e '/^MemTotal/s/^[^0-9]*//p' /proc/meminfo`.to_i / 1024 / 4
+end
+
+# use (faster) nfs sharing on osx only
+SHARING = OSX ? { nfs: true } : nil
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = 'ubuntu/trusty64'
 
-  # This directory should be the same as the site_path setting in
-  # deploy/ansible/group_vars/all.yml
-  config.vm.synced_folder '.', '/mnt/johnny-five'
+  # Allow the project directory to be accessible inside the Vagrant box.
+  # This should match the Ansible host_vars/vagrant synced_folder value.
+  config.vm.synced_folder '.', '/mnt/vagrant', SHARING
 
-  # Ideally, this IP will be unique, so entry added to /etc/hosts won't
+  # Ideally, this IP will be unique, so the entry added to /etc/hosts won't
   # conflict with that of another project.
   config.vm.network :private_network, ip: '192.168.33.62'
 
-  # Automatically add an entry to /etc/hosts for this vagrant box. This
-  # requires sudo. This should match the app_fqdn setting specified in the
-  # ansible "localdev" config.
+  # Automatically add an entry to /etc/hosts for this Vagrant box (requires
+  # sudo). This should match the Ansible host_vars/vagrant site_fqdn value.
   config.hostsupdater.aliases = ['johnny-five.loc']
+
+  # give vm access to 1/4 total system memory and all cpu
+  config.vm.provider 'virtualbox' do |v|
+    v.customize ['modifyvm', :id, '--memory', MEM] if defined?(MEM)
+    v.customize ['modifyvm', :id, '--cpus', CPUS] if defined?(CPUS)
+  end
 
   # A specific name looks much better than "default" in ansible output.
   config.vm.define 'vagrant'
 
-  # Configure the ansible provisioner.
+  # The Vagrant ansible provisioner is used here for convenience. Instead of
+  # the following code, the Vagrant box may be provisioned manually with
+  # ansible-playbook (like in production), but adding this code saves the
+  # trouble of having to run ansible-playbook manually after "vagrant up".
   config.vm.provision 'ansible' do |ansible|
-    # Add the vagrant box (the config.vm.define value) to the "localdev"
-    # group so its vars are used when provisioning.
-    ansible.groups = {'localdev' => ['vagrant']}
-    # Do ansible stuff!
-    ansible.playbook = 'deploy/ansible/provision.yml'
+    # Run init playbook (which runs base, configure, vagrant-link playbooks).
+    ansible.playbook = 'deploy/ansible/init.yml'
+  end
+
+  # Avoid "npm install" ENOMEM errors by increasing the VM's RAM.
+  config.vm.provider 'virtualbox' do |virtualbox|
+    virtualbox.memory = 1024
   end
 end

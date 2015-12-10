@@ -1,0 +1,6 @@
+# Specify your staging app server here. Note that setting the site_fqdn variable
+# here will allow nginx to respond to requests made to that FQDN instead of the
+# production server's FQDN. This is likely the only change you will need to
+# make between production and staging.
+
+staging.johnny-five.io site_fqdn=staging.johnny-five.io commit=master
