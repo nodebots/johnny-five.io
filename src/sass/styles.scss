@@ -1349,6 +1349,81 @@ table tr th, table tr td {
 }
 
 
+
 .platform-variant-notes {
   padding-left: 3%;
+}
+
+
+.bmast {
+  background-color: #f5e868;
+  border-bottom: 5px solid #ecda43;
+}
+.bmast-central {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5em 0;
+}
+.bmast:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.enews-intro p {
+  color: #2e2e2e;
+  margin: 0;
+}
+.enews-intro {
+  padding: 0 6% 0 3%;
+}
+.enews-signup {
+  padding: 1.5em 3% 2em 3%;
+  clear: both;
+  max-width: 500px;
+}
+#mc_embed_signup {
+  width: 100%;
+}
+.enews-signup label {
+  position: absolute;
+  left: -9999px;
+}
+.enews-signup .button,
+.enews-signup input {
+  float: left;
+}
+.enews-signup input {
+  padding: .5em .75em;
+  border: none;
+  font-size: 16px;
+  width: 63%;
+}
+.enews-signup .button {
+  background: #ab2849;
+  color: #fff;
+  color: rgba(255,255,255,.95);
+  text-transform: uppercase;
+  text-align: center;
+  width: 37%;
+}
+
+@media(min-width: 55em) {
+  .enews-intro {
+    float: left;
+    width: 50%;
+  }
+  .enews-signup {
+    clear: none;
+    float: left;
+    width: 50%;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .bmast-central,
+  .enews-signup,
+  .enews-intro {
+    display: flex;
+    flex-align: row;
+    align-items: center;
+  }
 }
