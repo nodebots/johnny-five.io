@@ -1,28 +1,97 @@
-# This is used as the basis of a few other variables, eg. hostname, app_fqdn.
+#########
+# PROJECT
+#########
+
+# Certain tasks may operate in a less secure (but more convenient) manner, eg.
+# enabling passwordless sudo or generating self-signed ssl certs, when testing
+# locally, in Vagrant. But not in production!
+env: production
+
+# This var is referenced by a few other vars, eg. git_repo, hostname, site_fqdn.
 project_name: johnny-five
 
-# Git repo address. Modify as-needed.
-git_repo: git@github.com:bocoup/johnny-five.io.git
+# This is what you'll see at the bash prompt if/when you ssh into your server.
+hostname: "{{project_name}}"
 
-# Parent directory for cloned repository directories.
-base_path: /mnt
+# This is the fully qualified domain name of your production server. Because
+# nginx checks this value against the URL being requested, it must be the same
+# as the server's DNS name. This value is overridden for Vagrant and staging
+# servers.
+site_fqdn: "{{project_name}}"
 
-# Where the production site symlink will exist. This value needs to be the
-# same as the config.vm.synced_folder setting in the Vagrantfile.
-site_path: "{{base_path}}/{{project_name}}"
+##############
+# PROVISIONING
+##############
 
-# Temporary location where the git repo will be cloned and the build scripts
-# will be run before going live.
-clone_path: "{{base_path}}/temp"
+# Keys to be added to apt.
+apt_keys:
+  - "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
 
-# The directory that nginx will serve as the production site. If your web app
-# has a build process, this will be the build process output directory.
+# Ppas to be added to apt. Useful ppas (replace trusty with your Ubuntu
+# version codename, if necessary):
+# Git latest:     ppa:git-core/ppa
+# Node.js 0.10.x: deb https://deb.nodesource.com/node_0.10 trusty main
+# Node.js 0.12.x: deb https://deb.nodesource.com/node_0.12 trusty main
+# Io.js 1.x:      deb https://deb.nodesource.com/iojs_1.x trusty main
+apt_ppas:
+  - "deb https://deb.nodesource.com/node_0.12 trusty main"
+  - "ppa:git-core/ppa"
+
+# Any apt packages to install. Apt package versions may be specified like
+# - git=2.1.0
+apt_packages:
+  - unattended-upgrades
+  - nginx
+  - git
+  - nodejs
+  - ruby-full
+
+# Any npm global modules to install. Npm module versions may be specified like
+# - {name: bower, version: 1.2.3}
+npm_global_modules: []
+
+# Any ruby gems to install. May be specified like
+# - {name: sass, version: 1.2.3}
+ruby_gems:
+  - {name: sass}
+
+############
+# WEB SERVER
+############
+
+# Should the nginx server use HTTPS instead of HTTP?
+ssl: false
+
+# The directory that nginx will serve as the production site. This is typically
+# where your index.html file exists (or will exist after the build process).
 public_path: "{{site_path}}/public"
 
-# The server hostname and FQDN.
-hostname: "{{project_name}}"
-app_fqdn: "johnny-five.io"
+# Nginx dir and conf dir.
+nginx_dir: /etc/nginx
+conf_dir: "{{nginx_dir}}/conf.d"
 
+# Nginx templated configuration files to create.
+shared:
+  - {file: gzip_params, directory: "{{nginx_dir}}"}
+confs:
+  - {file: site.conf, directory: "{{conf_dir}}"}
+
+#######
+# USERS
+#######
+
+# Specified users will be added to the remote server, along with all specified
+# public keys. Removing a user from this list does NOT remove them from the
+# remote server! You need to set their state to "absent", remove all the other
+# properties for that user, and re-run the "configure" playbook. Also, the
+# shadow password (that user's sudo password) should be a hash, and NOT plain
+# text!
+#
+# Generate a shadow password hash using the following command:
+# openssl passwd -1 -salt $(openssl rand -base64 6) yourpassword
+#
+# If you have no users to define here, set users to an empty array, like:
+# users: []
 users:
   - name: Resseguie
     real_name: David Resseguie
@@ -30,6 +99,48 @@ users:
     shadow_pass: $1$johnny-f$YpwP2.8XPxYTRNkURd.pc0
     groups: sudo
     shell: /bin/bash
-    keys:
-      - state: present
-        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9Y2Y6ibAhbNcQGCZf0Nb8iPi1Mav6hKnj0Wn0diMxu9CawVNtyYhe5IygvSAL0XP4CYMtwp4/MwFOMI8+qA7enky+WIbUsWXCqsPVLGBp+Zfgcg8g+Z9+s5+E3RnhGz8kedphbT0ksERVYGWzekMKeWOfckljkEL3AUVv5fSgbN53E9X4QoCqoUNkRXHTwNxcppT+eJZJzyD5wxW8M0c/NgbOyvYYCwP77/d/30xHyLrta17RhQ5Ydf4eLX0VZ828zV7FZ2ArGEieAIMAoLx4Dvqwe4fv03cvPMaD9wbVdi6nE+0QZ5tFDDSy4JZrMuMCLZ48/WdcSgk/A5b2Keg5 david@resseguie.com
+    public_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9Y2Y6ibAhbNcQGCZf0Nb8iPi1Mav6hKnj0Wn0diMxu9CawVNtyYhe5IygvSAL0XP4CYMtwp4/MwFOMI8+qA7enky+WIbUsWXCqsPVLGBp+Zfgcg8g+Z9+s5+E3RnhGz8kedphbT0ksERVYGWzekMKeWOfckljkEL3AUVv5fSgbN53E9X4QoCqoUNkRXHTwNxcppT+eJZJzyD5wxW8M0c/NgbOyvYYCwP77/d/30xHyLrta17RhQ5Ydf4eLX0VZ828zV7FZ2ArGEieAIMAoLx4Dvqwe4fv03cvPMaD9wbVdi6nE+0QZ5tFDDSy4JZrMuMCLZ48/WdcSgk/A5b2Keg5 david@resseguie.com
+
+########
+# DEPLOY
+########
+
+# Git repo address.
+git_repo: git@github.com:bocoup/{{project_name}}.io.git
+
+# Parent directory for cloned repository directories. The clone_path and
+# site_path should be children of this directory.
+base_path: /mnt
+
+# Temporary location where the Git repo will be cloned and the build scripts
+# will be run before going live.
+clone_path: "{{base_path}}/temp"
+
+# Where the production site symlink will exist.
+site_path: "{{base_path}}/site"
+
+# If defined, only this many of the most recent clone directories (including the
+# current specified commit) will be retained. Anything older will be removed,
+# once the current clone has been made live.
+keep_n_most_recent: 3
+
+# If this variable is defined, a file containing build information, including
+# the timestamp, commit, sha, and a few other useful values will be generated
+# after the build has completed. This file is relative to your project root.
+build_info_path: "public/build.txt"
+
+###################
+# DEPLOY EXTRA VARS
+###################
+
+# Specify any ref (eg. branch, tag, SHA) to be deployed. This ref must be
+# pushed to the remote git_repo before it can be deployed.
+commit: master
+
+# Clone and build the specified commit SHA, regardless of prior build status.
+force: false
+
+# Use the local project Git repo instead of the remote git_repo. This option
+# only works with the vagrant inventory, and not with staging or production.
+local: false

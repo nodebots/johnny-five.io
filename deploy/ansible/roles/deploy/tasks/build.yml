@@ -4,12 +4,6 @@
 
 # Modify as-needed!
 
-# # For debugging!
-# - name: BUILD THE APP
-#   shell: touch "Z $(date +"%Y-%m-%d %H:%M:%S") $(git rev-parse --short HEAD)"
-#   args:
-#     chdir: "{{clone_path}}"
-
 - name: install npm modules
   npm: path="{{clone_path}}"
 
@@ -17,3 +11,9 @@
   shell: npm run build
   args:
     chdir: "{{clone_path}}"
+  environment:
+    APP_ENV: "{{env}}"
+
+- name: generate build info file
+  template: src=build_info.txt dest={{clone_path}}/{{build_info_path}}
+  when: build_info_path is defined
