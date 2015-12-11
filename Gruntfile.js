@@ -368,7 +368,7 @@ module.exports = function(grunt) {
       return accum.concat(platform.variants.filter(function(variant) {
         return variant.enabled;
       }).map(function(variant) {
-        return "[![" + variant.name + "](img/platforms/" + variant.image + ")](/platform-support/#" + slug(variant.name) + ")";
+        return "[![" + variant.name + "](img/platforms/small/" + variant.image + ")](/platform-support/#" + slug(variant.name) + ")";
       }));
     }, []).join("\n");
 
