@@ -122,7 +122,7 @@
     hljs.highlightBlock(block);
   }
 
-  if (location.hash && platform) {
+  if (location.hash && platformName) {
     hello = location.hash.slice(1);
     if (hellos[hello]) {
       sayHello(hello);
