@@ -25,7 +25,7 @@ module.exports = function(grunt) {
   var template = grunt.template;
   var _ = grunt.util._;
 
-  var header = file.read("tpl/.header.html");
+  var header = _.template(file.read("tpl/.header.html"));
   var footer = file.read("tpl/.footer.html");
   var navigation = file.read("tpl/.navigation.html");
   var egPrograms;
@@ -361,6 +361,7 @@ module.exports = function(grunt) {
   grunt.registerTask("index", "generate index", function() {
     var templates = {
       index: _.template(file.read("tpl/.index.html")),
+      header: header,
     };
 
     var plugins = JSON.parse(file.read("src/platforms-plugins.json"));
@@ -375,7 +376,7 @@ module.exports = function(grunt) {
     file.write("public/index.html", templates.index({
       navigation: navigation,
       platforms: markdown.render(platforms),
-      header: header,
+      header: templates.header({ description: "", keywords: "" }),
       footer: footer
     }));
   });
@@ -387,11 +388,12 @@ module.exports = function(grunt) {
     var templates = {
       articles: _.template(file.read("tpl/.articles.html")),
       rssList: _.template(file.read("tpl/.rss-list.html")),
+      header: header,
     };
     var rendered = "";
     var articles = {
       navigation: navigation,
-      header: header,
+      header: templates.header({ description: "", keywords: "" }),
       footer: footer
     };
 
@@ -417,6 +419,7 @@ module.exports = function(grunt) {
   grunt.registerTask("examples-list", "generate examples list", function() {
     var templates = {
       examples: _.template(file.read("tpl/.examples.html")),
+      header: header,
     };
 
     var accum = [];
@@ -440,7 +443,7 @@ module.exports = function(grunt) {
     file.write("public/examples/index.html", templates.examples({
       navigation: navigation,
       list: markdown.render(examples),
-      header: header,
+      header: templates.header({ description: ", Examples", keywords: ", Examples" }),
       footer: footer
     }));
   });
@@ -448,6 +451,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask("examples", "generate examples", function() {
     var templates = {
       exampleContent: _.template(file.read("tpl/.example-content.html")),
+      header: header,
     };
 
     var apisource = file.read("src/johnny-five/lib/johnny-five.js");
@@ -495,7 +499,7 @@ module.exports = function(grunt) {
         file.write(outpath, templates.exampleContent({
           apilist: markdown.render(apilist),
           contents: contents,
-          header: header,
+          header: templates.header({ description: ", " + title, keywords: ", " + title }),
           footer: footer,
           list: markdown.render(examples),
           navigation: navigation,
@@ -511,6 +515,7 @@ module.exports = function(grunt) {
     var templates = {
       api: _.template(file.read("tpl/.api.html")),
       apiContent: _.template(file.read("tpl/.api-content.html")),
+      header: header,
     };
 
     file.mkdir("public/api/");
@@ -572,7 +577,7 @@ module.exports = function(grunt) {
           remove(source)
         ),
         examples: markdown.render(examples),
-        header: header,
+        header: templates.header({ description: ", " + match.title, keywords: ", " + match.title }),
         footer: footer,
         url: sluggedTitle,
       }));
@@ -593,6 +598,7 @@ module.exports = function(grunt) {
       news: _.template(file.read("tpl/.news.html")),
       newsContent: _.template(file.read("tpl/.news-content.html")),
       newsContentBody: _.template(file.read("tpl/.news-content-body.html")),
+      header: header,
     };
 
     var authors = JSON.parse(file.read("src/authors.json"));
@@ -644,7 +650,7 @@ module.exports = function(grunt) {
         list: list,
         title: source.title,
         contents: contents,
-        header: header,
+        header: templates.header({ description: ", " + source.title, keywords: ", " + source.title }),
         footer: footer,
         url: sluggedTitle
       }));
