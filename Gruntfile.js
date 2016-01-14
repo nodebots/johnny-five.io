@@ -587,7 +587,7 @@ module.exports = function(grunt) {
       navigation: navigation,
       list: list,
       guides: markdown.render(guides),
-      header: header,
+      header: templates.header({ description: ", API Documentation", keywords: ", API, Documentation" }),
       footer: footer
     }));
   });
@@ -660,7 +660,7 @@ module.exports = function(grunt) {
       navigation: navigation,
       list: list,
       latest: latest,
-      header: header,
+      header: templates.header({ description: ", News and Announcements", keywords: ", News, Announcements" }),
       footer: footer
     }));
   });
@@ -671,6 +671,7 @@ module.exports = function(grunt) {
       platformSupport: _.template(file.read("tpl/.platform-support.html")),
       platformVariant: _.template(file.read("tpl/.platform-variant.html")),
       platformData: _.template(file.read("tpl/.platform-data.js")),
+      header: header,
     };
 
     var plugins = JSON.parse(file.read("src/platforms-plugins.json"));
@@ -734,7 +735,7 @@ module.exports = function(grunt) {
       navigation: navigation,
       platforms: markdown.render(platforms),
       contents: contents,
-      header: header,
+      header: templates.header({ description: ", Platform Support", keywords: ", Platform, Support" }),
       footer: footer
     }));
 
