@@ -1,6 +1,9 @@
 # Generate nginx config files (and ssl configuration, if ssl was specified),
 # rolling back changes if any part of the config is invalid.
 
+- include: ssl.yml
+  when: ssl
+
 - name: ensure default nginx server is not present
   file: path=/etc/nginx/sites-enabled/default state=absent
 
@@ -8,18 +11,24 @@
   shell: touch {{item.directory}}/{{item.file}}
   args:
     creates: "{{item.directory}}/{{item.file}}"
-  with_items: confs + shared
+  with_flattened:
+    - confs
+    - shared
 
 - name: backup existing nginx config files
   shell: cp {{item.file}} {{item.file}}.backup
   args:
     chdir: "{{item.directory}}"
-  with_items: confs + shared
+  with_flattened:
+    - confs
+    - shared
 
 - name: generate new nginx config files
   template: src={{item.file}} dest={{item.directory}}/
   register: nginx_conf
-  with_items: confs + shared
+  with_flattened:
+    - confs
+    - shared
   notify: restart nginx
 
 - name: ensure nginx config is valid
@@ -31,7 +40,9 @@
 
 - name: remove temporary backups if new nginx config files are valid
   file: path={{item.directory}}/{{item.file}}.backup state=absent
-  with_items: confs + shared
+  with_flattened:
+    - confs
+    - shared
   when: nginx_test_valid | success
 
 - name: restore temporary backups if new nginx config files are invalid
