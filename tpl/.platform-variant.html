@@ -25,14 +25,17 @@
         </li>
       <% } %>
       </ul>
-      <h4 class="sec-hed">Platform Specific</h4>
-      <ul>
-      <% information.forEach(function(item) { %>
-        <li>
-          <%=item%>
-        </li>
-      <% }); %>
-      </ul>
+
+      <% if (information.length) { %>
+        <h4 class="sec-hed">Platform Specific</h4>
+        <ul>
+        <% information.forEach(function(item) { %>
+          <li>
+            <%=item%>
+          </li>
+        <% }); %>
+        </ul>
+      <% } %>
     </div>
 
 
