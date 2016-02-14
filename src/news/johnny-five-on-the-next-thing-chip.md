@@ -12,6 +12,7 @@ category:
 
 ![](http://johnny-five.io/img/platforms/next-thing-chip.png)
 
+[Platform support details](http://johnny-five.io/platform-support/#chip) 
 
 
 ------
