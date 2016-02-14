@@ -1,2 +1,0 @@
-!function(a,b){"use strict";function c(b){if(d&&d.parentNode){var e=a.document.createElement("link");e.rel="stylesheet",e.href=b,d.parentNode.insertBefore(e,d)}else a.setTimeout(function(){c(b)},15)}var d=a.document.getElementById("fontloader"),e=a.document.getElementsByName("fonts")[0];e&&c(e.content)}(this);
-//# sourceMappingURL=fontloader.js.map
