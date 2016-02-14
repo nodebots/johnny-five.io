@@ -1644,9 +1644,9 @@
     }
   ],
   "glossary": {
-    "embedded": "The JavaScript program is executed directly on board, in a Linux environment running node.js/io.js.",
-    "host-client": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions to the board via **usb serial**, which acts as a **thin client**. Requires tethering.",
-    "host-client-wifi": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions over **WiFi** to the board, which acts as a **thin client**.",
-    "host-client-bluetooth": "The JavaScript program is executed on a **host** machine that runs node.js/io.js. The program transmits basic IO instructions over **Bluetooth** to the board, which acts as a **thin client**."
+    "embedded": "The JavaScript program is executed directly on board, in a Linux environment running [Node.js](http://nodejs.org).",
+    "host-client": "The JavaScript program is executed on a **host** machine that runs [Node.js](http://nodejs.org). The program transmits basic IO instructions to the board via **usb serial**, which acts as a **thin client**. Requires tethering.",
+    "host-client-wifi": "The JavaScript program is executed on a **host** machine that runs [Node.js](http://nodejs.org). The program transmits basic IO instructions over **WiFi** to the board, which acts as a **thin client**.",
+    "host-client-bluetooth": "The JavaScript program is executed on a **host** machine that runs [Node.js](http://nodejs.org). The program transmits basic IO instructions over **Bluetooth** to the board, which acts as a **thin client**."
   }
 }
