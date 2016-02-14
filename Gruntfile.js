@@ -49,10 +49,7 @@ module.exports = function(grunt) {
         source[key] = file.read("src/johnny-five/eg/" + key);
         return source;
       }, {});
-    } catch (e) {
-
-      console.log(e);
-    }
+    } catch (e) {}
   }
 
   loadPrograms();
