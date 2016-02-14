@@ -593,6 +593,62 @@
       ]
     },
     {
+      "name": "Next Thing Co. C.H.I.P.",
+      "url": "http://beagleboard.org/",
+      "plugin": {
+        "name": "Chip-IO",
+        "url": "https://github.com/sandeepmistry/node-chip-io",
+        "instructions": "https://github.com/sandeepmistry/node-chip-io#prerequisites"
+      },
+      "environment": {
+        "name": "Debian",
+        "url": "https://github.com/sandeepmistry/node-chip-io#prerequisites",
+        "instructions": "https://github.com/nodesource/distributions#debinstall",
+        "relationship": "embedded"
+      },
+      "via": [
+        "gpio",
+        "sysfs",
+        "i2c"
+      ],
+      "variants": [
+        {
+          "name": " C.H.I.P.",
+          "image": "next-thing-chip.png",
+          "enabled": true,
+          "information": [],
+          "notes": {
+            "public": [
+              [],
+              [],
+              [],
+              [],
+              ["Software support missing"],
+              [],
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Hardware support missing"],
+              ["Hardware support missing"]
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "yes",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "Servo": "no",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no",
+            "Ping": "no"
+          }
+        }
+      ]
+    },
+    {
       "name": "RedBearLab",
       "url": "http://redbearlab.com/blendmicro",
       "plugin": {
