@@ -43,4 +43,5 @@ board.on("ready", function () {
   });
 });
 ```
+
 You can learn more about the BNO055 with this [handy Adafruit BNO055 guide](https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/overview) or view the [data sheets and application notes here](http://www.bosch-sensortec.com/bst/products/all_products/bno055).
