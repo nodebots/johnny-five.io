@@ -49,7 +49,9 @@ module.exports = function(grunt) {
         source[key] = file.read("src/johnny-five/eg/" + key);
         return source;
       }, {});
-    } catch (e) {}
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   loadPrograms();
@@ -452,7 +454,7 @@ module.exports = function(grunt) {
     };
 
     var apisource = file.read("src/johnny-five/lib/johnny-five.js");
-    var apiblacklist = ["LedControl","Gripper","Fn","Distance","Repl","IR","Nodebot","Wii" ];
+    var apiblacklist = ["LedControl","Gripper","Fn","Distance","Repl","IR","Nodebot", "Touchpad","Wii" ];
     var apinames = extract("apinames", apisource)[0].map(function(value) {
       var relevant = value.split(": ")[0].trim();
       return relevant;
