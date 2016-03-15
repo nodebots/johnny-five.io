@@ -25,7 +25,7 @@ The following breakouts have been tested with the GPS class:
 
 **GPS Example**
 
-![gps.png](http://johnny-five.io/img/components/adafruit-gps.png)
+![gps.png](https://raw.githubusercontent.com/rwaldron/johnny-five/master/docs/breadboard/gps-adafruit.png)
 
 ```js
 var five = require("johnny-five");
