@@ -10,7 +10,7 @@ category:
 
 It's a big, big world out there and we don't want your robots getting lost, soooo...
 
-The team is pleased to introduce everyone to the new GPS class for Johnny-Five. This class adds support for some of the most common GPS modules, receivers, breakouts and shields. It can report on current location, course, ground speed and satellite data. GPS is one of the first uses of firmata's brand new support for serial communication.
+The team is pleased to introduce everyone to the new [GPS class](http://johnny-five.io/api/gps/) for Johnny-Five. This class adds support for some of the most common GPS modules, receivers, breakouts and shields. It can report on current location, course, ground speed and satellite data. GPS is one of the first uses of firmata's brand new support for serial communication.
 
 The following chip sets have been tested with the GPS class:
 - [MediaTek MT3339](http://www.mediatek.com/en/products/connectivity/gps/mt3339)
