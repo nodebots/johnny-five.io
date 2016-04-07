@@ -50,7 +50,7 @@ module.exports = function(grunt) {
         return source;
       }, {});
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   }
 
