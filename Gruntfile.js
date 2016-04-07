@@ -573,7 +573,7 @@ module.exports = function(grunt) {
           // Strip sections marked for removal
           remove(source)
         ),
-        examples: markdown.render(examples),
+        examples: examples.length && markdown.render(examples),
         header: templates.header({ description: ", " + match.title, keywords: ", " + match.title }),
         footer: footer,
         url: sluggedTitle,
