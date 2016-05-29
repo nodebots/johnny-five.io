@@ -536,7 +536,6 @@ module.exports = function(grunt) {
         pretty: "api/" + title.toLowerCase() + "/"
       };
     });
-
     var list = markdown.render(matches.reduce(function(accum, match) {
       accum += "- [" + match.title + "](/" + match.pretty + ")\n";
       return accum;
@@ -551,20 +550,19 @@ module.exports = function(grunt) {
         return accum;
       }, []);
 
-
       if (examples.length) {
         examples.unshift("## Examples");
         examples = examples.join("\n");
+      } else {
+        examples = ""
       }
 
       var sluggedTitle = match.title.toLowerCase();
 
       file.mkdir("public/api/" + sluggedTitle);
-
       var source = file.read(match.source).replace(/https:\/\/github.com\/rwaldron\/johnny-five\/wiki\//g, function(found) {
         return "/api/";
       });
-
       file.write("public/" + match.target, templates.apiContent({
         navigation: navigation,
         title: match.title,

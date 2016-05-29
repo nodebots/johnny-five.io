@@ -78,18 +78,33 @@ p {
     width: 100%;
     white-space: nowrap;
   }
-  .j5-icon {
-    position: absolute;
-    left: 1em;
-    top: -.25em;
-    width: 2em;
-    z-index: 2;
-  }
   .mast {
     background: #2e2e2e;
     padding-top: 3.1em; /* font-size + top padding + bottom padding + bottom margin */
   }
 }
+
+
+// nav icon
+@media (max-width: 44.9375em) {
+  .j5-icon {
+    position: absolute;
+    left: 1em;
+    top: .6em;
+    width: 2em;
+    height: 2em;
+    z-index: 2;
+  }
+}
+@media (min-width: 44.9375em) {
+  .j5-icon {
+    width: 55px;
+    height: 55px;
+    margin-top: .8em;
+    float: left;
+  }
+}
+
 .site-subhed {
   font-size: 1.6em;
   line-height: 1.25;
@@ -314,11 +329,6 @@ h2#parameters + ul table th:nth-of-type(3), h2#parameters + ul table td:nth-of-t
 }
 .wrap-b .teaser {
   padding-right: 5%;
-}
-
-.j5-icon {
-  margin-top: .95em;
-  float: left;
 }
 
 .mast {
