@@ -554,7 +554,7 @@ module.exports = function(grunt) {
         examples.unshift("## Examples");
         examples = examples.join("\n");
       } else {
-        examples = ""
+        examples = "";
       }
 
       var sluggedTitle = match.title.toLowerCase();
