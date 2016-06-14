@@ -41,20 +41,32 @@
       <%= navigation %>
     </nav>
 
-    <header role="banner" class="banner banner-home">
+    <!-- <header role="banner" class="banner banner-home">
       <h1 class="site-hed"><span>Johnny-Five</span></h1>
       <p role="marquee" aria-live="polite" class="site-subhed">The JavaScript<br/><span class="js-board-type">Arduino</span> Programming Framework</p>
 
       <p role="marquee" aria-live="polite" class="site-subhed" id="visit-mike">Artwork by<br/>
       Mike Sgier<br> <a href="http://msgierillustration.com/">msgierillustration.com</a></p>
 
-      <p role="marquee" aria-live="polite" class="site-subhed" id="visit-mike">Visit Mike!</p>
+      <p role="marquee" aria-live="polite" class="site-subhed" id="visit-mike">Visit Mike!</p> -->
       <!-- TODO: ARIA role/live region should be applied by script -->
 
-      <span id="j5-artwork">
+      <!-- <span id="j5-artwork">
         <img class="j5" srcset="img/heres-johnny.png" alt="Artwork by Mike Sgier, http://msgierillustration.com/">
         <img class="j5" srcset="img/trick-or-treat.png" style="opacity: 0">
       </span>
+    </header> -->
+
+    <header class="banner-campaign"> 
+      <picture>
+        <source media="(min-width: 40em)"
+          srcset="img/j5-campaign-big-x2.gif 1x, img/j5-campaign-big-x2.gif 2x">
+        <source media="(min-width: 20em)"
+          srcset="img/j5-campaign-medium-x2.gif 1x, img/j5-campaign-medium-x2.gif 2x">
+        <source
+          srcset="img/j5-campaign-small.gif 1x, img/j5-campaign-small-2x.gif 2x">
+        <img src="img/j5-campaign.gif" alt="">
+      </picture>
     </header>
   </div>
 

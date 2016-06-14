@@ -1437,3 +1437,56 @@ table tr th, table tr td {
     align-items: center;
   }
 }
+
+// ----------------------- //
+//     Banner Campaign
+// ----------------------- //
+
+
+.j5-icon {
+  width: 2em;
+}
+.site-hed {
+  font-size: 1.1em;
+  float: left;
+
+  span {
+    background: #2e2e2e;
+    box-shadow: .4em 0 0 #2e2e2e, -.4em 0 0 #2e2e2e;
+    line-height: 1.5;
+    padding: .2em 0;
+  }
+}
+@media(min-width: 45em) { 
+  .site-hed {
+    margin: 1.25em 0 0 .5em;
+  }
+}
+@media(min-width: 56em) { 
+  .j5-icon {
+    width: 55px;
+  }
+  .site-hed { 
+    font-size: 2em;
+    margin: .4em 0 0 0;
+  }
+} 
+
+.banner-campaign {
+  text-align: center;
+  background: #FFE038;
+
+  img {
+    margin: auto;
+    margin-bottom: -5px;
+  }
+}
+
+@media(min-width: 75em) { 
+
+  .banner-campaign img {
+      width: 69.7639565%;
+  }
+}
+
+
