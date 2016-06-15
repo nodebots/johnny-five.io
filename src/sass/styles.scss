@@ -1447,6 +1447,13 @@ table tr th, table tr td {
 .banner-campaign {
   background: #FFE038;
   padding-bottom: 2em;
+  clear: both;
+  padding: 1em 0;
+  margin-top: 2em;
+
+  .teaser {
+    padding: 2em 1em;
+  }
 
   img {
     margin: 1em auto;
@@ -1463,14 +1470,23 @@ table tr th, table tr td {
     text-align:center;
     margin: 0 auto;
   }
-
 }
 
-@media(min-width: 75em) { 
-
-  .banner-campaign img {
-      width: 69.7639565%;
+@media(min-width: 45em) { 
+  .banner-campaign {
+    padding: 1em 5%;
   }
 }
 
+@media(min-width: 65em) {  
+  .teaser {
+    padding: 0;
+  }
+}
+
+@media(min-width: 75em) { 
+  .banner-campaign {
+    padding: 1em 15.0474663%;
+  }
+}
 
