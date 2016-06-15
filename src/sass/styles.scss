@@ -1452,12 +1452,16 @@ table tr th, table tr td {
     margin: 1em auto;
   }
 
-  button {
+  a.button {
     background: #10b5ce;
     width: 33%;
     border: 0;
     font-size: 1.5em;
+    padding: .4em;
     color: #fff;
+    display: inline-block;
+    text-align:center;
+
   }
 
 }
