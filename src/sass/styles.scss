@@ -1439,51 +1439,27 @@ table tr th, table tr td {
 }
 
 // ----------------------- //
-//     Banner Campaign
+//     J5IK Launch Campaign
 // ----------------------- //
 
 
-.j5-icon {
-  width: 2em;
-}
-.site-hed {
-  font-size: 1.1em;
-  float: left;
-
-  span {
-    background: #2e2e2e;
-    box-shadow: .4em 0 0 #2e2e2e, -.4em 0 0 #2e2e2e;
-    line-height: 1.5;
-    padding: .2em 0;
-  }
-}
-@media(min-width: 45em) { 
-  .site-hed {
-    margin: 1.25em 0 0 .5em;
-  }
-}
-@media(min-width: 56em) { 
-  .j5-icon {
-    width: 55px;
-  }
-  .site-hed { 
-    font-size: 2em;
-    margin: .4em 0 0 0;
-  }
-} 
 
 .banner-campaign {
-  text-align: center;
   background: #FFE038;
+  padding-bottom: 2em;
 
   img {
-    margin: auto;
-    margin-bottom: -5px;
+    margin: 1em auto;
   }
 
-  p {
-    padding: .4em ;
+  button {
+    background: #10b5ce;
+    width: 33%;
+    border: 0;
+    font-size: 1.5em;
+    color: #fff;
   }
+
 }
 
 @media(min-width: 75em) { 
