@@ -1438,11 +1438,10 @@ table tr th, table tr td {
   }
 }
 
+
 // ----------------------- //
 //     J5IK Launch Campaign
 // ----------------------- //
-
-
 
 .banner-campaign {
   // background: #FFE038;
@@ -1476,6 +1475,9 @@ table tr th, table tr td {
     display: block;
     text-align:center;
     margin: 0 auto;
+  }
+  a.button:hover {
+    background: #119eb3;
   }
   p {
     font-size: 1.5em;
