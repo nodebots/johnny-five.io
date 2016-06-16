@@ -1445,23 +1445,30 @@ table tr th, table tr td {
 
 
 .banner-campaign {
-  background: #FFE038;
-  padding-bottom: 2em;
+  // background: #FFE038;
   clear: both;
   padding: 1em 0;
   margin-top: 2em;
-
+  background-color: #f3f3f3;
+  display: block;
   .teaser {
     padding: 2em 1em;
   }
-
-  img {
-    margin: 1em auto;
+  h2 {
+    font-size: 2em;
+    font-weight: 600;
   }
-
+  p.tagline {
+    margin: .5em 0 0;
+    line-height: 1.3em;
+    font-size: 1.8em;
+  }
+  img {
+    margin: 2em auto;
+  }
   a.button {
     background: #10b5ce;
-    width: 33%;
+    width: 100%;
     border: 0;
     font-size: 1.5em;
     padding: .4em;
@@ -1470,23 +1477,48 @@ table tr th, table tr td {
     text-align:center;
     margin: 0 auto;
   }
+  p {
+    font-size: 1.5em;
+    margin-top: 0;
+  }
+}
+
+@media(min-width: 32em) { 
+  .banner-campaign a.button { 
+    width: 33%;
+  }
 }
 
 @media(min-width: 45em) { 
+  .banner-campaign h2 { 
+    font-size: 3em;
+  }
+  .banner-campaign p.tagline {
+    font-size: 2em;
+    margin: 0;
+  }
   .banner-campaign {
     padding: 1em 5%;
   }
 }
 
 @media(min-width: 65em) {  
-  .teaser {
+  .banner-campaign .teaser {
     padding: 0;
+  }
+  .banner-campaign {
+    padding: 2em 5%;
   }
 }
 
 @media(min-width: 75em) { 
   .banner-campaign {
-    padding: 1em 15.0474663%;
+    padding: 3.5em 15.0474663%;
+    margin-top: 0;
+  }
+  .johnny-five-is {
+    float: none;
+    padding: 3em 0;
   }
 }
 
