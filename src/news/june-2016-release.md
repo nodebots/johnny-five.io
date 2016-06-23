@@ -2,7 +2,7 @@
 author: Rick Waldron
 date: '2016-06-23 12:00:00'
 status: published
-title: 'May Release: v0.9.58'
+title: 'June Release: v0.9.58'
 slug: 'june-2016-release'
 category:
   - Announcement
