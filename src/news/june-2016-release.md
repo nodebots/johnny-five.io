@@ -45,15 +45,6 @@ This is way overdue... There's been a lot of exciting work on Johnny-Five this y
 
 ## v0.9.56
 
-| Commit | Message/Description |
-| ------ | ------------------- |
-| [339822d](https://github.com/rwaldron/johnny-five/commit/339822d4341ba4c7d21e25ee3fd9e26435c0903d) | v0.9.56 |
-| [7ca427f](https://github.com/rwaldron/johnny-five/commit/7ca427fdffff34b5255cfd6954ea1acac95ee939) | Badges: don't use the old fashioned gitter svg url, it has spaces. |
-
-
-
-## v0.9.56
-
 
 
 | Commit | Message/Description |
