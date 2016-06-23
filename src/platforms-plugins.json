@@ -1616,12 +1616,12 @@
               [],
               [],
               [],
-              ["Not yet enabled by platform"],
+              [],
               [],
               [],
               ["Software support missing"],
               ["Software support missing"],
-              ["Support is currently in development"],
+              [],
               [],
               ["Hardware support missing"]
             ]
@@ -1630,12 +1630,12 @@
             "Analog Read": "yes",
             "Digital Read": "yes",
             "Digital Write": "yes",
-            "PWM": "no",
+            "PWM": "yes",
             "Servo": "yes",
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no",
-            "Serial/UART": "no",
+            "Serial/UART": "yes",
             "DAC": "yes",
             "Ping": "no"
           }
