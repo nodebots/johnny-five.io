@@ -3,4 +3,4 @@
 # production server's FQDN. This is likely the only change you will need to
 # make between production and staging.
 
-staging.johnny-five.io site_fqdn=staging.johnny-five.io commit=master
+staging.johnny-five.io site_fqdn=staging.johnny-five.io
