@@ -1,7 +1,7 @@
 ---
 author: Rick Waldron
 date: '2016-02-14 12:00:00'
-status: draft
+status: published
 title: 'The Next Thing Co. C.H.I.P.'
 category:
   - Announcement

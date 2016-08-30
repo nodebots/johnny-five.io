@@ -1,7 +1,7 @@
 ---
 author: Donovan Buck
 date: '2016-03-14 12:00:00'
-status: draft
+status: published
 title: 'Johnny-Five GPS Class'
 category:
   - Announcement

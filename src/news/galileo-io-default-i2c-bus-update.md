@@ -1,7 +1,7 @@
 ---
 author: Rick Waldron
 date: '2015-04-25 12:00:00'
-status: draft
+status: published
 title: 'Galileo-IO/Edison-IO: Default I2C Bus Updates'
 category:
   - Announcement

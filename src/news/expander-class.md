@@ -1,7 +1,7 @@
 ---
 author: Donovan Buck
 date: '2015-11-03 12:00:00'
-status: draft
+status: published
 title: 'Johnny-Five Expander Class'
 category:
   - Announcement

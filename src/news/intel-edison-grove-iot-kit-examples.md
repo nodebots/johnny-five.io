@@ -1,7 +1,7 @@
 ---
 author: Rick Waldron
 date: '2015-09-07 11:02:00'
-status: draft
+status: published
 title: 'Intel Edison + Grove IoT Kit Examples'
 category:
   - Announcement

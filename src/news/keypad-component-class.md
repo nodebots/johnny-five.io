@@ -1,7 +1,7 @@
 ---
 author: Rick Waldron
 date: '2015-07-03 11:02:00'
-status: draft
+status: published
 title: 'New Keypad Component Class'
 category:
   - Announcement

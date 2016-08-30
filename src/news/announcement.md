@@ -1,7 +1,7 @@
 ---
 author: Rick Waldron
 date: '2015-04-22 12:00:00'
-status: draft
+status: published
 title: 'Welcome to Johnny-Five.io'
 category:
   - Announcement
