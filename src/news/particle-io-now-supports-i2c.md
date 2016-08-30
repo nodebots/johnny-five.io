@@ -49,7 +49,8 @@ board.on("ready", function() {
 
 The beauty of the Johnny-Five abstraction allows us to do some things that you may not consider.  For example, pair the [SparkFun Photon Redboard](https://www.sparkfun.com/products/13321) with the [EVShield](http://www.mindsensors.com/arduino/16-evshield-for-arduino-duemilanove-or-uno), and you have a JavaScript enabled, wireless controller for your Lego creations.  Or, connect your Photon to the [SparkFun Weather Shield](https://www.sparkfun.com/products/13630) and wirelessly automate your home.
 
-Examples of the components that are now supported on the Particle devices in Johnny-Five include:
+Examples of the components that are now supported on the Particle devices in Johnny-Five include (but is not limited to):
+
 - Accelerometer: ([ADXL345](http://johnny-five.io/examples/accelerometer-adxl345/), [MMA7660](http://johnny-five.io/examples/grove-accelerometer-mma7660-edison/))
 - Color: ([ISL29125](http://johnny-five.io/examples/color-ISL29125/))
 - Compas: ([HMC5883L](http://johnny-five.io/examples/compass-hmc5883l/), [HMC6352](http://johnny-five.io/examples/compass-hmc6352/))
@@ -63,6 +64,9 @@ Examples of the components that are now supported on the Particle devices in Joh
 - Motion: ([GP2Y0D805Z0F](http://johnny-five.io/examples/motion-gp2y0d805z0f/)
 - Proximity: ([SRF10](http://johnny-five.io/examples/proximity-srf10/), LIDARLITE)
 - Wii: ([Nunchuck](http://johnny-five.io/examples/nunchuk/), [classic](http://johnny-five.io/examples/classic-controller/))
+
+
+
 
 
 
