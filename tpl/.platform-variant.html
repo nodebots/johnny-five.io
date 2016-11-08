@@ -8,14 +8,14 @@
       <h4 class="sec-hed">Environment</h4>
       <ul>
       <% if (pluginName) { %>
-        <li>IO Plug-in: <a href="<%= pluginUrl %>"><%= pluginName %></a>
+        <li>IO Plug-in: <a href="<%= pluginUrl %>" target="_blank"><%= pluginName %></a>
           <% if (pluginInstructions) { %>
           (<a href="<%= pluginInstructions %>">additional instructions</a>)
           <% } %>
         </li>
       <% } %>
       <% if (envName) { %>
-        <li>Firmware/Runtime: <a href="<%= envUrl %>"><%= envName %></a>
+        <li>Firmware/Runtime: <a href="<%= envUrl %>" target="_blank"><%= envName %></a>
           <% if (envInstructions) { %>
           (<a href="<%= envInstructions %>">additional instructions</a>)
           <% } %>
