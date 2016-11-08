@@ -876,7 +876,8 @@
           "image": "intel-edison-arduino.png",
           "enabled": true,
           "information": [
-            "Hardwas is capable of supporting only 4 PWM outputs. As a result, native bindings do not support PWM on pins 10 and 11."
+            "Hardware is capable of supporting only 4 PWM outputs. As a result, native bindings do not support PWM on pins 10 and 11.",
+            "While Johnny-Five does not support serial comms, you can bind to /dev/ttyFMD1 on the Edison Arduino board using <a href\"https://github.com/EmergingTechnologyAdvisors/node-serialport\">the serialport module</a>."
           ],
           "notes": {
             "public": [
@@ -902,7 +903,7 @@
             "I2C": "yes",
             "One Wire": "no",
             "Stepper": "no",
-            "Serial/UART": "no",
+            "Serial/UART": "no*",
             "DAC": "no",
             "Ping": "no"
           }
