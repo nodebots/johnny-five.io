@@ -877,7 +877,7 @@
           "enabled": true,
           "information": [
             "Hardware is capable of supporting only 4 PWM outputs. As a result, native bindings do not support PWM on pins 10 and 11.",
-            "While Johnny-Five does not support serial comms, you can bind to /dev/ttyFMD1 on the Edison Arduino board using <a href\"https://github.com/EmergingTechnologyAdvisors/node-serialport\">the serialport module</a>."
+            "While Johnny-Five does not yet support serial comms, you can bind to /dev/ttyFMD1 on the Edison Arduino board using [the serialport module](https://github.com/EmergingTechnologyAdvisors/node-serialport)."
           ],
           "notes": {
             "public": [
