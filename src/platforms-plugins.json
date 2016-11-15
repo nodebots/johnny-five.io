@@ -876,7 +876,8 @@
           "image": "intel-edison-arduino.png",
           "enabled": true,
           "information": [
-            "Hardwas is capable of supporting only 4 PWM outputs. As a result, native bindings do not support PWM on pins 10 and 11."
+            "Hardware is capable of supporting only 4 PWM outputs. As a result, native bindings do not support PWM on pins 10 and 11.",
+            "While Galileo-io/Edison-io/Joule-io does not yet support serial comms, you can bind to /dev/ttyFMD1 on the Edison Arduino board using [the serialport module](https://github.com/EmergingTechnologyAdvisors/node-serialport)."
           ],
           "notes": {
             "public": [
