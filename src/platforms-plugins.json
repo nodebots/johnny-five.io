@@ -1019,6 +1019,60 @@
       ]
     },
     {
+      "name": "Intel Joule",
+      "url": "https://software.intel.com/en-us/iot/hardware/joule",
+      "plugin": {
+        "name": "Joule-IO",
+        "url": "https://github.com/rwaldron/joule-io",
+        "instructions": "https://software.intel.com/en-us/intel-joule-getting-started"
+      },
+      "environment": {
+        "name": "Reference Linux* OS for IoT",
+        "url": "https://software.intel.com/en-us/node/672326",
+        "instructions": "https://software.intel.com/en-us/node/672326",
+        "relationship": "embedded"
+      },
+      "via": [
+        "mraa"
+      ],
+      "variants": [
+        {
+          "name": "Intel Joule 570x (Carrier Board)",
+          "image": "intel-joule-carrier.png",
+          "enabled": true,
+          "information": [],
+          "notes": {
+            "public": [
+              [],
+              [],
+              [],
+              ["Limited Hardware support"],
+              ["Limited Hardware support"],
+              [],
+              ["Software support missing"],
+              ["Software support missing"],
+              ["Support is currently in development"],
+              ["Hardware support missing"],
+              ["Hardware support missing"]
+            ]
+          },
+          "capabilities": {
+            "Analog Read": "no",
+            "Digital Read": "yes",
+            "Digital Write": "yes",
+            "PWM": "yes",
+            "Servo": "yes",
+            "I2C": "yes",
+            "One Wire": "no",
+            "Stepper": "no",
+            "Serial/UART": "no",
+            "DAC": "no",
+            "Ping": "no"
+          }
+        }
+      ]
+    },
+    {
       "name": "LightBlue",
       "url": "https://punchthrough.com/bean/",
       "plugin": {
