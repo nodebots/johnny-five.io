@@ -424,7 +424,11 @@ module.exports = function(grunt) {
     var accum = [];
 
     // refers to grunt-local "egPrograms"
-    egPrograms.forEach(function(egProgram) {
+    egPrograms.sort(function (a,b) {
+      if (a.topic < b.topic) return -1;
+      if (a.topic > b.topic) return 1;
+      return 0;
+    }).forEach(function(egProgram) {
 
       accum.push("### " + egProgram.topic);
 
@@ -537,6 +541,10 @@ module.exports = function(grunt) {
         target: "api/" + title.toLowerCase() + "/index.html",
         pretty: "api/" + title.toLowerCase() + "/"
       };
+    }).sort(function (a,b) {
+      if (a.title < b.title) return -1;
+      if (a.title > b.title) return 1;
+      return 0;
     });
     var list = markdown.render(matches.reduce(function(accum, match) {
       accum += "- [" + match.title + "](/" + match.pretty + ")\n";
