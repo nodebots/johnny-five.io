@@ -12,7 +12,7 @@ category:
 Johnny-Five has long enjoyed top notch support for standard 180° hobby servos, but now support has been extended to servos with any amount of throw. If you have a multi-turn (whinch) servo you can simply pass in the total range in degrees. 
 
 ```javascript
-var five = require("../lib/johnny-five.js");
+var five = require("johnny-five");
 var board = new five.Board();
 
 board.on("ready", function() {
@@ -35,7 +35,7 @@ board.on("ready", function() {
 This update also works for 90° or 360° servos:
 
 ```javascript
-var five = require("../lib/johnny-five.js");
+var five = require("johnny-five");
 var board = new five.Board();
 
 board.on("ready", function() {
@@ -66,4 +66,4 @@ This update requires the latest versions of most IO Plug-ins:
 * beaglebone-io v3.0.0
 * linux-io v0.9.2
 
-If you are using firmata, you are in the clear and don't need to worry about having the latest version.
+If you are using Firmata, you are in the clear and don't need to worry about having the latest version.
