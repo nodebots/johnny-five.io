@@ -72,7 +72,7 @@ Notes:
 ## Overview
 
 Assuming you've already created (or are in the process of creating) a website or
-web app, you will typically perform these steps when using this workflow.
+web app, you will typically perform these steps when using this workflow:
 
 1. Ensure the [workflow dependencies](#dependencies) have been installed on your
    development machine.
