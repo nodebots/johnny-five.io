@@ -1,5 +1,5 @@
 ---
-author: Bryan Hughes and Lyza Danger Garder
+author: Lyza Danger Garder
 date: '2018-08-23 00:00:00'
 status: published
 title: 'Johnny-Five v1.0'
