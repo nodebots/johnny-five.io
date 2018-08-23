@@ -13,7 +13,7 @@ The Johnny-Five team has begun work on a method of controlling previously incomp
 
 Backpacks are programmed with a--typically very small--C++ firmware, with an I2C layer that Johnny-Five can use to send and receive commands and data. Backpacks are typically an Arduino Pro Mini or Nano, which can be purchased for as little as $2.
 
-For a more detailed introduction to Johnny-Five backpacks, plus an awesome NeoPixel demo, [follow this link](http://omit.io/2015/08/20/beginners-guide-to-backpacks/).
+For a more detailed introduction to Johnny-Five backpacks, plus an awesome NeoPixel demo, [follow this link](https://derek.business/posts/beginners-guide-to-backpacks/).
 
 To see the backpacks currently supported, check out:
 * [node-pixel](https://github.com/ajfisher/node-pixel)
