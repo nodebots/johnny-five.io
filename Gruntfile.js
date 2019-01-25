@@ -454,12 +454,12 @@ module.exports = function(grunt) {
     };
 
     var apisource = file.read("src/johnny-five/lib/johnny-five.js");
-    var apiblacklist = ["LedControl","Gripper","Fn","Distance","Repl","IR","Nodebot", "Touchpad","Wii" ];
+    var apiignorelist = ["Color","Light","LedControl","Gripper","Fn","Distance","Repl","IR","Nodebot", "Touchpad","Wii" ];
     var apinames = extract("apinames", apisource)[0].map(function(value) {
       var relevant = value.split(": ")[0].trim();
       return relevant;
     }).filter(function(name) {
-      return !apiblacklist.includes(name);
+      return !apiignorelist.includes(name);
     });
     var ogImagePath = "http://johnny-five.io/img/images/";
 
