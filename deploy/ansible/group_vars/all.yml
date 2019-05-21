@@ -34,7 +34,7 @@ apt_keys:
 # Node.js 0.12.x: deb https://deb.nodesource.com/node_0.12 trusty main
 # Io.js 1.x:      deb https://deb.nodesource.com/iojs_1.x trusty main
 apt_ppas:
-  - "deb https://deb.nodesource.com/node_0.12 trusty main"
+  - "deb https://deb.nodesource.com/node_12.x trusty main"
   - "ppa:git-core/ppa"
 
 # Any apt packages to install. Apt package versions may be specified like
