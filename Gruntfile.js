@@ -1,52 +1,52 @@
-require("es6-shim");
-require("array-includes").shim();
 require("copy-paste");
-var cp = require("child_process");
-var inspect = require("util").inspect;
-var fs = require("fs");
-var request = require("request");
-var moment = require("moment");
-var FeedParser = require("feedparser");
-var Remarkable = require("remarkable");
-var markdown = new Remarkable({
+const cp = require("child_process");
+const inspect = require("util").inspect;
+const fs = require("fs");
+const request = require("request");
+const moment = require("moment");
+const FeedParser = require("feedparser");
+const {Remarkable} = require("remarkable");
+const markdown = new Remarkable({
   html: true
 });
-var yfm = require("yaml-front-matter");
+const yfm = require("yaml-front-matter");
 
 module.exports = function(grunt) {
 
-  var task = grunt.task;
-  var file = grunt.file;
-  var log = grunt.log;
-  var verbose = grunt.verbose;
-  var fail = grunt.fail;
-  var option = grunt.option;
-  var config = grunt.config;
-  var template = grunt.template;
-  var _ = grunt.util._;
+  const {
+    task,
+    file,
+    log,
+    verbose,
+    fail,
+    option,
+    config,
+    template,
+    util: { _ }
+  } = grunt;
 
-  var header = _.template(file.read("tpl/.header.html"));
-  var footer = file.read("tpl/.footer.html");
-  var navigation = file.read("tpl/.navigation.html");
-  var egPrograms;
-  var egTitles;
-  var egSources;
-  var examples;
+  let header = _.template(file.read("tpl/.header.html"));
+  let footer = file.read("tpl/.footer.html");
+  let navigation = file.read("tpl/.navigation.html");
+  let egPrograms;
+  let egTitles;
+  let egSources;
+  let examples;
 
 
   function loadPrograms() {
     try {
       egPrograms = JSON.parse(file.read("src/johnny-five/tpl/programs.json"));
-      egTitles = egPrograms.reduce(function(accum, program) {
-        var titles = program.examples.reduce(function(accum, example) {
+      egTitles = egPrograms.reduce((accum, program) => {
+        const titles = program.examples.reduce((accum, example) => {
           accum[example.file] = example.title;
           return accum;
         }, {});
         return Object.assign(accum, titles);
       }, {});
 
-      egSources = Object.keys(egTitles).reduce(function(source, key) {
-        source[key] = file.read("src/johnny-five/eg/" + key);
+      egSources = Object.keys(egTitles).reduce((source, key) => {
+        source[key] = file.read(`src/johnny-five/eg/${key}`);
         return source;
       }, {});
     } catch (e) {
@@ -347,67 +347,61 @@ module.exports = function(grunt) {
   grunt.registerTask("default", ["load-programs", "clean:build", "regen", "sass:dist", "uglify"]);
 
 
-  grunt.registerTask("launch", function() {
-    cp.exec("open 'http://127.0.0.1:1337/'", function(err) {
+  grunt.registerTask("launch", () => {
+    cp.exec("open 'http://127.0.0.1:1337/'", err => {
       console.log(err);
     });
   });
 
-  grunt.registerTask("load-programs", function() {
+  grunt.registerTask("load-programs", () => {
     loadPrograms();
   });
 
-  grunt.registerTask("index", "generate index", function() {
-    var templates = {
+  grunt.registerTask("index", "generate index", () => {
+    const templates = {
       index: _.template(file.read("tpl/.index.html")),
-      header: header,
+      header,
     };
 
-    var plugins = JSON.parse(file.read("src/platforms-plugins.json"));
-    var platforms = plugins.platforms.reduce(function(accum, platform) {
-      return accum.concat(platform.variants.filter(function(variant) {
-        return variant.enabled;
-      }).map(function(variant) {
-        return "[![" + variant.name + "](http://static.johnny-five.io/img/platforms/small/" + variant.image + ")](/platform-support/#" + slug(variant.name) + ")";
-      }));
-    }, []).join("\n");
+    const plugins = JSON.parse(file.read("src/platforms-plugins.json"));
+    const platforms = plugins.platforms.reduce((accum, {variants}) => accum.concat(variants.filter(({enabled}) => enabled).map(({name, image}) => `[![${name}](http://static.johnny-five.io/img/platforms/small/${image})](/platform-support/#${slug(name)})`)), []).join("\n");
 
     file.write("public/index.html", templates.index({
-      navigation: navigation,
+      navigation,
       platforms: markdown.render(platforms),
       header: templates.header({ description: "", keywords: "" }),
-      footer: footer
+      footer
     }));
   });
 
   grunt.registerTask("articles-from-rss", function() {
-    var done = this.async();
-    var targets = grunt.config("articles-from-rss.targets");
-    var remaining = targets.length;
-    var templates = {
+    const done = this.async();
+    const targets = grunt.config("articles-from-rss.targets");
+    let remaining = targets.length;
+    const templates = {
       articles: _.template(file.read("tpl/.articles.html")),
       rssList: _.template(file.read("tpl/.rss-list.html")),
-      header: header,
+      header,
     };
-    var rendered = "";
-    var articles = {
-      navigation: navigation,
+    const rendered = "";
+    const articles = {
+      navigation,
       header: templates.header({ description: "", keywords: "" }),
-      footer: footer
+      footer
     };
 
     file.mkdir("public/articles/");
 
-    targets.forEach(function(target) {
-      rssToList(target.feed, function(err, list) {
-        articles[target.name] = templates.rssList({
+    targets.forEach(({feed, name}) => {
+      rssToList(feed, (err, list) => {
+        articles[name] = templates.rssList({
           items: list
         });
         remaining--;
       });
     });
 
-    setInterval(function() {
+    setInterval(() => {
       if (remaining === 0) {
         file.write("public/articles/index.html", templates.articles(articles));
         done();
@@ -415,21 +409,21 @@ module.exports = function(grunt) {
     }, 0);
   });
 
-  grunt.registerTask("examples-list", "generate examples list", function() {
-    var templates = {
+  grunt.registerTask("examples-list", "generate examples list", () => {
+    const templates = {
       examples: _.template(file.read("tpl/.examples.html")),
-      header: header,
+      header,
     };
 
-    var accum = [];
+    const accum = [];
 
     // refers to grunt-local "egPrograms"
-    egPrograms.forEach(function(egProgram) {
+    egPrograms.forEach(egProgram => {
 
-      accum.push("### " + egProgram.topic);
+      accum.push(`### ${egProgram.topic}`);
 
-      egProgram.examples.forEach(function(example) {
-        accum.push(" - [" + example.title + "](/examples/" + example.file.replace(".js", "") + "/)");
+      egProgram.examples.forEach(example => {
+        accum.push(` - [${example.title}](/examples/${example.file.replace(".js", "")}/)`);
       });
 
       accum.push("\n");
@@ -440,37 +434,35 @@ module.exports = function(grunt) {
 
     file.mkdir("public/examples/");
     file.write("public/examples/index.html", templates.examples({
-      navigation: navigation,
+      navigation,
       list: markdown.render(examples),
       header: templates.header({ description: ", Examples", keywords: ", Examples" }),
-      footer: footer
+      footer
     }));
   });
 
   grunt.registerMultiTask("examples", "generate examples", function() {
-    var templates = {
+    const templates = {
       exampleContent: _.template(file.read("tpl/.example-content.html")),
-      header: header,
+      header,
     };
 
-    var apisource = file.read("src/johnny-five/lib/johnny-five.js");
-    var apiignorelist = ["Color","Light","LedControl","Gripper","Fn","Distance","Repl","IR","Nodebot", "Touchpad","Wii" ];
-    var apinames = extract("apinames", apisource)[0].map(function(value) {
-      var relevant = value.split(": ")[0].trim();
+    const apisource = file.read("src/johnny-five/lib/johnny-five.js");
+    const apiignorelist = ["Color","Light","LedControl","Gripper","Fn","Distance","Repl","IR","Nodebot", "Touchpad","Wii" ];
+    const apinames = extract("apinames", apisource)[0].map(value => {
+      const relevant = value.split(": ")[0].trim();
       return relevant;
-    }).filter(function(name) {
-      return !apiignorelist.includes(name);
-    });
-    var ogImagePath = "http://johnny-five.io/img/images/";
+    }).filter(name => !apiignorelist.includes(name));
+    const ogImagePath = "http://johnny-five.io/img/images/";
 
-    var entries = JSON.parse(file.read(file.expand(this.data)));
-    entries.forEach(function(entry) {
-      entry.examples.forEach(function(eg) {
-        var title = eg.title;
-        var outpath = "public/examples/" + eg.file.replace(".js", "/index.html");
-        var mdSource = (eg.name || eg.file).replace(".js", "");
-        var inpath = "src/johnny-five/docs/" + mdSource + ".md";
-        var contents = markdown.render(
+    const entries = JSON.parse(file.read(file.expand(this.data)));
+    entries.forEach(entry => {
+      entry.examples.forEach(eg => {
+        const title = eg.title;
+        const outpath = `public/examples/${eg.file.replace(".js", "/index.html")}`;
+        const mdSource = (eg.name || eg.file).replace(".js", "");
+        const inpath = `src/johnny-five/docs/${mdSource}.md`;
+        const contents = markdown.render(
           // open file
           // eliminate sections marked for removal
           // modify image path
@@ -482,72 +474,68 @@ module.exports = function(grunt) {
             .replace(/docs\/images\//g, "")
         );
 
-        var apilist = apinames.filter(function(apiname) {
+        const apilist = apinames.filter(apiname => {
           if (contents.includes(apiname)) {
             return true;
           }
-        }).map(function(apiname) {
-          return "- [" + apiname + "](/api/" + apiname.toLowerCase() + ")";
-        }).join("\n");
+        }).map(apiname => `- [${apiname}](/api/${apiname.toLowerCase()})`).join("\n");
 
-        var ogImage = ogImagePath + findImage(eg);
-        var sluggedTitle = eg.file.replace(".js", "");
+        const ogImage = ogImagePath + findImage(eg);
+        const sluggedTitle = eg.file.replace(".js", "");
 
         // Place it into our html template
-        file.mkdir("public/examples/" + sluggedTitle);
+        file.mkdir(`public/examples/${sluggedTitle}`);
         file.write(outpath, templates.exampleContent({
           apilist: markdown.render(apilist),
-          contents: contents,
-          header: templates.header({ description: ", " + title, keywords: ", " + title }),
-          footer: footer,
+          contents,
+          header: templates.header({ description: `, ${title}`, keywords: `, ${title}` }),
+          footer,
           list: markdown.render(examples),
-          navigation: navigation,
-          ogImage: ogImage,
-          title: title,
+          navigation,
+          ogImage,
+          title,
           url: sluggedTitle,
         }));
       });
     });
   });
 
-  grunt.registerTask("api-docs", "generate api docs", function() {
-    var templates = {
+  grunt.registerTask("api-docs", "generate api docs", () => {
+    const templates = {
       api: _.template(file.read("tpl/.api.html")),
       apiContent: _.template(file.read("tpl/.api-content.html")),
-      header: header,
+      header,
     };
 
     file.mkdir("public/api/");
 
-    var source = file.read("src/johnny-five.wiki/Home.md");
-    var api = extract("api", source)[0].join("\n");
-    var guides = extract("guides", source).reduce(function(accum, set) {
-      return accum.concat(set);
-    }, []).join("\n");
+    const source = file.read("src/johnny-five.wiki/Home.md");
+    const api = extract("api", source)[0].join("\n");
+    const guides = extract("guides", source).reduce((accum, set) => accum.concat(set), []).join("\n");
 
-    var matches = api.match(/\(https:\/\/github.com\/rwaldron\/johnny-five\/wiki\/(.*)\)/g).map(function(match) {
+    const matches = api.match(/\(https:\/\/github.com\/rwaldron\/johnny-five\/wiki\/(.*)\)/g).map(match => {
 
-      var result = match.slice(1, -1);
-      var lastIndex = result.lastIndexOf("/");
-      var title = result.slice(lastIndex + 1);
+      const result = match.slice(1, -1);
+      const lastIndex = result.lastIndexOf("/");
+      const title = result.slice(lastIndex + 1);
 
       return {
-        title: title,
-        source: "src/johnny-five.wiki/" + title + ".md",
-        target: "api/" + title.toLowerCase() + "/index.html",
-        pretty: "api/" + title.toLowerCase() + "/"
+        title,
+        source: `src/johnny-five.wiki/${title}.md`,
+        target: `api/${title.toLowerCase()}/index.html`,
+        pretty: `api/${title.toLowerCase()}/`
       };
     });
-    var list = markdown.render(matches.reduce(function(accum, match) {
-      accum += "- [" + match.title + "](/" + match.pretty + ")\n";
+    const list = markdown.render(matches.reduce((accum, {title, pretty}) => {
+      accum += `- [${title}](/${pretty})\n`;
       return accum;
     }, ""));
 
-    matches.forEach(function(match) {
-      var examples = Object.keys(egSources).reduce(function(accum, example) {
+    matches.forEach(match => {
+      let examples = Object.keys(egSources).reduce((accum, example) => {
         if (egSources[example].includes(match.title)) {
-          var htmlFile = example.replace(".js", "");
-          accum.push("- [" + egTitles[example] + "](/examples/" + htmlFile + ")");
+          const htmlFile = example.replace(".js", "");
+          accum.push(`- [${egTitles[example]}](/examples/${htmlFile})`);
         }
         return accum;
       }, []);
@@ -559,55 +547,49 @@ module.exports = function(grunt) {
         examples = "";
       }
 
-      var sluggedTitle = match.title.toLowerCase();
+      const sluggedTitle = match.title.toLowerCase();
 
-      file.mkdir("public/api/" + sluggedTitle);
-      var source = file.read(match.source).replace(/https:\/\/github.com\/rwaldron\/johnny-five\/wiki\//g, function(found) {
-        return "/api/";
-      });
-      file.write("public/" + match.target, templates.apiContent({
-        navigation: navigation,
+      file.mkdir(`public/api/${sluggedTitle}`);
+      const source = file.read(match.source).replace(/https:\/\/github.com\/rwaldron\/johnny-five\/wiki\//g, found => "/api/");
+      file.write(`public/${match.target}`, templates.apiContent({
+        navigation,
         title: match.title,
-        list: list,
+        list,
         contents: markdown.render(
           // Strip sections marked for removal
           remove(source)
         ),
         examples: examples.length && markdown.render(examples),
-        header: templates.header({ description: ", " + match.title, keywords: ", " + match.title }),
-        footer: footer,
+        header: templates.header({ description: `, ${match.title}`, keywords: `, ${match.title}` }),
+        footer,
         url: sluggedTitle,
       }));
     });
 
     file.write("public/api/index.html", templates.api({
-      navigation: navigation,
-      list: list,
+      navigation,
+      list,
       guides: markdown.render(guides),
       header: templates.header({ description: ", API Documentation", keywords: ", API, Documentation" }),
-      footer: footer
+      footer
     }));
   });
 
   grunt.registerMultiTask("news", "generate news", function() {
-    var templates = {
+    const templates = {
       author: _.template(file.read("tpl/.author.html")),
       news: _.template(file.read("tpl/.news.html")),
       newsContent: _.template(file.read("tpl/.news-content.html")),
       newsContentBody: _.template(file.read("tpl/.news-content-body.html")),
-      header: header,
+      header,
     };
 
-    var authors = JSON.parse(file.read("src/authors.json"));
+    const authors = JSON.parse(file.read("src/authors.json"));
 
-    var sources = file.expand(this.data).map(function(source) {
-      return yfm.loadFront(file.read(source));
-    }).sort(function(a, b) {
-      // Sort newest first
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
+    const sources = file.expand(this.data).map(source => yfm.loadFront(file.read(source))).sort((a, b) => // Sort newest first
+    new Date(b.date).getTime() - new Date(a.date).getTime());
 
-    var latest = templates.newsContentBody(Object.assign({}, sources[0], {
+    const latest = templates.newsContentBody(Object.assign({}, sources[0], {
       date: moment(sources[0].date).format("MMMM Do YYYY"),
       content: markdown.render(sources[0].__content),
       author: templates.author({
@@ -619,19 +601,19 @@ module.exports = function(grunt) {
     file.mkdir("public/news/");
 
 
-    var list = markdown.render(sources.reduce(function(accum, source) {
-      var sluggedTitle = source.slug || slug(source.title);
-      accum += "- [" + source.title + "](/news/" + sluggedTitle + "/)\n";
+    const list = markdown.render(sources.reduce((accum, source) => {
+      const sluggedTitle = source.slug || slug(source.title);
+      accum += `- [${source.title}](/news/${sluggedTitle}/)\n`;
       return accum;
     }, ""));
 
 
-    sources.forEach(function(source) {
-      var sluggedTitle = source.slug || slug(source.title);
+    sources.forEach(source => {
+      const sluggedTitle = source.slug || slug(source.title);
 
-      file.mkdir("public/news/" + sluggedTitle);
+      file.mkdir(`public/news/${sluggedTitle}`);
 
-      var contents = templates.newsContentBody(Object.assign({}, source, {
+      const contents = templates.newsContentBody(Object.assign({}, source, {
         date: moment(source.date).format("MMMM Do YYYY"),
         content: markdown.render(source.__content),
         author: templates.author({
@@ -642,63 +624,57 @@ module.exports = function(grunt) {
         url: sluggedTitle
       }));
 
-      file.write("public/news/" + sluggedTitle + "/index.html", templates.newsContent({
-        navigation: navigation,
-        list: list,
+      file.write(`public/news/${sluggedTitle}/index.html`, templates.newsContent({
+        navigation,
+        list,
         title: source.title,
-        contents: contents,
-        header: templates.header({ description: ", " + source.title, keywords: ", " + source.title }),
-        footer: footer,
+        contents,
+        header: templates.header({ description: `, ${source.title}`, keywords: `, ${source.title}` }),
+        footer,
         url: sluggedTitle
       }));
     });
 
     file.write("public/news/index.html", templates.news({
-      navigation: navigation,
-      list: list,
-      latest: latest,
+      navigation,
+      list,
+      latest,
       header: templates.header({ description: ", News and Announcements", keywords: ", News, Announcements" }),
-      footer: footer
+      footer
     }));
   });
 
-  grunt.registerTask("platform-support", "generate platform support", function() {
-    var garbage = ["<thead>","<tr><th>_</th><th>_</th></tr>","</thead>"];
-    var templates = {
+  grunt.registerTask("platform-support", "generate platform support", () => {
+    const garbage = ["<thead>","<tr><th>_</th><th>_</th></tr>","</thead>"];
+    const templates = {
       platformSupport: _.template(file.read("tpl/.platform-support.html")),
       platformVariant: _.template(file.read("tpl/.platform-variant.html")),
       platformData: _.template(file.read("tpl/.platform-data.js")),
-      header: header,
+      header,
     };
 
-    var plugins = JSON.parse(file.read("src/platforms-plugins.json"));
-    var glossary = plugins.glossary;
-    var contents = "";
+    const plugins = JSON.parse(file.read("src/platforms-plugins.json"));
+    const glossary = plugins.glossary;
+    let contents = "";
 
-    plugins.platforms.forEach(function(platform) {
-      var plugin = platform.plugin;
-      var env = platform.environment;
+    plugins.platforms.forEach(platform => {
+      const plugin = platform.plugin;
+      const env = platform.environment;
 
-      platform.variants.forEach(function(variant, index) {
+      platform.variants.forEach((variant, index) => {
         if (variant.enabled) {
 
-          var keys = Object.keys(variant.capabilities);
-          var values = keys.map(function(key) {
-            return variant.capabilities[key];
-          });
-          var first = keys.join("|");
+          const keys = Object.keys(variant.capabilities);
+          const values = keys.map(key => variant.capabilities[key]);
+          const first = keys.join("|");
           // Build a table in markdown
-          var header = "|" + first + "|";
-          var bounds = "|" + first.replace(/([A-Z ])\w+/g, "-") + "|";
-          var capabilities = "|" + values.join("|") + "|";
-          var capabilitiesA = [header, bounds, capabilities].join("\n");
-          var capabilitiesB = ["|_|_|", "|-|-|"].concat(Object.keys(variant.capabilities).map(function(key, index) {
-            return "|" + key + "|" + variant.capabilities[key] + "|";
-          })).join("\n");
+          const header = `|${first}|`;
+          const bounds = `|${first.replace(/([A-Z ])\w+/g, "-")}|`;
+          const capabilities = `|${values.join("|")}|`;
+          const capabilitiesA = [header, bounds, capabilities].join("\n");
+          const capabilitiesB = ["|_|_|", "|-|-|"].concat(Object.keys(variant.capabilities).map((key, index) => `|${key}|${variant.capabilities[key]}|`)).join("\n");
 
-          var information = variant.information.map(function(value) {
-            return strip(markdown.render(value), ["<p>", "</p>"]);
-          });
+          const information = variant.information.map(value => strip(markdown.render(value), ["<p>", "</p>"]));
 
           contents += templates.platformVariant({
             capabilitiesA: markdown.render(capabilitiesA),
@@ -712,28 +688,22 @@ module.exports = function(grunt) {
             envUrl: env.url,
             envInstructions: env.instructions,
             envRelationship: strip(markdown.render(glossary[env.relationship]), ["<p>", "</p>"]),
-            information: information,
+            information,
             relationship: env.relationship,
           });
         }
       });
     });
 
-    var platforms = plugins.platforms.reduce(function(accum, platform) {
-      return accum.concat(platform.variants.filter(function(variant) {
-        return variant.enabled;
-      }).map(function(variant) {
-        return "[![" + variant.name + "](http://static.johnny-five.io/img/platforms/small/" + variant.image + ")](/platform-support/#" + slug(variant.name) + ")";
-      }));
-    }, []).join("\n");
+    const platforms = plugins.platforms.reduce((accum, {variants}) => accum.concat(variants.filter(({enabled}) => enabled).map(({name, image}) => `[![${name}](http://static.johnny-five.io/img/platforms/small/${image})](/platform-support/#${slug(name)})`)), []).join("\n");
 
     file.mkdir("public/platform-support/");
     file.write("public/platform-support/index.html", templates.platformSupport({
-      navigation: navigation,
+      navigation,
       platforms: markdown.render(platforms),
-      contents: contents,
+      contents,
       header: templates.header({ description: ", Platform Support", keywords: ", Platform, Support" }),
-      footer: footer
+      footer
     }));
 
     file.write("public/js/platform-data.js", templates.platformData({
@@ -749,13 +719,13 @@ module.exports = function(grunt) {
   }
 
   function extract(name, source) {
-    var lines = !Array.isArray(source) ? source.split("\n") : source;
-    var extraction = 0;
-    var extractions = [];
-    var isExtraction = false;
-    var isNewExtraction = false;
+    const lines = !Array.isArray(source) ? source.split("\n") : source;
+    let extraction = 0;
+    const extractions = [];
+    let isExtraction = false;
+    let isNewExtraction = false;
 
-    lines.forEach(function(line) {
+    lines.forEach(line => {
       if (line.includes("extract-end") && line.includes(name)) {
         isExtraction = false;
         extraction++;
@@ -781,12 +751,12 @@ module.exports = function(grunt) {
   }
 
   function remove(source) {
-    var result = [];
-    var lines = !Array.isArray(source) ? source.split("\n") : source;
-    var isRemoval = false;
-    var isRemovalEnd = false;
+    const result = [];
+    const lines = !Array.isArray(source) ? source.split("\n") : source;
+    let isRemoval = false;
+    let isRemovalEnd = false;
 
-    lines.forEach(function(line) {
+    lines.forEach(line => {
       if (line.includes("remove-end")) {
         isRemovalEnd = true;
       }
@@ -813,11 +783,11 @@ module.exports = function(grunt) {
   }
 
   function slug(text) {
-    var title = [
+    const title = [
       [/^.+\//, ""],
       [/\.js/, ""],
       [/\s+/g, "-"]
-    ].reduce(function(accum, args) {
+    ].reduce((accum, args) => {
       accum = "".replace.apply(accum, args);
       return accum;
     }, text);
@@ -826,12 +796,12 @@ module.exports = function(grunt) {
   }
 
   function rssToList(url, callback) {
-    var req = request(url);
-    var feedparser = new FeedParser();
-    var items = [];
+    const req = request(url);
+    const feedparser = new FeedParser();
+    const items = [];
 
-    req.on("response", function(res) {
-      if (res.statusCode !== 200) {
+    req.on("response", function({statusCode}) {
+      if (statusCode !== 200) {
         return this.emit("error", new Error("Bad status code"));
       }
 
@@ -839,14 +809,16 @@ module.exports = function(grunt) {
     });
 
     feedparser.on("readable", function() {
-      var item = this.read();
-      items.push({
-        title: item.title,
-        link: item.link
-      });
+      const item = this.read();
+      if (item) {
+        items.push({
+          title: item.title,
+          link: item.link
+        });
+      }
     });
 
-    feedparser.on("finish", function() {
+    feedparser.on("finish", () => {
       callback(null, items);
     });
   }
