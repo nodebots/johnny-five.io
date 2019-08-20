@@ -474,23 +474,28 @@ module.exports = function(grunt) {
             .replace(/docs\/images\//g, "")
         );
 
-        const apilist = apinames.filter(apiname => {
-          if (contents.includes(apiname)) {
-            return true;
-          }
-        }).map(apiname => `- [${apiname}](/api/${apiname.toLowerCase()})`).join("\n");
+        const apilist = markdown.render(
+          apinames.filter(apiname => {
+            if (contents.includes(apiname)) {
+              return true;
+            }
+          }).map(apiname => `- [${apiname}](/api/${apiname.toLowerCase()})`).join("\n")
+        );
 
         const ogImage = ogImagePath + findImage(eg);
         const sluggedTitle = eg.file.replace(".js", "");
+        const header = templates.header({ description: `, ${title}`, keywords: `, ${title}` });
+        const list = markdown.render(examples);
+        const url = sluggedTitle;
 
         // Place it into our html template
         file.mkdir(`public/examples/${sluggedTitle}`);
         file.write(outpath, templates.exampleContent({
-          apilist: markdown.render(apilist),
+          apilist,
           contents,
-          header: templates.header({ description: `, ${title}`, keywords: `, ${title}` }),
+          header,
           footer,
-          list: markdown.render(examples),
+          list,
           navigation,
           ogImage,
           title,
