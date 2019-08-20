@@ -5,12 +5,23 @@
 # Modify as-needed!
 
 - name: npm init
+  become: yes
   shell: npm init -y
+  args:
+    chdir: "{{clone_path}}"
 
-- name: install npm modules
-  npm: path="{{clone_path}}"
+# We need to use `npm ci` to avoid changing package-lock.json and causing git conflicts
+- name: Install packages based on package-lock.json
+  become: yes
+  shell: npm ci
+  args:
+    chdir: "{{clone_path}}"
+
+# - name: install npm modules
+#   npm: path="{{clone_path}}"
 
 - name: build production version
+  become: yes
   shell: npm run build
   args:
     chdir: "{{clone_path}}"
