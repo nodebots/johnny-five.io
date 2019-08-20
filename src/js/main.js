@@ -68,17 +68,15 @@
   var platforms = [
     "Tessel 2",
     "Arduino",
+    "Raspberry Pi",
     "BeagleBone",
     "BlendMicro",
     "Electric Imp",
     "LightBlue Bean",
     "Particle Photon",
-    "Intel Galileo",
     "Intel Edison",
-    "Linino One",
     "pcDuino",
     "Pinoccio",
-    "Raspberry Pi"
   ];
   var platformName = document.querySelector(".js-board-type");
 
