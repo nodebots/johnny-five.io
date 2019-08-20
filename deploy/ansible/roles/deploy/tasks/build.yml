@@ -4,6 +4,9 @@
 
 # Modify as-needed!
 
+- name: npm init
+  shell: npm init -y
+
 - name: install npm modules
   npm: path="{{clone_path}}"
 
