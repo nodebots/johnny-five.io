@@ -2,66 +2,81 @@
 (function() {
   var hello = "";
   var hellos = {
-    arduino: [
-      'const {Board, Led} = require("johnny-five");',
-      'const board = new Board();',
-      '',
-      'board.on("ready", () => {',
-      '  const led = new Led(13);',
-      '  led.blink(500);',
-      '});'
-    ],
-    raspberrypi: [
-      'const {Board, Led} = require("johnny-five");',
-      'const {RaspiIO} = require("raspi-io");',
-      'const board = new Board({',
-      '  io: new RaspiIO()',
-      '});',
-      '',
-      'board.on("ready", () => {',
-      '  const led = new Led("GPIO23");',
-      '  led.blink(500);',
-      '});'
-    ],
-    edison: [
-      'const {Board, Led} = require("johnny-five");',
-      'const Edison = require("edison-io");',
-      'const board = new Board({',
-      '  io: new Edison()',
-      '});',
-      '',
-      'board.on("ready", () => {',
-      '  const led = new Led(0);',
-      '  led.blink(500);',
-      '});'
-    ],
-    particle: [
-      'const {Board, Led} = require("johnny-five");',
-      'const Photon = require("particle-io");',
-      'const board = new Board({',
-      '  io: new Photon({',
-      '    token: PARTICLE_TOKEN,',
-      '    deviceId: PARTICLE_DEVICE_ID',
-      '  })',
-      '});',
-      '',
-      'board.on("ready", () => {',
-      '  const led = new Led("D7");',
-      '  led.blink(500);',
-      '});'
-    ],
-    tessel: [
-      'const {Board, Led} = require("johnny-five");',
-      'const Tessel = require("tessel-io");',
-      'const board = new Board({',
-      '  io: new Tessel()',
-      '});',
-      '',
-      'board.on("ready", () => {',
-      '  const led = new Led("a1");',
-      '  led.blink(500);',
-      '});'
-    ],
+    arduino: {
+      code: `
+        const {Board, Led} = require("johnny-five");
+        const board = new Board();
+
+        board.on("ready", () => {
+          const led = new Led(13);
+          led.blink(500);
+        });
+      `,
+      install: 'npm install johnny-five'
+    },
+    raspberrypi: {
+      code: `
+        const {Board, Led} = require("johnny-five");
+        const {RaspiIO} = require("raspi-io");
+        const board = new Board({
+          io: new RaspiIO()
+        });
+
+        board.on("ready", () => {
+          const led = new Led("GPIO23");
+          led.blink(500);
+        });
+      `,
+      install: 'npm install johnny-five raspi-io'
+    },
+    edison: {
+      code: `
+        const {Board, Led} = require("johnny-five");
+        const Edison = require("edison-io");
+        const board = new Board({
+          io: new Edison()
+        });
+
+        board.on("ready", () => {
+          const led = new Led(0);
+          led.blink(500);
+        });
+      `,
+      install: 'npm install johnny-five edison-io'
+    },
+    particle: {
+      code: `
+        const {Board, Led} = require("johnny-five");
+        const Photon = require("particle-io");
+        const board = new Board({
+          io: new Photon({
+            token: PARTICLE_TOKEN,
+            deviceId: PARTICLE_DEVICE_ID
+          })
+        });
+
+        board.on("ready", () => {
+          const led = new Led("D7");
+          led.blink(500);
+        });
+      `,
+      install: 'npm install johnny-five particle-io'
+    },
+    tessel: {
+      code: `
+        const {Board, Led} = require("johnny-five");
+        const Tessel = require("tessel-io");
+        const board = new Board({
+          io: new Tessel()
+        });
+
+        board.on("ready", () => {
+          const led = new Led("a1");
+          led.blink(500);
+        });
+      `,
+      install: 'npm install johnny-five tessel-io'
+    },
   };
 
   var index = 1;
@@ -104,9 +119,11 @@
   }
 
   function sayHello(key) {
+    var install = document.querySelector("#npm-install");
+    var block = document.querySelector(".hello pre code");
     var keys = Object.keys(hellos);
     var index = keys.indexOf(key);
-    var block = document.querySelector(".hello pre code");
+    var hello = hellos[key];
 
     if (typeof sayHello.scenes === "undefined") {
       sayHello.scenes = Array.from(document.querySelectorAll(".hello-scene"));
@@ -116,7 +133,9 @@
       scene.src = "img/led-scene-" + index + ".gif";
     });
 
-    block.textContent = hellos[key].join("\n");
+    install.textContent = hello.install;
+    block.textContent = commonTags.stripIndent(hello.code);
+
     hljs.highlightBlock(block);
   }
 
