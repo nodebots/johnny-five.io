@@ -155,8 +155,8 @@ module.exports = function(grunt) {
           "public/css/styles.css": "src/sass/styles.scss"
         },
         options: {
-          style: "compact",
-          sourcemap: "none"
+          style: "compressed",
+          "embed-source-map": false
         }
       }
     },
