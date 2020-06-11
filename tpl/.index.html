@@ -11,24 +11,38 @@
 <body>
 
   <div class="mast">
+
+    <style>
+    /* BLM Solidarity Statement Styles */
+    .blm-solidarity-statement h1 {
+      color: white;
+      font-family: 'Roboto', sans-serif;
+    }
+    .blm-solidarity-statement p {
+      color: #ddd;
+      font-family: 'Roboto', serif;
+    }
+    @media (min-width: 62em) {
+      #masthead.blm-solidarity-statement {
+        padding: 3em;
+      }
+    }
+    @media (min-width: 75em) {
+      #masthead.blm-solidarity-statement {
+        padding: 5em;
+      }
+    }
+    </style>
+    <div id="masthead" class="blm-solidarity-statement">
+      <h1>We stand in solidarity with Black Lives Matter.</h1>
+      <p>We mourn George Floyd, Natosha McDade, Yassin Mohamed, Finan H. Berhe, Sean Reed, Steven Demarco Taylor, Breonna Taylor, Ariane McCree, Terrance Franklin, Miles Hall, Darius Tarver, William Green, Samuel David Mallard, Kwame Jones, De’von Bailey, Christopher Whitfield, Anthony Hill, De’Von Bailey, Eric Logan, Jamarion Robinson, Gregory Hill Jr, JaQuavion Slaton, Ryan Twyman, Brandon Webber, Jimmy Atchison, Willie McCoy, Emantic Fitzgerald Bradford J, D’ettrick Griffin, Jemel Roberson, DeAndre Ballard, Botham Shem Jean, Robert Lawrence White, Anthony Lamar Smith, Ramarley Graham, Manuel Loggins Jr, Trayvon Martin, Wendell Allen, Kendrec McDade, Larry Jackson Jr, Jonathan Ferrell, Jordan Baker, Victor White III, Dontre Hamilton, Eric Garner, John Crawford III, Michael Brown, Ezell Ford, Dante Parker, Kajieme Powell, Laquan McDonald, Akai Gurley, Tamir Rice, Rumain Brisbon, Jerame Reid, Charly Keunang, Tony Robinson, Walter Scott, Freddie Gray, Brendon Glenn, Samuel DuBose, Christian Taylor, Jamar Clark, Mario Woods, Quintonio LeGrier, Gregory Gunn, Akiel Denkins, Alton Sterling, Philando Castile, Terrence Sterling, Terence Crutcher, Keith Lamont Scott, Alfred Olango, Jordan Edwards, Stephon Clark, Danny Ray Thomas, DeJuan Guillory, Patrick Harmon, Jonathan Hart, Maurice Granton, Julius Johnson, Jamee Johnson, Michael Dean, and so many others.</p>
+      <p>We commit to honoring our pledge to <a href="https://www.blacktechforblacklives.com/">Black Tech for Black Lives</a>, and encourage our partners to join us in pledging.</p>
+      <p>Please consider donating to <a href="https://blacklivesmatter.com/">Black Lives Matter</a>, <a href="https://eji.org/">The Equal Justice Initiative</a>, <a href="https://policingequity.org/">The Center for Policing Equity</a>, <a href="https://ellabakercenter.org/">Ella Baker Center for Human Rights</a>, <a href="https://www.gofundme.com/f/georgefloyd">George Floyd Memorial Fund</a>, and <a href="https://www.gofundme.com/f/9v4q2-justice-for-breonna-taylor">Justice for Breonna Taylor</a>.</p>
+    </div>
+
     <nav class="nav-primary wrapper icon-j5">
       <%= navigation %>
     </nav>
-
-    <svg style="width:100vw;height:100vh;" xmlns="http://www.w3.org/2000/svg">
-      <style>
-        .heavy {
-          font: bold 50px sans-serif;
-          fill: white;
-        }
-      </style>
-      <rect width="100%" height="100%" />
-      <text dominant-baseline="middle" text-anchor="middle" x="50%" y="50%" class="heavy">
-        BLACK LIVES MATTER
-      </text>
-    </svg>
-
-
     <header role="banner" class="banner banner-home">
       <h1 class="site-hed"><span>Johnny-Five</span></h1>
       <p role="marquee" aria-live="polite" class="site-subhed">The JavaScript<br/><span class="js-board-type">Arduino</span> Robotics &amp; IoT Platform</p>
