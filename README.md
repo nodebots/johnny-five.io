@@ -105,29 +105,13 @@ grunt && grunt dev
 
 ## Continuous Deployment
 
-Tagging a release with the prefix `prod-` (e.g. `prod-v123` or `prod-1450284359`) will automatically trigger a deploy to johnny-five.io. Merging to `master` will deploy to staging.johnny-five.io.
-
-In the (hopefully) rare instance you need to manually deploy the steps are below.
+Pushing or merging to `main` will deploy the current state of the website.
 
 ## Manual Deployment
 
-### Test-deploying a local commit (Vagrant)
-
-1. Run `./deploy/run-playbook.sh deploy vagrant local=true commit=_____` where
-	 `_____` is the local commit ref (branchname, SHA, etc) to deploy. For a
-	 complete list of options, see the [deploy role docs][deploy].
-	 * Simulate deploying to production or staging by adding `env=production` or
-		 `env=staging` to the end of this command.
-1. Browse to <http://people.loc/>
-
-[deploy]: https://deployment-workflow.bocoup.com/#deploy-role
-
 ### Deploying to staging
 
-1. Run `./deploy/run-playbook.sh deploy staging commit=_____` where `_____` is
-	 the commit ref (branchname, SHA, etc) in GitHub. Defaults to `HEAD`. For a complete list of
-	 options, see the [deploy role docs][deploy].
-1. Enter your [dploy][dploy] sudo password when asked.
+Pushing or merging to `staging` will deploy the current state of that branch to [](https://johnny-five-staging.herokuapp.com/)
 
 ### Deploying to production
 
